@@ -145,6 +145,34 @@ function contentBlocksToHtml(blocks) {
 export function extractHeadings(html) {
   if (!html) return { headings: [], content: '' };
 
+  // Server-side safe approach: Use regex if DOMParser isn't available
+  if (typeof window === 'undefined') {
+    const headings = [];
+    const headingRegex = /<(h[23])(?:\s+id="([^"]*)")?>([^<]*)<\/h[23]>/gi;
+    let match;
+    let modifiedHtml = html;
+
+    while ((match = headingRegex.exec(html)) !== null) {
+      const [fullMatch, tag, existingId, text] = match;
+      const level = tag.toLowerCase() === 'h2' ? 2 : 3;
+      const title = text.trim();
+      const id = existingId || title.toLowerCase()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .trim();
+
+      headings.push({ id, title, level });
+      
+      if (!existingId) {
+        // This is a simple replacement and might be fragile for complex HTML, 
+        // but for server-side SEO it's better than crashing.
+        modifiedHtml = modifiedHtml.replace(fullMatch, `<${tag} id="${id}">${text}</${tag}>`);
+      }
+    }
+
+    return { headings, content: modifiedHtml };
+  }
+
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, 'text/html');
   const headings = [];
@@ -203,41 +231,71 @@ export function extractHeadingsFromBlocks(blocks) {
 
     // Case 2: Headings inside text block HTML (from Quill)
     if (block.type === 'text' && block.content && block.content.includes('<h')) {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(block.content, 'text/html');
-      const headingElements = doc.querySelectorAll('h1, h2, h3');
+      if (typeof window === 'undefined') {
+        // Server-side regex fallback
+        const headingRegex = /<(h[123])(?:\s+id="([^"]*)")?>([^<]*)<\/h[123]>/gi;
+        let match;
+        while ((match = headingRegex.exec(block.content)) !== null) {
+          const [_, tag, existingId, text] = match;
+          const level = tag.toLowerCase() === 'h1' ? 1 : (tag.toLowerCase() === 'h2' ? 2 : 3);
+          const title = text.trim();
+          
+          if (!title) continue;
 
-      headingElements.forEach(el => {
-        const tagName = el.tagName.toLowerCase();
-        const levelMap = { 'h1': 1, 'h2': 2, 'h3': 3 };
-        const level = levelMap[tagName] || 2;
-        const title = el.textContent.trim();
+          let id = existingId || title.toLowerCase()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .trim();
 
-        if (!title) return;
+          // Ensure unique IDs
+          let counter = 1;
+          let uniqueId = id;
+          while (headings.some(h => h.id === uniqueId)) {
+            uniqueId = `${id}-${counter++}`;
+          }
+          id = uniqueId;
 
-        let id = title.toLowerCase()
-          .replace(/[^\w\s-]/g, '')
-          .replace(/\s+/g, '-')
-          .trim();
-
-        // Ensure unique IDs
-        let counter = 1;
-        let uniqueId = id;
-        while (headings.some(h => h.id === uniqueId)) {
-          uniqueId = `${id}-${counter++}`;
+          if (level === 2 || level === 3) {
+            headings.push({ id, title, level });
+          }
         }
-        id = uniqueId;
+      } else {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(block.content, 'text/html');
+        const headingElements = doc.querySelectorAll('h1, h2, h3');
 
-        // Add ID to the element in the block content so scroll works
-        el.setAttribute('id', id);
+        headingElements.forEach(el => {
+          const tagName = el.tagName.toLowerCase();
+          const levelMap = { 'h1': 1, 'h2': 2, 'h3': 3 };
+          const level = levelMap[tagName] || 2;
+          const title = el.textContent.trim();
 
-        if (level === 2 || level === 3) {
-          headings.push({ id, title, level });
-        }
-      });
+          if (!title) return;
 
-      // Update block content with IDs added to headings
-      block.content = doc.body.innerHTML;
+          let id = title.toLowerCase()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .trim();
+
+          // Ensure unique IDs
+          let counter = 1;
+          let uniqueId = id;
+          while (headings.some(h => h.id === uniqueId)) {
+            uniqueId = `${id}-${counter++}`;
+          }
+          id = uniqueId;
+
+          // Add ID to the element in the block content so scroll works
+          el.setAttribute('id', id);
+
+          if (level === 2 || level === 3) {
+            headings.push({ id, title, level });
+          }
+        });
+
+        // Update block content with IDs added to headings
+        block.content = doc.body.innerHTML;
+      }
     }
   });
 

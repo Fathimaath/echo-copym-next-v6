@@ -9,9 +9,9 @@ import SectionContainer from '@/components/Layout/SectionContainer';
 import { glossaryTerms } from '@/data/glossaryTerms';
 import GlossaryHero from './GlossaryHero';
 
-export default function GlossaryClient() {
+export default function GlossaryClient({ initialTerms, initialLetter: serverLetter }) {
   const searchParams = useSearchParams();
-  const initialLetter = searchParams.get('letter') || 'A';
+  const initialLetter = serverLetter || searchParams.get('letter') || 'A';
   const [selectedLetter, setSelectedLetter] = useState(initialLetter);
   const [searchTerm, setSearchTerm] = useState("");
   const [isSticky, setIsSticky] = useState(false);

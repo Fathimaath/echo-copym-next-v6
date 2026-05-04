@@ -135,7 +135,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
         />
       )}
       {/* @ts-ignore */}
-      <BlogPostContent slug={slug} />
+      <BlogPostContent slug={slug} initialArticle={article} />
     </>
   );
 }

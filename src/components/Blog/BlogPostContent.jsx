@@ -10,10 +10,10 @@ import BlogContentRenderer from './BlogContentRenderer';
 import { fetchBlogPostBySlug, transformApiPost } from '@/services/blogApi';
 import { blogPosts as staticBlogPosts } from '@/data/blogPosts';
 
-export default function BlogPostContent({ slug }) {
+export default function BlogPostContent({ slug, initialArticle }) {
   const router = useRouter();
-  const [article, setArticle] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [article, setArticle] = useState(initialArticle || null);
+  const [loading, setLoading] = useState(!initialArticle);
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [youMayAlsoLike, setYouMayAlsoLike] = useState([]);
   const [activeSection, setActiveSection] = useState('');
@@ -37,23 +37,50 @@ export default function BlogPostContent({ slug }) {
   // Find article by slug
   useEffect(() => {
     const fetchPost = async () => {
-      setLoading(true);
+      // 1. If we have SSR data, use it to populate everything and SKIP fetch
+      if (initialArticle && initialArticle.slug === slug) {
+        setArticle(initialArticle);
+        setLoading(false);
+        
+        // Calculate related posts using the initial data
+        const allPosts = [...staticBlogPosts];
+        // If it's an admin post not in static list, add it for calculations
+        if (!allPosts.some(p => p.slug === initialArticle.slug)) {
+          allPosts.push(initialArticle);
+        }
+        
+        const sameCategoryPosts = allPosts.filter(p => p.category === initialArticle.category && p.slug !== slug);
+        const otherPosts = allPosts.filter(p => p.category !== initialArticle.category);
+        const allRelated = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
+        setRelatedPosts(allRelated);
+
+        const usedSlugs = new Set(allRelated.map(p => p.slug));
+        usedSlugs.add(slug);
+        const alsoLike = allPosts.filter(p => !usedSlugs.has(p.slug)).slice(0, 3);
+        setYouMayAlsoLike(alsoLike);
+        
+        return; // Success, no need to fetch
+      }
+
+      // 2. Otherwise, perform full fetch (e.g. client-side navigation)
+      if (!article || article.slug !== slug) {
+        setLoading(true);
+      } else {
+        return; 
+      }
+
       try {
         // Try API first
         const apiPost = await fetchBlogPostBySlug(slug);
         const transformedPost = transformApiPost(apiPost);
         setArticle(transformedPost);
 
-        // Combine admin post with static posts to find related ones
         const allPosts = [transformedPost, ...staticBlogPosts.filter(p => p.slug !== transformedPost.slug)];
-        
-        // Related posts: same category first, then others
         const sameCategoryPosts = allPosts.filter(p => p.category === transformedPost.category && p.slug !== slug);
         const otherPosts = allPosts.filter(p => p.category !== transformedPost.category);
         const allRelated = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
         setRelatedPosts(allRelated);
 
-        // "You May Also Like" - pick different posts than related posts
         const usedSlugs = new Set(allRelated.map(p => p.slug));
         usedSlugs.add(slug);
         const alsoLike = allPosts.filter(p => !usedSlugs.has(p.slug)).slice(0, 3);
@@ -63,23 +90,19 @@ export default function BlogPostContent({ slug }) {
         const staticPost = staticBlogPosts.find(p => p.slug === slug);
         if (staticPost) {
           setArticle(staticPost);
-          // Combine static posts for related logic
           const allPosts = staticBlogPosts.filter(p => p.slug !== slug);
-          
-          // Related posts: same category first, then others
           const sameCategoryPosts = allPosts.filter(p => p.category === staticPost.category);
           const otherPosts = allPosts.filter(p => p.category !== staticPost.category);
           const allRelated = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
           setRelatedPosts(allRelated);
 
-          // "You May Also Like" - pick different posts than related posts
           const usedSlugs = new Set(allRelated.map(p => p.slug));
           usedSlugs.add(slug);
           const alsoLike = allPosts.filter(p => !usedSlugs.has(p.slug)).slice(0, 3);
           setYouMayAlsoLike(alsoLike);
         } else {
           console.error('Failed to fetch post:', error);
-          router.push('/blog'); // Redirect if not found
+          router.push('/blog');
         }
       } finally {
         setLoading(false);
@@ -89,7 +112,7 @@ export default function BlogPostContent({ slug }) {
     if (slug) {
         fetchPost();
     }
-  }, [slug, router]);
+  }, [slug, initialArticle, router]);
 
   // Handle scroll spy and sidebar fixed/absolute switching
   useEffect(() => {

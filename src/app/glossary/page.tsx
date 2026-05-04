@@ -32,7 +32,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function GlossaryPage() {
+import { glossaryTerms } from '@/data/glossaryTerms';
+
+export default async function GlossaryPage({ searchParams }: { searchParams: Promise<{ letter?: string }> }) {
+  const resolvedParams = await searchParams;
+  const initialLetter = resolvedParams.letter || 'A';
+
   const schemaData = generateWebPageSchema({
     name: 'Glossary | CopyM',
     description: 'Comprehensive glossary of terms related to real-world asset (RWA) tokenization, blockchain, DeFi, and digital assets.',
@@ -54,16 +59,8 @@ export default function GlossaryPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
       />
-      <Suspense fallback={
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-10 w-10 sm:h-12 sm:w-12 border-b-2 border-[#15a36e] mx-auto mb-4"></div>
-          <p className="text-gray-600 font-medium text-sm sm:text-base">Loading Glossary...</p>
-        </div>
-      </div>
-    }>
-      <GlossaryClient />
-    </Suspense>
+      {/* Remove outer Suspense to force server rendering of the main term list */}
+      <GlossaryClient initialTerms={glossaryTerms} initialLetter={initialLetter} />
     </>
   );
 }
