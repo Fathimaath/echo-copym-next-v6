@@ -20,28 +20,28 @@ import {
 import Image from '@/components/Image'; // Import our AVIF-compatible Image component
 
 // Import images
-const artsImg = '/images/marketplacesimg/arts.avif';
-const commoditiesImg = '/images/marketplacesimg/commodities.avif';
-const realEstateImg = '/images/marketplacesimg/realestatee.avif';
-const sportsImg = '/images/marketplacesimg/sports.avif';
-const carbonCreditsImg = '/images/marketplacesimg/carbon credits.avif';
-const luxuryBuildingImg = '/images/marketplacesimg/luxurybuilding.avif';
-const downloadImg = '/images/marketplacesimg/download (15).avif';
-const amazonRainforestIcon = '/icons/Tokenization/amazonrainforest.avif';
-const oilIcon = '/icons/Tokenization/oil.avif';
-const goldReserveImg = '/images/gold.avif';
-const premiumOfficeBuildingImg = '/images/premium-building-office.avif';
+const artsImg = '/images/marketplacesimg/arts.jpg';
+const commoditiesImg = '/images/marketplacesimg/commodities.jpeg';
+const realEstateImg = '/images/marketplacesimg/realestatee.png';
+const sportsImg = '/images/marketplacesimg/sports.jpg';
+const carbonCreditsImg = '/images/marketplacesimg/carbon credits.jpeg';
+const luxuryBuildingImg = '/images/marketplacesimg/luxurybuilding.jpeg';
+const downloadImg = '/images/marketplacesimg/download (15).jpeg';
+const amazonRainforestIcon = '/icons/Tokenization/amazonrainforest.jpeg';
+const oilIcon = '/icons/Tokenization/oil.jpeg';
+const goldReserveImg = '/images/gold.jpeg';
+const premiumOfficeBuildingImg = '/images/premium-building-office.jpeg';
 
 // Import Category Logos
-import manchesterLogo from '@/assets/logos/manchester_united.avif';
-import louvreLogo from '@/assets/logos/louvre.avif';
-import emaarLogo from '@/assets/logos/emaar.avif';
-import barrickLogo from '@/assets/logos/barrick_gold.avif';
-import verraLogo from '@/assets/logos/verra.avif';
+import manchesterLogo from '@/assets/logos/manchester_united.png';
+import louvreLogo from '@/assets/logos/louvre.png';
+import emaarLogo from '@/assets/logos/emaar.png';
+import barrickLogo from '@/assets/logos/barrick_gold.png';
+import verraLogo from '@/assets/logos/verra.png';
 
 // Import specific logos for categories
 import verraSvg from '@/components/Home/Verra.svg';
-import louvreAvif from '@/components/Home/Musée du Louvre.avif';
+import louvrePng from '@/components/Home/Musée du Louvre.png';
 import barrickSvg from '@/components/Home/barrick.svg';
 
 
@@ -50,7 +50,7 @@ const categories = [
         id: 'art',
         name: 'Art',
         icon: <Palette className="w-4 h-4" />,
-        logo: louvreAvif,
+        logo: louvrePng,
         image: artsImg,
         title: "Tokenized Fine Art",
         description: (
@@ -153,7 +153,7 @@ const categories = [
         id: 'real-estate',
         name: 'Real Estate',
         icon: <Building2 className="w-4 h-4" />,
-        logo: '/assets/Images/compass.avif',
+        logo: '/assets/Images/compass.png',
         image: realEstateImg,
         title: "Tokenized institutional Real Estate",
         description: "Access institutional-grade property investments with fractional entitlement. Earn rental yields and capital appreciation without the traditional barriers to entry.",
