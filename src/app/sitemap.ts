@@ -1,5 +1,4 @@
 import { MetadataRoute } from 'next';
-export const dynamic = "force-static";
 import { glossaryTerms } from '@/data/glossaryTerms';
 import { blogPosts } from '@/data/blogPosts';
 
