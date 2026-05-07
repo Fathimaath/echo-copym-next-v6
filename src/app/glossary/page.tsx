@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import React, { Suspense } from 'react';
-import GlossaryClient from '@/components/Glossary/GlossaryClient';
 import { generateWebPageSchema, generateBreadcrumbSchema } from '@/utils/seo';
+import { glossaryTerms } from '@/data/glossaryTerms';
+import GlossaryClient from '@/components/Glossary/GlossaryClient';
 
 // Static SEO metadata for the Glossary page
 export const metadata: Metadata = {
@@ -32,12 +33,7 @@ export const metadata: Metadata = {
   },
 };
 
-import { glossaryTerms } from '@/data/glossaryTerms';
-
-export default async function GlossaryPage({ searchParams }: { searchParams: Promise<{ letter?: string }> }) {
-  const resolvedParams = await searchParams;
-  const initialLetter = resolvedParams.letter || 'A';
-
+export default async function GlossaryPage() {
   const schemaData = generateWebPageSchema({
     name: 'Glossary | CopyM',
     description: 'Comprehensive glossary of terms related to real-world asset (RWA) tokenization, blockchain, DeFi, and digital assets.',
@@ -50,7 +46,7 @@ export default async function GlossaryPage({ searchParams }: { searchParams: Pro
   ]);
 
   return (
-    <>
+    <div className="glossary-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
@@ -59,8 +55,10 @@ export default async function GlossaryPage({ searchParams }: { searchParams: Pro
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
       />
-      {/* Remove outer Suspense to force server rendering of the main term list */}
-      <GlossaryClient initialTerms={glossaryTerms} initialLetter={initialLetter} />
-    </>
+
+      <Suspense fallback={<div className="min-h-screen bg-white" />}>
+        <GlossaryClient initialTerms={glossaryTerms} initialLetter={null} />
+      </Suspense>
+    </div>
   );
 }
