@@ -310,8 +310,8 @@ export default function GlossaryTermClient({ termData, slug }) {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                       {termData.relatedArticles.map((article, index) => (
                         <Link key={index} href={`/blog/${article.slug}`} className="group">
-                          <div className="relative w-full h-36 rounded-lg overflow-hidden bg-gray-100 mb-3">
-                            <Image src={article.image} alt={article.title} fill className="object-cover group-hover:scale-105 transition-transform" />
+                          <div className="relative w-full h-40 sm:h-36 rounded-lg overflow-hidden bg-gray-100 mb-3">
+                            <Image src={article.image} alt={article.title} fill className="object-cover group-hover:scale-[1.02] sm:group-hover:scale-105 transition-transform" />
                           </div>
                           <h4 className="font-bold text-gray-900 group-hover:text-[#15a36e]">{article.title}</h4>
                         </Link>
