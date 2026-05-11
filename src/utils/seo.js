@@ -1,9 +1,25 @@
 // SEO metadata utilities
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://copym.xyz';
-const SITE_NAME = 'CopyM';
-const DEFAULT_IMAGE = '/assets/copym/png/Copym-01-1.png';
-const TWITTER_HANDLE = '@copym';
+export const SITE_URL = 'https://copym.xyz/';
+export const SITE_NAME = 'CopyM';
+export const DEFAULT_IMAGE = `${SITE_URL}assets/copym/png/Copym-01-1.png`;
+export const TWITTER_HANDLE = '@copym';
+
+// Helper to convert .avif to .png for SEO/Social sharing as .avif is not widely supported in meta tags
+export const getSocialImageUrl = (imageUrl) => {
+  if (!imageUrl) return DEFAULT_IMAGE;
+  if (imageUrl.startsWith('http')) return imageUrl;
+  
+  // Convert relative path to absolute
+  const absUrl = imageUrl.startsWith('/') ? `${SITE_URL}${imageUrl.substring(1)}` : `${SITE_URL}${imageUrl}`;
+  
+  // Swap .avif for .png if it's an internal asset
+  if (absUrl.toLowerCase().endsWith('.avif')) {
+    return absUrl.substring(0, absUrl.length - 5) + '.png';
+  }
+  
+  return absUrl;
+};
 
 export function generatePageSEO({
   title,
@@ -19,8 +35,18 @@ export function generatePageSEO({
   schema = null,
 } = {}) {
   const pageTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - Complete Tokenization Platform`;
-  const pageUrl = canonical ? `${SITE_URL}${canonical}` : SITE_URL;
-  const ogImage = image ? `${SITE_URL}${image}` : `${SITE_URL}${DEFAULT_IMAGE}`;
+  
+  // Ensure path starts with / and ends with / if not empty
+  let cleanPath = canonical || '';
+  if (cleanPath && !cleanPath.endsWith('/')) {
+    cleanPath = cleanPath + '/';
+  }
+  if (cleanPath && !cleanPath.startsWith('/')) {
+    cleanPath = '/' + cleanPath;
+  }
+  
+  const pageUrl = `${SITE_URL}${cleanPath.replace(/^\//, '')}`;
+  const ogImage = getSocialImageUrl(image);
 
   return {
     title: pageTitle,
@@ -64,19 +90,25 @@ export function generateBlogPostSchema({
   author,
   reviewer,
   url,
-  faqs,
+  category,
 }) {
+  const isNews = category?.toLowerCase().includes('news');
+  const schemaType = isNews ? "NewsArticle" : "BlogPosting";
+  
+  const imageUrl = getSocialImageUrl(image);
+
   const schemaOrg = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": schemaType,
     "headline": title,
     "description": description,
-    "image": image ? [image] : [],
+    "image": [imageUrl],
+    "thumbnailUrl": imageUrl,
     "url": url,
     "datePublished": publishedDate ? new Date(publishedDate).toISOString() : new Date().toISOString(),
     "dateModified": modifiedDate ? new Date(modifiedDate).toISOString() : new Date().toISOString(),
     "author": {
-      "@type": "Organization",
+      "@type": "Person",
       "name": author || SITE_NAME,
       "url": SITE_URL,
     },
@@ -86,19 +118,23 @@ export function generateBlogPostSchema({
       "url": SITE_URL,
       "logo": {
         "@type": "ImageObject",
-        "url": `${SITE_URL}/logo.png`,
+        "url": `${SITE_URL}assets/copym/png/Copym-01-1.png`,
       },
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": url,
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": imageUrl
+      }
     },
   };
 
   if (reviewer) {
     schemaOrg.reviewedBy = {
-      "@type": "Organization",
-      "name": reviewer,
+      "@type": "Person",
+      "name": reviewer.name || reviewer,
     };
   }
 
@@ -126,12 +162,15 @@ export function generateBreadcrumbSchema(items) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": items.map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": item.label,
-      "item": `${SITE_URL}${item.path}`,
-    })),
+    "itemListElement": items.map((item, index) => {
+      const itemPath = item.path.endsWith('/') || item.path === '' ? item.path : `${item.path}/`;
+      return {
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": item.label,
+        "item": `${SITE_URL}${itemPath.replace(/^\//, '')}`,
+      };
+    }),
   };
 }
 

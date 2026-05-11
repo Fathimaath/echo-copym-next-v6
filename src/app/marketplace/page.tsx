@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: 'Tokenized Asset Marketplace | Copym',
   description: 'Browse and invest in tokenized real-world assets on Copym\'s regulated marketplace.',
   alternates: {
-    canonical: 'https://copym.xyz/marketplace',
+    canonical: 'https://copym.xyz/marketplace/',
   },
   openGraph: {
     title: 'Tokenized Asset Marketplace | Copym',
     description: 'Browse and invest in tokenized real-world assets on Copym\'s regulated marketplace.',
-    url: 'https://copym.xyz/marketplace',
+    url: 'https://copym.xyz/marketplace/',
     type: 'website',
     images: [
       {
@@ -34,7 +34,7 @@ export default function MarketplacePage() {
   const schemaData = generateWebPageSchema({
     name: 'Tokenized Asset Marketplace | Copym',
     description: "Browse and invest in tokenized real-world assets on Copym's regulated marketplace.",
-    url: 'https://copym.xyz/marketplace',
+    url: 'https://copym.xyz/marketplace/',
   });
 
   const breadcrumbData = generateBreadcrumbSchema([

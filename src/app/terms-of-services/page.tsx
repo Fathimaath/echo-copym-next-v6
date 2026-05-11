@@ -6,13 +6,13 @@ export const metadata: Metadata = {
     title: 'Terms of Service | CopyM',
     description: 'Read the Terms of Service for using the CopyM tokenization platform. Understand the rules, guidelines, and legal terms governing our services.',
     alternates: {
-        canonical: 'https://copym.xyz/terms-of-services',
+        canonical: 'https://copym.xyz/terms-of-services/',
     },
     robots: "index, follow",
     openGraph: {
         title: 'Terms of Service | CopyM',
         description: 'Read the Terms of Service for using the CopyM tokenization platform.',
-        url: 'https://copym.xyz/terms-of-services',
+        url: 'https://copym.xyz/terms-of-services/',
         type: 'website',
         images: [
             {
@@ -35,7 +35,7 @@ export default function TermsOfServicePage() {
     const schemaData = generateWebPageSchema({
         name: 'Terms of Service | CopyM',
         description: 'Read the Terms of Service for using the CopyM tokenization platform. Understand the rules, guidelines, and legal terms governing our services.',
-        url: 'https://copym.xyz/terms-of-services',
+        url: 'https://copym.xyz/terms-of-services/',
     });
 
     const breadcrumbData = generateBreadcrumbSchema([

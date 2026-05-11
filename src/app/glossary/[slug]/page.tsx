@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { glossaryTerms } from '@/data/glossaryTerms';
 import { blogPosts } from '@/data/blogPosts';
 import GlossaryTermClient from '@/components/Glossary/GlossaryTermClient';
+import { getSocialImageUrl } from '@/utils/seo';
 
 // Helper function to find term by slug
 const findTermBySlug = (slug: string) => {
@@ -213,17 +214,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${term.term} - Definition & Explanation | CopyM Glossary`,
     description: term.description,
     alternates: {
-      canonical: `${baseUrl}/glossary/${slug}`,
+      canonical: `${baseUrl}/glossary/${slug}/`,
     },
     robots: "index, follow",
     openGraph: {
       title: `${term.term} - Definition & Explanation | CopyM Glossary`,
       description: term.description,
-      url: `${baseUrl}/glossary/${slug}`,
+      url: `${baseUrl}/glossary/${slug}/`,
       type: 'article',
       images: [
         {
-          url: 'https://copym.xyz/assets/copym/png/Copym-01-1.png',
+          url: getSocialImageUrl('/assets/copym/png/Copym-01-1.png'),
           width: 1200,
           height: 630,
           alt: `${term.term} | CopyM Glossary`,
@@ -234,7 +235,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: 'summary_large_image',
       title: `${term.term} - Definition & Explanation | CopyM Glossary`,
       description: term.description,
-      images: ['https://copym.xyz/assets/copym/png/Copym-01-1.png'],
+      images: [getSocialImageUrl('/assets/copym/png/Copym-01-1.png')],
     },
   };
 }
@@ -258,7 +259,7 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ s
     "inDefinedTermSet": {
       "@type": "DefinedTermSet",
       "name": "CopyM Glossary",
-      "url": "https://copym.xyz/glossary"
+      "url": "https://copym.xyz/glossary/"
     },
     "termCode": foundTerm.slug
   };
@@ -278,13 +279,13 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ s
         "@type": "ListItem",
         "position": 2,
         "name": "Glossary",
-        "item": "https://copym.xyz/glossary"
+        "item": "https://copym.xyz/glossary/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": foundTerm.term,
-        "item": `https://copym.xyz/glossary/${slug}`
+        "item": `https://copym.xyz/glossary/${slug}/`
       }
     ]
   };

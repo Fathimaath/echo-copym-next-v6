@@ -2,7 +2,7 @@ import React from 'react';
 import BlogPostContent from '@/components/Blog/BlogPostContent';
 import { blogPosts as staticBlogPosts } from '@/data/blogPosts';
 import { fetchBlogPostBySlug, transformApiPost } from '@/services/blogApi';
-import { generateBlogPostSchema, generateBreadcrumbSchema } from '@/utils/seo';
+import { generateBlogPostSchema, generateBreadcrumbSchema, generateFAQSchema, getSocialImageUrl } from '@/utils/seo';
 
 // Revalidate this page every 60 seconds to ensure new admin posts appear automatically
 export const revalidate = 60;
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   }
 
   const baseUrl = 'https://copym.xyz';
-  const postUrl = `${baseUrl}/blog/${article.category?.toLowerCase().replace(/\s+/g, '-')}/${article.slug}`;
+  const postUrl = `${baseUrl}/blog/${article.category?.toLowerCase().replace(/\s+/g, '-')}/${article.slug}/`;
 
   // Use the legacy SEO generator logic combined with Next.js format
   return {
@@ -60,25 +60,20 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
       modifiedTime: article.updatedDate || article.date,
       authors: [typeof article.author === 'string' ? article.author : article.authorData?.name || 'CopyM Team'],
       section: article.category,
-      images: article.image ? [
+      images: [
         {
-          url: article.image.startsWith('http') ? article.image : `${baseUrl}${article.image}`,
-          alt: article.title,
-        }
-      ] : [
-        {
-          url: `${baseUrl}/assets/copym/png/Copym-01-1.png`,
+          url: getSocialImageUrl(article.image),
           width: 1200,
           height: 630,
           alt: article.title,
-        }
+        },
       ],
     },
     twitter: {
       card: 'summary_large_image',
       title: article.title,
       description: article.excerpt,
-      images: article.image ? [article.image.startsWith('http') ? article.image : `${baseUrl}${article.image}`] : [`${baseUrl}/assets/copym/png/Copym-01-1.png`],
+      images: [getSocialImageUrl(article.image)],
     }
   };
 }
@@ -96,20 +91,37 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
 
   const baseUrl = 'https://copym.xyz';
   let schemaData = null;
+  let faqSchema = null;
   let breadcrumbData = null;
+  let relatedPosts: any[] = [];
 
   if (article) {
-    const postUrl = `${baseUrl}/blog/${article.category?.toLowerCase().replace(/\s+/g, '-')}/${article.slug}`;
+    const postUrl = `${baseUrl}/blog/${article.category?.toLowerCase().replace(/\s+/g, '-')}/${article.slug}/`;
+    
+    // Calculate related posts on server for better SEO (internal linking)
+    const allPosts = [...staticBlogPosts];
+    const sameCategoryPosts = allPosts.filter(p => p.category === article.category && p.slug !== slug);
+    const otherPosts = allPosts.filter(p => p.category !== article.category);
+    relatedPosts = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
+
     // @ts-ignore
     schemaData = generateBlogPostSchema({
       title: article.title,
       description: article.excerpt,
-      image: article.image?.startsWith('http') ? article.image : `${baseUrl}${article.image || '/assets/copym/png/Copym-01-1.png'}`,
+      image: getSocialImageUrl(article.image),
       publishedDate: article.date,
       modifiedDate: article.updatedDate || article.date,
       author: typeof article.author === 'string' ? article.author : article.authorData?.name || 'CopyM Team',
       url: postUrl,
+      reviewer: article.reviewer,
+      category: article.category,
     });
+
+    // Generate FAQ schema if available
+    if (article.faqs && article.faqs.length > 0) {
+      // @ts-ignore
+      faqSchema = generateFAQSchema(article.faqs);
+    }
 
     // @ts-ignore
     breadcrumbData = generateBreadcrumbSchema([
@@ -128,6 +140,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
       )}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {breadcrumbData && (
         <script
           type="application/ld+json"
@@ -135,7 +153,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
         />
       )}
       {/* @ts-ignore */}
-      <BlogPostContent slug={slug} initialArticle={article} />
+      <BlogPostContent slug={slug} initialArticle={article} initialRelatedPosts={relatedPosts} />
     </>
   );
 }

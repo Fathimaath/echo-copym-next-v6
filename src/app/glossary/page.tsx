@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   title: 'Glossary | CopyM',
   description: 'Comprehensive glossary of terms related to real-world asset (RWA) tokenization, blockchain, DeFi, and digital assets.',
   alternates: {
-    canonical: 'https://copym.xyz/glossary',
+    canonical: 'https://copym.xyz/glossary/',
   },
   openGraph: {
     title: 'Glossary | CopyM',
     description: 'Comprehensive glossary of terms related to real-world asset (RWA) tokenization, blockchain, DeFi, and digital assets.',
-    url: 'https://copym.xyz/glossary',
+    url: 'https://copym.xyz/glossary/',
     type: 'website',
     images: [
       {
@@ -37,7 +37,7 @@ export default async function GlossaryPage() {
   const schemaData = generateWebPageSchema({
     name: 'Glossary | CopyM',
     description: 'Comprehensive glossary of terms related to real-world asset (RWA) tokenization, blockchain, DeFi, and digital assets.',
-    url: 'https://copym.xyz/glossary',
+    url: 'https://copym.xyz/glossary/',
   });
 
   const breadcrumbData = generateBreadcrumbSchema([

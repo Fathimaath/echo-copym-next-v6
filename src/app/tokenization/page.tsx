@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: 'Asset Tokenization Platform | Copym',
   description: 'Issue and manage compliant tokens backed by real estate, commodities, and more.',
   alternates: {
-    canonical: 'https://copym.xyz/tokenization',
+    canonical: 'https://copym.xyz/tokenization/',
   },
   openGraph: {
     title: 'Asset Tokenization Platform | Copym',
     description: 'Issue and manage compliant tokens backed by real estate, commodities, and more.',
-    url: 'https://copym.xyz/tokenization',
+    url: 'https://copym.xyz/tokenization/',
     type: 'website',
     images: [
       {
@@ -34,7 +34,7 @@ export default function TokenizationPage() {
   const schemaData = generateWebPageSchema({
     name: 'Asset Tokenization Platform | Copym',
     description: 'Issue and manage compliant tokens backed by real estate, commodities, and more.',
-    url: 'https://copym.xyz/tokenization',
+    url: 'https://copym.xyz/tokenization/',
   });
 
   const breadcrumbData = generateBreadcrumbSchema([

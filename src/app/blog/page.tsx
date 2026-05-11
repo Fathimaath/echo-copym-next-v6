@@ -7,12 +7,12 @@ export const metadata = {
   title: 'Blog & Insights | CopyM',
   description: 'Stay updated with the latest news, insights, and educational content about digital asset tokenization, blockchain technology, and the future of finance.',
   alternates: {
-    canonical: 'https://copym.xyz/blog',
+    canonical: 'https://copym.xyz/blog/',
   },
   openGraph: {
     title: 'Blog & Insights | CopyM',
     description: 'Stay updated with the latest news, insights, and educational content about digital asset tokenization, blockchain technology, and the future of finance.',
-    url: 'https://copym.xyz/blog',
+    url: 'https://copym.xyz/blog/',
     type: 'website',
     images: [
       {
@@ -49,7 +49,7 @@ export default async function BlogPage() {
   const schemaData = generateWebPageSchema({
     name: 'Blog & Insights | CopyM',
     description: 'Stay updated with the latest news, insights, and educational content about digital asset tokenization, blockchain technology, and the future of finance.',
-    url: 'https://copym.xyz/blog',
+    url: 'https://copym.xyz/blog/',
   });
 
   const breadcrumbData = generateBreadcrumbSchema([

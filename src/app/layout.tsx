@@ -47,8 +47,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "CopyM",
-    "url": "https://copym.xyz",
-    "logo": "https://copym.xyz/assets/copym/png/Copym-01-1.avif",
+    "url": "https://copym.xyz/",
+    "logo": "https://copym.xyz/assets/copym/png/Copym-01-1.png",
     "sameAs": [
       "https://twitter.com/copym",
       "https://linkedin.com/company/copym"
