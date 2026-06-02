@@ -41,6 +41,9 @@ const LogoCarousel = () => {
                   <img
                     src={logo.src}
                     alt={logo.alt}
+                    loading="lazy"
+                    aria-hidden="true"
+                    role="presentation"
                     className={`${['Base', 'Plume', 'Canton'].includes(logo.alt)
                       ? 'h-3 sm:h-5 md:h-6 lg:h-7'
                       : 'h-7 sm:h-9 md:h-11 lg:h-12'
