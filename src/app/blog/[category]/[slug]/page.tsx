@@ -7,21 +7,12 @@ import { generateBlogPostSchema, generateBreadcrumbSchema, generateFAQSchema, ge
 // Revalidate this page every 60 seconds to ensure new admin posts appear automatically
 export const revalidate = 60;
 
-// Pre-render pages at build time using static data
-export async function generateStaticParams() {
-  if (!staticBlogPosts || !Array.isArray(staticBlogPosts)) {
-    return [];
-  }
-
-  return staticBlogPosts.map((post) => ({
-    category: post.category?.toLowerCase().replace(/\s+/g, '-'),
-    slug: post.slug,
-  }));
-}
+// Allow dynamic params not returned by generateStaticParams
+export const dynamicParams = true;
 
 // Generate dynamic SEO tags for each blog post
 export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string }> }) {
-  const { slug } = await params;
+  const { category, slug } = await params;
   let article: any = null;
 
   try {
@@ -34,14 +25,20 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   }
 
   if (!article) {
+    // Use URL params as fallback so tab title isn't "Post Not Found"
+    const title = slug
+      .split('-')
+      .map((w: string) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ');
     return {
-      title: 'Post Not Found | CopyM',
-      description: 'The requested blog post could not be found.'
+      title: `${title} | CopyM`,
+      description: `Read about ${title.toLowerCase()} on CopyM's blog.`
     };
   }
 
   const baseUrl = 'https://copym.xyz';
-  const postUrl = `${baseUrl}/blog/${article.category?.toLowerCase().replace(/\s+/g, '-')}/${article.slug}/`;
+  const cat = (article.category || '').toLowerCase().replace(/\s+/g, '-') || 'general';
+  const postUrl = `${baseUrl}/blog/${cat}/${article.slug}/`;
 
   // Use the legacy SEO generator logic combined with Next.js format
   return {
@@ -96,7 +93,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
   let relatedPosts: any[] = [];
 
   if (article) {
-    const postUrl = `${baseUrl}/blog/${article.category?.toLowerCase().replace(/\s+/g, '-')}/${article.slug}/`;
+    const cat = (article.category || '').toLowerCase().replace(/\s+/g, '-') || 'general';
+    const postUrl = `${baseUrl}/blog/${cat}/${article.slug}/`;
     
     // Calculate related posts on server for better SEO (internal linking)
     const allPosts = [...staticBlogPosts];
@@ -127,7 +125,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
     breadcrumbData = generateBreadcrumbSchema([
       { label: 'Home', path: '/' },
       { label: 'Blog', path: '/blog' },
-      { label: article.category || 'Category', path: `/blog/${article.category?.toLowerCase().replace(/\s+/g, '-') || 'general'}` },
+      { label: article.category || 'Category', path: `/blog/${cat}` },
       { label: article.title, path: postUrl.replace(baseUrl, '') }
     ]);
   }

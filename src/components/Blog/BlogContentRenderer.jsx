@@ -174,8 +174,8 @@ function TableBlock({ block }) {
 
   return (
     <div className="blog-block blog-table">
-      {block.caption && <caption>{block.caption}</caption>}
       <table>
+        {block.caption && <caption>{block.caption}</caption>}
         {headers.length > 0 && (
           <thead>
             <tr>

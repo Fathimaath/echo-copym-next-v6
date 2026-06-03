@@ -4,21 +4,17 @@ RewriteBase /
 # 404 - return proper status code (not 200)
 ErrorDocument 404 /404.html
 
-# Remove .html extension and add trailing slash
+# Exclude 404 and internal Next.js paths from rewriting
+RewriteRule ^404 - [L]
+RewriteRule ^_not-found - [L]
+
+# Add trailing slash for clean URLs (Next.js trailingSlash: true)
+# Apache serves /path/ → /path/index.html automatically via DirectoryIndex
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]+$
 RewriteCond %{REQUEST_URI} !/$
 RewriteRule (.*) /$1/ [R=301,L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)/$ $1.html [L]
-
-# Ensure 404 for truly unknown pages (not found as .html)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} \.html$
-RewriteRule .* /404.html [R=404,L]
 
 # Cache static assets
 <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|avif|ico|css|js|woff2?)$">
