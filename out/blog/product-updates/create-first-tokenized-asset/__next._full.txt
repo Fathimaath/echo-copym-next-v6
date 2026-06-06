@@ -1,0 +1,598 @@
+1:"$Sreact.fragment"
+2:I[65174,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js"],"default"]
+3:I[16619,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js"],"default"]
+4:I[39756,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js"],"default"]
+5:I[37457,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js"],"default"]
+6:I[20926,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js","/_next/static/chunks/0_isz8jqjijuo.js"],"default"]
+7:I[71652,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js"],"default"]
+9:I[97367,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+d:I[97367,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js"],"ViewportBoundary"]
+f:I[97367,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js"],"MetadataBoundary"]
+11:I[68027,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js"],"default",1]
+:HL["/_next/static/chunks/0a.l.c9ptj59~.css","style"]
+:HL["/_next/static/chunks/002c9ssba4yo1.css","style"]
+:HL["/_next/static/media/1f551cd6b6c86994-s.p.0ffbhlzsdlxq0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/20c11706504f05e7-s.p.0pim~532yvqs4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/477a408e424fe96a-s.p.0nc9p6-n-uv4f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/5c285b27cdda1fe8-s.p.0yo6-5yoeeudq.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/84493ce3b86c1f5a-s.p.0zn.-sadwrn_b.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/996c66f8d0f15c95-s.p.0o2f_-3y1.8gv.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/d3bdd3a201d20ae3-s.p.0rf8-1n.zr9eh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/d475a333cfb21eec-s.p.046mijx9ft3_8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","blog","product-updates","create-first-tokenized-asset",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["category","product-updates","d",null],{"children":[["slug","create-first-tokenized-asset","d",null],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0a.l.c9ptj59~.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/002c9ssba4yo1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0002gch3e7e9h.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/10e7rt47rp2-u.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/0do9s1mrtuwqh.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/_next/static/chunks/096r7n5p6lw-7.js","async":true,"nonce":"$undefined"}],["$","script","script-5",{"src":"/_next/static/chunks/12yjf32sfnu_r.js","async":true,"nonce":"$undefined"}],["$","script","script-6",{"src":"/_next/static/chunks/0jee-.s7ul~dp.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"palanquin_fdaab0f8-module__6ttA4G__variable dm_sans_d89fb377-module__B_rulq__variable h-full antialiased","children":[["$","head",null,{"children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"CopyM\",\"url\":\"https://copym.xyz/\",\"logo\":\"https://copym.xyz/assets/copym/png/Copym-01-1.png\",\"sameAs\":[\"https://twitter.com/copym\",\"https://linkedin.com/company/copym\"]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"CopyM\",\"url\":\"https://copym.xyz/\",\"description\":\"Complete tokenization platform for real-world assets\",\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://copym.xyz//blog?search={search_term_string}\"},\"query-input\":\"required name=search_term_string\"}}"}}]]}],["$","body",null,{"className":"min-h-full flex flex-col","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","main",null,{"className":"flex-grow relative overflow-x-hidden pt-0 sm:pt-16","children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L6",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L7",null,{}]]}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L8",[["$","script","script-0",{"src":"/_next/static/chunks/08o7-koihzb-x.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/01z7gv_vkpvr..js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/00g-lsq~j6pj-.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/0c_7-fhp0pto8.js","async":true,"nonce":"$undefined"}]],["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]]}],{},null,false,null]},null,false,"$@c"]},null,false,"$@c"]},null,false,"$@c"]},null,false,null],["$","$1","h",{"children":[null,["$","$Ld",null,{"children":"$Le"}],["$","div",null,{"hidden":true,"children":["$","$Lf",null,{"children":["$","$a",null,{"name":"Next.Metadata","children":"$L10"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$11",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0a.l.c9ptj59~.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/002c9ssba4yo1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"pVi5DUMNUGYEI32SbDmIp"}
+12:[]
+c:"$W12"
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+14:I[63431,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js","/_next/static/chunks/08o7-koihzb-x.js","/_next/static/chunks/01z7gv_vkpvr..js","/_next/static/chunks/00g-lsq~j6pj-.js","/_next/static/chunks/0c_7-fhp0pto8.js"],"default"]
+19:I[27201,["/_next/static/chunks/0002gch3e7e9h.js","/_next/static/chunks/10e7rt47rp2-u.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0do9s1mrtuwqh.js","/_next/static/chunks/096r7n5p6lw-7.js","/_next/static/chunks/12yjf32sfnu_r.js","/_next/static/chunks/0jee-.s7ul~dp.js"],"IconMark"]
+13:T408,{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Create Your First Tokenized Asset","description":"A simple step-by-step guide to tokenizing real estate, commodities, or other assets on CopyM platform.","image":["https://copym.xyz/assets/Images/bloghero1st.png"],"thumbnailUrl":"https://copym.xyz/assets/Images/bloghero1st.png","url":"https://copym.xyz/blog/product-updates/create-first-tokenized-asset/","datePublished":"2026-02-19T18:30:00.000Z","dateModified":"2026-02-24T18:30:00.000Z","author":{"@type":"Person","name":"CopyM Team","url":"https://copym.xyz/"},"publisher":{"@type":"Organization","name":"CopyM","url":"https://copym.xyz/","logo":{"@type":"ImageObject","url":"https://copym.xyz/assets/copym/png/Copym-01-1.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://copym.xyz/blog/product-updates/create-first-tokenized-asset/","primaryImageOfPage":{"@type":"ImageObject","url":"https://copym.xyz/assets/Images/bloghero1st.png"}},"reviewedBy":{"@type":"Person","name":"Emily Rodriguez"}}15:T19e8,
+      <div id="key-takeaways" class="my-8">
+        <h3 class="text-lg font-bold text-gray-900 mb-4" style="font-family: 'Palanquin', sans-serif;">Key Takeaways</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">CopyM simplifies the tokenization process with a user-friendly platform</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">Legal compliance is built into the platform from the start</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">Asset owners can launch tokens in days, not months</span>
+          </li>
+        </ul>
+      </div>
+
+      <p>Tokenizing an asset used to require a team of lawyers, developers, and financial advisors. CopyM has changed that. Our platform makes it simple for asset owners to tokenize real estate, commodities, or other assets and access global capital markets.</p>
+
+      <!-- 1. FAST FACT BLOCK -->
+      <div class="blog-block blog-fast-fact">
+        <div class="blog-fast-fact__label">
+          Fast Fact
+        </div>
+        <p class="blog-fast-fact__value">Over 70% of asset owners who tokenize their first asset with CopyM launch a second tokenization within 6 months.</p>
+      </div>
+
+      <h2 id="step-1">Step 1: Asset Evaluation</h2>
+      <p>The first step is evaluating your asset to determine its suitability for tokenization. Our team will assess the asset's value, legal structure, and revenue potential. We'll also discuss your goals and timeline.</p>
+
+      <!-- 3. QUOTE BLOCK -->
+      <div class="blog-block blog-quote">
+        <p class="blog-quote__text">"Tokenization isn't just about technology — it's about unlocking value that was previously trapped in illiquid assets."</p>
+        <div class="blog-quote__author">
+          <div class="blog-quote__avatar">C</div>
+          <div>
+            <div class="blog-quote__name">Alex Rivera</div>
+            <div class="blog-quote__role">Head of Asset Onboarding, CopyM</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="step-2">Step 2: Legal Structuring</h2>
+      <p>CopyM handles the legal structuring required for tokenization. This includes setting up the appropriate legal entity, drafting offering documents, and ensuring compliance with securities regulations.</p>
+
+      <!-- 4. CALLOUT BLOCK — Warning -->
+      <div class="blog-block blog-callout blog-callout--warning">
+        <div class="blog-callout__content">
+          <div class="blog-callout__title">Jurisdiction Matters</div>
+          <p class="blog-callout__text">Securities laws vary significantly by country and state. CopyM's compliance team ensures your tokenization meets all applicable regulations in your jurisdiction.</p>
+        </div>
+      </div>
+
+      <h2 id="step-3">Step 3: Token Creation</h2>
+      <p>Once the legal framework is in place, we'll create the digital tokens on the blockchain. You'll define the token economics, including total supply, pricing, and investor rights.</p>
+
+      <!-- 5. TABLE BLOCK -->
+      <div class="blog-block blog-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Traditional Process</th>
+              <th>CopyM Platform</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Legal Setup</td>
+              <td>3-6 months</td>
+              <td>1-2 weeks</td>
+            </tr>
+            <tr>
+              <td>Token Development</td>
+              <td>2-4 months</td>
+              <td>3-5 days</td>
+            </tr>
+            <tr>
+              <td>Launch</td>
+              <td>Manual & costly</td>
+              <td>One-click deployment</td>
+            </tr>
+            <tr>
+              <td>Total Cost</td>
+              <td>$100,000+</td>
+              <td>Fraction of traditional</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="step-4">Step 4: Launch and Distribution</h2>
+      <p>With tokens created, you can launch your offering on the CopyM marketplace. Our marketing team will help promote your tokenized asset to our network of investors.</p>
+
+      <!-- 6. IMAGE + CAPTION BLOCK -->
+      <div class="blog-block blog-image">
+        <img src="/assets/Images/bloghero1st.avif" alt="CopyM tokenization dashboard showing asset creation workflow" />
+        <div class="blog-image__caption">CopyM asset tokenization workflow — Source: CopyM Platform</div>
+      </div>
+
+      <h2 id="step-5">Step 5: Ongoing Management</h2>
+      <p>CopyM provides ongoing support for token management, including investor relations, compliance reporting, and secondary market trading.</p>
+
+      <!-- 1. CTA BLOCK -->
+      <div class="blog-block blog-cta">
+        <h3 class="blog-cta__title">Ready to Tokenize Your Asset?</h3>
+        <p class="blog-cta__text">CopyM makes launching your first tokenized asset simple, compliant, and fast.</p>
+        <a href="/tokenization" class="blog-cta__btn">
+          Get Started Today
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+        </a>
+      </div>
+
+      <h2 id="getting-started">Getting Started</h2>
+      <p>Ready to tokenize your asset? Contact our team today for a consultation. We'll guide you through every step of the process and help you unlock the benefits of tokenization.</p>
+
+      <!-- 7. SOURCE / REFERENCE BLOCK -->
+      <div class="blog-block blog-source">
+        <div class="blog-source__title">
+          Sources
+        </div>
+        <ul>
+          <li><a href="https://www.mckinsey.com" class="blog-source__link" target="_blank" rel="noopener noreferrer">Tokenization Best Practices Guide — McKinsey & Company</a></li>
+          <li><a href="https://www2.deloitte.com" class="blog-source__link" target="_blank" rel="noopener noreferrer">Asset Tokenization: From Theory to Practice — Deloitte Insights</a></li>
+        </ul>
+      </div>
+    16:T1c44,
+      <div id="key-takeaways" class="my-8">
+        <h3 class="text-lg font-bold text-gray-900 mb-4" style="font-family: 'Palanquin', sans-serif;">Key Takeaways</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">CORA AI provides personalized investment recommendations based on your goals</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">Advanced machine learning analyzes market trends and risk factors</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">24/7 support helps you make informed investment decisions</span>
+          </li>
+        </ul>
+      </div>
+
+      <p>Investing in real-world assets can be complex. CORA AI simplifies it. Our AI-powered assistant analyzes your investment profile, market conditions, and risk tolerance to provide personalized recommendations.</p>
+
+      <!-- 1. FAST FACT BLOCK -->
+      <div class="blog-block blog-fast-fact">
+        <div class="blog-fast-fact__label">
+          Fast Fact
+        </div>
+        <p class="blog-fast-fact__value">CORA AI processes over 50,000 data points per second to deliver real-time investment insights to CopyM users.</p>
+      </div>
+
+      <h2 id="what-is-cora">What Is CORA AI?</h2>
+      <p>CORA (Copym Optimized Resource Assistant) is an advanced AI system trained on vast amounts of financial data, market trends, and investment strategies. CORA understands your unique financial situation and helps you navigate the world of tokenized assets.</p>
+
+      <!-- 3. QUOTE BLOCK -->
+      <div class="blog-block blog-quote">
+        <p class="blog-quote__text">"CORA AI democratizes institutional-grade investment analysis — bringing the same level of insight to retail investors that hedge funds rely on."</p>
+        <div class="blog-quote__author">
+          <div class="blog-quote__avatar">C</div>
+          <div>
+            <div class="blog-quote__name">Dr. Emily Zhang</div>
+            <div class="blog-quote__role">Lead AI Engineer, CopyM</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="features">Key Features</h2>
+      <ul class="space-y-2">
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Personalized Recommendations:</strong> Investment suggestions tailored to your goals</span></li>
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Market Analysis:</strong> Real-time insights on market trends and opportunities</span></li>
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Risk Assessment:</strong> Evaluate the risk profile of any investment</span></li>
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Portfolio Optimization:</strong> Build a diversified portfolio aligned with your objectives</span></li>
+      </ul>
+
+      <!-- 4. CALLOUT BLOCK — Warning -->
+      <div class="blog-block blog-callout blog-callout--warning">
+        <div class="blog-callout__content">
+          <div class="blog-callout__title">AI Is a Tool, Not a Crystal Ball</div>
+          <p class="blog-callout__text">CORA AI provides data-driven recommendations, but all investments carry risk. Always combine AI insights with your own research and judgment.</p>
+        </div>
+      </div>
+
+      <h2 id="how-it-works">How It Works</h2>
+      <p>CORA integrates with your CopyM account to understand your investment history and preferences. Using advanced machine learning, CORA identifies patterns and opportunities that match your profile.</p>
+
+      <!-- 5. TABLE BLOCK -->
+      <div class="blog-block blog-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th>Without CORA</th>
+              <th>With CORA AI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Research Time</td>
+              <td>Hours per investment</td>
+              <td>Seconds</td>
+            </tr>
+            <tr>
+              <td>Portfolio Analysis</td>
+              <td>Manual spreadsheets</td>
+              <td>Automated insights</td>
+            </tr>
+            <tr>
+              <td>Risk Monitoring</td>
+              <td>Periodic reviews</td>
+              <td>Real-time alerts</td>
+            </tr>
+            <tr>
+              <td>Market Coverage</td>
+              <td>Limited by capacity</td>
+              <td>24/7 scanning</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Whether you're a beginner looking to start investing or an experienced investor seeking new opportunities, CORA provides the guidance you need to succeed.</p>
+
+      <!-- 6. IMAGE + CAPTION BLOCK -->
+      <div class="blog-block blog-image">
+        <img src="/assets/Images/blogpostai.avif" alt="CORA AI investment assistant interface showing personalized recommendations" />
+        <div class="blog-image__caption">CORA AI-powered investment dashboard — Source: CopyM Platform</div>
+      </div>
+
+      <h2 id="getting-started">Getting Started with CORA</h2>
+      <p>CORA AI is available to all CopyM users. Simply log in to your account and start a conversation with CORA. Ask questions, get recommendations, and make informed investment decisions with confidence.</p>
+
+      <!-- 1. CTA BLOCK -->
+      <div class="blog-block blog-cta">
+        <h3 class="blog-cta__title">Try CORA AI Today</h3>
+        <p class="blog-cta__text">Experience the power of AI-driven investment analysis — available free to all CopyM users.</p>
+        <a href="/cora-ai" class="blog-cta__btn">
+          Start Using CORA
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+        </a>
+      </div>
+
+      <!-- 7. SOURCE / REFERENCE BLOCK -->
+      <div class="blog-block blog-source">
+        <div class="blog-source__title">
+          Sources
+        </div>
+        <ul>
+          <li><a href="https://www.mckinsey.com" class="blog-source__link" target="_blank" rel="noopener noreferrer">AI in Financial Services: The Next Frontier — McKinsey & Company</a></li>
+          <li><a href="https://www.bcg.com" class="blog-source__link" target="_blank" rel="noopener noreferrer">Machine Learning for Investment Decision-Making — Boston Consulting Group</a></li>
+        </ul>
+      </div>
+    17:T35a4,
+      <div id="key-takeaways" class="my-8">
+        <h3 class="text-lg font-bold text-gray-900 mb-4" style="font-family: 'Palanquin', sans-serif;">Key Takeaways</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">Tokenization converts real-world assets into digital tokens on blockchain, enabling fractional ownership and enhanced liquidity</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">The global tokenized asset market is projected to reach $16 trillion by 2030</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">Real estate, commodities, art, and intellectual property can all be tokenized for easier trading and ownership</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">Blockchain provides immutable ownership records, reducing fraud and increasing transparency</span>
+          </li>
+        </ul>
+      </div>
+
+      <p>Real-world asset (RWA) tokenization is revolutionizing how we think about ownership, investment, and value transfer. By converting physical and traditional financial assets into digital tokens on a blockchain, tokenization opens up new possibilities for liquidity, accessibility, and efficiency.</p>
+
+      <!-- 1. FAST FACT BLOCK -->
+      <div class="blog-block blog-fast-fact">
+        <div class="blog-fast-fact__label">
+          Fast Fact
+        </div>
+        <p class="blog-fast-fact__value">The global tokenized asset market is projected to reach $16 trillion by 2030, up from just $10 billion in 2023.</p>
+      </div>
+
+      <h2 id="what-is-tokenization">What is Tokenization?</h2>
+      <p>Tokenization is the process of converting rights to an asset into a digital token on a blockchain. These tokens represent ownership or entitlement to the underlying asset, which can be anything from real estate and commodities to art and intellectual property.</p>
+
+      <p>At its core, tokenization creates a digital representation of an asset on a distributed ledger. Each token is unique, verifiable, and can be programmed with specific rules and rights. This digital representation maintains a direct link to the underlying asset, ensuring that token holders have legitimate claims to the value it represents.</p>
+
+      <!-- 3. QUOTE BLOCK -->
+      <div class="blog-block blog-quote">
+        <p class="blog-quote__text">"Tokenization will fundamentally change how assets are bought, sold, and managed worldwide — it's the future of finance."</p>
+        <div class="blog-quote__author">
+          <div class="blog-quote__avatar">C</div>
+          <div>
+            <div class="blog-quote__name">Jane Smith</div>
+            <div class="blog-quote__role">Head of Innovation, CopyM</div>
+          </div>
+        </div>
+      </div>
+
+      <p>The beauty of tokenization lies in its ability to democratize access to investments that were previously reserved for institutional investors or high-net-worth individuals. By dividing assets into smaller, more affordable units, tokenization opens doors for retail investors to participate in markets that were once out of reach.</p>
+
+      <h2 id="how-it-works">How Does Tokenization Work?</h2>
+      <p>The tokenization process involves several key steps that transform a traditional asset into digital tokens:</p>
+      <ul class="space-y-2">
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Asset Selection:</strong> Identifying and valuing the asset to be tokenized</span></li>
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Legal Structuring:</strong> Establishing the legal framework for token ownership</span></li>
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Token Creation:</strong> Minting digital tokens on a blockchain</span></li>
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Distribution:</strong> Making tokens available to investors</span></li>
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Management:</strong> Ongoing administration and compliance</span></li>
+      </ul>
+
+      <!-- 4. CALLOUT BLOCK — Warning -->
+      <div class="blog-block blog-callout blog-callout--warning">
+        <div class="blog-callout__content">
+          <div class="blog-callout__title">Regulatory Compliance</div>
+          <p class="blog-callout__text">Always consult legal counsel before tokenizing assets. Regulatory requirements vary by jurisdiction and asset type.</p>
+        </div>
+      </div>
+
+      <p>Smart contracts automate many aspects of tokenization, from issuance to dividend distribution. These self-executing contracts ensure that all transactions comply with predefined rules and regulations, reducing the need for intermediaries and lowering operational costs.</p>
+
+      <p>The technical infrastructure typically involves a blockchain platform (such as Ethereum, Polygon, or specialized security token chains), custody solutions for secure asset storage, and trading platforms for secondary market liquidity. Each component plays a crucial role in ensuring the tokenized asset functions smoothly throughout its lifecycle.</p>
+
+      <h2 id="benefits">Key Benefits of Tokenization</h2>
+      <p>Tokenization offers numerous advantages over traditional asset ownership:</p>
+
+      <h3 id="fractional-ownership">Fractional Ownership</h3>
+      <p>By dividing assets into smaller tokens, investors can participate with lower capital requirements. This democratization makes previously inaccessible assets available to a broader audience, allowing investors to diversify their portfolios across multiple asset classes. For example, a $10 million commercial property can be tokenized into 100,000 tokens at $100 each, making real estate investment accessible to retail investors.</p>
+
+      <!-- 5. TABLE BLOCK -->
+      <div class="blog-block blog-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Traditional</th>
+              <th>Tokenized</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Minimum Investment</td>
+              <td>$100,000+</td>
+              <td>As low as $100</td>
+            </tr>
+            <tr>
+              <td>Settlement Time</td>
+              <td>30-90 days</td>
+              <td>Minutes</td>
+            </tr>
+            <tr>
+              <td>Liquidity</td>
+              <td>Low</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Transparency</td>
+              <td>Limited</td>
+              <td>Full (on-chain)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="liquidity">Enhanced Liquidity</h3>
+      <p>Tokenized assets can be traded on secondary markets, providing liquidity options that traditional assets often lack. Real estate, private equity, and other illiquid assets become more accessible when investors can buy and sell tokens without lengthy settlement processes. This liquidity premium can also enhance the underlying asset's value.</p>
+
+      <h3 id="transparency">Transparency and Security</h3>
+      <p>Blockchain technology provides an immutable record of ownership and transactions, increasing transparency and reducing fraud risk. Every token transfer is recorded on the blockchain, creating an auditable trail that enhances investor confidence. Smart contracts enforce rules automatically, reducing the need for trust in intermediaries.</p>
+
+      <!-- 6. IMAGE + CAPTION BLOCK -->
+      <div class="blog-block blog-image">
+        <img src="/assets/Images/blogfeatured.avif" alt="Tokenized asset dashboard showing portfolio overview" />
+        <div class="blog-image__caption">Tokenized real estate portfolio dashboard — Source: CopyM Platform</div>
+      </div>
+
+      <h3 id="efficiency">Operational Efficiency</h3>
+      <p>Automation through smart contracts reduces manual processes, lowers administrative costs, and minimizes the potential for human error. Settlement times decrease from days to minutes, and intermediaries are reduced, resulting in cost savings for all participants. Corporate actions like dividend distributions can be executed automatically and instantaneously.</p>
+
+      <!-- 1. CTA BLOCK -->
+      <div class="blog-block blog-cta">
+        <h3 class="blog-cta__title">Ready to Explore Tokenization?</h3>
+        <p class="blog-cta__text">Discover how CopyM makes tokenizing real-world assets simple, secure, and compliant.</p>
+        <a href="/tokenization" class="blog-cta__btn">
+          Explore Platform
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+        </a>
+      </div>
+
+      <h2 id="real-world-applications">Real-World Applications</h2>
+      <p>Tokenization is already transforming multiple industries:</p>
+      <ul class="space-y-2">
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Real Estate:</strong> Fractional property ownership with lower entry barriers</span></li>
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Art & Collectibles:</strong> Democratizing access to high-value art pieces</span></li>
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Commodities:</strong> Easier trading of gold, silver, and other precious metals</span></li>
+        <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span><strong>Private Equity:</strong> Increased liquidity for traditionally illiquid investments</span></li>
+      </ul>
+
+      <p>Major financial institutions and startups alike are embracing tokenization. From tokenized treasury bonds to digital real estate funds, the use cases continue to expand rapidly. Companies are discovering that tokenization can streamline operations, reduce costs, and unlock new revenue streams.</p>
+
+      <h2 id="regulatory-landscape">Regulatory Landscape</h2>
+      <p>As tokenization grows, regulators worldwide are developing frameworks to govern digital securities. Compliance with securities laws, KYC/AML requirements, and investor protection measures are paramount for any tokenization project.</p>
+
+      <p>Issuers must navigate complex regulatory environments, including SEC regulations in the US, MiFID II in Europe, and various national securities laws. Working with experienced legal counsel is essential to ensure compliance and avoid costly penalties.</p>
+
+      <p>The regulatory landscape is evolving rapidly, with many jurisdictions recognizing the potential benefits of tokenization while working to protect investors. Staying informed about regulatory developments is crucial for anyone involved in the tokenization ecosystem.</p>
+
+      <h2 id="future-outlook">The Future of Tokenization</h2>
+      <p>Industry experts predict explosive growth in the tokenization market. As technology matures and regulations clarify, we expect to see broader adoption across asset classes and geographies. Major financial institutions are investing heavily in tokenization infrastructure, signaling confidence in the technology's long-term potential.</p>
+
+      <p>Institutional adoption, cross-chain interoperability, and integration with traditional finance systems are key trends shaping the future of asset tokenization. We're moving toward a world where tokenized assets coexist seamlessly with traditional securities, offering investors unprecedented choice and flexibility.</p>
+
+      <p>The convergence of tokenization with other emerging technologies like artificial intelligence and IoT promises even more innovative applications. From automated compliance checks to real-time asset monitoring, the possibilities are expanding rapidly.</p>
+
+      <!-- 7. SOURCE / REFERENCE BLOCK -->
+      <div class="blog-block blog-source">
+        <div class="blog-source__title">
+          Sources
+        </div>
+        <ul>
+          <li><a href="https://www.mckinsey.com" class="blog-source__link" target="_blank" rel="noopener noreferrer">Global Tokenization Report 2026 — McKinsey & Company</a></li>
+          <li><a href="https://www.bcg.com" class="blog-source__link" target="_blank" rel="noopener noreferrer">The Future of Digital Assets — Boston Consulting Group</a></li>
+        </ul>
+      </div>
+    18:T2081,
+      <div id="key-takeaways" class="my-8">
+        <h3 class="text-lg font-bold text-gray-900 mb-4" style="font-family: 'Palanquin', sans-serif;">Key Takeaways</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">Regulatory clarity is driving institutional adoption of digital asset marketplaces</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">Compliance-first platforms are gaining trust from traditional financial institutions</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">New frameworks balance innovation with investor protection</span>
+          </li>
+        </ul>
+      </div>
+
+      <p>The digital asset marketplace landscape is undergoing a profound transformation as regulatory frameworks mature and institutional adoption accelerates. This evolution is creating unprecedented opportunities for both institutional and retail investors to participate in a more transparent, efficient, and accessible financial ecosystem.</p>
+
+      <!-- 1. FAST FACT BLOCK -->
+      <div class="blog-block blog-fast-fact">
+        <div class="blog-fast-fact__label">
+          Fast Fact
+        </div>
+        <p class="blog-fast-fact__value">Over 80% of institutional investors plan to allocate capital to digital assets by 2027, according to a recent industry survey.</p>
+      </div>
+
+      <h2 id="regulatory-evolution">The Regulatory Evolution</h2>
+      <p>Over the past few years, regulators worldwide have moved from cautious observation to active engagement with digital asset technologies. The SEC, ESMA, and other regulatory bodies have developed clearer guidelines for tokenized securities, providing the certainty that institutions need to enter the market.</p>
+
+      <p>Key regulatory developments include the classification of digital assets, custody requirements, and investor protection measures. These frameworks ensure that digital asset marketplaces operate with the same level of integrity and transparency as traditional financial markets.</p>
+
+      <!-- 3. QUOTE BLOCK -->
+      <div class="blog-block blog-quote">
+        <p class="blog-quote__text">"Compliance isn't a barrier to innovation — it's the foundation of sustainable growth in digital asset markets."</p>
+        <div class="blog-quote__author">
+          <div class="blog-quote__avatar">C</div>
+          <div>
+            <div class="blog-quote__name">Michael Chen</div>
+            <div class="blog-quote__role">Chief Compliance Officer, CopyM</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="institutional-adoption">Institutional Adoption</h2>
+      <p>Major financial institutions are no longer sitting on the sidelines. Banks, asset managers, and insurance companies are actively exploring and implementing digital asset solutions. This shift is driven by client demand, competitive pressure, and the recognition that blockchain technology offers genuine operational benefits.</p>
+
+      <p>Institutional participation brings liquidity, credibility, and stability to digital asset markets. It also drives the development of sophisticated infrastructure, including prime brokerage services, custody solutions, and risk management tools.</p>
+
+      <!-- 4. CALLOUT BLOCK — Warning -->
+      <div class="blog-block blog-callout blog-callout--warning">
+        <div class="blog-callout__content">
+          <div class="blog-callout__title">Know Your Jurisdiction</div>
+          <p class="blog-callout__text">Digital asset regulations vary significantly by country. Always verify the legal requirements in your jurisdiction before participating in any marketplace.</p>
+        </div>
+      </div>
+
+      <h2 id="technology-advances">Technology Advances</h2>
+      <p>The technology underpinning digital asset marketplaces has matured significantly. Modern platforms offer institutional-grade security, scalability, and performance. Smart contract automation, cross-chain interoperability, and advanced custody solutions are now standard features.</p>
+
+      <p>These technological advances enable new business models and investment strategies. From automated market makers to fractional ownership of alternative assets, the possibilities continue to expand.</p>
+
+      <!-- 5. TABLE BLOCK -->
+      <div class="blog-block blog-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Traditional Market</th>
+              <th>Digital Asset Market</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Trading Hours</td>
+              <td>9:30 AM – 4:00 PM</td>
+              <td>24/7</td>
+            </tr>
+            <tr>
+              <td>Settlement</td>
+              <td>T+2 days</td>
+              <td>Minutes</td>
+            </tr>
+            <tr>
+              <td>Minimum Investment</td>
+              <td>$10,000+</td>
+              <td>As low as $50</td>
+            </tr>
+            <tr>
+              <td>Transparency</td>
+              <td>Quarterly reports</td>
+              <td>Real-time on-chain</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="investor-protection">Investor Protection</h2>
+      <p>Compliant marketplaces prioritize investor protection through KYC/AML verification, accredited investor checks, and transparent disclosure of risks. These measures protect investors while maintaining market integrity.</p>
+
+      <!-- 6. IMAGE + CAPTION BLOCK -->
+      <div class="blog-block blog-image">
+        <img src="/assets/Images/Digital-Assets.avif" alt="Digital asset marketplace interface showing compliant trading platform" />
+        <div class="blog-image__caption">Compliant digital asset trading platform — Source: CopyM Platform</div>
+      </div>
+
+      <p>Education and transparency are also key components of investor protection. Platforms that provide clear information about assets, risks, and processes build trust and foster long-term relationships with investors.</p>
+
+      <!-- 1. CTA BLOCK -->
+      <div class="blog-block blog-cta">
+        <h3 class="blog-cta__title">Start Investing with Confidence</h3>
+        <p class="blog-cta__text">CopyM's compliant marketplace gives you access to vetted, regulated digital assets.</p>
+        <a href="/marketplace" class="blog-cta__btn">
+          Explore Marketplace
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+        </a>
+      </div>
+
+      <h2 id="future-outlook">The Road Ahead</h2>
+      <p>The future of digital asset marketplaces is bright. As regulatory frameworks continue to evolve and technology advances, we expect to see increased adoption, greater liquidity, and more diverse asset classes.</p>
+
+      <p>The convergence of traditional finance and digital assets is creating a new financial paradigm—one that is more inclusive, efficient, and transparent. CopyM is at the forefront of this transformation, building the infrastructure for the future of finance.</p>
+
+      <!-- 7. SOURCE / REFERENCE BLOCK -->
+      <div class="blog-block blog-source">
+        <div class="blog-source__title">
+          Sources
+        </div>
+        <ul>
+          <li><a href="https://www.mckinsey.com" class="blog-source__link" target="_blank" rel="noopener noreferrer">Digital Assets and the Future of Finance — McKinsey & Company</a></li>
+          <li><a href="https://www.weforum.org" class="blog-source__link" target="_blank" rel="noopener noreferrer">The Evolution of Compliant Digital Markets — World Economic Forum</a></li>
+        </ul>
+      </div>
+    8:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$13"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"How long does the tokenization process take?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"With CopyM, most assets can be tokenized and launched within 2-4 weeks, depending on complexity and legal requirements.\"}},{\"@type\":\"Question\",\"name\":\"What are the costs involved?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Costs vary based on asset type and complexity. Contact us for a customized quote.\"}}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://copym.xyz/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://copym.xyz/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Product Updates\",\"item\":\"https://copym.xyz/blog/product-updates/\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"How to Create Your First Tokenized Asset\",\"item\":\"https://copym.xyz/blog/product-updates/create-first-tokenized-asset/\"}]}"}}],["$","$L14",null,{"slug":"create-first-tokenized-asset","initialArticle":{"id":5,"title":"How to Create Your First Tokenized Asset","subtitle":"A step-by-step guide to launching your tokenized security on CopyM","excerpt":"A simple step-by-step guide to tokenizing real estate, commodities, or other assets on CopyM platform.","category":"Product Updates","date":"February 20, 2026","updatedDate":"February 25, 2026","readTime":"5 min read","author":"CopyM Team","reviewer":{"name":"Emily Rodriguez","role":"Tokenization Platform Reviewer","bio":"Product specialist in asset tokenization platforms and launch protocols.","avatar":""},"slug":"create-first-tokenized-asset","image":"/assets/Images/bloghero1st.avif","content":"$15","headings":[{"id":"key-takeaways","title":"Key Takeaways","level":2},{"id":"step-1","title":"Step 1: Asset Evaluation","level":2},{"id":"step-2","title":"Step 2: Legal Structuring","level":2},{"id":"step-3","title":"Step 3: Token Creation","level":2},{"id":"step-4","title":"Step 4: Launch and Distribution","level":2},{"id":"step-5","title":"Step 5: Ongoing Management","level":2},{"id":"getting-started","title":"Getting Started","level":2}],"faqs":[{"question":"How long does the tokenization process take?","answer":"With CopyM, most assets can be tokenized and launched within 2-4 weeks, depending on complexity and legal requirements."},{"question":"What are the costs involved?","answer":"Costs vary based on asset type and complexity. Contact us for a customized quote."}],"disclaimer":"This content is for informational purposes only and does not constitute legal or financial advice. Tokenization involves regulatory requirements that vary by jurisdiction. Consult with qualified professionals before proceeding."},"initialRelatedPosts":[{"id":6,"title":"CORA AI: Your Smart Investment Assistant","subtitle":"Meet the AI-powered assistant transforming how you invest in real-world assets","excerpt":"Meet CORA AI, the intelligent assistant helping you navigate real-world asset investments with confidence.","category":"Product Updates","date":"February 15, 2026","updatedDate":"February 18, 2026","readTime":"3 min read","author":"CopyM Team","reviewer":{"name":"Dr. Kevin Park","role":"AI & FinTech Reviewer","bio":"AI researcher specializing in investment technology and automated advisory systems.","avatar":""},"slug":"cora-ai-investment-assistant","image":"/assets/Images/blogpostai.avif","content":"$16","headings":[{"id":"key-takeaways","title":"Key Takeaways","level":2},{"id":"what-is-cora","title":"What Is CORA AI?","level":2},{"id":"features","title":"Key Features","level":2},{"id":"how-it-works","title":"How It Works","level":2},{"id":"getting-started","title":"Getting Started with CORA","level":2}],"faqs":[{"question":"Is CORA AI free to use?","answer":"Yes, CORA AI is available to all CopyM users at no additional cost."},{"question":"How accurate are CORA's recommendations?","answer":"CORA uses advanced machine learning and extensive data analysis. However, all investments carry risk, and past performance doesn't guarantee future results."}],"disclaimer":"This content is for informational purposes only and does not constitute financial or investment advice. AI recommendations are based on algorithms and data analysis. Always conduct your own research before making investment decisions."},{"id":1,"title":"Understanding Real-World Asset Tokenization","subtitle":"A comprehensive guide to how blockchain is transforming traditional asset ownership","excerpt":"Learn how blockchain technology is revolutionizing the way we invest in real estate, commodities, and alternative assets through tokenization.","category":"Education","date":"March 15, 2026","updatedDate":"March 20, 2026","readTime":"5 min read","author":"CopyM Team","reviewer":{"name":"Dr. Sarah Chen","role":"Blockchain Technology Reviewer","bio":"PhD in Distributed Systems. Reviews blockchain architecture and technical accuracy.","avatar":""},"slug":"understanding-rwa-tokenization","featured":true,"featuredPriority":1,"image":"/assets/Images/blogfeatured.avif","content":"$17","headings":[{"id":"key-takeaways","title":"Key Takeaways","level":2},{"id":"what-is-tokenization","title":"What is Tokenization?","level":2},{"id":"how-it-works","title":"How Does Tokenization Work?","level":2},{"id":"benefits","title":"Key Benefits of Tokenization","level":2},{"id":"fractional-ownership","title":"Fractional Ownership","level":3},{"id":"liquidity","title":"Enhanced Liquidity","level":3},{"id":"transparency","title":"Transparency and Security","level":3},{"id":"efficiency","title":"Operational Efficiency","level":3},{"id":"real-world-applications","title":"Real-World Applications","level":2},{"id":"regulatory-landscape","title":"Regulatory Landscape","level":2},{"id":"future-outlook","title":"The Future of Tokenization","level":2}],"faqs":[{"question":"What assets can be tokenized?","answer":"Almost any asset with value can be tokenized, including real estate, commodities, art, intellectual property, private equity, and more."},{"question":"Is tokenization legal?","answer":"Yes, when done properly with appropriate legal structuring and regulatory compliance. CopyM ensures all tokenization follows applicable regulations."},{"question":"How do I invest in tokenized assets?","answer":"Through platforms like CopyM, investors can browse available tokenized assets, complete KYC/AML verification, and purchase tokens directly."}],"disclaimer":"This content is for informational purposes only and does not constitute financial, legal, or investment advice. Tokenized assets involve risks including potential loss of principal. Always conduct your own research and consult with qualified professionals before making investment decisions."},{"id":2,"title":"The Future of Compliant Digital Asset Marketplaces","subtitle":"How regulation and technology are shaping the next generation of financial markets","excerpt":"Explore how regulatory compliance and blockchain technology are creating new opportunities for institutional and retail investors.","category":"Articles","date":"March 10, 2026","updatedDate":"March 15, 2026","readTime":"4 min read","author":"CopyM Team","reviewer":{"name":"Michael Torres, JD","role":"Legal & Compliance Reviewer","bio":"Securities law expert. Reviews regulatory compliance and legal accuracy.","avatar":""},"slug":"future-compliant-marketplaces","featured":true,"featuredPriority":2,"image":"/assets/Images/Digital-Assets.avif","content":"$18","headings":[{"id":"key-takeaways","title":"Key Takeaways","level":2},{"id":"regulatory-evolution","title":"The Regulatory Evolution","level":2},{"id":"institutional-adoption","title":"Institutional Adoption","level":2},{"id":"technology-advances","title":"Technology Advances","level":2},{"id":"investor-protection","title":"Investor Protection","level":2},{"id":"future-outlook","title":"The Road Ahead","level":2}],"faqs":[{"question":"What makes a digital asset marketplace compliant?","answer":"A compliant marketplace follows all applicable securities laws, implements KYC/AML procedures, and maintains proper licensing and registration with regulatory authorities."},{"question":"Can retail investors participate in compliant marketplaces?","answer":"Yes, though some investments may be limited to accredited investors depending on the asset type and jurisdiction."}],"disclaimer":"This content is for informational purposes only and does not constitute financial, legal, or investment advice. Digital assets involve risks including potential loss of principal. Always conduct your own research and consult with qualified professionals before making investment decisions."}]}]]
+b:null
+10:[["$","title","0",{"children":"How to Create Your First Tokenized Asset | CopyM"}],["$","meta","1",{"name":"description","content":"A simple step-by-step guide to tokenizing real estate, commodities, or other assets on CopyM platform."}],["$","meta","2",{"name":"robots","content":"index, follow"}],["$","link","3",{"rel":"canonical","href":"https://copym.xyz/blog/product-updates/create-first-tokenized-asset/"}],["$","meta","4",{"property":"og:title","content":"How to Create Your First Tokenized Asset"}],["$","meta","5",{"property":"og:description","content":"A simple step-by-step guide to tokenizing real estate, commodities, or other assets on CopyM platform."}],["$","meta","6",{"property":"og:url","content":"https://copym.xyz/blog/product-updates/create-first-tokenized-asset/"}],["$","meta","7",{"property":"og:image","content":"https://copym.xyz/assets/Images/bloghero1st.png"}],["$","meta","8",{"property":"og:image:width","content":"1200"}],["$","meta","9",{"property":"og:image:height","content":"630"}],["$","meta","10",{"property":"og:image:alt","content":"How to Create Your First Tokenized Asset"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"property":"article:published_time","content":"February 20, 2026"}],["$","meta","13",{"property":"article:modified_time","content":"February 25, 2026"}],["$","meta","14",{"property":"article:author","content":"CopyM Team"}],["$","meta","15",{"property":"article:section","content":"Product Updates"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"How to Create Your First Tokenized Asset"}],["$","meta","18",{"name":"twitter:description","content":"A simple step-by-step guide to tokenizing real estate, commodities, or other assets on CopyM platform."}],["$","meta","19",{"name":"twitter:image","content":"https://copym.xyz/assets/Images/bloghero1st.png"}],["$","link","20",{"rel":"icon","href":"/icon.png?icon.0c0w2j-0s4tts.png","sizes":"1640x1640","type":"image/png"}],["$","link","21",{"rel":"apple-touch-icon","href":"/apple-icon.png?apple-icon.0c0w2j-0s4tts.png","sizes":"1640x1640","type":"image/png"}],["$","$L19","22",{}]]

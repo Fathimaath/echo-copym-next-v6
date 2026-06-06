@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,81091,e=>{"use strict";e.s(["generateFAQSchema",0,function(e){return e&&0!==e.length?{"@context":"https://schema.org","@type":"FAQPage",mainEntity:e.map(e=>({"@type":"Question",name:e.question,acceptedAnswer:{"@type":"Answer",text:e.answer}}))}:null}])}]);
