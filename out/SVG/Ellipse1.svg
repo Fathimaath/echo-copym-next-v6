@@ -1,0 +1,10 @@
+<svg width="829" height="824" viewBox="0 0 829 824" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-163" y="-163" width="1155" height="1150"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(81.5px);clip-path:url(#bgblur_0_784_1065_clip_path);height:100%;width:100%"></div></foreignObject><ellipse data-figma-bg-blur-radius="163" cx="414.5" cy="412" rx="414.5" ry="412" fill="url(#paint0_radial_784_1065)"/>
+<defs>
+<clipPath id="bgblur_0_784_1065_clip_path" transform="translate(163 163)"><ellipse cx="414.5" cy="412" rx="414.5" ry="412"/>
+</clipPath><radialGradient id="paint0_radial_784_1065" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(414.5 412) rotate(90) scale(412 414.5)">
+<stop stop-color="#A7F8D9"/>
+<stop offset="1" stop-color="white"/>
+</radialGradient>
+</defs>
+</svg>

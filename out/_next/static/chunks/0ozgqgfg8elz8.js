@@ -1,0 +1,34 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,18566,(e,t,a)=>{t.exports=e.r(76562)},7408,e=>{"use strict";let t="https://blog-api.copym.xyz";async function a({category:e,search:o,page:r=1,limit:l=10}={}){let s=new URLSearchParams;e&&s.set("category",e),o&&s.set("search",o),s.set("page",r),s.set("limit",l);let i=await fetch(`${t}/api/blog-posts?${s}`),n=await i.json();if(!n.success)throw Error("Failed to fetch blog posts");return n}async function o(e){let a=await fetch(`${t}/api/blog-posts/${e}`),o=await a.json();if(!o.success)throw Error("Failed to fetch blog post");return o.data}function r(e){if(!e)return{headings:[],content:""};let t=new DOMParser().parseFromString(e,"text/html"),a=[];return t.querySelectorAll("h2, h3").forEach(e=>{let t="H2"===e.tagName?2:3,o=e.id;o||(o=e.textContent.toLowerCase().replace(/[^\w\s-]/g,"").replace(/\s+/g,"-").trim(),e.id=o),a.push({id:o,title:e.textContent.trim(),level:t})}),{headings:a,content:t.body.innerHTML}}function l(e){if(!e||!Array.isArray(e))return[];let t=[];return e.forEach(e=>{if(["h1","h2","h3"].includes(e.type)&&e.content){let a=parseInt(e.type.charAt(1),10),o=e.content.toLowerCase().replace(/[^\w\s-]/g,"").replace(/\s+/g,"-").trim();(2===a||3===a)&&t.push({id:o,title:e.content.trim(),level:a})}if("text"===e.type&&e.content&&e.content.includes("<h")){let a=new DOMParser().parseFromString(e.content,"text/html");a.querySelectorAll("h1, h2, h3").forEach(e=>{let a={h1:1,h2:2,h3:3}[e.tagName.toLowerCase()]||2,o=e.textContent.trim();if(!o)return;let r=o.toLowerCase().replace(/[^\w\s-]/g,"").replace(/\s+/g,"-").trim(),l=1,s=r;for(;t.some(e=>e.id===s);)s=`${r}-${l++}`;r=s,e.setAttribute("id",r),(2===a||3===a)&&t.push({id:r,title:o,level:a})}),e.content=a.body.innerHTML}}),t}e.s(["extractHeadings",0,r,"extractHeadingsFromBlocks",0,l,"fetchBlogPostBySlug",0,o,"fetchBlogPosts",0,a,"transformApiPost",0,function(e){let t=[];try{t="string"==typeof e.faq?JSON.parse(e.faq):e.faq||[]}catch(e){console.error("Failed to parse FAQs:",e)}let a=e.contentBlocks||[],o="",s=[];if(a.length>0)s=l(a),o=a&&Array.isArray(a)&&0!==a.length?a.map(e=>{switch(e.type){case"h1":return`<h1 id="${(e.content||"").toLowerCase().replace(/[^\w\s-]/g,"").replace(/\s+/g,"-")}">${e.content||""}</h1>`;case"h2":return`<h2 id="${(e.content||"").toLowerCase().replace(/[^\w\s-]/g,"").replace(/\s+/g,"-")}">${e.content||""}</h2>`;case"h3":return`<h3 id="${(e.content||"").toLowerCase().replace(/[^\w\s-]/g,"").replace(/\s+/g,"-")}">${e.content||""}</h3>`;case"paragraph":case"text":return e.content||"";case"cta":return`<div class="blog-block blog-cta">
+          <h3 class="blog-cta__title">${e.title||""}</h3>
+          <p class="blog-cta__text">${e.content||""}</p>
+          ${e.caption?`<a href="#" class="blog-cta__btn">${e.caption}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+          </a>`:""}
+        </div>`;case"fastfact":return`<div class="blog-block blog-fast-fact">
+          <div class="blog-fast-fact__label">Fast Fact</div>
+          <p class="blog-fast-fact__value">${e.content||""}</p>
+        </div>`;case"quote":return`<div class="blog-block blog-quote">
+          <p class="blog-quote__text">${e.content||""}</p>
+          <div class="blog-quote__author">
+            <div class="blog-quote__avatar">${(e.title||"?").charAt(0)}</div>
+            <div>
+              <div class="blog-quote__name">${e.title||""}</div>
+              <div class="blog-quote__role"></div>
+            </div>
+          </div>
+        </div>`;case"callout":return`<div class="blog-block blog-callout blog-callout--${e.variant||"info"}">
+          <div class="blog-callout__content">
+            <div class="blog-callout__title">${e.title||e.variant||"Note"}</div>
+            <p class="blog-callout__text">${e.content||""}</p>
+          </div>
+        </div>`;case"table":let t=(e.headers||[]).map(e=>`<th>${e}</th>`).join(""),a=(e.rows||[]).map(e=>`<tr>${e.map(e=>`<td>${e}</td>`).join("")}</tr>`).join("");return`<div class="blog-block blog-table"><table>
+          ${e.caption?`<caption>${e.caption}</caption>`:""}
+          <thead><tr>${t}</tr></thead>
+          <tbody>${a}</tbody>
+        </table></div>`;case"image":return`<div class="blog-block blog-image">
+          <img src="${e.imageUrl||""}" alt="${e.caption||""}" />
+          ${e.caption?`<div class="blog-image__caption">${e.caption}</div>`:""}
+        </div>`;case"source":let o=(e.sources||[]).map(e=>`<li><a href="${e.url||"#"}" class="blog-source__link">${e.title||e.url||"Source"}</a></li>`).join("");return`<div class="blog-block blog-source">
+          <div class="blog-source__title">Sources</div>
+          <ul>${o}</ul>
+        </div>`;default:return""}}).join(""):"";else if(e.content){let t=r(o=e.content);s=t.headings,o=t.content}return{id:e.id,title:e.title,subtitle:e.subtitle||"",excerpt:e.excerpt||"",category:e.category,date:e.publishedAt?new Date(e.publishedAt).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}):"",updatedDate:e.updatedAt?new Date(e.updatedAt).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}):null,readTime:e.readTime?`${e.readTime} min read`:"5 min read",author:e.authorName||"CopyM Team",authorData:{name:e.authorName||"CopyM Team",role:e.authorRole||"",bio:e.authorBio||""},reviewer:e.reviewerName?{name:e.reviewerName,role:e.reviewerRole||"Reviewer",bio:e.reviewerBio||""}:null,slug:e.slug,featured:e.featured||!1,featuredPriority:e.featuredPriority||0,image:e.imageUrl||"/assets/Images/blogfeatured.avif",ogImage:e.ogImage||e.imageUrl,seoTitle:e.seoTitle||e.title,seoDescription:e.seoDescription||e.excerpt,content:o,contentBlocks:a,tags:e.tags?e.tags.split(",").map(e=>e.trim()):[],headings:s,faqs:t,disclaimer:e.disclaimer||"",viewCount:e.viewCount||0}}])},21041,e=>{"use strict";var t=e.i(43476),a=e.i(71645),o=e.i(22016),r=e.i(92199);e.s(["default",0,function({items:e=[]}){return e&&0!==e.length?(0,t.jsx)("nav",{className:"flex items-center flex-wrap gap-1 text-xs sm:text-sm","aria-label":"Breadcrumb",children:e.map((l,s)=>{let i=s===e.length-1;return(0,t.jsxs)(a.default.Fragment,{children:[s>0&&(0,t.jsx)(r.FiChevronRight,{className:"w-3 h-3 sm:w-4 sm:h-4 text-gray-400 mx-1 sm:mx-2 flex-shrink-0"}),i?(0,t.jsx)("span",{className:"text-gray-500 font-medium truncate max-w-[150px] sm:max-w-none",children:l.label}):(0,t.jsx)(o.default,{href:l.path,className:"text-[#15a36e] hover:text-[#128a5c] transition-colors font-medium truncate max-w-[150px] sm:max-w-none",children:l.label})]},l.path||s)})}):null}])}]);

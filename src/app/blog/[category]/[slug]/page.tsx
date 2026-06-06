@@ -1,14 +1,48 @@
 import React from 'react';
 import BlogPostContent from '@/components/Blog/BlogPostContent';
 import { blogPosts as staticBlogPosts } from '@/data/blogPosts';
-import { fetchBlogPostBySlug, transformApiPost } from '@/services/blogApi';
+import { fetchBlogPosts, fetchBlogPostBySlug, transformApiPost } from '@/services/blogApi';
 import { generateBlogPostSchema, generateBreadcrumbSchema, generateFAQSchema, getSocialImageUrl } from '@/utils/seo';
 
 // Revalidate this page every 60 seconds to ensure new admin posts appear automatically
 export const revalidate = 60;
 
-// Allow dynamic params not returned by generateStaticParams
-export const dynamicParams = true;
+// All pages are pre-built via generateStaticParams — no dynamic params needed
+export const dynamicParams = false;
+
+// Pre-build pages for BOTH static and API posts so admin-created posts have HTML files
+export async function generateStaticParams() {
+  const slugs: { category: string; slug: string }[] = [];
+
+  // Add static post slugs
+  staticBlogPosts.forEach((post) => {
+    slugs.push({
+      category: post.category?.toLowerCase().replace(/\s+/g, '-') || 'general',
+      slug: post.slug,
+    });
+  });
+
+  // Also fetch API slugs so admin-created posts get pre-built HTML files
+  try {
+    const result: any = await fetchBlogPosts({ category: '', search: '', page: 1, limit: 100 });
+    if (result?.data?.length) {
+      const existingSlugs = new Set(slugs.map(s => s.slug));
+      result.data.forEach((post: any) => {
+        const t: any = transformApiPost(post);
+        if (!existingSlugs.has(t.slug)) {
+          slugs.push({
+            category: (t.category || '').toLowerCase().replace(/\s+/g, '-') || 'general',
+            slug: t.slug,
+          });
+        }
+      });
+    }
+  } catch {
+    // API not available during build — only static slugs will be built
+  }
+
+  return slugs;
+}
 
 // Generate dynamic SEO tags for each blog post
 export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string }> }) {
