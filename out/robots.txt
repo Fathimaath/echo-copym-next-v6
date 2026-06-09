@@ -1,7 +1,0 @@
-User-Agent: *
-Allow: /
-Allow: /_next/static/
-Disallow: /api/
-Disallow: /admin/
-
-Sitemap: https://copym.xyz/sitemap.xml

@@ -147,14 +147,14 @@ export function extractHeadings(html) {
   // Server-side safe approach: Use regex if DOMParser isn't available
   if (typeof window === 'undefined') {
     const headings = [];
-    const headingRegex = /<(h[23])(?:\s+id="([^"]*)")?>([^<]*)<\/h[23]>/gi;
+    const headingRegex = /<(h[23])(?:\s+id="([^"]*)")?>([\s\S]*?)<\/h[23]>/gi;
     let match;
     let modifiedHtml = html;
 
     while ((match = headingRegex.exec(html)) !== null) {
-      const [fullMatch, tag, existingId, text] = match;
+      const [fullMatch, tag, existingId, rawText] = match;
       const level = tag.toLowerCase() === 'h2' ? 2 : 3;
-      const title = text.trim();
+      const title = rawText.replace(/<[^>]*>/g, '').trim();
       const id = existingId || title.toLowerCase()
         .replace(/[^\w\s-]/g, '')
         .replace(/\s+/g, '-')
@@ -165,7 +165,7 @@ export function extractHeadings(html) {
       if (!existingId) {
         // This is a simple replacement and might be fragile for complex HTML, 
         // but for server-side SEO it's better than crashing.
-        modifiedHtml = modifiedHtml.replace(fullMatch, `<${tag} id="${id}">${text}</${tag}>`);
+        modifiedHtml = modifiedHtml.replace(fullMatch, `<${tag} id="${id}">${rawText}</${tag}>`);
       }
     }
 
@@ -232,12 +232,13 @@ export function extractHeadingsFromBlocks(blocks) {
     if (block.type === 'text' && block.content && block.content.includes('<h')) {
       if (typeof window === 'undefined') {
         // Server-side regex fallback
-        const headingRegex = /<(h[123])(?:\s+id="([^"]*)")?>([^<]*)<\/h[123]>/gi;
+        const headingRegex = /<(h[123])(?:\s+id="([^"]*)")?>([\s\S]*?)<\/h[123]>/gi;
         let match;
+        let modifiedContent = block.content;
         while ((match = headingRegex.exec(block.content)) !== null) {
-          const [_, tag, existingId, text] = match;
+          const [fullMatch, tag, existingId, rawText] = match;
           const level = tag.toLowerCase() === 'h1' ? 1 : (tag.toLowerCase() === 'h2' ? 2 : 3);
-          const title = text.trim();
+          const title = rawText.replace(/<[^>]*>/g, '').trim();
           
           if (!title) continue;
 
@@ -257,7 +258,13 @@ export function extractHeadingsFromBlocks(blocks) {
           if (level === 2 || level === 3) {
             headings.push({ id, title, level });
           }
+
+          // Add ID to the heading element so TOC scroll works
+          if (!existingId) {
+            modifiedContent = modifiedContent.replace(fullMatch, `<${tag} id="${id}">${rawText}</${tag}>`);
+          }
         }
+        block.content = modifiedContent;
       } else {
         const parser = new DOMParser();
         const doc = parser.parseFromString(block.content, 'text/html');
