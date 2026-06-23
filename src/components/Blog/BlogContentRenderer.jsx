@@ -66,29 +66,25 @@ function TextBlock({ block }) {
         (liMatch, content) => {
           // Strip <p> tags from content to avoid spacing issues
           const cleanContent = content.replace(/<\/?p[^>]*>/gi, '');
-          return `<li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span><span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">${cleanContent}</span></li>`;
+          return `<li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-black rounded-full mt-2 flex-shrink-0"></span><span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">${cleanContent}</span></li>`;
         }
       );
       return `<ul class="space-y-2"${ulAttrs}>${items}</ul>`;
     }
   );
   
-  // Transform <ol><li> to custom format with numbered circles
-  let counter = 0;
+  // Transform <ol><li> to bullet point style (same as ul)
   html = html.replace(
     /<ol([^>]*)>([\s\S]*?)<\/ol>/gi,
     (match, olAttrs, innerContent) => {
-      counter = 0;
       const items = innerContent.replace(
         /<li[^>]*>([\s\S]*?)<\/li>/gi,
         (liMatch, content) => {
-          counter++;
-          // Strip <p> tags from content
           const cleanContent = content.replace(/<\/?p[^>]*>/gi, '');
-          return `<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-gray-200 text-gray-700 text-xs flex items-center justify-center mt-0.5 flex-shrink-0 font-medium">${counter}</span><span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">${cleanContent}</span></li>`;
+          return `<li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-black rounded-full mt-2 flex-shrink-0"></span><span class="text-sm sm:text-base text-gray-700" style="font-family: 'Palanquin', sans-serif;">${cleanContent}</span></li>`;
         }
       );
-      return `<ol class="space-y-2"${olAttrs}>${items}</ol>`;
+      return `<ul class="space-y-2"${olAttrs}>${items}</ul>`;
     }
   );
   

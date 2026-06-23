@@ -20,7 +20,7 @@ export default function TableOfContents({ headings = [] }) {
           }
         });
       },
-      { rootMargin: '-100px 0px -80% 0px' }
+      { rootMargin: '-170px 0px -80% 0px' }
     );
 
     headings.forEach(({ id }) => {
@@ -35,7 +35,9 @@ export default function TableOfContents({ headings = [] }) {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const yOffset = -170;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
       setActiveId(id);
       setIsOpen(false);
     }

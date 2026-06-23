@@ -7,8 +7,7 @@ import DisclaimerBlock from './DisclaimerBlock';
 import RelatedPosts from './RelatedPosts';
 import Breadcrumbs from './Breadcrumbs';
 import BlogContentRenderer from './BlogContentRenderer';
-import { fetchBlogPostBySlug, transformApiPost } from '@/services/blogApi';
-import { blogPosts as staticBlogPosts } from '@/data/blogPosts';
+import { fetchBlogPostBySlug, fetchBlogPosts, transformApiPost } from '@/services/blogApi';
 
 export default function BlogPostContent({ slug, initialArticle, initialRelatedPosts }) {
   const router = useRouter();
@@ -34,76 +33,70 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
     }
   ) : null;
 
+  // Fetch all posts from API for related posts calculation
+  const fetchAllPosts = async () => {
+    try {
+      const result = await fetchBlogPosts({ page: 1, limit: 100 });
+      if (result?.data) {
+        return result.data.map(p => transformApiPost(p));
+      }
+    } catch {}
+    return [];
+  };
+
+  // Calculate related and alsoLike from a pool of posts
+  const computeRelated = (currentArticle, allPosts, currentSlug) => {
+    const sameCategory = allPosts.filter(p => p.category === currentArticle.category && p.slug !== currentSlug);
+    const other = allPosts.filter(p => p.category !== currentArticle.category);
+    const related = [...sameCategory, ...other].slice(0, 3);
+    const usedSlugs = new Set(related.map(p => p.slug));
+    usedSlugs.add(currentSlug);
+    const alsoLike = allPosts.filter(p => !usedSlugs.has(p.slug)).slice(0, 3);
+    return { related, alsoLike };
+  };
+
   // Find article by slug
   useEffect(() => {
     const fetchPost = async () => {
       if (initialArticle && initialArticle.slug === slug) {
-        if (initialRelatedPosts) {
+        if (initialRelatedPosts && initialRelatedPosts.length > 0) {
           setRelatedPosts(initialRelatedPosts);
+          const usedSlugs = new Set(initialRelatedPosts.map(p => p.slug));
+          usedSlugs.add(slug);
+          const allPosts = await fetchAllPosts();
+          const alsoLike = allPosts.filter(p => !usedSlugs.has(p.slug)).slice(0, 3);
+          setYouMayAlsoLike(alsoLike);
         } else {
-          // Calculate related posts using the initial data if not provided
-          const allPosts = [...staticBlogPosts];
-          // If it's an admin post not in static list, add it for calculations
-          if (!allPosts.some(p => p.slug === initialArticle.slug)) {
-            allPosts.push(initialArticle);
-          }
-          
-          const sameCategoryPosts = allPosts.filter(p => p.category === initialArticle.category && p.slug !== slug);
-          const otherPosts = allPosts.filter(p => p.category !== initialArticle.category);
-          const allRelated = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
-          setRelatedPosts(allRelated);
+          const allPosts = await fetchAllPosts();
+          // If API returned nothing, fallback with the article itself
+          const pool = allPosts.length > 0 ? allPosts : [initialArticle];
+          const { related, alsoLike } = computeRelated(initialArticle, pool, slug);
+          setRelatedPosts(related);
+          setYouMayAlsoLike(alsoLike);
         }
-
-        const usedSlugs = new Set((initialRelatedPosts || []).map(p => p.slug));
-        usedSlugs.add(slug);
-        const alsoLike = [...staticBlogPosts].filter(p => !usedSlugs.has(p.slug)).slice(0, 3);
-        setYouMayAlsoLike(alsoLike);
-        
-        return; // Success, no need to fetch
+        return;
       }
 
-      // 2. Otherwise, perform full fetch (e.g. client-side navigation)
+      // Full fetch
       if (!article || article.slug !== slug) {
         setLoading(true);
       } else {
-        return; 
+        return;
       }
 
       try {
-        // Try API first
         const apiPost = await fetchBlogPostBySlug(slug);
         const transformedPost = transformApiPost(apiPost);
         setArticle(transformedPost);
 
-        const allPosts = [transformedPost, ...staticBlogPosts.filter(p => p.slug !== transformedPost.slug)];
-        const sameCategoryPosts = allPosts.filter(p => p.category === transformedPost.category && p.slug !== slug);
-        const otherPosts = allPosts.filter(p => p.category !== transformedPost.category);
-        const allRelated = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
-        setRelatedPosts(allRelated);
-
-        const usedSlugs = new Set(allRelated.map(p => p.slug));
-        usedSlugs.add(slug);
-        const alsoLike = allPosts.filter(p => !usedSlugs.has(p.slug)).slice(0, 3);
+        const allPosts = await fetchAllPosts();
+        const pool = allPosts.length > 0 ? allPosts : [transformedPost];
+        const { related, alsoLike } = computeRelated(transformedPost, pool, slug);
+        setRelatedPosts(related);
         setYouMayAlsoLike(alsoLike);
       } catch (error) {
-        // Fallback to static posts
-        const staticPost = staticBlogPosts.find(p => p.slug === slug);
-        if (staticPost) {
-          setArticle(staticPost);
-          const allPosts = staticBlogPosts.filter(p => p.slug !== slug);
-          const sameCategoryPosts = allPosts.filter(p => p.category === staticPost.category);
-          const otherPosts = allPosts.filter(p => p.category !== staticPost.category);
-          const allRelated = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
-          setRelatedPosts(allRelated);
-
-          const usedSlugs = new Set(allRelated.map(p => p.slug));
-          usedSlugs.add(slug);
-          const alsoLike = allPosts.filter(p => !usedSlugs.has(p.slug)).slice(0, 3);
-          setYouMayAlsoLike(alsoLike);
-        } else {
-          console.error('Failed to fetch post:', error);
-          router.push('/blog');
-        }
+        console.error('Failed to fetch post:', error);
+        router.push('/blog');
       } finally {
         setLoading(false);
       }
@@ -157,7 +150,7 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
           }
         });
       },
-      { rootMargin: '-100px 0px -80% 0px' }
+      { rootMargin: '-170px 0px -80% 0px' }
     );
 
     article.headings?.forEach(({ id }) => {
@@ -258,7 +251,7 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
                   const scrollToHeading = (id) => {
                     const el = document.getElementById(id);
                     if (el) {
-                      const yOffset = -120; // Offset for fixed header/breadcrumbs
+                      const yOffset = -170; // Offset for fixed navbar + breadcrumbs
                       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
                       window.scrollTo({ top: y, behavior: 'smooth' });
                     }
@@ -298,7 +291,7 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
                                   e.preventDefault();
                                   const el = document.getElementById(sub.id);
                                   if (el) {
-                                    const yOffset = -120;
+                                    const yOffset = -170;
                                     const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
                                     window.scrollTo({ top: y, behavior: 'smooth' });
                                   }
@@ -511,19 +504,13 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
                 color: #1f2937 !important;
                 font-weight: 600 !important;
               }
-              /* Custom scrollbar for left sidebar */
+              /* Hide scrollbar for left sidebar TOC */
+              .overflow-y-auto {
+                -ms-overflow-style: none !important;
+                scrollbar-width: none !important;
+              }
               .overflow-y-auto::-webkit-scrollbar {
-                width: 4px;
-              }
-              .overflow-y-auto::-webkit-scrollbar-track {
-                background: transparent;
-              }
-              .overflow-y-auto::-webkit-scrollbar-thumb {
-                background: #d1d5db;
-                border-radius: 2px;
-              }
-              .overflow-y-auto::-webkit-scrollbar-thumb:hover {
-                background: #9ca3af;
+                display: none !important;
               }
 
               /* ============================================

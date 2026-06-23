@@ -11,3 +11,6 @@ export default function robots(): MetadataRoute.Robots {
     sitemap: 'https://copym.xyz/sitemap.xml',
   };
 }
+
+// AI-readable site guide:
+// llms.txt: https://copym.xyz/llms.txt

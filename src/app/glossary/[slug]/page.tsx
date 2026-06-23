@@ -2,7 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { glossaryTerms } from '@/data/glossaryTerms';
-import { blogPosts } from '@/data/blogPosts';
+import { fetchBlogPosts, transformApiPost } from '@/services/blogApi';
 import GlossaryTermClient from '@/components/Glossary/GlossaryTermClient';
 import { getSocialImageUrl } from '@/utils/seo';
 
@@ -125,59 +125,60 @@ const getRelatedTerms = (currentTerm: any) => {
   return sameLetter.slice(0, 6).map((t: any) => ({ term: t.term, slug: t.slug }));
 };
 
-const getRelatedArticles = (term: any) => {
+const getRelatedArticles = async (term: any) => {
   const termLower = term.term.toLowerCase();
   const termWords = termLower.replace(/-/g, ' ').split(' ').filter((w: string) => w.length > 2);
   
-  // Score each blog post by relevance to the term
-  const scoredPosts = blogPosts.map((post: any) => {
-    let score = 0;
-    const titleLower = post.title.toLowerCase();
-    const excerptLower = post.excerpt.toLowerCase();
-    const contentLower = post.content.toLowerCase();
+  try {
+    const result: any = await fetchBlogPosts({ category: '', search: '', page: 1, limit: 100 });
+    if (!result?.data?.length) return [];
+    const posts = result.data.map(transformApiPost);
     
-    // Check if term words appear in title (high priority)
-    termWords.forEach((word: string) => {
-      if (titleLower.includes(word)) score += 10;
-      if (excerptLower.includes(word)) score += 5;
-      if (contentLower.includes(word)) score += 1;
+    const scoredPosts = posts.map((post: any) => {
+      let score = 0;
+      const titleLower = post.title.toLowerCase();
+      const excerptLower = post.excerpt.toLowerCase();
+      
+      termWords.forEach((word: string) => {
+        if (titleLower.includes(word)) score += 10;
+        if (excerptLower.includes(word)) score += 5;
+      });
+      
+      if (titleLower.includes(termLower)) score += 20;
+      if (excerptLower.includes(termLower)) score += 10;
+      
+      return { ...post, score };
     });
     
-    // Bonus for exact term match
-    if (titleLower.includes(termLower)) score += 20;
-    if (excerptLower.includes(termLower)) score += 10;
+    const topPosts = scoredPosts
+      .filter((post: any) => post.score > 0)
+      .sort((a: any, b: any) => b.score - a.score)
+      .slice(0, 3);
     
-    return { ...post, score };
-  });
-  
-  // Sort by relevance score and take top 3
-  const topPosts = scoredPosts
-    .filter((post: any) => post.score > 0)
-    .sort((a: any, b: any) => b.score - a.score)
-    .slice(0, 3);
-  
-  // If we don't have enough relevant posts, fill with most recent ones
-  if (topPosts.length < 3) {
-    const usedIds = new Set(topPosts.map((p: any) => p.id));
-    const recentPosts = blogPosts
-      .filter((p: any) => !usedIds.has(p.id))
-      .slice(0, 3 - topPosts.length);
-    topPosts.push(...recentPosts);
+    if (topPosts.length < 3) {
+      const usedIds = new Set(topPosts.map((p: any) => p.id));
+      const recentPosts = posts
+        .filter((p: any) => !usedIds.has(p.id))
+        .slice(0, 3 - topPosts.length);
+      topPosts.push(...recentPosts);
+    }
+    
+    return topPosts.map((post: any) => ({
+      title: post.title,
+      slug: post.slug,
+      category: post.category,
+      image: post.image,
+      description: post.excerpt,
+      date: post.date,
+      readTime: post.readTime
+    }));
+  } catch {
+    return [];
   }
-  
-  return topPosts.map((post: any) => ({
-    title: post.title,
-    slug: post.slug,
-    category: post.category,
-    image: post.image,
-    description: post.excerpt,
-    date: post.date,
-    readTime: post.readTime
-  }));
 };
 
 // Generate extended term data
-const getExtendedTermData = (term: any) => {
+const getExtendedTermData = async (term: any) => {
   if (!term) return null;
 
   return {
@@ -188,7 +189,7 @@ const getExtendedTermData = (term: any) => {
     detailedExplanation: getDetailedExplanation(term),
     examples: getExamples(term),
     relatedTerms: getRelatedTerms(term),
-    relatedArticles: getRelatedArticles(term),
+    relatedArticles: await getRelatedArticles(term),
     lastUpdated: "March 20, 2026",
     headings: generateHeadings(term)
   };
@@ -248,7 +249,7 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ s
     notFound();
   }
 
-  const termData = getExtendedTermData(foundTerm);
+  const termData = await getExtendedTermData(foundTerm);
 
   // DefinedTerm Schema
   const definedTermSchema = {

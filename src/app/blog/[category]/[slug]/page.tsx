@@ -1,6 +1,5 @@
 import React from 'react';
 import BlogPostContent from '@/components/Blog/BlogPostContent';
-import { blogPosts as staticBlogPosts } from '@/data/blogPosts';
 import { fetchBlogPosts, fetchBlogPostBySlug, transformApiPost } from '@/services/blogApi';
 import { generateBlogPostSchema, generateBreadcrumbSchema, generateFAQSchema, getSocialImageUrl } from '@/utils/seo';
 
@@ -14,15 +13,7 @@ export const dynamicParams = false;
 export async function generateStaticParams() {
   const slugs: { category: string; slug: string }[] = [];
 
-  // Add static post slugs
-  staticBlogPosts.forEach((post) => {
-    slugs.push({
-      category: post.category?.toLowerCase().replace(/\s+/g, '-') || 'general',
-      slug: post.slug,
-    });
-  });
-
-  // Also fetch API slugs so admin-created posts get pre-built HTML files
+  // Fetch API slugs so admin-created posts get pre-built HTML files
   try {
     const result: any = await fetchBlogPosts({ category: '', search: '', page: 1, limit: 100 });
     if (result?.data?.length) {
@@ -50,12 +41,10 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   let article: any = null;
 
   try {
-    // Try fetching from API during build/SSR if available
     const apiPost = await fetchBlogPostBySlug(slug);
     article = transformApiPost(apiPost);
   } catch (error) {
-    // Fallback to static post
-    article = staticBlogPosts.find((p: any) => p.slug === slug);
+    article = null;
   }
 
   if (!article) {
@@ -117,7 +106,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
     const apiPost = await fetchBlogPostBySlug(slug);
     article = transformApiPost(apiPost);
   } catch (error) {
-    article = staticBlogPosts.find((p: any) => p.slug === slug);
+    article = null;
   }
 
   const baseUrl = 'https://copym.xyz';
@@ -131,9 +120,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
     const postUrl = `${baseUrl}/blog/${cat}/${article.slug}/`;
     
     // Calculate related posts on server for better SEO (internal linking)
-    const allPosts = [...staticBlogPosts];
-    const sameCategoryPosts = allPosts.filter(p => p.category === article.category && p.slug !== slug);
-    const otherPosts = allPosts.filter(p => p.category !== article.category);
+    let allPosts: any[] = [];
+    try {
+      const result: any = await fetchBlogPosts({ category: '', search: '', page: 1, limit: 100 });
+      if (result?.data) {
+        allPosts = result.data.map((p: any) => transformApiPost(p));
+      }
+    } catch {
+      allPosts = [];
+    }
+    const sameCategoryPosts = allPosts.filter((p: any) => p.category === article.category && p.slug !== slug);
+    const otherPosts = allPosts.filter((p: any) => p.category !== article.category);
     relatedPosts = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
 
     // @ts-ignore

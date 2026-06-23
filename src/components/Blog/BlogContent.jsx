@@ -9,7 +9,6 @@ import Pagination from './Pagination';
 import FeaturedSection from './FeaturedSection';
 import Hero from './Hero';
 import { fetchBlogPosts, transformApiPost } from '@/services/blogApi';
-import { blogPosts as staticBlogPosts } from '@/data/blogPosts';
 
 const categories = ["All", "Education", "News", "Insights", "Product Updates", "Glossary"];
 const POSTS_PER_PAGE = 6;
@@ -60,17 +59,7 @@ export default function BlogContent({ initialApiPosts = [] }) {
     }
   }, [fetchPosts, initialApiPosts]);
 
-  // Combine static posts + API posts (remove duplicates by slug)
-  const allPosts = useMemo(() => {
-    const staticPosts = staticBlogPosts || [];
-    const apiSlugs = new Set(apiPosts.map(p => p.slug));
-    
-    // Add static posts that aren't already in API posts
-    const uniqueStaticPosts = staticPosts.filter(p => !apiSlugs.has(p.slug));
-    
-    // API posts first, then static posts
-    return [...apiPosts, ...uniqueStaticPosts];
-  }, [apiPosts]);
+  const allPosts = apiPosts;
 
   // Filter posts based on category and search
   const filteredPosts = useMemo(() => {

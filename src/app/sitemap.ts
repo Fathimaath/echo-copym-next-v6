@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next';
 export const dynamic = "force-static";
 import { glossaryTerms } from '@/data/glossaryTerms';
-import { blogPosts as staticBlogPosts } from '@/data/blogPosts';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://copym.xyz';
@@ -30,16 +29,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  // Collect all blog posts (static + API)
+  // Collect all blog posts from API so admin-created posts appear in sitemap
   const allBlogPosts = new Map<string, { category: string; updatedDate?: string; date?: string }>();
-
-  // Add static posts
-  staticBlogPosts.forEach((post) => {
-    const cat = (post.category || '').toLowerCase().replace(/\s+/g, '-') || 'general';
-    allBlogPosts.set(post.slug, { category: cat, updatedDate: post.updatedDate, date: post.date });
-  });
-
-  // Also fetch API posts so admin-created posts appear in sitemap
   try {
     const { fetchBlogPosts, transformApiPost } = await import('@/services/blogApi');
     const result: any = await fetchBlogPosts({ category: '', search: '', page: 1, limit: 100 });
