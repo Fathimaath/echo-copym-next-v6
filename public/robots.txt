@@ -1,7 +1,10 @@
-User-Agent: *
+User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
 
 Sitemap: https://copym.xyz/sitemap.xml
+
+# AI-readable site guide:
+# llms.txt: https://copym.xyz/llms.txt

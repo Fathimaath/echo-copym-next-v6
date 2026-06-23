@@ -63,6 +63,7 @@ export default function RootLayout({
       className={`${palanquin.variable} ${dmSans.variable} h-full antialiased`}
     >
       <head>
+        <meta name="google-site-verification" content="ywTFKs9vltUreS6Hi6x4CXmLhGoICESwd6j5SDUUbS1w" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
