@@ -1,7 +1,9 @@
 import React from 'react';
-import BlogContent from '@/components/Blog/BlogContent';
+import dynamic from 'next/dynamic';
 import { fetchBlogPosts, transformApiPost } from '@/services/blogApi';
 import { generateWebPageSchema, generateBreadcrumbSchema } from '@/utils/seo';
+
+const BlogContent = dynamic(() => import('@/components/Blog/BlogContent'));
 
 export const metadata = {
   title: 'Blog & Insights | CopyM',

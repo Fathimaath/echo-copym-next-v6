@@ -132,7 +132,7 @@ export default function InvestorManagement() {
                     justifyContent: 'center',
 
                   }}>
-                    <h3 className="dm-sans" style={{
+                    <h3 style={{
                       fontSize: 'clamp(14px, 2vw, 18px)',
                       fontWeight: 600,
                       textAlign: 'center',
@@ -147,7 +147,7 @@ export default function InvestorManagement() {
                     background: '#f0f5f3',
                     position: 'relative'
                   }}>
-                    <p className="dm-sans text-center lg:text-left" style={{
+                    <p className="text-center lg:text-left" style={{
                       fontSize: 'clamp(12px, 1.5vw, 14px)',
                       color: '#000',
                       lineHeight: '1.4',

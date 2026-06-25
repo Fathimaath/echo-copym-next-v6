@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
-import TokenizationContent from '@/components/TokenizationHub/TokenizationContent';
+import dynamic from 'next/dynamic';
 import { generateWebPageSchema, generateBreadcrumbSchema } from '@/utils/seo';
+
+const TokenizationContent = dynamic(() => import('@/components/TokenizationHub/TokenizationContent'));
 
 export const metadata: Metadata = {
   title: 'Asset Tokenization Platform | Copym',

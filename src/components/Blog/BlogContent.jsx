@@ -10,7 +10,7 @@ import FeaturedSection from './FeaturedSection';
 import Hero from './Hero';
 import { fetchBlogPosts, transformApiPost } from '@/services/blogApi';
 
-const categories = ["All", "Education", "News", "Insights", "Product Updates", "Glossary"];
+const CATEGORY_GLOSSARY = "Glossary";
 const POSTS_PER_PAGE = 6;
 
 export default function BlogContent({ initialApiPosts = [] }) {
@@ -22,51 +22,44 @@ export default function BlogContent({ initialApiPosts = [] }) {
   const [loading, setLoading] = useState(false); // Start false because we have SSR data
   const postsRef = useRef(null);
 
-  // Fetch posts from API only when explicitly needed (e.g. searching/filtering dynamically if API supports it)
-  // But we have local filtering anyway, so we only need to fetch if we don't have SSR data
-  const fetchPosts = useCallback(async () => {
-    // Skip fetching if we are on initial load and have SSR data
-    if (selectedCategory === "All" && searchTerm === "" && initialApiPosts.length > 0) {
-      return;
-    }
-    
+  // Fetch ALL posts from API once on mount if SSR didn't provide them
+  // Category filtering/search is done client-side only — never re-fetches on filter change
+  const fetchAllPosts = useCallback(async () => {
     setLoading(true);
     try {
-      const categoryFilter = selectedCategory === "All" ? undefined : selectedCategory;
       const result = await fetchBlogPosts({
-        category: categoryFilter,
-        search: searchTerm || undefined,
         page: 1,
         limit: 100
       });
-
       const transformedPosts = result.data.map(transformApiPost);
       setApiPosts(transformedPosts);
     } catch (error) {
       console.warn('API not available, using static posts only:', error?.message);
-      if (initialApiPosts.length === 0) {
-        setApiPosts([]);
-      }
     } finally {
       setLoading(false);
     }
-  }, [selectedCategory, searchTerm, initialApiPosts]);
+  }, []);
 
   useEffect(() => {
-    // Only fetch if we really need to (e.g. CSR navigation without SSR data)
     if (initialApiPosts.length === 0) {
-      fetchPosts();
+      fetchAllPosts();
     }
-  }, [fetchPosts, initialApiPosts]);
+  }, [fetchAllPosts, initialApiPosts]);
 
   const allPosts = apiPosts;
+
+  // Derive category chips dynamically from actual posts so they always match real data
+  const categories = useMemo(() => {
+    const unique = [...new Set(allPosts.map(p => p.category?.trim()).filter(Boolean))];
+    return ["All", ...unique.sort(), CATEGORY_GLOSSARY];
+  }, [allPosts]);
 
   // Filter posts based on category and search
   const filteredPosts = useMemo(() => {
     if (allPosts.length === 0) return [];
     
     return allPosts.filter(post => {
-      const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
+      const matchesCategory = selectedCategory === "All" || post.category?.trim() === selectedCategory;
       const matchesSearch = searchTerm === "" ||
         post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
@@ -75,7 +68,7 @@ export default function BlogContent({ initialApiPosts = [] }) {
   }, [allPosts, selectedCategory, searchTerm]);
 
   const handleCategoryChange = (category) => {
-    if (category === 'Glossary') {
+    if (category === CATEGORY_GLOSSARY) {
       router.push('/glossary');
     } else {
       setSelectedCategory(category);
@@ -91,10 +84,13 @@ export default function BlogContent({ initialApiPosts = [] }) {
       .slice(0, 5);
   }, [allPosts]);
 
-  // Get regular (non-featured) posts for the grid
+  // Get posts for the grid — include featured posts when filtering by a specific category
   const regularPosts = useMemo(() => {
+    if (selectedCategory !== "All") {
+      return filteredPosts;
+    }
     return filteredPosts.filter(post => !post.featured);
-  }, [filteredPosts]);
+  }, [filteredPosts, selectedCategory]);
 
   // Pagination calculation
   const totalPages = Math.ceil(regularPosts.length / POSTS_PER_PAGE);
@@ -159,7 +155,7 @@ export default function BlogContent({ initialApiPosts = [] }) {
                   key={category}
                   onClick={() => handleCategoryChange(category)}
                   className={`flex-shrink-0 px-2 sm:px-4 md:px-5 py-1.5 sm:py-2.5 rounded-full text-[10px] sm:text-sm font-semibold transition-all duration-300 ${
-                    selectedCategory === category && category !== 'Glossary'
+                    selectedCategory === category && category !== CATEGORY_GLOSSARY
                       ? 'bg-[#15a36e] text-white shadow-lg shadow-[#15a36e]/20'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}

@@ -1,18 +1,18 @@
-import { generatePageSEO, generateWebPageSchema } from '@/utils/seo';
+import dynamic from 'next/dynamic';
+import { generateWebPageSchema } from '@/utils/seo';
 import Hero from "@/components/Home/Hero";
-import LogoCarousel from "@/components/Home/LogoCarousel";
-import TrackYourCrypto from "@/components/Home/TrackYourCrypto";
-import AIInvestingSection from "@/components/Home/AIInvestingSection";
-import RWAAssetsSection from "@/components/Home/RWAAssetsSection";
-import NetworkShowcase from "@/components/Home/NetworkShowcase";
-import AuditSection from "@/components/Home/AuditSection";
-import FAQSection from "@/components/Home/FAQSection";
-import CTASection from "@/components/Home/CTASection";
-import SupportedAssets from "@/components/Home/SupportedAssets";
-import FeatureSection from "@/components/Home/FeatureSection";
-import WhoWeServe from "@/components/Home/WhoWeServe";
-import ProductStackReview from "@/components/Home/ProductStackReview";
-import TestimonialsSection from "@/components/Home/Testimonials";
+
+const LogoCarousel = dynamic(() => import('@/components/Home/LogoCarousel'));
+const FeatureSection = dynamic(() => import('@/components/Home/FeatureSection'));
+const WhoWeServe = dynamic(() => import('@/components/Home/WhoWeServe'));
+const ProductStackReview = dynamic(() => import('@/components/Home/ProductStackReview'));
+const AIInvestingSection = dynamic(() => import('@/components/Home/AIInvestingSection'));
+const RWAAssetsSection = dynamic(() => import('@/components/Home/RWAAssetsSection'));
+const TrackYourCrypto = dynamic(() => import('@/components/Home/TrackYourCrypto'));
+const AuditSection = dynamic(() => import('@/components/Home/AuditSection'));
+const FAQSection = dynamic(() => import('@/components/Home/FAQSection'));
+const TestimonialsSection = dynamic(() => import('@/components/Home/Testimonials'));
+const CTASection = dynamic(() => import('@/components/Home/CTASection'));
 
 export const metadata = {
   title: 'Copym – Complete Tokenization Platform for Real-World Assets',

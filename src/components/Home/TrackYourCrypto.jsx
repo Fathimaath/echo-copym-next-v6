@@ -1,5 +1,4 @@
 const ColourfulIcon = '/SVG/Colourfulicon.svg';
-import { QrCodeIcon } from '@heroicons/react/24/outline';
 const WatchSVG = '/SVG/watch.svg';
 const qrcode = '/SVG/qrcode.svg';
 import { FaApple } from 'react-icons/fa';

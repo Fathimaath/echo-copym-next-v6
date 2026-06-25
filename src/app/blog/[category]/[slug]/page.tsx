@@ -1,6 +1,8 @@
 import React from 'react';
-import BlogPostContent from '@/components/Blog/BlogPostContent';
+import dynamic from 'next/dynamic';
 import { fetchBlogPosts, fetchBlogPostBySlug, transformApiPost } from '@/services/blogApi';
+
+const BlogPostContent = dynamic(() => import('@/components/Blog/BlogPostContent'));
 import { generateBlogPostSchema, generateBreadcrumbSchema, generateFAQSchema, getSocialImageUrl } from '@/utils/seo';
 
 // Revalidate this page every 60 seconds to ensure new admin posts appear automatically

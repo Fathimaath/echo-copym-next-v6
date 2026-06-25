@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import AboutUsHero from '../../components/AboutUs/AboutUsHero';
-import AboutUsClient from '../../components/AboutUs/AboutUsClient';
 import { generateWebPageSchema, generateBreadcrumbSchema } from '@/utils/seo';
+
+const AboutUsClient = dynamic(() => import('../../components/AboutUs/AboutUsClient'));
 
 export const metadata: Metadata = {
     title: 'About Us | CopyM',

@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HiSparkles } from 'react-icons/hi';
 import { useEffect } from 'react';
 import Image from '../Image'; // Import our AVIF-compatible Image component
 const ellipse = '/SVG/mixedellipse.svg';
@@ -171,6 +170,7 @@ export default function AIInvestingSection() {
               <img
                 src={ellipse}
                 alt=""
+                loading="lazy"
                 className="w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px] opacity-60"
               />
             </div>
@@ -190,6 +190,7 @@ export default function AIInvestingSection() {
               <img
                 src="/assets/svg/leftvector.svg"
                 alt=""
+                loading="lazy"
                 className="connector-line w-[40px] sm:w-[80px] lg:w-[100px] h-auto flex-shrink-0 translate-y-2 -translate-x-2.5"
               />
             </motion.div>
@@ -221,6 +222,7 @@ export default function AIInvestingSection() {
               <img
                 src="/assets/svg/rightvectorr.svg"
                 alt=""
+                loading="lazy"
                 className="connector-line w-[40px] sm:w-[80px] lg:w-[100px] h-auto flex-shrink-0 translate-y-1.5"
               />
               <p className="info-box-text text-[7px] sm:text-[11px] lg:text-[13px] text-white font-medium leading-relaxed text-left pl-1 sm:pl-4 translate-y-3 !mb-0" style={{ fontFamily: 'Palanquin, sans-serif' }}>

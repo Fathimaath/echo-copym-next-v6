@@ -15,6 +15,8 @@ export default function NetworkShowcase() {
             loop
             muted
             playsInline
+            preload="metadata"
+            poster="/assets/videos/copymflows-poster.webp"
             className="w-full h-auto object-contain"
             style={{ maxHeight: '520px' }}
           >

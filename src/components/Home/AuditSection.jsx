@@ -31,6 +31,7 @@ export default function AuditSection() {
           <img
             src={logoAndIcons}
             alt="Secure & Audited - Blockchain Networks"
+            loading="lazy"
             className="w-full h-auto"
           />
         </div>

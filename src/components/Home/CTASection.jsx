@@ -15,6 +15,8 @@ export default function CTASection() {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
+                    poster="/Videos/ctavdos-poster.webp"
                     className="w-full h-full object-cover"
                 >
                     <source src={ctavdo} type="video/mp4" />

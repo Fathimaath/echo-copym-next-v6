@@ -42,25 +42,29 @@ export default function GlossaryTermClient({ termData, slug }) {
 
   // Handle scroll spy for active section highlighting
   useEffect(() => {
-    if (!termData) return;
+    if (!termData?.headings?.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: '-100px 0px -80% 0px' }
-    );
+    const handleScroll = () => {
+      let currentActive = '';
+      const offset = 200;
 
-    termData.headings?.forEach(({ id }) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
+      for (const { id } of termData.headings) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= offset) {
+          currentActive = id;
+        }
+      }
 
-    return () => observer.disconnect();
+      if (currentActive) {
+        setActiveSection(currentActive);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [termData]);
 
   const handleShare = (platform) => {
@@ -84,7 +88,7 @@ export default function GlossaryTermClient({ termData, slug }) {
   const scrollToHeading = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -120;
+      const yOffset = -180;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
@@ -94,19 +98,8 @@ export default function GlossaryTermClient({ termData, slug }) {
 
   return (
     <div className="bg-white text-gray-900 min-h-screen">
-      {/* Breadcrumbs - Sticky on desktop, static on mobile */}
-      <div className="hidden lg:block fixed top-0 left-0 right-0 bg-gray-50 z-40 pt-28">
-        <div className="px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 pb-8">
-          <Breadcrumbs items={[
-            { label: 'Home', path: '/' },
-            { label: 'Glossary', path: '/glossary' },
-            { label: termData.term }
-          ]} />
-        </div>
-      </div>
-
-      {/* Mobile Breadcrumbs - Static */}
-      <div className="lg:hidden pt-28 sm:pt-32 pb-4">
+      {/* Breadcrumbs - fixed on desktop, static on mobile */}
+      <div className="pt-28 sm:pt-32 pb-4 lg:pb-8 lg:fixed lg:top-0 lg:left-0 lg:right-0 lg:bg-gray-50 lg:z-40">
         <div className="px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32">
           <Breadcrumbs items={[
             { label: 'Home', path: '/' },

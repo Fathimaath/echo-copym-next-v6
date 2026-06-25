@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
-import MarketplaceContent from '@/components/Marketplace/MarketplaceContent';
+import dynamic from 'next/dynamic';
 import { generateWebPageSchema, generateBreadcrumbSchema } from '@/utils/seo';
+
+const MarketplaceContent = dynamic(() => import('@/components/Marketplace/MarketplaceContent'));
 
 export const metadata: Metadata = {
   title: 'Tokenized Asset Marketplace | Copym',

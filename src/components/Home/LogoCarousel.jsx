@@ -15,15 +15,15 @@ const LogoCarousel = () => {
     { src: "/assets/blockchains/canton-logo-black.svg", alt: "Canton" },
   ];
 
-  // Duplicate logos multiple times for seamless loop
-  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
+  // Duplicate logos 3 times for seamless loop (reduced from 7)
+  const duplicatedLogos = [...logos, ...logos, ...logos];
 
   return (
     <section className="w-full bg-white border-t border-gray-200 overflow-hidden -mt-px">
       <style>{`
         @keyframes logo-marquee {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-25%); }
+          100% { transform: translateX(-33.33%); }
         }
       `}</style>
       <div className="w-full">
@@ -32,7 +32,7 @@ const LogoCarousel = () => {
             <div
               className="flex items-center py-1"
               style={{
-                width: "450%",
+                width: "200%",
                 animation: "logo-marquee 20s linear infinite",
               }}
             >

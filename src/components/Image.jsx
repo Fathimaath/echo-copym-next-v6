@@ -12,6 +12,7 @@ const Image = ({
   style,
   onLoad,
   onError,
+  loading = 'lazy',
   ...props
 }) => {
   // Handle Next.js StaticImageData object (from 'import' statements)
@@ -25,6 +26,7 @@ const Image = ({
         alt={alt}
         className={className}
         style={style}
+        loading={loading}
         {...props}
       />
     );
@@ -41,6 +43,7 @@ const Image = ({
         alt={alt}
         className={className}
         style={style}
+        loading={loading}
         onLoad={onLoad}
         onError={onError}
         {...props}
@@ -89,6 +92,7 @@ const Image = ({
           alt={alt}
           className={className}
           style={style}
+          loading={loading}
           onLoad={onLoad}
           onError={onError}
           {...props}
@@ -103,6 +107,7 @@ const Image = ({
         alt={alt}
         className={className}
         style={style}
+        loading={loading}
         onLoad={onLoad}
         onError={onError}
         {...props}

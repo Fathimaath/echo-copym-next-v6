@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import { motion } from "framer-motion";
-import { Landmark } from "lucide-react";
 import Image from '@/components/Image';
 const hsbcLogo = '/icons/Tokenization/logo-hsbc-red.avif';
 const bnyLogo = '/icons/Tokenization/bnymellon.avif';

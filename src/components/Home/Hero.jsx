@@ -49,6 +49,9 @@ export default function Hero() {
           loop
           muted
           playsInline
+          preload="metadata"
+          poster="/assets/Images/heroimage.webp"
+          fetchPriority="high"
           className="w-full h-full object-cover"
           style={{
             minHeight: '100vh',

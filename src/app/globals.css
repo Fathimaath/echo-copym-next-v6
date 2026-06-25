@@ -97,47 +97,7 @@
 
 /* Global styles from Vite app */
 
-/* Self-hosted fonts - Inter */
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/inter-v20-latin-300.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/inter-v20-latin-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/inter-v20-latin-500.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/inter-v20-latin-600.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/inter-v20-latin-700.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
+/* Self-hosted fonts - Inter (only weight 800 used) */
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/inter-v20-latin-800.woff2') format('woff2');
@@ -146,62 +106,7 @@
   font-display: swap;
 }
 
-/* Self-hosted fonts - Genos */
-@font-face {
-  font-family: 'Genos';
-  src: url('/fonts/genos-v16-latin-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Genos';
-  src: url('/fonts/genos-v16-latin-300.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Genos';
-  src: url('/fonts/genos-v16-latin-500.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Genos';
-  src: url('/fonts/genos-v16-latin-600.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Genos';
-  src: url('/fonts/genos-v16-latin-700.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Genos';
-  src: url('/fonts/genos-v16-latin-800.woff2') format('woff2');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* Self-hosted fonts - Palanquin removed to use next/font/google */
-
-:root {
-  --font-sora: 'Sora', sans-serif;
-  --font-code: 'Source Code Pro', monospace;
-  --font-grotesk: 'Space Grotesk', sans-serif;
-}
 
 * {
   box-sizing: border-box;
@@ -279,10 +184,6 @@ html {
 /* Typography Utilities */
 .font-palanquin {
   font-family: 'Palanquin', sans-serif;
-}
-
-.font-genos {
-  font-family: 'Genos', sans-serif;
 }
 
 /* Glassmorphism */
@@ -711,5 +612,16 @@ section {
 
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

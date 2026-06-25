@@ -50,7 +50,7 @@ RewriteRule ^(.+)/$ /$1/index.html [L]
 </IfModule>
 
 # ----- CACHING -----
-<FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|avif|ico|css|js|woff2?)$">
+<FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|avif|ico|css|js|woff2?|mp4|webm|json|xml)$">
   Header set Cache-Control "public, max-age=31536000, immutable"
 </FilesMatch>
 

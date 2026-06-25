@@ -4,15 +4,10 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoClose } from 'react-icons/io5';
 import Link from "next/link";
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaUsers, FaDollarSign, FaHandshake, FaFileAlt, FaKey, FaFileAlt as FaReport, FaInfoCircle, FaEnvelope, FaDownload, FaChevronDown } from 'react-icons/fa';
+import { FaDollarSign, FaDownload, FaChevronDown } from 'react-icons/fa';
 import { HiCube, HiShieldCheck, HiLightningBolt, HiDocumentText, HiBookOpen, HiNewspaper } from 'react-icons/hi';
-import { BsCurrencyBitcoin, BsShop } from 'react-icons/bs';
+
 import Image from './Image'; // Import our new AVIF-compatible Image component
-const tiicon4 = '/icons/Tokenization/tiicon4.avif';
-const aboutush = '/images/aboutush.avif';
-const tokencoinh = '/images/tokencoinh.avif';
-const zerogash = '/images/zerogash.avif';
-const parivaryaih = '/images/parivaryaih.avif';
 
 // Styled icon component with green color
 const StyledIcon = ({ icon: Icon, className = "" }) => (
