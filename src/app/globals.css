@@ -2,9 +2,6 @@
 @config "../../tailwind.config.mjs";
 @source "../**/*.{js,ts,jsx,tsx,mdx}";
 
-/* Third-party library styles */
-@import "lenis/dist/lenis.css";
-
 /* Custom component styles */
 @import "../styles/WhyCopymScrollTrigger.css";
 @import "../styles/DownloadButton.css";
