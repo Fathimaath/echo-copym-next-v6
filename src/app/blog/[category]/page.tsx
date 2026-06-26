@@ -16,7 +16,7 @@ export async function generateStaticParams() {
   const slugs: { category: string }[] = [];
 
   try {
-    const result: any = await fetchBlogPosts({ page: 1, limit: 100 });
+    const result: any = await fetchBlogPosts({ category: '', search: '', page: 1, limit: 100 });
     if (result?.data?.length) {
       const seen = new Set<string>();
       result.data.forEach((post: any) => {
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 
   let categoryName = category.replace(/-/g, ' ');
   try {
-    const result: any = await fetchBlogPosts({ page: 1, limit: 100 });
+    const result: any = await fetchBlogPosts({ category: '', search: '', page: 1, limit: 100 });
     if (result?.data?.length) {
       const match = result.data.find((post: any) => {
         const cat = (post.category || '').trim();
@@ -87,7 +87,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   let categoryName = category.replace(/-/g, ' ');
 
   try {
-    const result: any = await fetchBlogPosts({ page: 1, limit: 100 });
+    const result: any = await fetchBlogPosts({ category: '', search: '', page: 1, limit: 100 });
     if (result?.data?.length) {
       initialApiPosts = result.data.map((post: any) => transformApiPost(post));
 
@@ -123,6 +123,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
       />
+      {/* @ts-ignore - Ignore JS component prop typing */}
       <BlogContent initialApiPosts={initialApiPosts} initialCategory={categoryName} />
     </>
   );

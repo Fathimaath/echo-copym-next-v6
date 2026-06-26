@@ -40,7 +40,7 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
   // Fetch all posts from API for related posts calculation
   const fetchAllPosts = async () => {
     try {
-      const result = await fetchBlogPosts({ page: 1, limit: 100 });
+      const result = await fetchBlogPosts({ category: '', search: '', page: 1, limit: 100 });
       if (result?.data) {
         return result.data.map(p => transformApiPost(p));
       }

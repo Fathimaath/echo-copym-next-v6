@@ -28,6 +28,8 @@ export default function BlogContent({ initialApiPosts = [], initialCategory }) {
     setLoading(true);
     try {
       const result = await fetchBlogPosts({
+        category: '',
+        search: '',
         page: 1,
         limit: 100
       });

@@ -40,7 +40,7 @@ export default async function BlogPage() {
   let initialApiPosts: any[] = [];
   try {
     // @ts-ignore - Ignore JS module typing inference
-    const result = (await fetchBlogPosts({ page: 1, limit: 100 })) as any;
+    const result = (await fetchBlogPosts({ category: '', search: '', page: 1, limit: 100 })) as any;
     if (result && result.data && Array.isArray(result.data)) {
       initialApiPosts = result.data.map((post: any) => transformApiPost(post));
     }
