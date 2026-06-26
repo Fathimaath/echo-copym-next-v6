@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { IoClose } from 'react-icons/io5';
 import Link from "next/link";
 import { AnimatePresence, motion } from 'framer-motion';
+import { X } from 'lucide-react';
 
 // Removed invalid mp4 import that caused Vite error.
 
@@ -59,7 +59,7 @@ export default function Hero() {
             maxHeight: '-webkit-fill-available' /* Better mobile viewport height support */
           }}
         >
-          <source src="/assets/videos/hero section video.mp4" type="video/mp4" />
+          <source src="/assets/videos/hero-section-video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
@@ -81,7 +81,7 @@ export default function Hero() {
 
           {/* ====== DESCRIPTION ====== */}
           <p
-            className="text-xs sm:text-xs md:text-sm lg:text-base text-white mb-4 sm:mb-6 font-thin"
+            className="text-xs sm:text-xs md:text-sm lg:text-base text-white mb-4 sm:mb-6 font-normal"
             style={{
               fontFamily: 'Palanquin, sans-serif',
               lineHeight: '1.625',
@@ -93,7 +93,7 @@ export default function Hero() {
           </p>
 
           <p
-            className="text-center text-xs sm:text-sm md:text-base text-white mb-3 sm:mb-4 font-light"
+            className="text-center text-xs sm:text-sm md:text-base text-white mb-3 sm:mb-4 font-normal"
             style={{
               fontFamily: 'Palanquin, sans-serif',
               lineHeight: '1.5'
@@ -104,7 +104,7 @@ export default function Hero() {
 
           {/* ====== FOR INVESTORS ====== */}
           <p
-            className="text-center text-xs sm:text-sm md:text-base text-white mb-8 sm:mb-10 md:mb-12 font-light"
+            className="text-center text-xs sm:text-sm md:text-base text-white mb-8 sm:mb-10 md:mb-12 font-normal"
             style={{
               fontFamily: 'Palanquin, sans-serif',
               lineHeight: '1.5'
@@ -194,7 +194,7 @@ export default function Hero() {
                 className="absolute -top-10 right-0 text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white rounded p-1 transition-all"
                 aria-label="Close video modal"
               >
-                <IoClose size={32} />
+                <X size={32} />
               </button>
               <h2 id="video-modal-title" className="sr-only">How It Works Video</h2>
               <video

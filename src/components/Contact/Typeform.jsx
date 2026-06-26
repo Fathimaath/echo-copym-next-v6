@@ -1,13 +1,7 @@
 "use client";
 import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  GiCheckMark,
-  GiPerson,
-  GiHouse,
-
-  GiShield
-} from "react-icons/gi";
+import { Check, User, Home, Shield } from "lucide-react";
 
 /**
  * Copym — RWA Tokenized Marketplace
@@ -38,7 +32,7 @@ const steps = [
     label: "What are your Tokenization goals?",
     helper: "Choose the area you want to tokenize with Copym",
     type: "segmented",
-    icon: GiHouse,
+    icon: Home,
     required: true,
     options: [
       "Tokenize Real Estate",
@@ -53,7 +47,7 @@ const steps = [
     id: "contactInfo",
     label: "Your Contact Information",
     type: "group",
-    icon: GiPerson,
+    icon: User,
     required: true,
     fields: [
       { key: "firstName", label: "First Name", required: true },
@@ -66,7 +60,7 @@ const steps = [
     id: "companyInfo",
     label: "Company Information",
     type: "group",
-    icon: GiHouse,
+    icon: Home,
     required: true,
     fields: [
       { key: "companyName", label: "Company Name", required: true },
@@ -78,7 +72,7 @@ const steps = [
     id: "industry",
     label: "What Industry is your company in?",
     type: "segmented",
-    icon: GiHouse,
+    icon: Home,
     required: true,
     options: [
       "Real Estate",
@@ -94,7 +88,7 @@ const steps = [
     id: "companyDetails",
     label: "Tell us about your company",
     type: "textarea",
-    icon: GiHouse,
+    icon: Home,
     required: true,
     placeholder: "Brief summary about your company, traction, and funding raised to date..."
   },
@@ -103,7 +97,7 @@ const steps = [
     id: "companyStatus",
     label: "Company Status",
     type: "group",
-    icon: GiShield,
+    icon: Shield,
     required: true,
     fields: [
       { key: "incUS", label: "Incorporated in U.S?", type: "segmented", options: ["Yes", "No"], required: true },
@@ -115,7 +109,7 @@ const steps = [
     id: "raiseStructure",
     label: "How would you like to structure your raise on Copym?",
     type: "segmented",
-    icon: GiCheckMark,
+    icon: Check,
     required: true,
     options: [
       "Tokenized Equity",
@@ -561,7 +555,7 @@ function ThankYou() {
         animate={{ scale: 1 }}
         transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
       >
-        <GiCheckMark className="w-12 h-12 text-white" />
+        <Check className="w-12 h-12 text-white" />
       </motion.div>
 
       <motion.div

@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from "next/link";
-import { FiCalendar, FiClock, FiArrowRight } from 'react-icons/fi';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import Image from '@/components/Image';
 
 /**
@@ -109,11 +109,11 @@ function FeaturedHeroCard({ post }) {
             {/* 4. Date & Read Time */}
             <div className="flex items-center gap-2 text-[10px] sm:text-xs text-gray-300 mb-3 sm:mb-4">
               <span className="flex items-center gap-1">
-                <FiCalendar className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 {date}
               </span>
               <span className="flex items-center gap-1">
-                <FiClock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 {readTime}
               </span>
             </div>
@@ -182,11 +182,11 @@ function FeaturedSidebarCard({ post }) {
 
             <div className="flex items-center gap-2 text-xs text-gray-500 mt-2">
               <span className="flex items-center gap-1">
-                <FiCalendar className="w-3 h-3" />
+                <Calendar className="w-3 h-3" />
                 {date}
               </span>
               <span className="flex items-center gap-1">
-                <FiClock className="w-3 h-3" />
+                <Clock className="w-3 h-3" />
                 {readTime}
               </span>
             </div>
@@ -195,7 +195,7 @@ function FeaturedSidebarCard({ post }) {
 
         {/* Hover Arrow Indicator */}
         <div className="absolute top-1/2 right-3 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <FiArrowRight className="w-4 h-4 text-[#15a36e]" />
+          <ArrowRight className="w-4 h-4 text-[#15a36e]" />
         </div>
       </article>
     </Link>

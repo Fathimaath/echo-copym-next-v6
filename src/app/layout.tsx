@@ -3,9 +3,10 @@ import { Palanquin } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Providers from "@/components/Providers";
-import { generateWebsiteSchema } from "@/utils/seo";
+import dynamic from "next/dynamic";
+import { generateCoreSchema } from "@/utils/seo";
+
+const Footer = dynamic(() => import("@/components/Footer"));
 
 const palanquin = Palanquin({
   variable: "--font-palanquin",
@@ -39,19 +40,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const orgSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "CopyM",
-    "url": "https://copym.xyz/",
-    "logo": "https://copym.xyz/assets/copym/png/Copym-01-1.png",
-    "sameAs": [
-      "https://twitter.com/copym",
-      "https://linkedin.com/company/copym"
-    ]
-  };
-
-  const websiteSchema = generateWebsiteSchema();
+  const coreSchema = generateCoreSchema();
 
   return (
     <html
@@ -62,11 +51,7 @@ export default function RootLayout({
         <meta name="google-site-verification" content="ywTFKs9vltUreS6Hi6x4CXmLhGoICESwd6j5SDUUbS1w" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(coreSchema) }}
         />
         {/* Google Tag Manager */}
         <Script
@@ -93,11 +78,9 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        <Providers>
-          <Header />
-          <main className="flex-grow relative overflow-x-hidden pt-0 sm:pt-16">{children}</main>
-          <Footer />
-        </Providers>
+        <Header />
+        <main className="flex-grow relative overflow-x-hidden pt-0 sm:pt-16">{children}</main>
+        <Footer />
       </body>
     </html>
   );

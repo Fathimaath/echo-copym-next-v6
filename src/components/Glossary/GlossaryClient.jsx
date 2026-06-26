@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { FiBook, FiArrowRight } from 'react-icons/fi';
+import { Book, ArrowRight } from 'lucide-react';
 import SectionContainer from '@/components/Layout/SectionContainer';
 import { glossaryTerms } from '@/data/glossaryTerms';
 import GlossaryHero from './GlossaryHero';
@@ -33,16 +33,17 @@ export default function GlossaryClient({ initialTerms, initialLetter: serverLett
     if (!navEl) return;
 
     const navOriginalTop = navEl.getBoundingClientRect().top + window.scrollY;
+    let ticking = false;
 
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      if (ticking) return;
+      ticking = true;
 
-      // Make sticky when scrolled past original position
-      if (currentScrollY >= navOriginalTop) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        setIsSticky(currentScrollY >= navOriginalTop);
+        ticking = false;
+      });
     };
 
     const calculateHeight = () => {
@@ -199,7 +200,7 @@ export default function GlossaryClient({ initialTerms, initialLetter: serverLett
                           <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-[#15a36e] transition-colors line-clamp-2 flex-1" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                             {item.term}
                           </h3>
-                          <FiArrowRight className="w-4 h-4 text-gray-300 group-hover:text-[#15a36e] group-hover:translate-x-1 transition-all flex-shrink-0 mt-0.5" />
+                          <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-[#15a36e] group-hover:translate-x-1 transition-all flex-shrink-0 mt-0.5" />
                         </div>
                         <p className="text-xs text-gray-500 leading-relaxed line-clamp-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                           {item.description}
@@ -218,7 +219,7 @@ export default function GlossaryClient({ initialTerms, initialLetter: serverLett
             className="text-center py-12 sm:py-16 px-4"
           >
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
-              <FiBook className="w-8 h-8 sm:w-10 sm:h-10 text-gray-400" />
+              <Book className="w-8 h-8 sm:w-10 sm:h-10 text-gray-400" />
             </div>
             <h3 className="text-lg sm:text-xl font-bold text-gray-700 mb-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
               No terms found
@@ -257,7 +258,7 @@ export default function GlossaryClient({ initialTerms, initialLetter: serverLett
             style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
           >
             Visit Blog
-            <FiBook className="w-4 h-4 sm:w-5 sm:h-5" />
+            <Book className="w-4 h-4 sm:w-5 sm:h-5" />
           </Link>
         </motion.div>
       </SectionContainer>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaExternalLinkAlt, FaDownload } from 'react-icons/fa';
+import { ExternalLink, Download } from 'lucide-react';
 
 function TradingMockup() {
   return (
@@ -8,11 +8,11 @@ function TradingMockup() {
       <div className="flex space-x-4 mb-16 z-10">
         <button className="flex items-center space-x-2 bg-white text-black font-semibold rounded-md px-5 py-2 shadow-md hover:shadow-lg transition-shadow">
           <span>Open Account</span>
-          <FaExternalLinkAlt />
+          <ExternalLink />
         </button>
         <button className="flex items-center space-x-2 bg-gray-900 text-white font-semibold rounded-md px-5 py-2 shadow-md hover:shadow-lg transition-shadow">
           <span>Download</span>
-          <FaDownload />
+          <Download />
         </button>
       </div>
 

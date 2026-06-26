@@ -1,6 +1,6 @@
-"use client";
 import React from 'react';
 import Link from "next/link";
+import Image from '../Image';
 
 const ContentBlocks = {};
 
@@ -60,7 +60,7 @@ ContentBlocks.Quote = ({ text, author, role, avatar }) => (
     <p className="blog-quote__text">{text}</p>
     <div className="blog-quote__author">
       <div className="blog-quote__avatar">
-        {avatar ? <img src={avatar} alt={author} /> : author?.charAt(0)}
+        {avatar ? <Image src={avatar} alt={author} /> : author?.charAt(0)}
       </div>
       <div>
         <div className="blog-quote__name">{author}</div>
@@ -137,7 +137,7 @@ ContentBlocks.Table = ({ headers, rows, caption }) => (
    ============================== */
 ContentBlocks.Image = ({ src, alt, caption }) => (
   <div className="blog-block blog-image">
-    <img src={src} alt={alt || ''} />
+    <Image src={src} alt={alt || ''} />
     {caption && <div className="blog-image__caption">{caption}</div>}
   </div>
 );

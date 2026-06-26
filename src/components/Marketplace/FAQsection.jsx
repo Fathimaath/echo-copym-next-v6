@@ -92,8 +92,14 @@ export default function FAQsection() {
     }
   ];
 
+  const faqSchema = generateFAQSchema(faqs);
+
   return (
     <section className="relative pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-6 sm:pb-8 bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16">
         {/* Section Header */}
         <div className="text-center mb-6">

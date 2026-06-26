@@ -1,7 +1,7 @@
-"use client";
 import React from 'react';
 import Link from "next/link";
-import { FiArrowRight } from 'react-icons/fi';
+import { ArrowRight } from 'lucide-react';
+import Image from '../Image';
 
 /**
  * RelatedPosts Component
@@ -42,7 +42,7 @@ export default function RelatedPosts({ posts = [], title = "Related Articles" })
               {/* Image */}
               {post.image && (
                 <div className="aspect-video overflow-hidden">
-                  <img
+                  <Image
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -70,7 +70,7 @@ export default function RelatedPosts({ posts = [], title = "Related Articles" })
                   <span>{post.date}</span>
                   <span className="flex items-center gap-1 text-[#15a36e] font-semibold group-hover:gap-2 transition-all">
                     Read
-                    <FiArrowRight className="w-3 h-3" />
+                    <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
               </div>

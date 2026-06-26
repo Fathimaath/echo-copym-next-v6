@@ -4,6 +4,7 @@ import HomeCycle1 from './SVG/homecyclen1.svg';
 import HomeCycle2 from './SVG/homecyclen2.svg';
 import HomeCycle3 from './SVG/homecyclen3.svg';
 import HomeCycle4 from './SVG/homecyclen4.svg';
+import Image from './Image';
 
 export default function HomeCycleSection() {
     const [currentSVGIndex, setCurrentSVGIndex] = useState(0);
@@ -42,7 +43,7 @@ export default function HomeCycleSection() {
             <div className="flex justify-center items-center w-full">
                 <div className="relative w-full max-w-4xl h-auto flex justify-center items-center">
                     {/* Single image that changes src rapidly */}
-                    <img
+                    <Image
                         src={homeCycleSVGs[currentSVGIndex]}
                         alt="Innovation and Investment Cycle"
                         className="w-full h-auto mx-auto object-contain"

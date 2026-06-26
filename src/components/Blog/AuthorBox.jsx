@@ -1,5 +1,6 @@
 import React from 'react';
-import { FiUser, FiMail, FiTwitter, FiLinkedin } from 'react-icons/fi';
+import { User, Mail, Twitter, Linkedin } from 'lucide-react';
+import Image from '../Image';
 
 /**
  * AuthorBox Component
@@ -21,13 +22,13 @@ export default function AuthorBox({
         {/* Avatar */}
         <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#15a36e]/20 flex items-center justify-center flex-shrink-0">
           {avatar ? (
-            <img 
+            <Image 
               src={avatar} 
               alt={name} 
               className="w-full h-full rounded-full object-cover"
             />
           ) : (
-            <FiUser className="w-8 h-8 text-[#15a36e]" />
+            <User className="w-8 h-8 text-[#15a36e]" />
           )}
         </div>
         
@@ -62,7 +63,7 @@ export default function AuthorBox({
                   className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
                   aria-label="Email"
                 >
-                  <FiMail className="w-4 h-4" />
+                  <Mail className="w-4 h-4" />
                 </a>
               )}
               {twitter && (
@@ -73,7 +74,7 @@ export default function AuthorBox({
                   className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
                   aria-label="Twitter"
                 >
-                  <FiTwitter className="w-4 h-4" />
+                  <Twitter className="w-4 h-4" />
                 </a>
               )}
               {linkedin && (
@@ -84,7 +85,7 @@ export default function AuthorBox({
                   className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
                   aria-label="LinkedIn"
                 >
-                  <FiLinkedin className="w-4 h-4" />
+                  <Linkedin className="w-4 h-4" />
                 </a>
               )}
             </div>

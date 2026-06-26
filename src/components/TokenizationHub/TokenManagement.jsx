@@ -7,6 +7,7 @@ const tiicon2 = '/icons/Tokenization/tiicon2.png';
 const tiicon3 = '/icons/Tokenization/tiicon3.png';
 const tiicon4 = '/icons/Tokenization/tiicon4.png';
 const cardshades = '/images/cardshades.png';
+import Image from '@/components/Image';
 
 export default function TokenManagement() {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -101,7 +102,7 @@ export default function TokenManagement() {
 
                                 {/* Icon - Centered */}
                                 <div className="flex items-center justify-center mt-8 sm:mt-10 lg:mt-12 mb-3 sm:mb-4 lg:mb-5 h-[100px] sm:h-[140px] md:h-[160px] lg:h-[180px]">
-                                    <img
+                                    <Image
                                         src={feature.icon}
                                         alt={feature.title}
                                         className={`w-full h-full object-contain transform ${feature.scale}`}

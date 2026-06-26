@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Link from "next/link";
-import { FiChevronRight } from 'react-icons/fi';
+import { ChevronRight } from 'lucide-react';
 
 /**
  * Breadcrumbs Component
@@ -20,7 +20,7 @@ export default function Breadcrumbs({ items = [] }) {
           <React.Fragment key={item.path || index}>
             {/* Separator */}
             {index > 0 && (
-              <FiChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 mx-1 sm:mx-2 flex-shrink-0" />
+              <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 mx-1 sm:mx-2 flex-shrink-0" />
             )}
 
             {isLast ? (

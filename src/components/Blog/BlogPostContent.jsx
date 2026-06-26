@@ -4,10 +4,11 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 import { useRouter } from 'next/navigation';
-import { FiTwitter, FiLinkedin, FiMail, FiFacebook, FiLink, FiCalendar, FiClock, FiUser, FiChevronRight } from 'react-icons/fi';
+import { Twitter, Linkedin, Mail, Facebook, Link2, Calendar, Clock, User, ChevronRight } from 'lucide-react';
 import Breadcrumbs from './Breadcrumbs';
 import RelatedPosts from './RelatedPosts';
 import BlogContentRenderer from './BlogContentRenderer';
+import Image from '../Image';
 import { fetchBlogPostBySlug, fetchBlogPosts, transformApiPost } from '@/services/blogApi';
 
 const BlogBelowFold = dynamic(() => import('./BlogBelowFold'), { ssr: false });
@@ -110,57 +111,42 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
     }
   }, [slug, initialArticle, router]);
 
-  // Handle scroll spy and sidebar fixed/absolute switching
+  // Unified scroll handler with rAF throttling
   useEffect(() => {
-    const handleScroll = () => {
-      if (mainContentRef.current) {
-        const mainRect = mainContentRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-
-        const mainContentEnd = mainRect.bottom < windowHeight;
-        setLeftSidebarFixed(!mainContentEnd);
-        setRightSidebarFixed(!mainContentEnd);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Enable wheel scrolling for left sidebar
-  useEffect(() => {
-    const leftSidebarEl = leftSidebarRef.current?.querySelector('div');
-
-    if (leftSidebarEl && leftSidebarFixed) {
-      const handleWheel = (e) => {
-        e.stopPropagation();
-      };
-
-      leftSidebarEl.addEventListener('wheel', handleWheel, { passive: true });
-      return () => leftSidebarEl.removeEventListener('wheel', handleWheel);
-    }
-  }, [leftSidebarFixed]);
-
-  // Handle scroll spy for active section highlighting
-  useEffect(() => {
-    if (!article) return;
+    let ticking = false;
 
     const handleScroll = () => {
-      const offset = 200;
-      const headings = article.headings || [];
-      let currentId = '';
+      if (ticking) return;
+      ticking = true;
 
-      for (const h of headings) {
-        const el = document.getElementById(h.id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= offset) {
-            currentId = h.id;
-          }
+      requestAnimationFrame(() => {
+        // Sidebar fixed/absolute switching
+        if (mainContentRef.current) {
+          const mainRect = mainContentRef.current.getBoundingClientRect();
+          const mainContentEnd = mainRect.bottom < window.innerHeight;
+          setLeftSidebarFixed(!mainContentEnd);
+          setRightSidebarFixed(!mainContentEnd);
         }
-      }
 
-      setActiveSection(currentId);
+        // Scroll spy for active section highlighting
+        if (article) {
+          const offset = 200;
+          const headings = article.headings || [];
+          let currentId = '';
+          for (const h of headings) {
+            const el = document.getElementById(h.id);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              if (rect.top <= offset) {
+                currentId = h.id;
+              }
+            }
+          }
+          setActiveSection(currentId);
+        }
+
+        ticking = false;
+      });
     };
 
     handleScroll();
@@ -205,7 +191,7 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
           <Breadcrumbs items={[
             { label: 'Home', path: '/' },
             { label: 'Blog', path: '/blog' },
-            { label: article.category, path: `/blog?category=${article.category.toLowerCase()}` },
+            { label: article.category, path: `/blog/${article.category.toLowerCase().replace(/\s+/g, '-')}/` },
             { label: article.title }
           ]} />
         </div>
@@ -320,35 +306,35 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
                   className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
                   aria-label="Share on Twitter"
                 >
-                  <FiTwitter className="w-4 h-4" />
+                  <Twitter className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => handleShare('linkedin')}
                   className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
                   aria-label="Share on LinkedIn"
                 >
-                  <FiLinkedin className="w-4 h-4" />
+                  <Linkedin className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => handleShare('facebook')}
                   className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
                   aria-label="Share on Facebook"
                 >
-                  <FiFacebook className="w-4 h-4" />
+                  <Facebook className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => handleShare('email')}
                   className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
                   aria-label="Share via Email"
                 >
-                  <FiMail className="w-4 h-4" />
+                  <Mail className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => handleShare('copy')}
                   className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
                   aria-label="Copy Link"
                 >
-                  <FiLink className="w-4 h-4" />
+                  <Link2 className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -376,7 +362,7 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
                 <div className="flex items-center gap-2.5">
                   <div className="w-9 h-9 rounded-full bg-[#15a36e]/20 flex items-center justify-center flex-shrink-0">
                     {authorObj?.avatar ? (
-                      <img src={authorObj.avatar} alt={authorObj.name} className="w-full h-full rounded-full object-cover" />
+                      <Image src={authorObj.avatar} alt={authorObj.name} className="w-full h-full rounded-full object-cover" />
                     ) : (
                       <span className="text-xs font-bold text-[#15a36e]">{authorObj?.name?.charAt(0) || 'C'}</span>
                     )}
@@ -400,11 +386,11 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
                 {/* Date & Read Time */}
                 <div className="flex items-center gap-3.5 text-xs text-gray-500">
                   <span className="flex items-center gap-1.5">
-                    <FiCalendar className="w-3.5 h-3.5" />
+                    <Calendar className="w-3.5 h-3.5" />
                     {article.date}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <FiClock className="w-3.5 h-3.5" />
+                    <Clock className="w-3.5 h-3.5" />
                     {article.readTime}
                   </span>
                 </div>
@@ -413,7 +399,7 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
               {/* Featured Image */}
               {article.image && (
                 <div className="rounded-xl overflow-hidden mb-10">
-                  <img src={article.image} alt={article.title} className="w-full h-40 sm:h-56 md:h-72 lg:h-96 object-cover" />
+                  <Image src={article.image} alt={article.title} className="w-full h-40 sm:h-56 md:h-72 lg:h-96 object-cover" />
                 </div>
               )}
             </header>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { FiChevronDown } from 'react-icons/fi';
+import { ChevronDown } from 'lucide-react';
 
 /**
  * TableOfContents Component
@@ -54,7 +54,7 @@ export default function TableOfContents({ headings = [] }) {
         style={{ fontFamily: 'Palanquin, sans-serif' }}
       >
         <span>Table of Contents</span>
-        <FiChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {/* Mobile Dropdown */}

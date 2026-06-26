@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import GroupedImages from '/assets/copym/png/Grouped-images.png';
+import Image from '@/components/Image';
 
 export default function PlatformFeatures() {
   return (
@@ -23,7 +24,7 @@ export default function PlatformFeatures() {
           viewport={{ once: true }}
           className="flex justify-center items-center px-4"
         >
-          <img
+          <Image
             src={GroupedImages}
             alt="Platform Features"
             className="w-full max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl h-auto object-contain transform scale-[1.15]"

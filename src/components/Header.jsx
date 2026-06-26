@@ -332,6 +332,7 @@ export default function Header() {
                 if (isMenuOpen) setMobileDropdownOpen(null);
               }}
               aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <IoClose className="h-6 w-6" /> : <GiHamburgerMenu className="h-6 w-6" />}
             </button>

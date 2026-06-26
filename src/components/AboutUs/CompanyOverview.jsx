@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionHeader from '@/components/Layout/SectionHeader';
+import Image from '@/components/Image';
 
 const CompanyOverview = () => {
   return (
@@ -19,12 +20,12 @@ const CompanyOverview = () => {
             {/* Left Side - Image */}
             <div className="flex flex-col items-center justify-start w-full lg:w-[42%] h-auto shadow-[0px_4px_89px_#888888ff] bg-background-accent-light rounded-[167px] lg:rounded-[334px] p-6 sm:p-8 md:p-10 lg:p-[38px] mb-8 lg:mb-0">
               <div className="relative w-full max-w-[296px] lg:max-w-[592px] h-[296px] lg:h-[592px] mx-auto">
-                <img
+                <Image
                   src="/images/img_image_843.png"
                   alt="Company Overview Visual"
                   className="absolute inset-0 w-full h-full object-cover rounded-[148px] lg:rounded-[296px]"
                 />
-                <img
+                <Image
                   src="/images/img_image_843.png"
                   alt="Company Innovation"
                   className="absolute inset-0 w-full h-full object-cover rounded-[148px] lg:rounded-[296px]"

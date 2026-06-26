@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from "next/link";
 import { motion } from 'framer-motion';
-import { FiArrowUpRight } from 'react-icons/fi';
+import { ArrowUpRight } from 'lucide-react';
 const ctavdo = '/Videos/ctavdos.mp4';
 
 export default function CTASection() {
@@ -47,7 +47,7 @@ export default function CTASection() {
                         <span className="text-sm sm:text-base md:text-base lg:text-lg text-black font-semibold" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                             Request Access
                         </span>
-                        <FiArrowUpRight className="text-lg sm:text-xl text-black transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        <ArrowUpRight className="text-lg sm:text-xl text-black transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </Link>
                 </motion.div>
             </div>

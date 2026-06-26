@@ -317,6 +317,7 @@ export default function WhyItMatters() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                         className="relative w-fit mb-4 mx-auto"
                     >
@@ -327,6 +328,7 @@ export default function WhyItMatters() {
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-sm sm:text-base md:text-lg lg:text-sm text-black font-medium max-w-4xl mx-auto leading-relaxed px-4 !mb-0"
                         style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
@@ -338,6 +340,7 @@ export default function WhyItMatters() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="flex justify-center mt-6"
                     >
@@ -590,7 +593,7 @@ export default function WhyItMatters() {
                                                 >
                                                     {/* Top Image Area - Reduced Height */}
                                                     <div className="relative h-28 sm:h-24 w-full">
-                                                        <img
+                                                        <Image
                                                             src={asset.image}
                                                             alt={asset.name}
                                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

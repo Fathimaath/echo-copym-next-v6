@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiAlertCircle } from 'react-icons/fi';
+import { AlertCircle } from 'lucide-react';
 
 /**
  * DisclaimerBlock Component
@@ -13,7 +13,7 @@ export default function DisclaimerBlock({
     <div className="my-8 bg-gray-50 rounded-xl p-6 border border-gray-200">
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-          <FiAlertCircle className="w-4 h-4 text-gray-600" />
+          <AlertCircle className="w-4 h-4 text-gray-600" />
         </div>
         <div className="flex-1">
           <h4

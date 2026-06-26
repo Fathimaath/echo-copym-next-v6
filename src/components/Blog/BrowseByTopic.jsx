@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Link from "next/link";
-import { FiArrowRight } from 'react-icons/fi';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SectionContainer from '@/components/Layout/SectionContainer';
 
@@ -123,7 +123,7 @@ export default function BrowseByTopic({ topics = [], title = "Browse by Topic" }
                   </span>
                   <span className="inline-flex items-center gap-1.5 text-[#15a36e] font-semibold text-sm group-hover:gap-2.5 transition-all">
                     Explore
-                    <FiArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
               </div>

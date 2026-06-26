@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiCheck } from 'react-icons/fi';
+import { Check } from 'lucide-react';
 
 /**
  * ChecklistBlock Component
@@ -12,7 +12,7 @@ export default function ChecklistBlock({ items = [] }) {
         {items.map((item, index) => (
           <li key={index} className="flex items-start gap-3">
             <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#15a36e] flex items-center justify-center mt-0.5">
-              <FiCheck className="w-3 h-3 text-white" />
+              <Check className="w-3 h-3 text-white" />
             </div>
             <span 
               className="text-sm sm:text-base text-gray-800 leading-relaxed"

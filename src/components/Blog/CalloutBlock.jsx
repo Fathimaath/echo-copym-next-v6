@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiInfo, FiAlertTriangle, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
+import { Info, AlertTriangle, CheckCircle, AlertCircle } from 'lucide-react';
 
 /**
  * CalloutBlock Component
@@ -14,28 +14,28 @@ export default function CalloutBlock({
     info: {
       bg: 'bg-blue-50',
       border: 'border-blue-200',
-      icon: <FiInfo className="w-5 h-5 text-blue-600" />,
+      icon: <Info className="w-5 h-5 text-blue-600" />,
       titleColor: 'text-blue-800',
       textColor: 'text-blue-700'
     },
     warning: {
       bg: 'bg-amber-50',
       border: 'border-amber-200',
-      icon: <FiAlertTriangle className="w-5 h-5 text-amber-600" />,
+      icon: <AlertTriangle className="w-5 h-5 text-amber-600" />,
       titleColor: 'text-amber-800',
       textColor: 'text-amber-700'
     },
     success: {
       bg: 'bg-green-50',
       border: 'border-green-200',
-      icon: <FiCheckCircle className="w-5 h-5 text-green-600" />,
+      icon: <CheckCircle className="w-5 h-5 text-green-600" />,
       titleColor: 'text-green-800',
       textColor: 'text-green-700'
     },
     note: {
       bg: 'bg-gray-50',
       border: 'border-gray-200',
-      icon: <FiAlertCircle className="w-5 h-5 text-gray-600" />,
+      icon: <AlertCircle className="w-5 h-5 text-gray-600" />,
       titleColor: 'text-gray-800',
       textColor: 'text-gray-700'
     }

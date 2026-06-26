@@ -1,7 +1,6 @@
-"use client";
 import React from 'react';
 import Link from "next/link";
-import { FiArrowRight } from 'react-icons/fi';
+import { ArrowRight } from 'lucide-react';
 
 /**
  * TermCard Component
@@ -27,7 +26,7 @@ export default function TermCard({ term, slug }) {
       </p>
       <div className="flex items-center gap-1.5 mt-3 text-[#15a36e] text-sm font-semibold group-hover:gap-2.5 transition-all">
         Learn more
-        <FiArrowRight className="w-4 h-4" />
+        <ArrowRight className="w-4 h-4" />
       </div>
     </Link>
   );

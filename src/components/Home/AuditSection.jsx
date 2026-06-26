@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from '../Image';
 const logoAndIcons = '/images/logoandicons.png';
 
 export default function AuditSection() {
@@ -28,10 +29,9 @@ export default function AuditSection() {
 
         {/* Logo and Icons Image - Full Width */}
         <div className="w-full flex justify-center items-center py-0 sm:py-2 md:py-3 lg:py-4 overflow-hidden mt-4 sm:mt-6 md:mt-8">
-          <img
+          <Image
             src={logoAndIcons}
             alt="Secure & Audited - Blockchain Networks"
-            loading="lazy"
             className="w-full h-auto"
           />
         </div>

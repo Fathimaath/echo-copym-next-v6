@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
+import { Search } from 'lucide-react';
 
 /**
  * SearchBar Component
@@ -35,7 +35,7 @@ export default function SearchBar({
         className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#15a36e] transition-colors"
         aria-label="Search"
       >
-        <FiSearch className="w-5 h-5" />
+        <Search className="w-5 h-5" />
       </button>
     </form>
   );

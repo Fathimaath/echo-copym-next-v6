@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from '@/components/Image';
 const cyclonebitcoinImage = '/images/cyclonebitcoin.png';
 
 export default function InvestorManagement() {
@@ -56,7 +57,7 @@ export default function InvestorManagement() {
           <div className="flex flex-col items-center lg:items-start -mt-8 sm:-mt-12 lg:-mt-[124px]">
             {/* 3D Graphic Image */}
             <div className="mb-4 sm:mb-6 w-full max-w-[280px] sm:max-w-md lg:max-w-lg">
-              <img
+              <Image
                 src={cyclonebitcoinImage}
                 alt="Digital Asset Ecosystem"
                 className="w-full h-auto object-contain"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTwitter, FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa';
+import { Twitter, Linkedin, Instagram, Github } from 'lucide-react';
 import Link from 'next/link';
 import Image from './Image';
 
@@ -75,10 +75,10 @@ export default function Footer() {
               for the next generation.
             </p>
             <div className="flex gap-5 mt-2 ml-1 mb-6 lg:mb-0">
-              <a href="https://twitter.com/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><FaTwitter size={20} /></a>
-              <a href="https://linkedin.com/company/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><FaLinkedin size={20} /></a>
-              <a href="https://instagram.com/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><FaInstagram size={20} /></a>
-              <a href="https://github.com/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><FaGithub size={20} /></a>
+              <a href="https://twitter.com/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><Twitter size={20} /></a>
+              <a href="https://linkedin.com/company/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><Linkedin size={20} /></a>
+              <a href="https://instagram.com/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><Instagram size={20} /></a>
+              <a href="https://github.com/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><Github size={20} /></a>
             </div>
           </div>
 

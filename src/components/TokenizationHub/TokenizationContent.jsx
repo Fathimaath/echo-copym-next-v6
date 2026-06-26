@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
+import dynamic from 'next/dynamic';
 import { createTheme, ThemeProvider as BWThemeProvider } from '@mui/material/styles';
 
 // Import components
@@ -12,7 +13,8 @@ import TokenDistribution from "./TokenDistribution";
 import TokenManagement from "./TokenManagement";
 import FAQSection from "./FAQSection";
 import FinalCTA from "./FinalCTA";
-import CreateAssetModal from "./tokenizationDemo";
+
+const CreateAssetModal = dynamic(() => import("./tokenizationDemo"), { ssr: false });
 
 export default function TokenizationContent() {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);

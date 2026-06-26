@@ -13,9 +13,9 @@ import { fetchBlogPosts, transformApiPost } from '@/services/blogApi';
 const CATEGORY_GLOSSARY = "Glossary";
 const POSTS_PER_PAGE = 6;
 
-export default function BlogContent({ initialApiPosts = [] }) {
+export default function BlogContent({ initialApiPosts = [], initialCategory }) {
   const router = useRouter();
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory || "All");
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [apiPosts, setApiPosts] = useState(initialApiPosts);

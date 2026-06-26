@@ -350,9 +350,11 @@ export function transformApiPost(apiPost) {
     date: apiPost.publishedAt ? new Date(apiPost.publishedAt).toLocaleDateString('en-US', {
       year: 'numeric', month: 'long', day: 'numeric'
     }) : '',
+    dateISO: apiPost.publishedAt || null,
     updatedDate: apiPost.updatedAt ? new Date(apiPost.updatedAt).toLocaleDateString('en-US', {
       year: 'numeric', month: 'long', day: 'numeric'
     }) : null,
+    updatedDateISO: apiPost.updatedAt || null,
     readTime: apiPost.readTime ? `${apiPost.readTime} min read` : '5 min read',
 
     // Author (string for PostCard)

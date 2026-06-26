@@ -87,8 +87,6 @@ export function generateBlogPostSchema({
   image,
   publishedDate,
   modifiedDate,
-  author,
-  reviewer,
   url,
   category,
 }) {
@@ -97,48 +95,30 @@ export function generateBlogPostSchema({
   
   const imageUrl = getSocialImageUrl(image);
 
-  const schemaOrg = {
+  return {
     "@context": "https://schema.org",
     "@type": schemaType,
+    "@id": `${url}#article`,
     "headline": title,
     "description": description,
     "image": [imageUrl],
-    "thumbnailUrl": imageUrl,
-    "url": url,
     "datePublished": publishedDate ? new Date(publishedDate).toISOString() : new Date().toISOString(),
     "dateModified": modifiedDate ? new Date(modifiedDate).toISOString() : new Date().toISOString(),
     "author": {
-      "@type": "Person",
-      "name": author || SITE_NAME,
-      "url": SITE_URL,
+      "@type": "Organization",
+      "@id": "https://copym.xyz/#organization",
+      "name": "CopyM"
     },
     "publisher": {
-      "@type": "Organization",
-      "name": SITE_NAME,
-      "url": SITE_URL,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${SITE_URL}assets/copym/png/Copym-01-1.png`,
-      },
+      "@id": "https://copym.xyz/#organization"
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": url,
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": imageUrl
-      }
+      "@id": url
     },
+    "isAccessibleForFree": true,
+    "inLanguage": "en"
   };
-
-  if (reviewer) {
-    schemaOrg.reviewedBy = {
-      "@type": "Person",
-      "name": reviewer.name || reviewer,
-    };
-  }
-
-  return schemaOrg;
 }
 
 export function generateFAQSchema(faqs) {
@@ -176,39 +156,46 @@ export function generateBreadcrumbSchema(items) {
 
 export function generateOrganizationSchema() {
   return {
-    "@context": "https://schema.org",
     "@type": "Organization",
-    "name": SITE_NAME,
-    "url": SITE_URL,
-    "logo": DEFAULT_IMAGE,
-    "description": "CopyM is the complete tokenization platform for real-world assets. Secure, compliant, and accessible digital asset marketplace.",
+    "@id": "https://copym.xyz/#organization",
+    "name": "CopyM",
+    "legalName": "CopyM Limited",
+    "url": "https://copym.xyz/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://copym.xyz/assets/copym/png/Copym-01-1.png"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "support@copym.xyz",
+      "contactType": "customer support"
+    },
     "sameAs": [
       "https://twitter.com/copym",
       "https://linkedin.com/company/copym"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "email": "support@copym.xyz"
-    }
+    ]
   };
 }
 
 export function generateWebsiteSchema() {
   return {
-    "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": SITE_NAME,
-    "url": SITE_URL,
-    "description": "Complete tokenization platform for real-world assets",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": `${SITE_URL}blog?search={search_term_string}`
-      },
-      "query-input": "required name=search_term_string"
+    "@id": "https://copym.xyz/#website",
+    "name": "CopyM",
+    "url": "https://copym.xyz/",
+    "publisher": {
+      "@id": "https://copym.xyz/#organization"
     }
+  };
+}
+
+export function generateCoreSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateOrganizationSchema(),
+      generateWebsiteSchema()
+    ]
   };
 }
 
@@ -216,13 +203,15 @@ export function generateWebPageSchema({ name, description, url }) {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": `${url}#webpage`,
     "name": name,
     "description": description,
     "url": url,
     "isPartOf": {
-      "@type": "WebSite",
-      "name": SITE_NAME,
-      "url": SITE_URL
+      "@id": "https://copym.xyz/#website"
+    },
+    "about": {
+      "@id": "https://copym.xyz/#organization"
     }
   };
 }

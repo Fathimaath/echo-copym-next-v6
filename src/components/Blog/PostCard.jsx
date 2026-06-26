@@ -1,7 +1,6 @@
-"use client";
 import React from 'react';
 import Link from "next/link";
-import { FiCalendar, FiClock, FiUser, FiArrowRight } from 'react-icons/fi';
+import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
 import Image from '../Image';
 
 /**
@@ -75,11 +74,11 @@ export default function PostCard({
                 {category === 'Product Updates' ? 'Updates' : category}
               </span>
               <span className="flex items-center gap-1 whitespace-nowrap">
-                <FiCalendar className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 {date}
               </span>
               <span className="flex items-center gap-1 whitespace-nowrap">
-                <FiClock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 {readTime}
               </span>
             </div>
@@ -98,7 +97,7 @@ export default function PostCard({
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#15a36e]/20 flex items-center justify-center">
-                  <FiUser className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#15a36e]" />
+                  <User className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#15a36e]" />
                 </div>
                 <span className="text-xs text-gray-600" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                   {author}
@@ -107,7 +106,7 @@ export default function PostCard({
 
               <span className="inline-flex items-center gap-1 sm:gap-1.5 text-[#15a36e] font-semibold text-xs sm:text-sm group-hover:gap-2 sm:group-hover:gap-2.5 transition-all">
                 Read
-                <FiArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               </span>
             </div>
           </div>
@@ -149,11 +148,11 @@ export default function PostCard({
                 {category === 'Product Updates' ? 'Updates' : category}
               </span>
               <span className="flex items-center gap-1 whitespace-nowrap">
-                <FiCalendar className="w-3.5 h-3.5" />
+                <Calendar className="w-3.5 h-3.5" />
                 {date}
               </span>
               <span className="flex items-center gap-1 whitespace-nowrap">
-                <FiClock className="w-3.5 h-3.5" />
+                <Clock className="w-3.5 h-3.5" />
                 {readTime}
               </span>
             </div>
@@ -172,7 +171,7 @@ export default function PostCard({
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="w-7 h-7 rounded-full bg-[#15a36e]/20 flex items-center justify-center">
-                  <FiUser className="w-3.5 h-3.5 text-[#15a36e]" />
+                  <User className="w-3.5 h-3.5 text-[#15a36e]" />
                 </div>
                 <span className="text-xs text-gray-400" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                   {author}
@@ -181,7 +180,7 @@ export default function PostCard({
 
               <span className="inline-flex items-center gap-1.5 text-[#15a36e] font-semibold text-sm group-hover:gap-2.5 transition-all">
                 Read
-                <FiArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </span>
             </div>
           </div>
@@ -225,11 +224,11 @@ export default function PostCard({
                   {category}
                 </span>
                 <span className="flex items-center gap-1">
-                  <FiCalendar className="w-4 h-4" />
+                  <Calendar className="w-4 h-4" />
                   {date}
                 </span>
                 <span className="flex items-center gap-1">
-                  <FiClock className="w-4 h-4" />
+                  <Clock className="w-4 h-4" />
                   {readTime}
                 </span>
               </div>
@@ -248,7 +247,7 @@ export default function PostCard({
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-10 rounded-full bg-[#15a36e]/20 flex items-center justify-center">
-                    <FiUser className="w-5 h-5 text-[#15a36e]" />
+                    <User className="w-5 h-5 text-[#15a36e]" />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-gray-800" style={{ fontFamily: 'Palanquin, sans-serif' }}>
@@ -259,7 +258,7 @@ export default function PostCard({
                 
                 <span className="inline-flex items-center gap-2 text-[#15a36e] font-semibold hover:gap-3 transition-all group/link">
                   Read Article
-                  <FiArrowRight className="w-5 h-5 group-hover/link:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-5 h-5 group-hover/link:translate-x-1 transition-transform" />
                 </span>
               </div>
             </div>
@@ -300,7 +299,7 @@ export default function PostCard({
                 {title}
               </h4>
               <div className="flex items-center gap-2 mt-2 text-xs text-gray-500">
-                <FiCalendar className="w-3 h-3" />
+                <Calendar className="w-3 h-3" />
                 <span>{date}</span>
               </div>
             </div>
@@ -356,11 +355,11 @@ export default function PostCard({
               
               <div className="flex items-center gap-2 mt-3 text-xs text-gray-500">
                 <span className="flex items-center gap-1">
-                  <FiCalendar className="w-3 h-3" />
+                  <Calendar className="w-3 h-3" />
                   {date}
                 </span>
                 <span className="flex items-center gap-1">
-                  <FiClock className="w-3 h-3" />
+                  <Clock className="w-3 h-3" />
                   {readTime}
                 </span>
               </div>

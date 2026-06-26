@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from '@/components/Image';
 
 const investorGroups = [
   { name: 'Institutional', value: 45, color: '#3B82F6' },
@@ -29,7 +30,7 @@ export default function IssuerSection() {
           <div className="lg:col-span-3 lg:row-span-2 bg-black rounded-lg p-6 sm:p-8 flex flex-col justify-between">
             {/* Image at top */}
             <div className="flex justify-center mb-4 sm:mb-6 flex-1 items-center overflow-hidden">
-              <img
+              <Image
                 src="/assets/Images/3cubes.png"
                 alt="Tokenization"
                 className="w-full h-full object-contain"
@@ -57,7 +58,7 @@ export default function IssuerSection() {
           <div className="lg:col-span-4 lg:row-span-1 bg-black rounded-lg p-6 sm:p-8 flex flex-col lg:flex-row items-center gap-4 lg:gap-6">
             {/* Image on top (mobile) / right (desktop) */}
             <div className="flex justify-center lg:justify-end items-center lg:order-2">
-              <img
+              <Image
                 src="/assets/Images/coin.png"
                 alt="Token Management"
                 className="w-32 sm:w-40 md:w-48 h-auto object-contain"
@@ -109,7 +110,7 @@ export default function IssuerSection() {
           <div className="lg:col-span-4 lg:row-span-1 bg-black rounded-lg p-6 sm:p-8 flex flex-col lg:flex-row items-center gap-4 lg:gap-6">
             {/* Image on left */}
             <div className="flex justify-center lg:justify-start items-center flex-shrink-0">
-              <img
+              <Image
                 src="/assets/Images/globe.png"
                 alt="Global Distribution"
                 className="w-40 sm:w-48 md:w-56 h-auto object-contain"

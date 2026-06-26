@@ -1,7 +1,7 @@
-"use client";
 import React from 'react';
 import Link from 'next/link';
 import DisclaimerBlock from './DisclaimerBlock';
+import Image from '../Image';
 
 export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike }) {
   return (
@@ -93,7 +93,30 @@ export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike })
             ))}
           </div>
         </div>
-        <NewsletterBlock />
+        <div className="relative overflow-hidden bg-gradient-to-br from-[#0E0C15] to-[#1a1a1a] p-5 rounded-2xl border border-[#15a36e]/30">
+          <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#15a36e]/20 rounded-full blur-3xl"></div>
+          <div className="relative">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#15a36e] to-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-[#15a36e]/30">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="text-base font-bold text-white" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                  Subscribe to Newsletter
+                </h4>
+                <p className="text-xs text-gray-400 !mb-0">Get latest updates & insights</p>
+              </div>
+            </div>
+            <button className="w-full bg-gradient-to-r from-[#15a36e] to-emerald-600 text-white py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold hover:shadow-lg hover:shadow-[#15a36e]/40 transition-all duration-300 flex items-center justify-center gap-2 group">
+              Subscribe Now
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Disclaimer */}
@@ -112,7 +135,7 @@ function AuthorCard({ author, name }) {
         <div className="flex items-start gap-3 sm:gap-4">
           <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-gradient-to-br from-[#15a36e]/20 to-[#15a36e]/5 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
             {authorObj?.avatar ? (
-              <img src={authorObj.avatar} alt={authorObj.name} className="w-full h-full rounded-lg object-cover" />
+              <Image src={authorObj.avatar} alt={authorObj.name} className="w-full h-full rounded-lg object-cover" />
             ) : (
               <span className="text-xl font-bold text-[#15a36e]">{authorObj?.name?.charAt(0) || 'C'}</span>
             )}
@@ -139,7 +162,7 @@ function ReviewerCard({ reviewer }) {
         <div className="flex items-start gap-3 sm:gap-4">
           <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-gradient-to-br from-[#15a36e]/20 to-[#15a36e]/5 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
             {reviewer.avatar ? (
-              <img src={reviewer.avatar} alt={reviewer.name} className="w-full h-full rounded-lg object-cover" />
+              <Image src={reviewer.avatar} alt={reviewer.name} className="w-full h-full rounded-lg object-cover" />
             ) : (
               <span className="text-xl font-bold text-[#15a36e]">{reviewer.name.charAt(0)}</span>
             )}
@@ -159,31 +182,3 @@ function ReviewerCard({ reviewer }) {
   );
 }
 
-function NewsletterBlock() {
-  return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-[#0E0C15] to-[#1a1a1a] p-5 rounded-2xl border border-[#15a36e]/30">
-      <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#15a36e]/20 rounded-full blur-3xl"></div>
-      <div className="relative">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-[#15a36e] to-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-[#15a36e]/30">
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <div>
-            <h4 className="text-base font-bold text-white" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
-              Subscribe to Newsletter
-            </h4>
-            <p className="text-xs text-gray-400 !mb-0">Get latest updates & insights</p>
-          </div>
-        </div>
-        <button className="w-full bg-gradient-to-r from-[#15a36e] to-emerald-600 text-white py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold hover:shadow-lg hover:shadow-[#15a36e]/40 transition-all duration-300 flex items-center justify-center gap-2 group">
-          Subscribe Now
-          <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  );
-}

@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionHeader from '@/components/Layout/SectionHeader';
+import Image from '@/components/Image';
 
 const CompanyTimeline = () => {
   const timelineData = [
@@ -23,7 +24,7 @@ const CompanyTimeline = () => {
   return (
     <section className="w-full relative">
       {/* Background Image */}
-      <img
+      <Image
         src="/images/img_ellipse_960.png"
         alt="Timeline Background"
         className="absolute top-0 left-0 w-[8%] h-auto object-cover"
@@ -51,7 +52,7 @@ const CompanyTimeline = () => {
                 {/* 2023 Foundation */}
                 <div className="flex flex-col lg:flex-row justify-start items-center w-full lg:w-[1256px] mt-2 lg:mt-[10px] mb-64 sm:mb-80 md:mb-96 lg:mb-[542px]">
                   <div className="flex flex-col lg:flex-row justify-start items-center w-full lg:w-[40%]">
-                    <img
+                    <Image
                       src={timelineData?.[0]?.image}
                       alt="2023 Foundation"
                       className="w-[87px] sm:w-[116px] md:w-[145px] lg:w-[174px] h-[87px] sm:h-[116px] md:h-[145px] lg:h-[174px] object-cover self-center"
@@ -75,7 +76,7 @@ const CompanyTimeline = () => {
 
                 {/* 2024 Platform Launch */}
                 <div className="flex flex-col lg:flex-row justify-center items-start w-full">
-                  <img
+                  <Image
                     src={timelineData?.[1]?.image}
                     alt="2024 Platform Launch"
                     className="w-[80px] sm:w-[107px] md:text-[133px] lg:w-[160px] h-[80px] sm:h-[107px] md:h-[133px] lg:h-[160px] object-cover self-center"
@@ -91,7 +92,7 @@ const CompanyTimeline = () => {
                 {/* 2025 Global Expansion */}
                 <div className="flex flex-col lg:flex-row justify-start items-start w-full mt-4 lg:mt-0">
                   <div className="flex flex-col lg:flex-row justify-center items-center w-full lg:w-[44%] px-0 lg:px-[30px] self-center">
-                    <img
+                    <Image
                       src={timelineData?.[2]?.image}
                       alt="2025 Global Expansion"
                       className="w-[77px] sm:w-[103px] md:w-[128px] lg:w-[154px] h-[77px] sm:h-[103px] md:h-[128px] lg:h-[154px] object-cover"

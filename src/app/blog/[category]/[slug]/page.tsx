@@ -78,8 +78,8 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
       description: article.excerpt,
       url: postUrl,
       type: 'article',
-      publishedTime: article.date,
-      modifiedTime: article.updatedDate || article.date,
+      publishedTime: article.dateISO || article.date,
+      modifiedTime: article.updatedDateISO || article.updatedDate || article.dateISO || article.date,
       authors: [typeof article.author === 'string' ? article.author : article.authorData?.name || 'CopyM Team'],
       section: article.category,
       images: [
@@ -140,11 +140,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
       title: article.title,
       description: article.excerpt,
       image: getSocialImageUrl(article.image),
-      publishedDate: article.date,
-      modifiedDate: article.updatedDate || article.date,
-      author: typeof article.author === 'string' ? article.author : article.authorData?.name || 'CopyM Team',
+      publishedDate: article.dateISO || article.date,
+      modifiedDate: article.updatedDateISO || article.updatedDate || article.dateISO || article.date,
       url: postUrl,
-      reviewer: article.reviewer,
       category: article.category,
     });
 
@@ -158,7 +156,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
     breadcrumbData = generateBreadcrumbSchema([
       { label: 'Home', path: '/' },
       { label: 'Blog', path: '/blog' },
-      { label: article.category || 'Category', path: `/blog/${cat}` },
+      { label: article.category || 'Category', path: `/blog/${cat}/` },
       { label: article.title, path: postUrl.replace(baseUrl, '') }
     ]);
   }

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { FiChevronDown } from 'react-icons/fi';
+import { ChevronDown } from 'lucide-react';
 import { generateFAQSchema } from "@/utils/seo";
 
 /**
@@ -45,7 +45,7 @@ export default function FAQAccordion({ faqs = [] }) {
               >
                 {faq.question}
               </span>
-              <FiChevronDown 
+              <ChevronDown 
                 className={`w-5 h-5 text-[#15a36e] flex-shrink-0 transition-transform ${
                   openIndex === index ? 'rotate-180' : ''
                 }`}

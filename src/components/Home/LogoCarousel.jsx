@@ -1,6 +1,11 @@
-import React from 'react';
+'use client';
+import React, { useState, useRef } from 'react';
+import Image from '../Image';
 
 const LogoCarousel = () => {
+  const [isPaused, setIsPaused] = useState(false);
+  const marqueeRef = useRef(null);
+
   const logos = [
     { src: "/assets/svg/Fireblocks.svg", alt: "Fireblocks" },
     { src: "/assets/svg/Sumsub_idtw6qkLj7_1.svg", alt: "Sumsub" },
@@ -18,6 +23,8 @@ const LogoCarousel = () => {
   // Duplicate logos 3 times for seamless loop (reduced from 7)
   const duplicatedLogos = [...logos, ...logos, ...logos];
 
+  const togglePause = () => setIsPaused(prev => !prev);
+
   return (
     <section className="w-full bg-white border-t border-gray-200 overflow-hidden -mt-px">
       <style>{`
@@ -30,18 +37,21 @@ const LogoCarousel = () => {
         <div className="bg-white shadow-sm overflow-hidden">
           <div className="relative w-full overflow-hidden">
             <div
+              ref={marqueeRef}
               className="flex items-center py-1"
               style={{
                 width: "200%",
-                animation: "logo-marquee 20s linear infinite",
+                animation: `logo-marquee 20s linear infinite`,
+                animationPlayState: isPaused ? 'paused' : 'running',
               }}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
             >
               {duplicatedLogos.map((logo, idx) => (
                 <div key={`${logo.alt}-${idx}`} className="flex-shrink-0 px-6 sm:px-8 md:px-10 lg:px-12 flex items-center justify-center">
-                  <img
+                  <Image
                     src={logo.src}
                     alt={logo.alt}
-                    loading="lazy"
                     aria-hidden="true"
                     role="presentation"
                     className={`${['Base', 'Plume', 'Canton'].includes(logo.alt)
@@ -52,6 +62,14 @@ const LogoCarousel = () => {
                 </div>
               ))}
             </div>
+            <button
+              type="button"
+              className="absolute bottom-2 right-2 z-10 bg-white/80 hover:bg-white text-gray-700 rounded-full w-7 h-7 flex items-center justify-center text-xs shadow transition-opacity opacity-30 hover:opacity-100 focus-visible:opacity-100"
+              onClick={togglePause}
+              aria-label={isPaused ? 'Play marquee animation' : 'Pause marquee animation'}
+            >
+              {isPaused ? '▶' : '⏸'}
+            </button>
           </div>
         </div>
         {/* Premium Faded Green Separator Line */}

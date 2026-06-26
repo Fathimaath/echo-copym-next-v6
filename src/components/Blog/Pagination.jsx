@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from "next/link";
 
 /**
@@ -68,7 +68,7 @@ export default function Pagination({
         style={{ fontFamily: 'Palanquin, sans-serif' }}
         aria-label="Previous page"
       >
-        <FiChevronLeft className="w-4 h-4" />
+        <ChevronLeft className="w-4 h-4" />
         <span className="hidden sm:inline">Previous</span>
       </button>
 
@@ -119,7 +119,7 @@ export default function Pagination({
         aria-label="Next page"
       >
         <span className="hidden sm:inline">Next</span>
-        <FiChevronRight className="w-4 h-4" />
+        <ChevronRight className="w-4 h-4" />
       </button>
     </nav>
   );

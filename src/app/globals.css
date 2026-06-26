@@ -615,6 +615,12 @@ section {
   }
 }
 
+/* Visible focus states for keyboard users */
+:focus-visible {
+  outline: 2px solid #15a36e;
+  outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import { generateWebPageSchema } from '@/utils/seo';
-import Hero from "@/components/Home/Hero";
 
+const Hero = dynamic(() => import('@/components/Home/Hero'));
 const LogoCarousel = dynamic(() => import('@/components/Home/LogoCarousel'));
 const FeatureSection = dynamic(() => import('@/components/Home/FeatureSection'));
 const WhoWeServe = dynamic(() => import('@/components/Home/WhoWeServe'));

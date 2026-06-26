@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FiLink, FiCalendar, FiClock, FiTwitter, FiLinkedin, FiMail, FiFacebook } from 'react-icons/fi';
+import { Link2, Calendar, Clock, Twitter, Linkedin, Mail, Facebook } from 'lucide-react';
 import Breadcrumbs from '@/components/Blog/Breadcrumbs';
 
 export default function GlossaryTermClient({ termData, slug }) {
@@ -23,43 +23,42 @@ export default function GlossaryTermClient({ termData, slug }) {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  // Handle scroll spy and sidebar fixed/absolute switching
+  // Unified scroll handler with rAF throttling
   useEffect(() => {
-    const handleScroll = () => {
-      if (mainContentRef.current) {
-        const mainRect = mainContentRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-
-        const mainContentEnd = mainRect.bottom < windowHeight;
-        setLeftSidebarFixed(!mainContentEnd);
-        setRightSidebarFixed(!mainContentEnd);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Handle scroll spy for active section highlighting
-  useEffect(() => {
-    if (!termData?.headings?.length) return;
+    let ticking = false;
 
     const handleScroll = () => {
-      let currentActive = '';
-      const offset = 200;
+      if (ticking) return;
+      ticking = true;
 
-      for (const { id } of termData.headings) {
-        const el = document.getElementById(id);
-        if (!el) continue;
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= offset) {
-          currentActive = id;
+      requestAnimationFrame(() => {
+        // Sidebar fixed/absolute switching
+        if (mainContentRef.current) {
+          const mainRect = mainContentRef.current.getBoundingClientRect();
+          const mainContentEnd = mainRect.bottom < window.innerHeight;
+          setLeftSidebarFixed(!mainContentEnd);
+          setRightSidebarFixed(!mainContentEnd);
         }
-      }
 
-      if (currentActive) {
-        setActiveSection(currentActive);
-      }
+        // Scroll spy for active section highlighting
+        if (termData?.headings?.length) {
+          let currentActive = '';
+          const offset = 200;
+          for (const { id } of termData.headings) {
+            const el = document.getElementById(id);
+            if (!el) continue;
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= offset) {
+              currentActive = id;
+            }
+          }
+          if (currentActive) {
+            setActiveSection(currentActive);
+          }
+        }
+
+        ticking = false;
+      });
     };
 
     handleScroll();
@@ -147,11 +146,11 @@ export default function GlossaryTermClient({ termData, slug }) {
                 <div>
                   <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>Share</h4>
                   <div className="flex items-center gap-2">
-                    <button onClick={() => handleShare('twitter')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"><FiTwitter className="w-4 h-4" /></button>
-                    <button onClick={() => handleShare('linkedin')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"><FiLinkedin className="w-4 h-4" /></button>
-                    <button onClick={() => handleShare('facebook')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"><FiFacebook className="w-4 h-4" /></button>
-                    <button onClick={() => handleShare('email')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"><FiMail className="w-4 h-4" /></button>
-                    <button onClick={() => handleShare('copy')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"><FiLink className="w-4 h-4" /></button>
+                    <button onClick={() => handleShare('twitter')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"><Twitter className="w-4 h-4" /></button>
+                    <button onClick={() => handleShare('linkedin')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"><Linkedin className="w-4 h-4" /></button>
+                    <button onClick={() => handleShare('facebook')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"><Facebook className="w-4 h-4" /></button>
+                    <button onClick={() => handleShare('email')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"><Mail className="w-4 h-4" /></button>
+                    <button onClick={() => handleShare('copy')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"><Link2 className="w-4 h-4" /></button>
                   </div>
                 </div>
               </div>
@@ -191,7 +190,7 @@ export default function GlossaryTermClient({ termData, slug }) {
                 <div className="flex flex-wrap items-center gap-3 py-5 border-y border-gray-100 mb-7">
                   <div className="flex items-center gap-3.5 text-xs text-gray-500">
                     <span className="flex items-center gap-1.5">
-                      <FiCalendar className="w-3.5 h-3.5" />
+                      <Calendar className="w-3.5 h-3.5" />
                       Updated: {termData.lastUpdated}
                     </span>
                   </div>
@@ -258,7 +257,7 @@ export default function GlossaryTermClient({ termData, slug }) {
                             href={`/glossary/${related.slug}`}
                             className="inline-flex items-center gap-1.5 px-3 py-2 bg-white hover:bg-[#15a36e] hover:text-white border border-gray-300 hover:border-[#15a36e] rounded-lg text-sm font-medium text-gray-700 transition-all duration-300"
                           >
-                            <FiLink className="w-3.5 h-3.5" />
+                            <Link2 className="w-3.5 h-3.5" />
                             {related.term}
                           </Link>
                         ))}
@@ -355,7 +354,7 @@ export default function GlossaryTermClient({ termData, slug }) {
                           href={`/glossary/${related.slug}`}
                           className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-white hover:bg-[#15a36e] hover:text-white border border-gray-200 hover:border-[#15a36e] rounded text-xs font-medium text-gray-700 transition-all duration-300"
                         >
-                          <FiLink className="w-3 h-3" />
+                          <Link2 className="w-3 h-3" />
                           {related.term}
                         </Link>
                       ))}
@@ -427,6 +426,33 @@ export default function GlossaryTermClient({ termData, slug }) {
               </div>
             </div>
           </aside>
+        </div>
+      </div>
+
+      {/* Mobile Subscribe */}
+      <div className="lg:hidden max-w-[900px] mx-auto px-6 sm:px-8 mb-8">
+        <div className="bg-gray-50 rounded-lg p-6">
+          <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+            Subscribe for Updates
+          </h4>
+          <p className="text-xs text-gray-500 mb-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+            Get the latest glossary updates delivered to your inbox.
+          </p>
+          <form onSubmit={(e) => { e.preventDefault(); }} className="space-y-2">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full px-3 py-2 text-xs border border-gray-200 rounded focus:outline-none focus:border-[#15a36e] focus:ring-1 focus:ring-[#15a36e]/20 transition-all"
+              style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
+            />
+            <button
+              type="submit"
+              className="w-full bg-[#15a36e] hover:bg-[#128a5c] text-white py-2 rounded font-semibold text-xs transition-colors"
+              style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
+            >
+              Subscribe
+            </button>
+          </form>
         </div>
       </div>
 
