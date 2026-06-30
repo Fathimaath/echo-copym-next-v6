@@ -6,8 +6,6 @@ import { generateWebPageSchema, generateBreadcrumbSchema } from '@/utils/seo';
 
 const BlogContent = dynamic(() => import('@/components/Blog/BlogContent'));
 
-export const revalidate = 60;
-
 function slugify(str: string) {
   return str.toLowerCase().replace(/\s+/g, '-');
 }
