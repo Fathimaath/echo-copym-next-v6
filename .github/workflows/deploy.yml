@@ -28,14 +28,13 @@ jobs:
           NEXT_EXPORT: 'true'
           NEXT_PUBLIC_API_URL: 'https://blog-api.copym.xyz'
 
-      - name: SFTP Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: Deploy via SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 22
-          local_path: './out/'
-          remote_path: '/home3/ndfhmyte/copym.xyz/copym-xyz/'
-          sftp_only: true
-          sftpArgs: '-o ConnectTimeout=5'
+          source: './out/*'
+          target: '/home3/ndfhmyte/copym.xyz/copym-xyz/'
+          strip_components: 1
