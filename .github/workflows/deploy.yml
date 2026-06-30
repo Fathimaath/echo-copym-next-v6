@@ -28,12 +28,13 @@ jobs:
           NEXT_EXPORT: 'true'
           NEXT_PUBLIC_API_URL: 'https://blog-api.copym.xyz'
 
-      - name: Deploy via SCP
+      - name: Deploy via SCP (SSH key auth)
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           port: 22
           source: './out/*'
           target: '/home3/ndfhmyte/copym.xyz/copym-xyz/'
