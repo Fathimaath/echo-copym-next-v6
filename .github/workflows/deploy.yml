@@ -28,11 +28,16 @@ jobs:
           NEXT_EXPORT: 'true'
           NEXT_PUBLIC_API_URL: 'https://blog-api.copym.xyz'
 
-      - name: Deploy via rsync over SSH
+      - name: Test SSH connection
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p 22 ${{ secrets.FTP_SERVER }} >> ~/.ssh/known_hosts 2>/dev/null
-          sshpass -p "${{ secrets.SSH_PASSPHRASE }}" rsync -avz --delete --timeout=60 -e "ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=30" ./out/ ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/home3/ndfhmyte/copym.xyz/copym-xyz/
+          ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=10 ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }} "echo connected"
+        shell: bash
+
+      - name: Deploy via scp
+        run: |
+          sshpass -p "${{ secrets.SSH_PASSPHRASE }}" scp -P 22 -o StrictHostKeyChecking=no -o ConnectTimeout=30 -r ./out/* ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/home3/ndfhmyte/copym.xyz/copym-xyz/
         shell: bash
