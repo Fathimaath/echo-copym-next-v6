@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchBlogPosts, fetchBlogPostBySlug, transformApiPost } from '@/services/blogApi';
 import { generateBlogPostSchema, generateBreadcrumbSchema, generateFAQSchema, getSocialImageUrl } from '@/utils/seo';
+import { blogPosts as staticPosts } from '@/data/blogPosts';
 import BlogArticleBody from '@/components/Blog/BlogArticleBody';
 import BlogPostSidebars from '@/components/Blog/BlogPostSidebars';
 import Breadcrumbs from '@/components/Blog/Breadcrumbs';
@@ -15,15 +16,24 @@ export const dynamicParams = false;
 // Pre-build pages for BOTH static and API posts so admin-created posts have HTML files
 export async function generateStaticParams() {
   const slugs: { category: string; slug: string }[] = [];
+  const seenSlugs = new Set<string>();
+
+  // Always include fallback static posts (ensures build succeeds when API is down)
+  staticPosts.forEach((post) => {
+    if (!seenSlugs.has(post.slug)) {
+      seenSlugs.add(post.slug);
+      slugs.push({ category: post.category, slug: post.slug });
+    }
+  });
 
   // Fetch API slugs so admin-created posts get pre-built HTML files
   try {
     const result: any = await fetchBlogPosts({ category: '', search: '', page: 1, limit: 100 });
     if (result?.data?.length) {
-      const existingSlugs = new Set(slugs.map(s => s.slug));
       result.data.forEach((post: any) => {
         const t: any = transformApiPost(post);
-        if (!existingSlugs.has(t.slug)) {
+        if (!seenSlugs.has(t.slug)) {
+          seenSlugs.add(t.slug);
           slugs.push({
             category: (t.category || '').toLowerCase().replace(/\s+/g, '-') || 'general',
             slug: t.slug,
@@ -32,7 +42,7 @@ export async function generateStaticParams() {
       });
     }
   } catch {
-    // API not available during build — only static slugs will be built
+    // API not available during build — using static fallback slugs
   }
 
   return slugs;
