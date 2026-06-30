@@ -53,9 +53,23 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
       .split('-')
       .map((w: string) => w.charAt(0).toUpperCase() + w.slice(1))
       .join(' ');
+    const baseFallback = 'https://copym.xyz';
     return {
       title: `${title} | CopyM`,
-      description: `Read about ${title.toLowerCase()} on CopyM's blog.`
+      description: `Read about ${title.toLowerCase()} on CopyM's blog.`,
+      openGraph: {
+        title: `${title} | CopyM`,
+        description: `Read about ${title.toLowerCase()} on CopyM's blog.`,
+        url: `${baseFallback}/blog/${category}/${slug}/`,
+        type: 'article',
+        images: [{ url: `${baseFallback}/assets/copym/png/Copym-01-1.png`, width: 1200, height: 630, alt: title }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: `${title} | CopyM`,
+        description: `Read about ${title.toLowerCase()} on CopyM's blog.`,
+        images: [`${baseFallback}/assets/copym/png/Copym-01-1.png`],
+      },
     };
   }
 

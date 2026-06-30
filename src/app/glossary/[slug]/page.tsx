@@ -206,7 +206,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const term = findTermBySlug(slug);
 
   if (!term) {
-    return { title: 'Term Not Found' };
+    return {
+      title: 'Term Not Found',
+      openGraph: {
+        title: 'Term Not Found | CopyM Glossary',
+        description: 'The requested glossary term could not be found.',
+        url: `https://copym.xyz/glossary/${slug}/`,
+        type: 'website',
+        images: [{ url: 'https://copym.xyz/assets/copym/png/Copym-01-1.png', width: 1200, height: 630, alt: 'CopyM Glossary' }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: 'Term Not Found | CopyM Glossary',
+        description: 'The requested glossary term could not be found.',
+        images: ['https://copym.xyz/assets/copym/png/Copym-01-1.png'],
+      },
+    };
   }
 
   const baseUrl = 'https://copym.xyz';
