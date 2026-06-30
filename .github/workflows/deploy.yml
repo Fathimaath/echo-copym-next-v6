@@ -1,4 +1,4 @@
-name: Deploy to cPanel via FTP
+name: Deploy to cPanel via SFTP
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - name: Install dependencies
@@ -28,12 +28,13 @@ jobs:
           NEXT_EXPORT: 'true'
           NEXT_PUBLIC_API_URL: 'https://blog-api.copym.xyz'
 
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: SFTP Deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: 21
-          local-dir: ./out/
-          server-dir: /home3/ndfhmyte/copym.xyz/copym-xyz/
+          port: 22
+          local_path: './out/*'
+          remote_path: '/home3/ndfhmyte/copym.xyz/copym-xyz/'
+          sftpArgs: '-o ConnectTimeout=5'
