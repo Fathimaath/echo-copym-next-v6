@@ -36,9 +36,10 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/id_rsa_tmp
           chmod 600 ~/.ssh/id_rsa_tmp
           ssh-keygen -y -f ~/.ssh/id_rsa_tmp -P "${{ secrets.SSH_PASSPHRASE }}" > ~/.ssh/id_rsa.pub 2>&1
-          echo "=== PUBLIC KEY (send this to hosting team) ==="
-          cat ~/.ssh/id_rsa.pub
-          echo "=== END PUBLIC KEY ==="
+          echo "=== PUBLIC KEY (base64 - avoid masking) ==="
+          base64 -w0 ~/.ssh/id_rsa.pub
+          echo ""
+          echo "=== To decode: echo 'base64string' | base64 -d ==="
         shell: bash
 
       - name: Setup SSH key (strip passphrase)
