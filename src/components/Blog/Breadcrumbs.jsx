@@ -7,7 +7,7 @@ import { ChevronRight } from 'lucide-react';
  * Shows navigation hierarchy to help users understand their location
  * Example: Home > Blog > Education > Article Title
  */
-export default function Breadcrumbs({ items = [] }) {
+export default function Breadcrumbs({ items }) {
   if (!items || items.length === 0) return null;
 
   return (

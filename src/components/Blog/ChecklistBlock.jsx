@@ -5,7 +5,8 @@ import { Check } from 'lucide-react';
  * ChecklistBlock Component
  * Styled checklist for steps/requirements
  */
-export default function ChecklistBlock({ items = [] }) {
+export default function ChecklistBlock({ items }) {
+  if (!items) return null;
   return (
     <div className="my-8 bg-gray-50 rounded-xl p-5 border border-black/5">
       <ul className="space-y-3">

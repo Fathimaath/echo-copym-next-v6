@@ -7,7 +7,7 @@ import Image from '../Image';
  * RelatedPosts Component
  * Shows related articles at end of post
  */
-export default function RelatedPosts({ posts = [], title = "Related Articles" }) {
+export default function RelatedPosts({ posts, title = "Related Articles" }) {
   if (!posts || posts.length === 0) {
     return (
       <section>
