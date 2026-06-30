@@ -30,10 +30,9 @@ jobs:
 
       - name: Deploy via rsync over SSH
         run: |
-          sudo apt-get update && sudo apt-get install -y sshpass
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p 22 ${{ secrets.FTP_SERVER }} >> ~/.ssh/known_hosts 2>/dev/null
-          sshpass -p "${{ secrets.SSH_PASSPHRASE }}" rsync -avz --delete -e "ssh -p 22 -o StrictHostKeyChecking=no" ./out/ ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/home3/ndfhmyte/copym.xyz/copym-xyz/
+          sshpass -p "${{ secrets.SSH_PASSPHRASE }}" rsync -avz --delete --timeout=60 -e "ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=30" ./out/ ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/home3/ndfhmyte/copym.xyz/copym-xyz/
         shell: bash
