@@ -1,24 +1,42 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from "next/link";
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 const ctavdo = '/Videos/ctavdos.mp4';
 
 export default function CTASection() {
+  const [shouldAutoplay, setShouldAutoplay] = useState(true);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateShouldAutoplay = () => {
+      setShouldAutoplay(!mediaQuery.matches);
+    };
+
+    updateShouldAutoplay();
+    mediaQuery.addEventListener('change', updateShouldAutoplay);
+
+    return () => {
+      mediaQuery.removeEventListener('change', updateShouldAutoplay);
+    };
+  }, []);
     return (
         <section className="relative w-full h-[40vh] sm:h-[45vh] lg:h-[80vh] overflow-hidden bg-black">
             {/* Background Video */}
             <div className="absolute inset-0 w-full h-full">
                 <video
-                    autoPlay
+                    autoPlay={shouldAutoplay}
                     loop
                     muted
                     playsInline
                     preload="metadata"
                     poster="/Videos/ctavdos-poster.webp"
+                    aria-hidden="true"
+                    tabIndex={-1}
                     className="w-full h-full object-cover"
                 >
+                    <source src="/Videos/ctavdos-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
                     <source src={ctavdo} type="video/mp4" />
                 </video>
                 {/* Dark Overlay for better text legibility */}

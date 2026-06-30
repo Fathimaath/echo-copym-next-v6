@@ -1,12 +1,13 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import { fetchBlogPosts, fetchBlogPostBySlug, transformApiPost } from '@/services/blogApi';
-
-const BlogPostContent = dynamic(() => import('@/components/Blog/BlogPostContent'));
 import { generateBlogPostSchema, generateBreadcrumbSchema, generateFAQSchema, getSocialImageUrl } from '@/utils/seo';
+import BlogArticleBody from '@/components/Blog/BlogArticleBody';
+import BlogPostSidebars from '@/components/Blog/BlogPostSidebars';
+import Breadcrumbs from '@/components/Blog/Breadcrumbs';
+import RelatedPosts from '@/components/Blog/RelatedPosts';
 
-// Revalidate this page every 60 seconds to ensure new admin posts appear automatically
-export const revalidate = 60;
+// Static export — page content is baked at build time
+// Rebuild + re-upload out/ when new posts are published
 
 // All pages are pre-built via generateStaticParams — no dynamic params needed
 export const dynamicParams = false;
@@ -116,6 +117,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
   let faqSchema = null;
   let breadcrumbData = null;
   let relatedPosts: any[] = [];
+  let youMayAlsoLike: any[] = [];
 
   if (article) {
     const cat = (article.category || '').toLowerCase().replace(/\s+/g, '-') || 'general';
@@ -134,6 +136,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
     const sameCategoryPosts = allPosts.filter((p: any) => p.category === article.category && p.slug !== slug);
     const otherPosts = allPosts.filter((p: any) => p.category !== article.category);
     relatedPosts = [...sameCategoryPosts, ...otherPosts].slice(0, 3);
+
+    const usedSlugs = new Set(relatedPosts.map((p: any) => p.slug));
+    usedSlugs.add(slug);
+    youMayAlsoLike = allPosts.filter((p: any) => !usedSlugs.has(p.slug)).slice(0, 3);
 
     // @ts-ignore
     schemaData = generateBlogPostSchema({
@@ -181,8 +187,61 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
         />
       )}
-      {/* @ts-ignore */}
-      <BlogPostContent slug={slug} initialArticle={article} initialRelatedPosts={relatedPosts} />
+      {article?.image && (
+        <link rel="preload" href={article.image} as="image" />
+      )}
+
+      {!article ? (
+        <div className="min-h-screen bg-white flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">Post Not Found</h1>
+            <p className="text-gray-600">The article you are looking for does not exist.</p>
+          </div>
+        </div>
+      ) : (
+      <div className="bg-white text-gray-900 min-h-screen">
+        {/* Breadcrumbs - fixed on desktop, static on mobile */}
+        <div className="pt-28 sm:pt-32 pb-4 lg:pb-8 lg:fixed lg:top-0 lg:left-0 lg:right-0 lg:bg-gray-50 lg:z-40">
+          <div className="px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32">
+            <Breadcrumbs items={[
+              { label: 'Home', path: '/' },
+              { label: 'Blog', path: '/blog' },
+              { label: article?.category, path: `/blog/${(article?.category || '').toLowerCase().replace(/\s+/g, '-')}/` },
+              { label: article?.title }
+            ]} />
+          </div>
+        </div>
+
+        {/* Spacer for desktop fixed breadcrumbs */}
+        <div className="hidden lg:block h-28"></div>
+
+        {/* Main Content Layout */}
+        <div className="max-w-[1800px] mx-auto px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-8">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+
+            {/* Middle Column: Main Content (server-rendered) */}
+            {article && (
+              <main className="flex-1 min-w-0 lg:order-2">
+                <BlogArticleBody article={article} relatedPosts={relatedPosts} youMayAlsoLike={youMayAlsoLike} />
+              </main>
+            )}
+
+            {/* Sidebars (client component for scroll spy, TOC, share) */}
+            {article && (
+              <BlogPostSidebars article={article} youMayAlsoLike={youMayAlsoLike} />
+            )}
+
+          </div>
+        </div>
+
+        {/* Related Posts - Full Width Section */}
+        <section className="bg-gray-50 py-6 sm:py-8">
+          <div className="max-w-[1800px] mx-auto px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32">
+            <RelatedPosts posts={relatedPosts} title="Related Articles" />
+          </div>
+        </section>
+      </div>
+      )}
     </>
   );
 }

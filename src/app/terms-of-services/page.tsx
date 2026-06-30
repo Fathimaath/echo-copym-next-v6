@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         type: 'website',
         images: [
             {
-                url: '/assets/copym/png/Copym-01-1.png',
+                url: 'https://copym.xyz/assets/copym/png/Copym-01-1.png',
                 width: 1200,
                 height: 630,
                 alt: 'Terms of Service | CopyM',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Terms of Service | CopyM',
         description: 'Read the Terms of Service for using the CopyM tokenization platform.',
-        images: ['/assets/copym/png/Copym-01-1.png'],
+        images: ['https://copym.xyz/assets/copym/png/Copym-01-1.png'],
     }
 };
 

@@ -6,11 +6,10 @@ import Image from '../Image';
 export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike }) {
   return (
     <>
-      {/* Author & Reviewer Section */}
+      {/* Author Section */}
       <section className="my-8 sm:my-12">
-        <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
+        <div className="grid md:grid-cols-1 gap-4 sm:gap-6">
           <AuthorCard author={article.authorData} name={article.author} />
-          {article.reviewer && <ReviewerCard reviewer={article.reviewer} />}
         </div>
       </section>
 
@@ -155,30 +154,5 @@ function AuthorCard({ author, name }) {
   );
 }
 
-function ReviewerCard({ reviewer }) {
-  return (
-    <div className="bg-white rounded-lg border border-gray-100 overflow-hidden hover:border-[#15a36e]/30 transition-all duration-300 group flex flex-col" style={{ boxShadow: '0px 4px 48.9px 0px #BDE3D5' }}>
-      <div className="p-4 sm:p-6 flex-1">
-        <div className="flex items-start gap-3 sm:gap-4">
-          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-gradient-to-br from-[#15a36e]/20 to-[#15a36e]/5 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-            {reviewer.avatar ? (
-              <Image src={reviewer.avatar} alt={reviewer.name} className="w-full h-full rounded-lg object-cover" />
-            ) : (
-              <span className="text-xl font-bold text-[#15a36e]">{reviewer.name.charAt(0)}</span>
-            )}
-          </div>
-          <div className="flex-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#15a36e] block mb-1">Reviewed By</span>
-            <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-1" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
-              {reviewer.name}
-            </h4>
-            <p className="text-xs text-gray-500 mb-3 !mb-3">{reviewer.role}</p>
-            <p className="text-sm text-gray-600 leading-relaxed !mb-0">{reviewer.bio}</p>
-          </div>
-        </div>
-      </div>
-      <div className="h-1 bg-gradient-to-r from-[#15a36e] to-emerald-400"></div>
-    </div>
-  );
-}
+
 

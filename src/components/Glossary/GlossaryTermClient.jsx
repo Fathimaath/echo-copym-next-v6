@@ -233,7 +233,7 @@ export default function GlossaryTermClient({ termData, slug }) {
                     <div className="space-y-4">
                       {termData.examples.map((example, index) => (
                         <div key={example.id || index} className="flex items-start gap-3">
-                          <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#15a36e] flex items-center justify-center text-white font-bold text-[10px] mt-2">
+                          <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#15a36e] flex items-center justify-center text-white font-bold text-[10px] sm:text-xs mt-2">
                             {index + 1}
                           </span>
                           <p className="text-base text-gray-700 leading-relaxed pt-1 flex-1">{example.text || example}</p>

@@ -38,9 +38,10 @@ export default function TableOfContents({ headings = [] }) {
       const yOffset = -170;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
-      setActiveId(id);
-      setIsOpen(false);
     }
+    setActiveId(id);
+    setIsOpen(false);
+    history.replaceState(null, '', `#${id}`);
   };
 
   if (headings.length === 0) return null;

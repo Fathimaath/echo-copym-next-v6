@@ -148,7 +148,7 @@ export default function GlossaryClient({ initialTerms, initialLetter: serverLett
                       setSelectedLetter(letter);
                       if (letter !== 'ALL') setSearchTerm('');
                     }}
-                    className={`px-2 py-1 lg:px-4 lg:py-2 rounded-full text-[9px] lg:text-xs font-bold transition-all duration-300 ${
+                    className={`px-2 py-1 lg:px-4 lg:py-2 rounded-full text-[9px] sm:text-xs lg:text-xs font-bold transition-all duration-300 ${
                       selectedLetter === letter
                         ? 'bg-[#15a36e] text-white shadow-lg shadow-[#15a36e]/30'
                         : 'bg-white text-gray-600 hover:bg-gray-100'

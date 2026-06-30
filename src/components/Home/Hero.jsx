@@ -8,8 +8,23 @@ import { X } from 'lucide-react';
 
 export default function Hero() {
   const [isVideoOpen, setVideoOpen] = useState(false);
+  const [shouldAutoplay, setShouldAutoplay] = useState(true);
   const modalRef = useRef(null);
   const closeButtonRef = useRef(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateShouldAutoplay = () => {
+      setShouldAutoplay(!mediaQuery.matches);
+    };
+
+    updateShouldAutoplay();
+    mediaQuery.addEventListener('change', updateShouldAutoplay);
+
+    return () => {
+      mediaQuery.removeEventListener('change', updateShouldAutoplay);
+    };
+  }, []);
 
   // Handle Escape key to close modal
   useEffect(() => {
@@ -43,9 +58,9 @@ export default function Hero() {
   return (
     <div className="relative">
       {/* ====== BACKGROUND VIDEO ====== */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      <div className="absolute inset-0 w-full h-full z-0" aria-hidden="true">
         <video
-          autoPlay
+          autoPlay={shouldAutoplay}
           loop
           muted
           playsInline
@@ -53,12 +68,16 @@ export default function Hero() {
           poster="/assets/Images/heroimage.webp"
           fetchPriority="high"
           className="w-full h-full object-cover"
+          tabIndex={-1}
+          aria-hidden="true"
           style={{
             minHeight: '100vh',
             height: 'auto',
             maxHeight: '-webkit-fill-available' /* Better mobile viewport height support */
           }}
         >
+          <source src="/assets/videos/hero-section-video-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
+          <source src="/assets/videos/hero-section-video.webm" type="video/webm" />
           <source src="/assets/videos/hero-section-video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/40"></div>

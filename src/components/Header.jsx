@@ -353,7 +353,17 @@ export default function Header() {
             {/* Overlay */}
             <div
               className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              role="button"
+              tabIndex={0}
+              aria-label="Close mobile menu"
               onClick={() => { setIsMenuOpen(false); setMobileDropdownOpen(null); }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setIsMenuOpen(false);
+                  setMobileDropdownOpen(null);
+                }
+              }}
             />
             {/* Slide-out Panel */}
             <motion.div
@@ -377,8 +387,9 @@ export default function Header() {
                   />
                 </Link>
                 <button
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#15a36e] rounded"
                   onClick={() => setIsMenuOpen(false)}
+                  aria-label="Close mobile menu"
                 >
                   <IoClose className="h-6 w-6" />
                 </button>
@@ -406,8 +417,17 @@ export default function Header() {
                       {isDropdown ? (
                         <div
                           className={`flex items-center px-4 py-4 text-gray-300 font-medium cursor-pointer ${open ? 'text-white' : ''}`}
+                          role="button"
+                          tabIndex={0}
+                          aria-expanded={open}
                           onClick={() => {
                             setMobileDropdownOpen(mobileDropdownOpen === item.label ? null : item.label);
+                          }}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              setMobileDropdownOpen(mobileDropdownOpen === item.label ? null : item.label);
+                            }
                           }}
                         >
                           <span className="flex-1 text-base">{item.label}</span>

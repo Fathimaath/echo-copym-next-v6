@@ -172,7 +172,7 @@ function FeaturedSidebarCard({ post }) {
           {/* Content */}
           <div className="flex-1 flex flex-col justify-center py-0.5 min-w-0">
             {/* Category Chip */}
-            <span className="inline-block px-2.5 py-0.5 bg-[#15a36e]/10 text-[#15a36e] text-[10px] font-bold rounded-full mb-1.5 w-fit" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+            <span className="inline-block px-2.5 py-0.5 bg-[#15a36e]/10 text-[#15a36e] text-[10px] sm:text-xs font-bold rounded-full mb-1.5 w-fit" style={{ fontFamily: 'Palanquin, sans-serif' }}>
               {category}
             </span>
 

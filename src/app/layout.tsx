@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   title: "CopyM - Complete Tokenization Platform",
   description: "CopyM is the complete tokenization platform for real-world assets.",
   openGraph: {
+    title: "CopyM - Complete Tokenization Platform",
+    description: "CopyM is the complete tokenization platform for real-world assets.",
+    url: "https://copym.xyz/",
+    type: "website",
     images: [
       {
         url: "https://copym.xyz/assets/copym/png/Copym-01-1.png",
@@ -30,6 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title: "CopyM - Complete Tokenization Platform",
+    description: "CopyM is the complete tokenization platform for real-world assets.",
     images: ["https://copym.xyz/assets/copym/png/Copym-01-1.png"],
   },
   robots: "index, follow",

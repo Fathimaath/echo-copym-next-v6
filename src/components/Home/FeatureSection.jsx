@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import SectionContainer from '@/components/Layout/SectionContainer';
@@ -10,6 +10,16 @@ import exploreAnimation from '@/../public/lotties/explore.json';
 import earnWithoutHassleAnimation from '@/../public/lotties/earnwithoutahassle.json';
 
 const FeatureSection = () => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const listener = (event) => setPrefersReducedMotion(event.matches);
+
+    setPrefersReducedMotion(mediaQuery.matches);
+    mediaQuery.addEventListener('change', listener);
+    return () => mediaQuery.removeEventListener('change', listener);
+  }, []);
   return (
     <SectionContainer padding="pt-12 pb-26 sm:py-20 md:py-24 lg:py-26 text-center" bgColor="bg-white" maxWidth="max-w-10xl">
       {/* Main Heading */}
@@ -41,8 +51,8 @@ const FeatureSection = () => {
             >
               <Lottie
                 animationData={bigInvestmentAnimation}
-                loop={true}
-                autoplay={true}
+                loop={!prefersReducedMotion}
+                autoplay={!prefersReducedMotion}
                 className="w-full h-full"
               />
             </div>
@@ -80,8 +90,8 @@ const FeatureSection = () => {
             >
               <Lottie
                 animationData={tradeAnytimeAnimation}
-                loop={true}
-                autoplay={true}
+                loop={!prefersReducedMotion}
+                autoplay={!prefersReducedMotion}
                 className="w-full h-full"
               />
             </div>
@@ -118,8 +128,8 @@ const FeatureSection = () => {
             >
               <Lottie
                 animationData={earnWithoutHassleAnimation}
-                loop={true}
-                autoplay={true}
+                loop={!prefersReducedMotion}
+                autoplay={!prefersReducedMotion}
                 className="w-full h-full"
               />
             </div>
@@ -156,8 +166,8 @@ const FeatureSection = () => {
             >
               <Lottie
                 animationData={exploreAnimation}
-                loop={true}
-                autoplay={true}
+                loop={!prefersReducedMotion}
+                autoplay={!prefersReducedMotion}
                 className="w-full h-full"
               />
             </div>

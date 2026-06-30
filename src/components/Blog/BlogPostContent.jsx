@@ -204,145 +204,8 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
       <div className="max-w-[1800px] mx-auto px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-8">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
 
-        {/* Left Column: Table of Contents */}
-        <aside ref={leftSidebarRef} className="hidden lg:block w-[200px] flex-shrink-0">
-          <div className={leftSidebarFixed ? 'fixed left-[24px] sm:left-[48px] md:left-[64px] lg:left-[96px] xl:left-[128px] top-[220px] w-[200px] max-h-[calc(100vh-240px)] overflow-y-auto touch-auto' : 'max-h-[calc(100vh-240px)] overflow-y-auto touch-auto'} style={leftSidebarFixed ? { WebkitOverflowScrolling: 'touch' } : {}}>
-            <div className="space-y-8 pb-8">
-              <h3 className="text-sm font-bold mb-6 uppercase tracking-wide" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>Table of Contents</h3>
-              <nav className="space-y-5">
-                {article.headings?.map((item, idx) => {
-                  if (item.level === 3) {
-                    // Skip level 3 headings in main loop - they're rendered with their parent
-                    return null;
-                  }
-
-                  // Find immediate subheadings (level 3) that come after this heading
-                  const subheadings = [];
-                  for (let i = idx + 1; i < article.headings.length; i++) {
-                    if (article.headings[i].level === 3) {
-                      subheadings.push(article.headings[i]);
-                    } else if (article.headings[i].level === 2) {
-                      break; // Stop at next level 2 heading
-                    }
-                  }
-
-                  const hasSubheadings = subheadings.length > 0;
-                  const isExpanded = expandedHeadings.includes(item.id);
-
-                  const scrollToHeading = (id) => {
-                    const el = document.getElementById(id);
-                    if (el) {
-                      const yOffset = -170; // Offset for fixed navbar + breadcrumbs
-                      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                      window.scrollTo({ top: y, behavior: 'smooth' });
-                    }
-                  };
-
-                  return (
-                    <div key={item.id}>
-                      <button
-                        onClick={() => {
-                          scrollToHeading(item.id);
-                          setActiveSection(item.id);
-                          // Close all other expanded H2s, toggle current if it has subheadings
-                          if (hasSubheadings) {
-                            setExpandedHeadings(prev =>
-                              prev.includes(item.id) ? [] : [item.id]
-                            );
-                          } else {
-                            setExpandedHeadings([]);
-                          }
-                        }}
-                        className={`w-full text-left block text-sm transition-colors ${
-                          activeSection === item.id
-                            ? 'text-[#15a36e] font-semibold'
-                            : 'text-gray-500 hover:text-gray-900'
-                        }`}
-                        style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
-                      >
-                        {item.title}
-                      </button>
-                      {hasSubheadings && isExpanded && (
-                        <ul className="mt-2 space-y-1.5 ml-3 border-l-2 border-gray-200 pl-3">
-                          {subheadings.map((sub) => (
-                            <li key={sub.id}>
-                              <a
-                                href={`#${sub.id}`}
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  const el = document.getElementById(sub.id);
-                                  if (el) {
-                                    const yOffset = -170;
-                                    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                                    window.scrollTo({ top: y, behavior: 'smooth' });
-                                  }
-                                  setActiveSection(sub.id);
-                                }}
-                                className="block text-xs text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-1.5"
-                                style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
-                              >
-                                <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-                                {sub.title}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  );
-                })}
-              </nav>
-            </div>
-
-            {/* Divider */}
-            <hr className="border-gray-200 my-8" />
-
-            {/* Share */}
-            <div>
-              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>Share</h4>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => handleShare('twitter')}
-                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
-                  aria-label="Share on Twitter"
-                >
-                  <Twitter className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => handleShare('linkedin')}
-                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
-                  aria-label="Share on LinkedIn"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => handleShare('facebook')}
-                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
-                  aria-label="Share on Facebook"
-                >
-                  <Facebook className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => handleShare('email')}
-                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
-                  aria-label="Share via Email"
-                >
-                  <Mail className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => handleShare('copy')}
-                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
-                  aria-label="Copy Link"
-                >
-                  <Link2 className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </aside>
-
         {/* Middle Column: Main Content (Scrollable) */}
-        <main ref={mainContentRef} className="flex-1 min-w-0">
+        <main ref={mainContentRef} className="flex-1 min-w-0 lg:order-2">
           <article>
             {/* Article Header */}
             <header className="mb-8 sm:mb-10 lg:mb-12 pt-8 lg:pt-0">
@@ -418,437 +281,153 @@ export default function BlogPostContent({ slug, initialArticle, initialRelatedPo
               )}
             </div>
 
-            <style>{`
-              .prose h2 {
-                color: #111827 !important;
-                font-weight: 700 !important;
-                font-size: 1.25rem !important;
-                margin-top: 2rem !important;
-                margin-bottom: 1rem !important;
-                padding-bottom: 0.5rem !important;
-                border-bottom: 2px solid #e5e7eb !important;
-                letter-spacing: -0.025em !important;
-                text-transform: uppercase !important;
-              }
-              @media (min-width: 640px) {
-                .prose h2 {
-                  font-size: 1.5rem !important;
-                }
-              }
-              @media (min-width: 1024px) {
-                .prose h2 {
-                  font-size: 1.75rem !important;
-                }
-              }
-              .prose h3 {
-                color: #15a36e !important;
-                font-weight: 600 !important;
-                font-size: 1.1rem !important;
-                margin-top: 1.5rem !important;
-                margin-bottom: 0.75rem !important;
-                padding-left: 0.75rem !important;
-                border-left: 3px solid #15a36e !important;
-                letter-spacing: -0.01em !important;
-              }
-              @media (min-width: 640px) {
-                .prose h3 {
-                  font-size: 1.25rem !important;
-                }
-              }
-              .prose p {
-                color: #374151 !important;
-                line-height: 1.75 !important;
-                margin-bottom: 1.25rem !important;
-                font-size: 0.9rem !important;
-              }
-              @media (min-width: 640px) {
-                .prose p {
-                  font-size: 1rem !important;
-                }
-              }
-              @media (min-width: 1024px) {
-                .prose p {
-                  font-size: 1.1rem !important;
-                }
-              }
-              .prose ul {
-                margin-top: 0.75rem !important;
-                margin-bottom: 1.25rem !important;
-                padding-left: 0 !important;
-              }
-              .prose li {
-                color: #4b5563 !important;
-                margin-bottom: 0.625rem !important;
-                line-height: 1.6 !important;
-              }
-              .prose strong {
-                color: #1f2937 !important;
-                font-weight: 600 !important;
-              }
-              /* Hide scrollbar for left sidebar TOC */
-              .overflow-y-auto {
-                -ms-overflow-style: none !important;
-                scrollbar-width: none !important;
-              }
-              .overflow-y-auto::-webkit-scrollbar {
-                display: none !important;
-              }
 
-              /* ============================================
-                 INSERTABLE CONTENT BLOCKS
-                 ============================================ */
-
-              /* --- Base block style --- */
-              .blog-block {
-                margin: 2.5rem 0 !important;
-                border-radius: 1rem !important;
-                overflow: hidden !important;
-                font-family: var(--font-palanquin), 'Palanquin', sans-serif !important;
-              }
-
-              /* --- CTA Block --- */
-              .blog-cta {
-                background: #ffffff !important;
-                border: 2px solid #e5e7eb !important;
-                border-left: 2px solid #e5e7eb !important;
-                border-radius: 1rem !important;
-                padding: 2rem 1.5rem !important;
-                position: relative !important;
-                overflow: hidden !important;
-                box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06) !important;
-                text-align: center !important;
-              }
-              .blog-cta h3,
-              .blog-cta__title {
-                color: #000000 !important;
-                border-left: none !important;
-                padding-left: 0 !important;
-                font-size: 1.25rem !important;
-                font-weight: 700 !important;
-                margin: 0 0 0.5rem !important;
-                line-height: 1.3 !important;
-              }
-              .blog-cta__text {
-                color: #6b7280 !important;
-                font-size: 0.9rem !important;
-                line-height: 1.6 !important;
-                margin: 0 0 1.25rem !important;
-              }
-              .blog-cta__btn {
-                display: inline-flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                gap: 0.5rem !important;
-                background: #15a36e !important;
-                color: #fff !important;
-                font-weight: 600 !important;
-                font-size: 0.875rem !important;
-                padding: 0.625rem 1.5rem !important;
-                border-radius: 9999px !important;
-                text-decoration: none !important;
-                transition: all 0.3s ease !important;
-                border: none !important;
-                box-shadow: 0 4px 12px rgba(21, 163, 110, 0.3) !important;
-              }
-              .blog-cta__btn:hover {
-                background: #12a062 !important;
-                transform: translateY(-2px) !important;
-                box-shadow: 0 6px 20px rgba(21, 163, 110, 0.4) !important;
-              }
-
-              /* --- Fast Fact / Key Fact Block --- */
-              .blog-fast-fact {
-                background: #f0fdf7 !important;
-                border-left: 4px solid #15a36e !important;
-                padding: 1.25rem 1.5rem !important;
-              }
-              .blog-fast-fact__label {
-                display: flex !important;
-                align-items: center !important;
-                gap: 0.5rem !important;
-                font-size: 0.75rem !important;
-                font-weight: 700 !important;
-                text-transform: uppercase !important;
-                letter-spacing: 0.05em !important;
-                color: #15a36e !important;
-                margin-bottom: 0.5rem !important;
-              }
-              .blog-fast-fact__value {
-                color: #111827 !important;
-                font-size: 1rem !important;
-                font-weight: 600 !important;
-                line-height: 1.5 !important;
-                margin: 0 !important;
-              }
-              @media (min-width: 640px) {
-                .blog-fast-fact__value {
-                  font-size: 1.125rem !important;
-                }
-              }
-
-              /* --- Quote Block --- */
-              .blog-quote {
-                background: #fafafa !important;
-                border-left: 4px solid #15a36e !important;
-                padding: 1.5rem 2rem !important;
-                position: relative !important;
-              }
-              .blog-quote::before {
-                content: '\\201C' !important;
-                position: absolute !important;
-                top: 0.5rem !important;
-                left: 1rem !important;
-                font-size: 4rem !important;
-                color: rgba(21, 163, 110, 0.1) !important;
-                line-height: 1 !important;
-              }
-              .blog-quote__text {
-                color: #1f2937 !important;
-                font-size: 0.95rem !important;
-                font-style: italic !important;
-                line-height: 1.7 !important;
-                margin: 0 0 1rem !important;
-                position: relative;
-                z-index: 1;
-              }
-              @media (min-width: 640px) {
-                .blog-quote__text {
-                  font-size: 1.05rem !important;
-                }
-              }
-              .blog-quote__author {
-                display: flex !important;
-                align-items: center !important;
-                gap: 0.75rem !important;
-              }
-              .blog-quote__avatar {
-                width: 40px !important;
-                height: 40px !important;
-                border-radius: 50% !important;
-                background: rgba(21, 163, 110, 0.15) !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                color: #15a36e !important;
-                font-weight: 700 !important;
-                font-size: 1rem !important;
-                flex-shrink: 0 !important;
-              }
-              .blog-quote__avatar img {
-                width: 100% !important;
-                height: 100% !important;
-                border-radius: 50% !important;
-                object-fit: cover !important;
-              }
-              .blog-quote__name {
-                font-weight: 600 !important;
-                font-size: 0.875rem !important;
-                color: #111827 !important;
-              }
-              .blog-quote__role {
-                font-size: 0.75rem !important;
-                color: #6b7280 !important;
-              }
-
-              /* --- Callout Block --- */
-              .blog-callout {
-                padding: 1.25rem 1.5rem !important;
-              }
-              .blog-callout__content {
-                width: 100% !important;
-              }
-              .blog-callout__title {
-                font-weight: 700 !important;
-                font-size: 0.875rem !important;
-                margin: 0 0 0.25rem !important;
-              }
-              .blog-callout__text {
-                font-size: 0.875rem !important;
-                line-height: 1.6 !important;
-                margin: 0 !important;
-              }
-
-              /* Callout variants */
-              .blog-callout--info {
-                background: #eff6ff !important;
-                border-left: 4px solid #3b82f6 !important;
-              }
-              .blog-callout--info .blog-callout__title { color: #1e40af !important; }
-              .blog-callout--info .blog-callout__text { color: #1e3a5f !important; }
-
-              .blog-callout--warning {
-                background: #fefce8 !important;
-                border-left: 4px solid #eab308 !important;
-              }
-              .blog-callout--warning .blog-callout__title { color: #854d0e !important; }
-              .blog-callout--warning .blog-callout__text { color: #713f12 !important; }
-
-              .blog-callout--note {
-                background: #f5f3ff !important;
-                border-left: 4px solid #8b5cf6 !important;
-              }
-              .blog-callout--note .blog-callout__title { color: #5b21b6 !important; }
-              .blog-callout--note .blog-callout__text { color: #4c1d95 !important; }
-
-              .blog-callout--success {
-                background: #f0fdf7 !important;
-                border-left: 4px solid #15a36e !important;
-              }
-              .blog-callout--success .blog-callout__title { color: #065f46 !important; }
-              .blog-callout--success .blog-callout__text { color: #064e3b !important; }
-
-              /* --- Table Block --- */
-              .blog-table {
-                border: 1px solid #e5e7eb !important;
-                border-radius: 0.75rem !important;
-                overflow: hidden !important;
-              }
-              @media (max-width: 1023px) {
-                .blog-table {
-                  overflow-x: auto !important;
-                  -webkit-overflow-scrolling: touch !important;
-                  /* Hide scrollbar visually */
-                  -ms-overflow-style: none !important;
-                  scrollbar-width: none !important;
-                }
-                .blog-table::-webkit-scrollbar {
-                  display: none !important;
-                }
-                .blog-table table {
-                  min-width: 600px !important;
-                }
-              }
-              .blog-table table {
-                width: 100% !important;
-                border-collapse: collapse !important;
-                margin: 0 !important;
-                font-size: 0.875rem !important;
-              }
-              .blog-table thead {
-                background: #f9fafb !important;
-              }
-              .blog-table th {
-                color: #111827 !important;
-                font-weight: 600 !important;
-                text-align: left !important;
-                padding: 0.875rem 1rem !important;
-                border-bottom: 2px solid #e5e7eb !important;
-              }
-              .blog-table td {
-                color: #4b5563 !important;
-                padding: 0.75rem 1rem !important;
-                border-bottom: 1px solid #f3f4f6 !important;
-              }
-              .blog-table tbody tr:last-child td {
-                border-bottom: none !important;
-              }
-              .blog-table tbody tr:hover {
-                background: #f9fafb !important;
-              }
-
-              /* --- Image + Caption Block --- */
-              .blog-image {
-                margin: 2rem 0 !important;
-                border-radius: 0.75rem !important;
-                overflow: hidden !important;
-                background: #f9fafb !important;
-              }
-              .blog-image img {
-                width: 100% !important;
-                height: auto !important;
-                display: block !important;
-              }
-              .blog-image__caption {
-                padding: 0.75rem 1rem !important;
-                font-size: 0.8rem !important;
-                color: #6b7280 !important;
-                text-align: center !important;
-                font-style: italic !important;
-                border-top: 1px solid #e5e7eb !important;
-              }
-
-              /* --- Source / Reference Block --- */
-              .blog-source {
-                background: #f9fafb !important;
-                border-left: 4px solid #d1d5db !important;
-                padding: 1rem 1.25rem !important;
-                margin: 2rem 0 !important;
-              }
-              .blog-source__title {
-                font-size: 0.75rem !important;
-                font-weight: 700 !important;
-                text-transform: uppercase !important;
-                letter-spacing: 0.05em !important;
-                color: #6b7280 !important;
-                margin-bottom: 0.5rem !important;
-              }
-              .blog-source__link {
-                color: #15a36e !important;
-                font-size: 0.85rem !important;
-                text-decoration: underline !important;
-                word-break: break-all !important;
-                transition: color 0.2s !important;
-              }
-              .blog-source__link:hover {
-                color: #0e7a4f !important;
-              }
-
-              /* --- Related Article Inline Block --- */
-              .blog-related-article {
-                background: linear-gradient(135deg, #f0fdf7 0%, #ffffff 100%) !important;
-                border: 1px solid rgba(21, 163, 110, 0.2) !important;
-                border-radius: 0.75rem !important;
-                padding: 1.25rem 1.5rem !important;
-                transition: all 0.3s ease !important;
-              }
-              .blog-related-article:hover {
-                border-color: rgba(21, 163, 110, 0.4) !important;
-                box-shadow: 0 4px 24px rgba(21, 163, 110, 0.08) !important;
-              }
-              .blog-related-article__label {
-                display: inline-flex !important;
-                align-items: center !important;
-                gap: 0.375rem !important;
-                font-size: 0.75rem !important;
-                font-weight: 700 !important;
-                text-transform: uppercase !important;
-                letter-spacing: 0.05em !important;
-                color: #15a36e !important;
-                margin-bottom: 0.5rem !important;
-              }
-              .blog-related-article__title {
-                color: #111827 !important;
-                font-size: 1rem !important;
-                font-weight: 600 !important;
-                margin: 0 0 0.25rem !important;
-                text-decoration: none !important;
-                transition: color 0.2s !important;
-              }
-              .blog-related-article__title:hover {
-                color: #15a36e !important;
-              }
-              .blog-related-article__meta {
-                font-size: 0.75rem !important;
-                color: #9ca3af !important;
-              }
-
-              /* --- Responsive --- */
-              @media (max-width: 768px) {
-                .blog-cta { padding: 1.5rem 1rem !important; }
-                .blog-cta__title { font-size: 1.1rem !important; }
-                .blog-quote { padding: 1.25rem 1rem !important; }
-                .blog-quote::before { font-size: 3rem !important; }
-                .blog-fast-fact { padding: 1rem 1.25rem !important; }
-                .blog-table table { font-size: 0.8rem !important; }
-              }
-            `}</style>
 
             <BlogBelowFold article={article} relatedPosts={relatedPosts} youMayAlsoLike={youMayAlsoLike} />
           </article>
         </main>
 
+        {/* Left Column: Table of Contents */}
+        <aside ref={leftSidebarRef} className="hidden lg:block w-[200px] flex-shrink-0 lg:order-1">
+          <div className={leftSidebarFixed ? 'fixed left-[24px] sm:left-[48px] md:left-[64px] lg:left-[96px] xl:left-[128px] top-[220px] w-[200px] max-h-[calc(100vh-240px)] overflow-y-auto touch-auto' : 'max-h-[calc(100vh-240px)] overflow-y-auto touch-auto'} style={leftSidebarFixed ? { WebkitOverflowScrolling: 'touch' } : {}}>
+            <div className="space-y-8 pb-8">
+              <h3 className="text-sm font-bold mb-6 uppercase tracking-wide" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>Table of Contents</h3>
+              <nav className="space-y-5">
+                {article.headings?.map((item, idx) => {
+                  if (item.level === 3) {
+                    return null;
+                  }
+
+                  const subheadings = [];
+                  for (let i = idx + 1; i < article.headings.length; i++) {
+                    if (article.headings[i].level === 3) {
+                      subheadings.push(article.headings[i]);
+                    } else if (article.headings[i].level === 2) {
+                      break;
+                    }
+                  }
+
+                  const hasSubheadings = subheadings.length > 0;
+                  const isExpanded = expandedHeadings.includes(item.id);
+
+                  const scrollToHeading = (id) => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                      const yOffset = -170;
+                      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                      window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                  };
+
+                  const handleToCClick = (id, hasSubs) => (e) => {
+                    e.preventDefault();
+                    scrollToHeading(id);
+                    setActiveSection(id);
+                    if (hasSubs) {
+                      setExpandedHeadings(prev =>
+                        prev.includes(id) ? [] : [id]
+                      );
+                    } else {
+                      setExpandedHeadings([]);
+                    }
+                    history.replaceState(null, '', `#${id}`);
+                  };
+
+                  return (
+                    <div key={item.id}>
+                      <a
+                        href={`#${item.id}`}
+                        onClick={handleToCClick(item.id, hasSubheadings)}
+                        className={`block text-sm transition-colors ${
+                          activeSection === item.id
+                            ? 'text-[#15a36e] font-semibold'
+                            : 'text-gray-500 hover:text-gray-900'
+                        }`}
+                        style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
+                      >
+                        {item.title}
+                      </a>
+                      {hasSubheadings && isExpanded && (
+                        <ul className="mt-2 space-y-1.5 ml-3 border-l-2 border-gray-200 pl-3">
+                          {subheadings.map((sub) => (
+                            <li key={sub.id}>
+                              <a
+                                href={`#${sub.id}`}
+                                onClick={(e) => {
+                                  const el = document.getElementById(sub.id);
+                                  if (el) {
+                                    const yOffset = -170;
+                                    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                                    window.scrollTo({ top: y, behavior: 'smooth' });
+                                  }
+                                  setActiveSection(sub.id);
+                                  history.replaceState(null, '', `#${sub.id}`);
+                                }}
+                                className="block text-xs text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-1.5"
+                                style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
+                              >
+                                <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                                {sub.title}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  );
+                })}
+              </nav>
+            </div>
+
+            {/* Divider */}
+            <hr className="border-gray-200 my-8" />
+
+            {/* Share */}
+            <div>
+              <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>Share</h4>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => handleShare('twitter')}
+                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
+                  aria-label="Share on Twitter"
+                >
+                  <Twitter className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => handleShare('linkedin')}
+                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
+                  aria-label="Share on LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => handleShare('facebook')}
+                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
+                  aria-label="Share on Facebook"
+                >
+                  <Facebook className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => handleShare('email')}
+                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
+                  aria-label="Share via Email"
+                >
+                  <Mail className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => handleShare('copy')}
+                  className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all"
+                  aria-label="Copy Link"
+                >
+                  <Link2 className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
+
         {/* Right Column: Sidebar */}
-        <aside ref={rightSidebarRef} className="hidden lg:block w-[280px] flex-shrink-0">
+        <aside ref={rightSidebarRef} className="hidden lg:block w-[280px] flex-shrink-0 lg:order-3">
           <div className={rightSidebarFixed ? 'fixed right-[24px] sm:right-[48px] md:right-[64px] lg:right-[96px] xl:right-[128px] top-[220px] w-[280px]' : ''}>
             <div className="space-y-4 pb-8">
               <h4 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>

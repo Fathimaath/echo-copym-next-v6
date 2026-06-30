@@ -5,6 +5,16 @@ import Lottie from 'lottie-react';
 import productStackAnimation from '@/../public/lotties/prodctstackreview.json';
 
 const ProductStackReview = () => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updatePrefersReducedMotion = (event) => setPrefersReducedMotion(event.matches);
+
+    setPrefersReducedMotion(mediaQuery.matches);
+    mediaQuery.addEventListener('change', updatePrefersReducedMotion);
+    return () => mediaQuery.removeEventListener('change', updatePrefersReducedMotion);
+  }, []);
   const headingRef = useRef(null);
   const lottieRef = useRef(null);
   const [headingLeft, setHeadingLeft] = useState(0);
@@ -60,8 +70,8 @@ const ProductStackReview = () => {
             <Lottie
               lottieRef={lottieRef}
               animationData={productStackAnimation}
-              loop={true}
-              autoplay={true}
+              loop={!prefersReducedMotion}
+              autoplay={!prefersReducedMotion}
               className="w-full h-full"
             />
           </div>

@@ -1,5 +1,6 @@
-import React from 'react';
-import { Twitter, Linkedin, Instagram, Github } from 'lucide-react';
+"use client";
+import React, { useState, useCallback } from 'react';
+import { Twitter, Linkedin, Instagram, Github, Check, Loader2, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import Image from './Image';
 
@@ -50,6 +51,36 @@ function NavColumn({ title, links, isExternal }) {
 }
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleSubmit = useCallback(async (e) => {
+    e.preventDefault();
+    if (!consent) {
+      setErrorMsg('Please agree to the privacy policy.');
+      setStatus('error');
+      return;
+    }
+    setStatus('loading');
+    setErrorMsg('');
+
+    try {
+      // Simulate API call — backend will be connected later
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setStatus('success');
+      setEmail('');
+      setConsent(false);
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({ event: 'newsletter_submit', email });
+      }
+    } catch (err) {
+      setStatus('error');
+      setErrorMsg(err.message || 'Something went wrong. Please try again.');
+    }
+  }, [email, consent]);
+
   return (
     <footer className="relative bg-black text-white overflow-hidden">
       <div className="pointer-events-none absolute inset-0">
@@ -103,7 +134,16 @@ export default function Footer() {
                   To know more subscribe to our newsletter
                 </p>
               </div>
-              <form className="space-y-2 w-full lg:max-w-[360px]">
+              <form onSubmit={handleSubmit} className="space-y-2 w-full lg:max-w-[360px]" noValidate>
+                {/* Honeypot field — hidden from humans, visible to bots */}
+                <input
+                  type="text"
+                  name="_hp"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  style={{ position: 'absolute', left: '-9999px', opacity: 0 }}
+                  aria-hidden="true"
+                />
                 <div
                   className="flex items-center overflow-hidden w-full"
                   style={{
@@ -115,8 +155,11 @@ export default function Footer() {
                   <input
                     type="email"
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your E-Mail Address"
-                    className="flex-1 h-full focus:outline-none placeholder:text-gray-400"
+                    disabled={status === 'loading'}
+                    className="flex-1 h-full focus:outline-none focus:ring-2 focus:ring-[#15a36e] focus:ring-inset placeholder:text-gray-400 disabled:opacity-50"
                     style={{
                       paddingLeft: '16px',
                       paddingRight: '8px',
@@ -129,7 +172,8 @@ export default function Footer() {
                   />
                   <button
                     type="submit"
-                    className="h-full flex items-center justify-center hover:opacity-90 transition whitespace-nowrap px-3 sm:px-4 md:px-6"
+                    disabled={status === 'loading'}
+                    className="h-full flex items-center justify-center hover:opacity-90 transition whitespace-nowrap px-3 sm:px-4 md:px-6 disabled:opacity-70"
                     style={{
                       background: '#15a36e',
                       color: '#ffffff',
@@ -138,11 +182,45 @@ export default function Footer() {
                       fontSize: '16px',
                     }}
                   >
-                    <span className="text-xs sm:text-sm md:text-base font-semibold">
-                      Subscribe
-                    </span>
+                    {status === 'loading' ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <span className="text-xs sm:text-sm md:text-base font-semibold">Subscribe</span>
+                    )}
                   </button>
                 </div>
+
+                {/* Consent checkbox */}
+                <label className="flex items-start gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    disabled={status === 'loading'}
+                    className="mt-0.5 accent-[#15a36e]"
+                  />
+                  <span className="text-xs sm:text-xs text-gray-400 leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                    I agree to the{' '}
+                    <Link href="/terms-of-services" className="text-[#15a36e] underline hover:no-underline">
+                      Privacy Policy
+                    </Link>
+                    {' '}and consent to receive updates.
+                  </span>
+                </label>
+
+                {/* Status messages */}
+                {status === 'success' && (
+                  <div className="flex items-center gap-1.5 text-[#15a36e] text-xs">
+                    <Check className="w-3.5 h-3.5" />
+                    <span>You're subscribed! Thank you.</span>
+                  </div>
+                )}
+                {status === 'error' && (
+                  <div className="flex items-center gap-1.5 text-red-400 text-xs">
+                    <AlertCircle className="w-3.5 h-3.5" />
+                    <span>{errorMsg}</span>
+                  </div>
+                )}
               </form>
             </div>
           </div>

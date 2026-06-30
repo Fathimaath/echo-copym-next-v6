@@ -72,9 +72,9 @@ function contentBlocksToHtml(blocks) {
         return `<div class="blog-block blog-cta">
           <h3 class="blog-cta__title">${block.title || ''}</h3>
           <p class="blog-cta__text">${block.content || ''}</p>
-          ${block.caption ? `<a href="#" class="blog-cta__btn">${block.caption}
+          ${block.caption ? `<button type="button" class="blog-cta__btn">${block.caption}
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
-          </a>` : ''}
+          </button>` : ''}
         </div>`;
 
       case 'fastfact':
@@ -365,13 +365,6 @@ export function transformApiPost(apiPost) {
       role: apiPost.authorRole || '',
       bio: apiPost.authorBio || ''
     },
-
-    // Reviewer details (E-E-A-T)
-    reviewer: apiPost.reviewerName ? {
-      name: apiPost.reviewerName,
-      role: apiPost.reviewerRole || 'Reviewer',
-      bio: apiPost.reviewerBio || ''
-    } : null,
 
     slug: apiPost.slug,
     featured: apiPost.featured || false,

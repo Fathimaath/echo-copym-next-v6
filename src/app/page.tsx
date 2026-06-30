@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import { generateWebPageSchema } from '@/utils/seo';
-
-const Hero = dynamic(() => import('@/components/Home/Hero'));
+import Hero from '@/components/Home/Hero';
 const LogoCarousel = dynamic(() => import('@/components/Home/LogoCarousel'));
 const FeatureSection = dynamic(() => import('@/components/Home/FeatureSection'));
 const WhoWeServe = dynamic(() => import('@/components/Home/WhoWeServe'));
@@ -57,6 +56,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
 
+      <link rel="preload" href="/assets/Images/heroimage.webp" as="image" />
       <Hero />
       <LogoCarousel />
       <FeatureSection />

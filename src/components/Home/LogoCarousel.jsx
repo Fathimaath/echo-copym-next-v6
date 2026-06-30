@@ -1,10 +1,20 @@
 'use client';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from '../Image';
 
 const LogoCarousel = () => {
   const [isPaused, setIsPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const marqueeRef = useRef(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updatePreference = (event) => setPrefersReducedMotion(event.matches);
+
+    setPrefersReducedMotion(mediaQuery.matches);
+    mediaQuery.addEventListener('change', updatePreference);
+    return () => mediaQuery.removeEventListener('change', updatePreference);
+  }, []);
 
   const logos = [
     { src: "/assets/svg/Fireblocks.svg", alt: "Fireblocks" },
@@ -42,7 +52,7 @@ const LogoCarousel = () => {
               style={{
                 width: "200%",
                 animation: `logo-marquee 20s linear infinite`,
-                animationPlayState: isPaused ? 'paused' : 'running',
+                animationPlayState: isPaused || prefersReducedMotion ? 'paused' : 'running',
               }}
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
@@ -52,8 +62,6 @@ const LogoCarousel = () => {
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    aria-hidden="true"
-                    role="presentation"
                     className={`${['Base', 'Plume', 'Canton'].includes(logo.alt)
                       ? 'h-3 sm:h-5 md:h-6 lg:h-7'
                       : 'h-7 sm:h-9 md:h-11 lg:h-12'

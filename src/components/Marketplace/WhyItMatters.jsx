@@ -489,27 +489,27 @@ export default function WhyItMatters() {
                                         <div className="flex items-center gap-1 overflow-x-auto pb-1 scrollbar-hide">
                                             {/* Contract Address */}
                                             <div className="border border-gray-200 rounded-lg p-1.5 min-w-[80px] flex-1">
-                                                <p className="text-[8px] text-gray-400 font-bold whitespace-nowrap mb-0.5">Contract</p>
-                                                <p className="text-[9px] font-bold text-gray-800 font-mono truncate max-w-[70px]">
+                                                <p className="text-[8px] sm:text-[10px] text-gray-400 font-bold whitespace-nowrap mb-0.5">Contract</p>
+                                                <p className="text-[9px] sm:text-[11px] font-bold text-gray-800 font-mono truncate max-w-[70px]">
                                                     {activeTab.stats?.find(s => s.label === 'Contract Address')?.value || '0x...'}
                                                 </p>
                                             </div>
                                             {/* Total Asset Value */}
                                             <div className="border border-gray-200 rounded-lg p-1.5 min-w-[80px] flex-1">
-                                                <p className="text-[8px] text-gray-400 font-bold whitespace-nowrap mb-0.5">Value</p>
+                                                <p className="text-[8px] sm:text-[10px] text-gray-400 font-bold whitespace-nowrap mb-0.5">Value</p>
                                                 <div className="flex items-center gap-1">
-                                                    <p className="text-[9px] font-bold text-gray-800">
+                                                    <p className="text-[9px] sm:text-[11px] font-bold text-gray-800">
                                                         {activeTab.stats?.find(s => s.label === 'Total Asset Value')?.value || '$0'}
                                                     </p>
-                                                    <span className="text-[7px] font-bold text-[#10b981] bg-[#10b981]/10 px-0.5 rounded">
+                                                    <span className="text-[7px] sm:text-[9px] font-bold text-[#10b981] bg-[#10b981]/10 px-0.5 rounded">
                                                         {activeTab.stats?.find(s => s.label === 'Total Asset Value')?.change || ''}
                                                     </span>
                                                 </div>
                                             </div>
                                             {/* APY */}
                                             <div className="border border-gray-200 rounded-lg p-1.5 min-w-[50px]">
-                                                <p className="text-[8px] text-gray-400 font-bold whitespace-nowrap mb-0.5">APY</p>
-                                                <p className="text-[9px] font-bold text-[#10b981]">
+                                                <p className="text-[8px] sm:text-[10px] text-gray-400 font-bold whitespace-nowrap mb-0.5">APY</p>
+                                                <p className="text-[9px] sm:text-[11px] font-bold text-[#10b981]">
                                                     {activeTab.stats?.find(s => s.label === 'APY')?.value || '0%'}
                                                 </p>
                                             </div>
@@ -564,7 +564,7 @@ export default function WhyItMatters() {
                                 className="space-y-3"
                             >
                                 <div className="space-y-3">
-                                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#10b981]/10 text-[#10b981] rounded-md text-[10px] font-bold uppercase tracking-wider">
+                                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#10b981]/10 text-[#10b981] rounded-md text-[10px] sm:text-xs font-bold uppercase tracking-wider">
                                         {activeTab.icon}
                                         <span>Market Insight</span>
                                     </div>
@@ -625,7 +625,7 @@ export default function WhyItMatters() {
                                                         </div>
 
                                                         {/* Description - Reduced Margin & Size */}
-                                                        <p className="text-gray-500 text-[10px] font-medium leading-relaxed mb-2 line-clamp-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                                        <p className="text-gray-500 text-[10px] sm:text-xs font-medium leading-relaxed mb-2 line-clamp-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                                             {asset.description || "Premium entitlementt opportunity with stable returns and high growth potential."}
                                                         </p>
 
