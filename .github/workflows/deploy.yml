@@ -28,6 +28,19 @@ jobs:
           NEXT_EXPORT: 'true'
           NEXT_PUBLIC_API_URL: 'https://blog-api.copym.xyz'
 
+      - name: Extract public key from SSH private key
+        env:
+          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_rsa_tmp
+          chmod 600 ~/.ssh/id_rsa_tmp
+          ssh-keygen -y -f ~/.ssh/id_rsa_tmp -P "${{ secrets.SSH_PASSPHRASE }}" > ~/.ssh/id_rsa.pub 2>&1
+          echo "=== PUBLIC KEY (send this to hosting team) ==="
+          cat ~/.ssh/id_rsa.pub
+          echo "=== END PUBLIC KEY ==="
+        shell: bash
+
       - name: Setup SSH key (strip passphrase)
         env:
           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
