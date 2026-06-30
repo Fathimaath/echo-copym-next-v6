@@ -28,18 +28,21 @@ jobs:
           NEXT_EXPORT: 'true'
           NEXT_PUBLIC_API_URL: 'https://blog-api.copym.xyz'
 
-      - name: Setup SSH agent with passphrase
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-passphrase: ${{ secrets.SSH_PASSPHRASE }}
-
-      - name: Add host to known_hosts
+      - name: Setup SSH key
+        env:
+          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p 22 ${{ secrets.FTP_SERVER }} >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Deploy via rsync over SSH
+      - name: Test SSH connection
         run: |
-          rsync -avz --delete --timeout=60 -e "ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=30" ./out/ ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/home3/ndfhmyte/copym.xyz/copym-xyz/
+          sshpass -p "${{ secrets.SSH_PASSPHRASE }}" ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=10 ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }} "ls -la /home3/ndfhmyte/copym.xyz/ || ls -la ~/copym.xyz/"
+        shell: bash
+
+      - name: Deploy via rsync
+        run: |
+          sshpass -p "${{ secrets.SSH_PASSPHRASE }}" rsync -avz --delete --timeout=300 -e "ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=30" ./out/ ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/home3/ndfhmyte/copym.xyz/copym-xyz/
         shell: bash
