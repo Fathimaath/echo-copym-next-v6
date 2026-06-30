@@ -37,4 +37,5 @@ jobs:
           port: 22
           local_path: './out/'
           remote_path: '/home3/ndfhmyte/copym.xyz/copym-xyz/'
+          sftp_only: true
           sftpArgs: '-o ConnectTimeout=5'
