@@ -28,21 +28,25 @@ jobs:
           NEXT_EXPORT: 'true'
           NEXT_PUBLIC_API_URL: 'https://blog-api.copym.xyz'
 
-      - name: Setup SSH key
+      - name: Setup SSH key (strip passphrase)
         env:
           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
         run: |
           mkdir -p ~/.ssh
-          echo "$SSH_KEY" > ~/.ssh/id_rsa
+          echo "$SSH_KEY" > ~/.ssh/id_rsa_encrypted
+          chmod 600 ~/.ssh/id_rsa_encrypted
+          if ssh-keygen -p -N "" -P "$PASSPHRASE" -f ~/.ssh/id_rsa_encrypted; then
+            echo "Passphrase correct! Using decrypted key."
+            cp ~/.ssh/id_rsa_encrypted ~/.ssh/id_rsa
+          else
+            echo "Passphrase WRONG. Trying key without passphrase."
+            echo "$SSH_KEY" > ~/.ssh/id_rsa
+          fi
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p 22 ${{ secrets.FTP_SERVER }} >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Test SSH connection
-        run: |
-          sshpass -p "${{ secrets.SSH_PASSPHRASE }}" ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=10 ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }} "ls -la /home3/ndfhmyte/copym.xyz/ || ls -la ~/copym.xyz/"
-        shell: bash
-
       - name: Deploy via rsync
         run: |
-          sshpass -p "${{ secrets.SSH_PASSPHRASE }}" rsync -avz --delete --timeout=300 -e "ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=30" ./out/ ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/home3/ndfhmyte/copym.xyz/copym-xyz/
+          rsync -avz --delete --timeout=300 -e "ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=30 -o BatchMode=yes" ./out/ ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/home3/ndfhmyte/copym.xyz/copym-xyz/
         shell: bash
