@@ -32,7 +32,6 @@ export default function TableOfContents({ headings = [] }) {
   }, [headings]);
 
   const handleClick = (e, id) => {
-    e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
       const yOffset = -170;
@@ -52,7 +51,6 @@ export default function TableOfContents({ headings = [] }) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg font-semibold text-sm"
-        style={{ fontFamily: 'Palanquin, sans-serif' }}
       >
         <span>Table of Contents</span>
         <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
@@ -72,7 +70,6 @@ export default function TableOfContents({ headings = [] }) {
                     ? 'text-[#15a36e] font-semibold'
                     : 'text-gray-600 hover:text-gray-900'
                 } ${level === 3 ? 'pl-4' : ''}`}
-                style={{ fontFamily: 'Palanquin, sans-serif' }}
               >
                 {title}
               </a>

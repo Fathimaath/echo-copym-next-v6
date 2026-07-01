@@ -16,16 +16,16 @@ export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike })
       {/* FAQ Section */}
       {article.faqs && article.faqs.length > 0 && (
         <section className="my-8 sm:my-12">
-          <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 uppercase" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+          <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 uppercase">
             Frequently Asked Questions
           </h3>
           <div className="space-y-4 sm:space-y-6">
             {article.faqs.map((faq, idx) => (
               <div key={idx} className="border-b border-gray-100 pb-4 sm:pb-6 last:border-0 last:pb-0">
-                <h4 className="text-sm sm:text-base font-bold text-gray-900 mb-3" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                <h4 className="text-sm sm:text-base font-bold text-gray-900 mb-3">
                   {faq.question}
                 </h4>
-                <p className="text-sm text-gray-600 leading-relaxed !mb-0" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                <p className="text-sm text-gray-600 leading-relaxed !mb-0">
                   {faq.answer}
                 </p>
               </div>
@@ -45,15 +45,15 @@ export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike })
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-left max-w-2xl">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                <h3 className="text-xl sm:text-2xl font-bold mb-3">
                   Start Your Tokenization Journey
                 </h3>
-                <p className="text-gray-300 text-sm sm:text-base leading-relaxed !mb-0" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed !mb-0">
                   Join leading institutions using our platform <br className="hidden sm:block" />
                   for digital asset issuance.
                 </p>
               </div>
-              <Link href="/tokenization" className="group inline-flex items-center justify-between min-w-[140px] sm:min-w-[160px] bg-[#15a36e] border border-[#15a36e] hover:bg-[#12a062] rounded-full p-1 transition-all duration-300" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+              <Link href="/tokenization" className="group inline-flex items-center justify-between min-w-[140px] sm:min-w-[160px] bg-[#15a36e] border border-[#15a36e] hover:bg-[#12a062] rounded-full p-1 transition-all duration-300">
                 <span className="pl-3 pr-2 text-white font-semibold text-xs sm:text-sm">
                   Know More
                 </span>
@@ -71,7 +71,7 @@ export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike })
       {/* Mobile Only - You May Also Like & Newsletter */}
       <div className="lg:hidden mt-12 space-y-8">
         <div>
-          <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+          <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">
             You May Also Like
           </h4>
           <div className="space-y-3">
@@ -81,10 +81,10 @@ export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike })
                 href={`/blog/${post.category?.toLowerCase().replace(/\s+/g, '-')}/${post.slug}`}
                 className="group block py-2 border-b border-gray-100 hover:border-[#15a36e] transition-colors last:border-0"
               >
-                <span className="text-xs font-semibold text-[#15a36e]" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                <span className="text-xs font-semibold text-[#15a36e]">
                   {post.category}
                 </span>
-                <h5 className="text-sm font-semibold text-gray-900 mt-0.5 line-clamp-2 group-hover:text-[#15a36e] transition-colors" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                <h5 className="text-sm font-semibold text-gray-900 mt-0.5 line-clamp-2 group-hover:text-[#15a36e] transition-colors">
                   {post.title}
                 </h5>
                 <p className="text-xs text-gray-500 mt-0.5 !mb-0">{post.date}</p>
@@ -102,7 +102,7 @@ export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike })
                 </svg>
               </div>
               <div>
-                <h4 className="text-base font-bold text-white" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                <h4 className="text-base font-bold text-white">
                   Subscribe to Newsletter
                 </h4>
                 <p className="text-xs text-gray-400 !mb-0">Get latest updates & insights</p>
@@ -141,7 +141,7 @@ function AuthorCard({ author, name }) {
           </div>
           <div className="flex-1">
             <span className="text-xs font-bold uppercase tracking-wider text-[#15a36e] block mb-1">Written By</span>
-            <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-1" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+            <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-1">
               {authorObj?.name || 'CopyM Team'}
             </h4>
             <p className="text-xs text-gray-500 mb-3 !mb-3">{authorObj?.role || 'Research Team'}</p>

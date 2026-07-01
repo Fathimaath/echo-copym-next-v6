@@ -76,7 +76,7 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
       <aside ref={leftSidebarRef} className="hidden lg:block w-[200px] flex-shrink-0 lg:order-1">
         <div className={sidebarFixed ? 'fixed left-[24px] sm:left-[48px] md:left-[64px] lg:left-[96px] xl:left-[128px] top-[220px] w-[200px] max-h-[calc(100vh-240px)] overflow-y-auto touch-auto' : 'max-h-[calc(100vh-240px)] overflow-y-auto touch-auto'} style={sidebarFixed ? { WebkitOverflowScrolling: 'touch' } : {}}>
           <div className="space-y-8 pb-8">
-            <h3 className="text-sm font-bold mb-6 uppercase tracking-wide" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>Table of Contents</h3>
+            <h3 className="text-sm font-bold mb-6 uppercase tracking-wide">Table of Contents</h3>
             <nav className="space-y-5">
               {article.headings?.map((item, idx) => {
                 if (item.level === 3) return null;
@@ -94,7 +94,6 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
                 const isExpanded = expandedHeadings.includes(item.id);
 
                 const handleToCClick = (id, hasSubs) => (e) => {
-                  e.preventDefault();
                   scrollToHeading(id);
                   setActiveSection(id);
                   if (hasSubs) {
@@ -117,7 +116,6 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
                           ? 'text-[#15a36e] font-semibold'
                           : 'text-gray-500 hover:text-gray-900'
                       }`}
-                      style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
                     >
                       {item.title}
                     </a>
@@ -133,7 +131,6 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
                                 history.replaceState(null, '', `#${sub.id}`);
                               }}
                               className="block text-xs text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-1.5"
-                              style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
                             >
                               <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
                               {sub.title}
@@ -151,7 +148,7 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
           <hr className="border-gray-200 my-8" />
 
           <div>
-            <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>Share</h4>
+            <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-wide">Share</h4>
             <div className="flex items-center gap-2">
               <button onClick={() => handleShare('twitter')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all" aria-label="Share on Twitter"><Twitter className="w-4 h-4" /></button>
               <button onClick={() => handleShare('linkedin')} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#15a36e] hover:text-white transition-all" aria-label="Share on LinkedIn"><Linkedin className="w-4 h-4" /></button>
@@ -167,7 +164,7 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
       <aside ref={rightSidebarRef} className="hidden lg:block w-[280px] flex-shrink-0 lg:order-3">
         <div className={sidebarFixed ? 'fixed right-[24px] sm:right-[48px] md:right-[64px] lg:right-[96px] xl:right-[128px] top-[220px] w-[280px]' : ''}>
           <div className="space-y-4 pb-8">
-            <h4 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+            <h4 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide">
               You May Also Like
             </h4>
             <div className="space-y-2">
@@ -177,10 +174,10 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
                   href={`/blog/${post.category?.toLowerCase().replace(/\s+/g, '-')}/${post.slug}`}
                   className="group block py-2 border-b border-gray-100 hover:border-[#15a36e] transition-colors last:border-0"
                 >
-                  <span className="text-xs font-semibold text-[#15a36e]" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                  <span className="text-xs font-semibold text-[#15a36e]">
                     {post.category}
                   </span>
-                  <h5 className="text-sm font-semibold text-gray-900 mt-0.5 line-clamp-2 group-hover:text-[#15a36e] transition-colors" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                  <h5 className="text-sm font-semibold text-gray-900 mt-0.5 line-clamp-2 group-hover:text-[#15a36e] transition-colors">
                     {post.title}
                   </h5>
                   <p className="text-xs text-gray-500 mt-0.5 !mb-0">{post.date}</p>
@@ -198,7 +195,7 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-base font-bold text-white" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                  <h4 className="text-base font-bold text-white">
                     Subscribe to Newsletter
                   </h4>
                   <p className="text-xs text-gray-400 !mb-0">Get latest updates & insights</p>

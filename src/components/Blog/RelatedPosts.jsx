@@ -13,11 +13,10 @@ export default function RelatedPosts({ posts, title = "Related Articles" }) {
       <section>
         <h3
           className="text-2xl font-bold text-gray-900 mb-6"
-          style={{ fontFamily: 'Palanquin, sans-serif' }}
         >
           {title}
         </h3>
-        <p className="text-gray-500 italic" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+        <p className="text-gray-500 italic">
           More articles coming soon...
         </p>
       </section>
@@ -26,12 +25,11 @@ export default function RelatedPosts({ posts, title = "Related Articles" }) {
 
   return (
     <section>
-      <h3
-        className="text-2xl font-bold text-gray-900 mb-6"
-        style={{ fontFamily: 'Palanquin, sans-serif' }}
-      >
-        {title}
-      </h3>
+        <h3
+          className="text-2xl font-bold text-gray-900 mb-6"
+        >
+          {title}
+        </h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {posts.map((post, index) => (
           <article
@@ -52,17 +50,16 @@ export default function RelatedPosts({ posts, title = "Related Articles" }) {
               
               {/* Content */}
               <div className="p-4">
-                <span className="text-xs font-semibold text-[#15a36e]" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                <span className="text-xs font-semibold text-[#15a36e]">
                   {post.category}
                 </span>
                 <h4
                   className="text-sm font-bold text-gray-900 mt-2 mb-2 line-clamp-2 group-hover:text-[#15a36e] transition-colors"
-                  style={{ fontFamily: 'Palanquin, sans-serif' }}
                 >
                   {post.title}
                 </h4>
                 {post.excerpt && (
-                  <p className="text-xs text-gray-600 line-clamp-2 mb-3" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                  <p className="text-xs text-gray-600 line-clamp-2 mb-3">
                     {post.excerpt}
                   </p>
                 )}

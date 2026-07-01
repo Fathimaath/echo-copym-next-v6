@@ -14,12 +14,12 @@ export default function BlogArticleBody({ article, relatedPosts, youMayAlsoLike 
   return (
     <article>
       <header className="mb-8 sm:mb-10 lg:mb-12 pt-8 lg:pt-0">
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4 uppercase tracking-tight text-gray-900" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4 uppercase tracking-tight text-gray-900">
           {article.title}
         </h1>
 
         {article.subtitle && (
-          <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed !mb-8" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+          <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed !mb-8">
             {article.subtitle}
           </p>
         )}
@@ -34,7 +34,7 @@ export default function BlogArticleBody({ article, relatedPosts, youMayAlsoLike 
               )}
             </div>
             <div>
-              <p className="text-xs font-semibold text-gray-900 !mb-0" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+              <p className="text-xs font-semibold text-gray-900 !mb-0">
                 {authorObj?.name || 'CopyM Team'}
               </p>
               <p className="text-xs text-gray-500 !mb-0">{authorObj?.role || 'Research Team'}</p>
@@ -43,7 +43,7 @@ export default function BlogArticleBody({ article, relatedPosts, youMayAlsoLike 
 
           <div className="h-5 w-px bg-gray-200 hidden sm:block"></div>
 
-          <span className="bg-[#15a36e]/10 text-[#15a36e] px-3.5 py-1.5 text-xs font-semibold rounded" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+          <span className="bg-[#15a36e]/10 text-[#15a36e] px-3.5 py-1.5 text-xs font-semibold rounded">
             {article.category}
           </span>
 
@@ -68,7 +68,6 @@ export default function BlogArticleBody({ article, relatedPosts, youMayAlsoLike 
 
       <div
         className="prose prose-sm sm:prose-base lg:prose-lg max-w-none text-gray-800 leading-relaxed"
-        style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
       >
         {article.contentBlocks && article.contentBlocks.length > 0 ? (
           <BlogContentRenderer contentBlocks={article.contentBlocks} />
