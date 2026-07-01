@@ -28,38 +28,49 @@ jobs:
           NEXT_EXPORT: 'true'
           NEXT_PUBLIC_API_URL: 'https://blog-api.copym.xyz'
 
-      - name: Extract public key from SSH private key
-        env:
-          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_KEY" > ~/.ssh/id_rsa_tmp
-          chmod 600 ~/.ssh/id_rsa_tmp
-          ssh-keygen -y -f ~/.ssh/id_rsa_tmp -P "${{ secrets.SSH_PASSPHRASE }}" > ~/.ssh/id_rsa.pub 2>&1
-          echo "=== PUBLIC KEY HEX ==="
-          python3 -c "import sys; print(open(sys.argv[1],'rb').read().hex())" ~/.ssh/id_rsa.pub
-          echo "=== END HEX ==="
-        shell: bash
-
-      - name: Setup SSH key (strip passphrase)
+      - name: Setup SSH key
         env:
           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
         run: |
+          set -e
           mkdir -p ~/.ssh
+
+          # Write the private key, trimming trailing whitespace
           echo "$SSH_KEY" > ~/.ssh/id_rsa_encrypted
+          # Convert CRLF to LF (in case pasted from Windows)
+          sed -i 's/\r$//' ~/.ssh/id_rsa_encrypted
           chmod 600 ~/.ssh/id_rsa_encrypted
-          if ssh-keygen -p -N "" -P "$PASSPHRASE" -f ~/.ssh/id_rsa_encrypted; then
-            echo "Passphrase correct! Using decrypted key."
+
+          # Try to strip passphrase; if that fails, assume no passphrase
+          if ssh-keygen -p -N "" -P "$PASSPHRASE" -f ~/.ssh/id_rsa_encrypted 2>/dev/null; then
+            echo "Passphrase stripped successfully."
             cp ~/.ssh/id_rsa_encrypted ~/.ssh/id_rsa
           else
-            echo "Passphrase WRONG. Trying key without passphrase."
-            echo "$SSH_KEY" > ~/.ssh/id_rsa
+            echo "No passphrase or passphrase incorrect — using key as-is."
+            cp ~/.ssh/id_rsa_encrypted ~/.ssh/id_rsa
           fi
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -p 22 ${{ secrets.FTP_SERVER }} >> ~/.ssh/known_hosts 2>/dev/null
+
+          # Extract and display the public key for verification
+          ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
+          echo ""
+          echo "=== PUBLIC KEY (show this to hosting team) ==="
+          cat ~/.ssh/id_rsa.pub
+          echo "=== END PUBLIC KEY ==="
+
+          # Add server host key to known_hosts
+          ssh-keyscan -p 22 "${{ secrets.FTP_SERVER }}" >> ~/.ssh/known_hosts 2>/dev/null
+
+          # Test SSH connection (will fail fast with clear error)
+          echo ""
+          echo "=== Testing SSH connection ==="
+          ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 -o BatchMode=yes -p 22 "${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}" "echo 'SSH connection: OK'" || echo "SSH connection: FAILED — check the public key above with your hosting team"
+        shell: bash
 
       - name: Deploy via rsync
         run: |
-          rsync -avz --delete --timeout=300 -e "ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=30 -o BatchMode=yes" ./out/ ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/home3/ndfhmyte/copym.xyz/copym-xyz/
+          rsync -avz --delete --timeout=300 \
+            -e "ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=30 -o BatchMode=yes" \
+            ./out/ "${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/home3/ndfhmyte/copym.xyz/copym-xyz/"
         shell: bash
