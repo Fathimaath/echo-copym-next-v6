@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import Link from "next/link";
 import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -39,7 +38,7 @@ export default function Hero() {
 
   // Trap focus in modal and prevent body scroll only on desktop
   useEffect(() => {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isMobile = window.innerWidth < 768;
 
     if (isVideoOpen) {
       if (!isMobile) {
@@ -66,14 +65,13 @@ export default function Hero() {
           playsInline
           preload="metadata"
           poster="/assets/Images/heroimage.webp"
-          fetchPriority="high"
           className="w-full h-full object-cover"
           tabIndex={-1}
           aria-hidden="true"
           style={{
             minHeight: '100vh',
+            minHeight: '-webkit-fill-available',
             height: 'auto',
-            maxHeight: '-webkit-fill-available' /* Better mobile viewport height support */
           }}
         >
           <source src="/assets/videos/hero-section-video-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
@@ -84,11 +82,12 @@ export default function Hero() {
       </div>
 
       {/* ====== HERO CONTENT - CENTERED ====== */}
-      <div className="relative z-10 w-full min-h-screen md:h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div className="relative z-10 w-full min-h-screen md:h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 xl:px-12"
+        style={{ minHeight: '100vh', minHeight: '-webkit-fill-available' }}>
         <div className="max-w-4xl w-full text-center">
           {/* ====== HEADLINE ====== */}
           <h1
-            className="text-base sm:text-lg md:text-xl lg:text-4xl font-medium leading-tight text-white mb-4 sm:mb-6 uppercase text-center"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-tight text-white mb-4 sm:mb-6 uppercase text-center"
             style={{
               fontFamily: 'Palanquin, sans-serif',
               lineHeight: '1.25',
@@ -100,7 +99,7 @@ export default function Hero() {
 
           {/* ====== DESCRIPTION ====== */}
           <p
-            className="text-xs sm:text-xs md:text-sm lg:text-base text-white mb-4 sm:mb-6 font-normal"
+            className="text-sm sm:text-base md:text-base lg:text-lg text-white mb-4 sm:mb-6 font-normal"
             style={{
               fontFamily: 'Palanquin, sans-serif',
               lineHeight: '1.625',
@@ -112,18 +111,18 @@ export default function Hero() {
           </p>
 
           <p
-            className="text-center text-xs sm:text-sm md:text-base text-white mb-3 sm:mb-4 font-normal"
+            className="text-center text-sm sm:text-base md:text-lg text-white mb-3 sm:mb-4 font-normal"
             style={{
               fontFamily: 'Palanquin, sans-serif',
               lineHeight: '1.5'
             }}
           >
-            <span className="font-bold border-b border-[#15a36e]">ASSET OWNERS</span> – Launch RWAs, tokenized assets faster  built-in compliance, on-chain entitlement, custody, and institutional-grade infrastructure.
+            <span className="font-bold border-b border-[#15a36e]">ASSET OWNERS</span> – Launch RWAs, tokenized assets faster built-in compliance, on-chain entitlement, custody, and institutional-grade infrastructure.
           </p>
 
           {/* ====== FOR INVESTORS ====== */}
           <p
-            className="text-center text-xs sm:text-sm md:text-base text-white mb-8 sm:mb-10 md:mb-12 font-normal"
+            className="text-center text-sm sm:text-base md:text-lg text-white mb-8 sm:mb-10 md:mb-12 font-normal"
             style={{
               fontFamily: 'Palanquin, sans-serif',
               lineHeight: '1.5'
@@ -166,23 +165,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ====== Risk Disclosure and Cookies Links - Bottom Right ====== */}
-      <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 right-4 sm:right-6 lg:right-8 xl:right-12 z-20 flex items-center gap-3 sm:gap-4 md:gap-6">
-        <Link
-          href="/risk-disclosure"
-          className="text-white/90 hover:text-white text-xs sm:text-sm md:text-base transition-colors duration-200"
-
-        >
-          Risk Disclosure
-        </Link>
-        <Link
-          href="/cookies"
-          className="text-white/90 hover:text-white text-xs sm:text-sm md:text-base transition-colors duration-200"
-
-        >
-          Cookies
-        </Link>
-      </div>
 
       {/* ====== VIDEO MODAL ====== */}
       <AnimatePresence>
@@ -217,14 +199,15 @@ export default function Hero() {
               </button>
               <h2 id="video-modal-title" className="sr-only">How It Works Video</h2>
               <video
-                src="/assets/videos/how-it-works.mp4"
                 controls
                 autoPlay
                 className="w-full h-full rounded-lg shadow-lg"
                 onError={(e) => {
                   console.error('Video failed to load:', e);
                 }}
-              />
+              >
+                <source src="/assets/videos/how-it-works.mp4" type="video/mp4" />
+              </video>
             </motion.div>
           </motion.div>
         )}

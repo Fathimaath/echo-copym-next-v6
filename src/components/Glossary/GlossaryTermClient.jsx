@@ -303,7 +303,7 @@ export default function GlossaryTermClient({ termData, slug }) {
                       {termData.relatedArticles.map((article, index) => (
                         <Link key={index} href={`/blog/${article.slug}`} className="group">
                           <div className="relative w-full h-40 sm:h-36 rounded-lg overflow-hidden bg-gray-100 mb-3">
-                            <Image src={article.image} alt={article.title} fill className="object-cover group-hover:scale-[1.02] sm:group-hover:scale-105 transition-transform" />
+                            <Image src={article.image} alt={article.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover group-hover:scale-[1.02] sm:group-hover:scale-105 transition-transform" />
                           </div>
                           <h4 className="font-bold text-gray-900 group-hover:text-[#15a36e]">{article.title}</h4>
                         </Link>

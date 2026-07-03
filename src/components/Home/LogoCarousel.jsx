@@ -25,7 +25,7 @@ const LogoCarousel = () => {
     { src: "/assets/blockchains/arbitrum-arb-logo-full.svg", alt: "Arbitrum" },
     { src: "/assets/blockchains/aws-svgrepo-com.svg", alt: "AWS" },
     { src: "/assets/blockchains/Base_Logo_0.svg", alt: "Base" },
-    { src: "/assets/blockchains/plume logo.jpg", alt: "Plume" },
+    { src: "/assets/blockchains/plume-logo.jpg", alt: "Plume" },
     { src: "/assets/blockchains/Polygon.avif", alt: "Polygon" },
     { src: "/assets/blockchains/canton-logo-black.svg", alt: "Canton" },
   ];

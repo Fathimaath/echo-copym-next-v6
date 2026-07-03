@@ -14,6 +14,7 @@ export default function Hero() {
                     src="/assets/svg/aboutusheroo.avif"
                     alt="CopyM team working on real-world asset tokenization and blockchain compliance"
                     fill
+                    sizes="100vw"
                     priority
                     className="object-cover object-right sm:object-right scale-110 sm:scale-100 translate-y-12 sm:translate-y-0"
                 />
