@@ -68,6 +68,9 @@ jobs:
           ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 -o BatchMode=yes -p 22 "${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}" "echo 'SSH connection: OK'" || echo "SSH connection: FAILED — check the public key above with your hosting team"
         shell: bash
 
+      - name: Copy .htaccess into out/ before deploy
+        run: cp .htaccess ./out/.htaccess
+
       - name: Deploy via rsync
         run: |
           rsync -avz --delete --timeout=300 \
