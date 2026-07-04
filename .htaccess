@@ -18,7 +18,8 @@ Options -Indexes
 </FilesMatch>
 
 # Allow the real /admin application through (do not block it)
-RewriteRule ^admin($|/) - [L]
+RewriteCond %{REQUEST_URI} ^/admin
+RewriteRule ^ - [L]
 
 # Block known malicious paths and sensitive files
 RewriteRule ^special/ - [R=404,L]
