@@ -73,7 +73,7 @@ jobs:
 
       - name: Deploy via rsync
         run: |
-          rsync -avz --delete --timeout=300 \
+          rsync -avz --delete --exclude=admin --timeout=300 \
             -e "ssh -p 22 -o StrictHostKeyChecking=no -o ConnectTimeout=30 -o BatchMode=yes" \
             ./out/ "${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/home3/ndfhmyte/copym.xyz/"
         shell: bash
