@@ -15,9 +15,12 @@ Options -Indexes
   Deny from all
 </FilesMatch>
 
+# Allow the real /admin application through (do not block it)
+RewriteRule ^admin($|/) - [L]
+
 # Block known malicious paths and sensitive files
 RewriteRule ^special/ - [R=404,L]
-RewriteRule ^(wp-|wp-admin|wp-login|wp-content|admin|administrator) - [F,L]
+RewriteRule ^(wp-|wp-admin|wp-login|wp-content|administrator) - [F,L]
 RewriteRule ^(\.env|\.git|\.svn|composer\.json|package-lock\.json) - [F,L]
 
 # Force 404 status for direct access to 404.html (prevents duplicate serving)
