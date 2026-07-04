@@ -7,14 +7,15 @@ FallbackResource disabled
 # Disable directory listing
 Options -Indexes
 
-# Block malicious PHP scripts (except admin — it runs on PHP)
-RewriteCond %{REQUEST_URI} !^/admin
-RewriteRule \.(php|phtml|pht|php3|php4|php5|php7|phar|suspected)$ - [F,L]
+# Block PHP scripts (admin is React, not PHP)
+<FilesMatch "\.(php|phtml|pht|php3|php4|php5|php7|phar|suspected)$">
+  Deny from all
+</FilesMatch>
 <FilesMatch "^\.htaccess$">
   Deny from all
 </FilesMatch>
 
-# Allow the real /admin application through (do not block it)
+# Admin is a separate React SPA — let it handle its own routing
 RewriteCond %{REQUEST_URI} ^/admin
 RewriteRule ^ - [L]
 
