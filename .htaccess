@@ -54,10 +54,6 @@ RewriteRule ^ /404/ [R=404,L]
   Header set Cache-Control "public, max-age=31536000, immutable"
 </FilesMatch>
 
-<If "%{REQUEST_FILENAME} -f && %{REQUEST_URI} !\.(jpg|jpeg|png|gif|svg|webp|avif|ico|css|js|woff2?|mp4|webm|json|xml)$">
-  Header set Cache-Control "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
-</If>
-
 # ----- SECURITY HEADERS -----
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
