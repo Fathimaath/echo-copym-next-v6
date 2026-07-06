@@ -380,7 +380,7 @@ export default function AboutUsClient() {
                                     <div className="flex items-center gap-4 w-full max-w-[300px] sm:max-w-none justify-start">
                                         <div className="w-12 h-12 sm:w-16 sm:h-16 relative flex items-center justify-center flex-shrink-0">
                                             <Image
-                                                src="/assets/Images/email.png"
+                                                src="/assets/Images/email.avif"
                                                 alt="Email"
                                                 fill
                                                 sizes="(max-width: 640px) 48px, 64px"
@@ -423,7 +423,7 @@ export default function AboutUsClient() {
                                     <div className="flex items-center gap-4 w-full max-w-[300px] sm:max-w-none justify-start">
                                         <div className="w-12 h-12 sm:w-16 sm:h-16 relative flex items-center justify-center flex-shrink-0">
                                             <Image
-                                                src="/assets/Images/address.png"
+                                                src="/assets/Images/address.avif"
                                                 alt="Address"
                                                 fill
                                                 sizes="(max-width: 640px) 48px, 64px"
