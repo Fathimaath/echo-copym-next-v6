@@ -7,7 +7,7 @@ FallbackResource disabled
 # Disable directory listing
 Options -Indexes
 
-# Use custom 404 page for all 404 errors
+# Use custom 404 page for all 404 errors (internal sub-request, serves /404/index.html)
 ErrorDocument 404 /404/
 
 # Block malicious script files
@@ -18,17 +18,21 @@ ErrorDocument 404 /404/
   Deny from all
 </FilesMatch>
 
+# Admin is a separate React SPA — let it handle its own routing
+RewriteCond %{REQUEST_URI} ^/admin
+RewriteRule ^ - [L]
+
 # Block known malicious paths and sensitive files
-RewriteRule ^special/ /404/ [L]
+RewriteRule ^special/ - [R=404,L]
 RewriteRule ^(wp-|wp-admin|wp-login|wp-content|administrator) - [F,L]
 RewriteRule ^(\.env|\.git|\.svn|composer\.json|package-lock\.json) - [F,L]
+
+# Force 404 status for direct access to 404.html (prevents duplicate serving)
+RewriteRule ^404\.html$ - [R=404,L]
 
 # Exclude 404 directory and internal Next.js paths from rewriting
 RewriteRule ^404 - [L]
 RewriteRule ^_not-found - [L]
-
-# Let admin web handle its own routing (React SPA)
-RewriteRule ^admin - [L]
 
 # If the request maps to an existing file or directory, serve it immediately
 RewriteCond %{REQUEST_FILENAME} -f [OR]
