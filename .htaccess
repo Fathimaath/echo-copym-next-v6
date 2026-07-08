@@ -7,6 +7,9 @@ FallbackResource disabled
 # Disable directory listing
 Options -Indexes
 
+# Use custom 404 page for all 404 errors (internal sub-request, serves /404/index.html)
+ErrorDocument 404 /404/
+
 # Block PHP scripts (admin is React, not PHP)
 <FilesMatch "\.(php|phtml|pht|php3|php4|php5|php7|phar|suspected)$">
   Deny from all
@@ -44,9 +47,6 @@ RewriteRule (.*) /$1/ [R=301,L]
 # After trailing slash is added, serve the index.html
 RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
 RewriteRule ^(.+)/$ /$1/index.html [L]
-
-# Everything else -> 404 with correct status code
-RewriteRule ^ /404/ [R=404,L]
 
 # Compression is handled by cPanel (Brotli/mod_deflate at server level)
 
