@@ -316,7 +316,7 @@ export default function Header() {
           <div className="flex items-center gap-4">
             {/* Desktop CTA */}
             <Link
-              href="/download"
+              href="/signup"
               className="hidden lg:flex items-center gap-2 bg-[#15a36e] hover:bg-[#128a5c] text-white px-5 py-2 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-emerald-500/20 active:scale-95"
               style={{ fontFamily: 'Palanquin, sans-serif' }}
             >
@@ -398,7 +398,7 @@ export default function Header() {
               {/* Mobile CTA */}
               <div className="p-6 pb-2">
                 <Link
-                  href="/download"
+                  href="/signup"
                   className="flex w-full items-center justify-center gap-2 bg-[#15a36e] text-white px-5 py-3 rounded-full font-bold text-sm active:scale-95 transition-transform"
                   onClick={() => setIsMenuOpen(false)}
                 >

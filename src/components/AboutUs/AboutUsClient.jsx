@@ -363,7 +363,7 @@ export default function AboutUsClient() {
             </section>
 
             {/* Section 11: Contact Info and Map Grid */}
-            <section className="relative pt-0 pb-16 bg-white">
+            <section id="contact-info" className="relative pt-0 pb-16 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col gap-12">
                         {/* Top: Email and Address Row */}
