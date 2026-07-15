@@ -8,7 +8,7 @@ export default function DownloadHero() {
       {/* Background image */}
       <div
         className="absolute inset-0 bg-no-repeat"
-        style={{ backgroundImage: 'url(/assets/Images/signup-hero6.png)', backgroundPosition: 'right -80px top -30px', backgroundSize: 'auto 120%' }}
+        style={{ backgroundImage: 'url(/assets/Images/signup-hero6.avif)', backgroundPosition: 'right -80px top -30px', backgroundSize: 'auto 120%' }}
       />
       {/* Gradient overlay: dark on left, transparent on right */}
       <div
@@ -35,7 +35,7 @@ export default function DownloadHero() {
             <span className="text-white block">of RWA Investment</span>
           </h1>
           <p
-            className="text-[10px] leading-relaxed sm:text-base md:text-lg lg:text-xl text-gray-300 font-light tracking-wide max-w-lg"
+            className="text-xs leading-relaxed sm:text-base md:text-lg lg:text-xl text-gray-300 font-light tracking-wide max-w-lg"
             style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
           >
             Join our early access program to receive exclusive updates, product announcements, and priority access to the CopyM platform when it officially launches.

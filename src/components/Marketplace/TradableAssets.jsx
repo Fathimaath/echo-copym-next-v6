@@ -68,7 +68,7 @@ export default function TradableAssets() {
                                 <h3 className="text-[11px] sm:text-base md:text-lg lg:text-2xl font-bold tracking-wider mb-1.5 sm:mb-4 text-white" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                     {asset.title}
                                 </h3>
-                                <p className="text-[10px] sm:text-sm text-gray-400 font-medium tracking-wide leading-tight sm:leading-relaxed" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                <p className="text-xs sm:text-sm text-gray-400 font-medium tracking-wide leading-tight sm:leading-relaxed" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                     {asset.description}
                                 </p>
                             </div>

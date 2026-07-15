@@ -22,7 +22,7 @@ export default function CTASection() {
     };
   }, []);
     return (
-        <section className="relative w-full h-[40vh] sm:h-[45vh] lg:h-[80vh] overflow-hidden bg-black">
+        <section className="relative w-full h-[35vh] sm:h-[40vh] lg:h-[60vh] overflow-hidden bg-black">
             {/* Background Video */}
             <div className="absolute inset-0 w-full h-full">
                 <video
@@ -59,7 +59,7 @@ export default function CTASection() {
                         A compliance-first platform for structuring, tokenization, and secure on-chain access across real-world asset markets.
                     </p>
                     <Link
-                        href="/contact"
+                        href="/marketplace/"
                         className="inline-flex items-center gap-2 bg-white px-5 py-1.5 sm:px-8 sm:py-2.5 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 rounded-full group"
                     >
                         <span className="text-sm sm:text-base md:text-base lg:text-lg text-black font-semibold" style={{ fontFamily: 'Palanquin, sans-serif' }}>

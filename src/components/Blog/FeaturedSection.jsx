@@ -91,7 +91,7 @@ function FeaturedHeroCard({ post }) {
           <div className="absolute top-0 left-0 h-full w-full sm:w-[55%] lg:w-[45%] p-4 sm:p-6 md:p-8 flex flex-col justify-center">
             {/* 1. Category Chip */}
             <div className="mb-2 sm:mb-3">
-              <span className="px-2.5 py-1 sm:px-3 sm:py-1 bg-[#15a36e]/10 text-[#15a36e] text-[10px] sm:text-xs font-bold rounded-full backdrop-blur-sm" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+              <span className="px-2.5 py-1 sm:px-3 sm:py-1 bg-[#15a36e]/10 text-[#15a36e] text-xs sm:text-xs font-bold rounded-full backdrop-blur-sm" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                 {category}
               </span>
             </div>
@@ -107,7 +107,7 @@ function FeaturedHeroCard({ post }) {
             </p>
 
             {/* 4. Date & Read Time */}
-            <div className="flex items-center gap-2 text-[10px] sm:text-xs text-gray-300 mb-3 sm:mb-4">
+            <div className="flex items-center gap-2 text-xs sm:text-xs text-gray-300 mb-3 sm:mb-4">
               <span className="flex items-center gap-1">
                 <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 {date}
@@ -120,7 +120,7 @@ function FeaturedHeroCard({ post }) {
 
             {/* 5. Know More Button */}
             <span className="group inline-flex items-center justify-between min-w-[100px] sm:min-w-[110px] md:min-w-[125px] bg-[#15a36e] border border-[#15a36e] hover:bg-[#15a36e] rounded-full p-0.5 sm:p-1 transition-all duration-300 w-fit cursor-pointer">
-              <span className="pl-2 pr-1.5 sm:pl-2.5 sm:pr-2 text-white font-semibold text-[10px] sm:text-xs md:text-sm" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+              <span className="pl-2 pr-1.5 sm:pl-2.5 sm:pr-2 text-white font-semibold text-xs sm:text-xs md:text-sm" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                 Know more
               </span>
               <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 rounded-full bg-white flex items-center justify-center transition-all duration-300">
@@ -172,7 +172,7 @@ function FeaturedSidebarCard({ post }) {
           {/* Content */}
           <div className="flex-1 flex flex-col justify-center py-0.5 min-w-0">
             {/* Category Chip */}
-            <span className="inline-block px-2.5 py-0.5 bg-[#15a36e]/10 text-[#15a36e] text-[10px] sm:text-xs font-bold rounded-full mb-1.5 w-fit" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+            <span className="inline-block px-2.5 py-0.5 bg-[#15a36e]/10 text-[#15a36e] text-xs sm:text-xs font-bold rounded-full mb-1.5 w-fit" style={{ fontFamily: 'Palanquin, sans-serif' }}>
               {category}
             </span>
 

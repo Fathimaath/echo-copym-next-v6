@@ -32,7 +32,7 @@ function DownloadButtons() {
       <button type="button" className="flex items-center bg-black border border-white/30 rounded-lg px-2 lg:px-3 py-1 gap-2 lg:gap-3 hover:scale-105 transition-transform w-[160px] lg:w-[170px] h-[50px] lg:h-[54px] group cursor-pointer">
         <Apple className="text-white text-[26px] lg:text-[28px] group-hover:text-white/90" />
         <div className="flex flex-col items-start justify-center">
-          <span className="text-[12px] sm:text-[10px] lg:text-[11px] text-white/80 leading-none mb-0.5" style={{ fontFamily: 'Palanquin, sans-serif' }}>Get it on</span>
+          <span className="text-xs sm:text-xs lg:text-[11px] text-white/80 leading-none mb-0.5" style={{ fontFamily: 'Palanquin, sans-serif' }}>Get it on</span>
           <span className="text-[16px] lg:text-[19px] text-white font-bold leading-none" style={{ fontFamily: 'Palanquin, sans-serif' }}>App Store</span>
         </div>
       </button>
@@ -40,7 +40,7 @@ function DownloadButtons() {
       <button type="button" className="flex items-center bg-black border border-white/30 rounded-lg px-2 lg:px-3 py-1 gap-2 lg:gap-3 hover:scale-105 transition-transform w-[160px] lg:w-[170px] h-[50px] lg:h-[54px] group cursor-pointer">
         <Image src={ColourfulIcon} alt="" width={24} height={24} className="w-[24px] h-[24px] lg:w-[26px] lg:h-[26px]" />
         <div className="flex flex-col items-start justify-center">
-          <span className="text-[12px] sm:text-[10px] lg:text-[11px] text-white/80 leading-none mb-0.5" style={{ fontFamily: 'Palanquin, sans-serif' }}>Get it on</span>
+          <span className="text-xs sm:text-xs lg:text-[11px] text-white/80 leading-none mb-0.5" style={{ fontFamily: 'Palanquin, sans-serif' }}>Get it on</span>
           <span className="text-[16px] lg:text-[19px] text-white font-bold leading-none" style={{ fontFamily: 'Palanquin, sans-serif' }}>Google Play</span>
         </div>
       </button>

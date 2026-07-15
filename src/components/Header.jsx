@@ -403,15 +403,15 @@ export default function Header() {
               <div className="p-6 pb-2">
                 <Link
                   href="/signup"
-                  className="flex w-full items-center gap-2.5 pl-2 pr-5 py-1.5 rounded-full text-white bg-[#15a36e] shadow-[0_0_16px_rgba(21,163,110,0.35)] active:scale-[0.98] transition-all duration-300"
+                  className="flex w-full items-center gap-2.5 pl-2 pr-5 py-2 rounded-full text-white bg-[#15a36e] shadow-[0_0_16px_rgba(21,163,110,0.35)] active:scale-[0.98] transition-all duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white">
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white">
                     <svg className="w-4 h-4 text-[#15a36e]" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                   </span>
-                  <span className="font-bold text-sm tracking-wide">GET STARTED</span>
+                  <span className="font-bold text-base tracking-wide">GET STARTED</span>
                 </Link>
               </div>
 

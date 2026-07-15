@@ -93,7 +93,7 @@ const TokenizeAssetsSection = () => {
                     <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M6 2L10.5 9.5H1.5L6 2Z" fill="#15a36e" />
                     </svg>
-                    <span className="text-[10px] sm:text-sm font-bold text-[#15a36e]" style={{ fontFamily: 'Palanquin, sans-serif' }}>{asset?.roi}</span>
+                    <span className="text-xs sm:text-sm font-bold text-[#15a36e]" style={{ fontFamily: 'Palanquin, sans-serif' }}>{asset?.roi}</span>
 
                   </div>
 
@@ -130,7 +130,7 @@ const TokenizeAssetsSection = () => {
                   {/* Know More Button - Filled Design */}
                   <div className="mt-6 sm:mt-8 flex justify-center">
                     <Link href="/marketplace" className="group inline-flex items-center justify-between min-w-[90px] sm:min-w-[130px] bg-[#15a36e] border border-[#15a36e] hover:bg-[#15a36e] rounded-full p-1 transition-all duration-300 w-fit cursor-pointer">
-                       <span className="pl-2.5 pr-1 text-white font-semibold text-[10px] sm:text-xs" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                       <span className="pl-2.5 pr-1 text-white font-semibold text-xs sm:text-xs" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                          Learn More
                        </span>
                       <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white flex items-center justify-center transition-all duration-300">

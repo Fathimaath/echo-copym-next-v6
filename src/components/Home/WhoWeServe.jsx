@@ -71,7 +71,7 @@ const WhoWeServe = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="text-white/80 text-[10px] sm:text-sm md:text-sm lg:text-sm mb-3 lg:mb-3.5 whitespace-normal"
+                className="text-white/80 text-xs sm:text-sm md:text-sm lg:text-sm mb-3 lg:mb-3.5 whitespace-normal"
                 style={{ fontFamily: 'Palanquin, sans-serif' }}
               >
                 Structure, launch, and manage tokenized real-world assets with institutional-grade controls and regulatory alignment.
@@ -87,25 +87,25 @@ const WhoWeServe = () => {
               >
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>
-                  <span className="text-[10px] sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                  <span className="text-xs sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     Real estate, private credit, funds, and commodities
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>
-                  <span className="text-[10px] sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                  <span className="text-xs sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     On-chain entitlement and asset lifecycle management
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>
-                  <span className="text-[10px] sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                  <span className="text-xs sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     White-label investor access and distribution
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>
-                  <span className="text-[10px] sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                  <span className="text-xs sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     Reporting, disclosures, and liquidity enablement
                   </span>
                 </li>
@@ -169,7 +169,7 @@ const WhoWeServe = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="text-white/80 text-[10px] sm:text-sm md:text-sm lg:text-sm mb-2 lg:mb-2 whitespace-normal"
+                className="text-white/80 text-xs sm:text-sm md:text-sm lg:text-sm mb-2 lg:mb-2 whitespace-normal"
                 style={{ fontFamily: 'Palanquin, sans-serif' }}
               >
                 Access structured real-world asset exposure through a transparent, secure, and regulated environment.
@@ -185,19 +185,19 @@ const WhoWeServe = () => {
               >
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>
-                  <span className="text-[10px] sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                  <span className="text-xs sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     Fractional participation in vetted asset structures
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>
-                  <span className="text-[10px] sm:text-sm text-white leading-relaxed whitespace-nowrap" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                  <span className="text-xs sm:text-sm text-white leading-relaxed whitespace-nowrap" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     Efficient execution with gas-free settlement
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>
-                  <span className="text-[10px] sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                  <span className="text-xs sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     Portfolio visibility and automated allocation tools
                   </span>
                 </li>
@@ -261,7 +261,7 @@ const WhoWeServe = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="text-white/80 text-[10px] sm:text-sm md:text-sm lg:text-sm mb-3 lg:mb-3.5"
+                className="text-white/80 text-xs sm:text-sm md:text-sm lg:text-sm mb-3 lg:mb-3.5"
                 style={{ fontFamily: 'Palanquin, sans-serif' }}
               >
                 Power the real-world asset ecosystem by integrating trusted infrastructure and services.
@@ -277,19 +277,19 @@ const WhoWeServe = () => {
               >
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>
-                  <span className="text-[10px] sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                  <span className="text-xs sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     Custody, wallet, and settlement integrations
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>
-                  <span className="text-[10px] sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                  <span className="text-xs sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     Identity, compliance, and data providers
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>
-                  <span className="text-[10px] sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                  <span className="text-xs sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     Network operators and ecosystem partners
                   </span>
                 </li>

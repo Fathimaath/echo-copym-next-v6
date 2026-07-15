@@ -35,12 +35,6 @@ export default function AuditSection() {
             className="w-full h-auto"
           />
         </div>
-
-        <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          {/* Legend */}
-          <div className="flex justify-center items-center space-x-8 mt-0 sm:mt-12">
-          </div>
-        </div>
       </div>
     </section>
   );

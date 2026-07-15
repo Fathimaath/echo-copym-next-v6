@@ -392,7 +392,7 @@ export default function WhyItMatters() {
                             </div>
 
                             {/* Text Pill - Straight Left Edge */}
-                            <div className={`px-4 sm:px-6 py-0.5 sm:py-1 rounded-r-full rounded-l-none text-[10px] sm:text-[12px] font-bold transition-all duration-300 border-l-0 shadow-2xl flex items-center justify-center h-8 sm:h-10 min-w-[60px] sm:min-w-[80px]
+                            <div className={`px-4 sm:px-6 py-0.5 sm:py-1 rounded-r-full rounded-l-none text-xs sm:text-[12px] font-bold transition-all duration-300 border-l-0 shadow-2xl flex items-center justify-center h-8 sm:h-10 min-w-[60px] sm:min-w-[80px]
                                 ${activeTab.id === cat.id
                                     ? 'bg-black text-white'
                                     : 'bg-white text-gray-600'}`}>
@@ -465,7 +465,7 @@ export default function WhyItMatters() {
 
                                         {/* Price & Graph Row */}
                                         <div className="flex items-center justify-between pl-1 mt-1 mb-1">
-                                            <div className="flex items-center overflow-hidden rounded-full font-bold text-[9px] sm:text-[10px] h-4 sm:h-5">
+                                            <div className="flex items-center overflow-hidden rounded-full font-bold text-xs sm:text-[11px] h-4 sm:h-5">
                                                 <div className="bg-[#10b981] text-white px-1.5 sm:px-2 h-full flex items-center">
                                                     {activeTab.tokenPrice || '$11.07'}
                                                 </div>
@@ -481,7 +481,7 @@ export default function WhyItMatters() {
                                                         <path d="M3 17l6-6 4 4 8-8" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </div>
-                                                <span className="text-[9px] sm:text-xs font-bold text-gray-900">{activeTab.growth || '+5%'}</span>
+                                                <span className="text-xs sm:text-xs font-bold text-gray-900">{activeTab.growth || '+5%'}</span>
                                             </div>
                                         </div>
 
@@ -489,27 +489,27 @@ export default function WhyItMatters() {
                                         <div className="flex items-center gap-1 overflow-x-auto pb-1 scrollbar-hide">
                                             {/* Contract Address */}
                                             <div className="border border-gray-200 rounded-lg p-1.5 min-w-[80px] flex-1">
-                                                <p className="text-[8px] sm:text-[10px] text-gray-400 font-bold whitespace-nowrap mb-0.5">Contract</p>
-                                                <p className="text-[9px] sm:text-[11px] font-bold text-gray-800 font-mono truncate max-w-[70px]">
+                                                <p className="text-xs sm:text-[10px] text-gray-400 font-bold whitespace-nowrap mb-0.5">Contract</p>
+                                                <p className="text-xs sm:text-[11px] font-bold text-gray-800 font-mono truncate max-w-[70px]">
                                                     {activeTab.stats?.find(s => s.label === 'Contract Address')?.value || '0x...'}
                                                 </p>
                                             </div>
                                             {/* Total Asset Value */}
                                             <div className="border border-gray-200 rounded-lg p-1.5 min-w-[80px] flex-1">
-                                                <p className="text-[8px] sm:text-[10px] text-gray-400 font-bold whitespace-nowrap mb-0.5">Value</p>
+                                                <p className="text-xs sm:text-[10px] text-gray-400 font-bold whitespace-nowrap mb-0.5">Value</p>
                                                 <div className="flex items-center gap-1">
-                                                    <p className="text-[9px] sm:text-[11px] font-bold text-gray-800">
+                                                    <p className="text-xs sm:text-[11px] font-bold text-gray-800">
                                                         {activeTab.stats?.find(s => s.label === 'Total Asset Value')?.value || '$0'}
                                                     </p>
-                                                    <span className="text-[7px] sm:text-[9px] font-bold text-[#10b981] bg-[#10b981]/10 px-0.5 rounded">
+                                                    <span className="text-xs sm:text-[9px] font-bold text-[#10b981] bg-[#10b981]/10 px-0.5 rounded">
                                                         {activeTab.stats?.find(s => s.label === 'Total Asset Value')?.change || ''}
                                                     </span>
                                                 </div>
                                             </div>
                                             {/* APY */}
                                             <div className="border border-gray-200 rounded-lg p-1.5 min-w-[50px]">
-                                                <p className="text-[8px] sm:text-[10px] text-gray-400 font-bold whitespace-nowrap mb-0.5">APY</p>
-                                                <p className="text-[9px] sm:text-[11px] font-bold text-[#10b981]">
+                                                <p className="text-xs sm:text-[10px] text-gray-400 font-bold whitespace-nowrap mb-0.5">APY</p>
+                                                <p className="text-xs sm:text-[11px] font-bold text-[#10b981]">
                                                     {activeTab.stats?.find(s => s.label === 'APY')?.value || '0%'}
                                                 </p>
                                             </div>
@@ -543,7 +543,7 @@ export default function WhyItMatters() {
                                         <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-white/60 flex items-center justify-center shadow-inner shrink-0">
                                             <span className="text-[#2563eb] scale-75 sm:scale-90">{badge.icon}</span>
                                         </div>
-                                        <p className="text-[9px] sm:text-xs font-bold text-gray-800 tracking-tight" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>{badge.label}</p>
+                                        <p className="text-xs sm:text-xs font-bold text-gray-800 tracking-tight" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>{badge.label}</p>
                                     </motion.div>
                                 ))}
 
@@ -564,7 +564,7 @@ export default function WhyItMatters() {
                                 className="space-y-3"
                             >
                                 <div className="space-y-3">
-                                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#10b981]/10 text-[#10b981] rounded-md text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#10b981]/10 text-[#10b981] rounded-md text-xs sm:text-xs font-bold uppercase tracking-wider">
                                         {activeTab.icon}
                                         <span>Market Insight</span>
                                     </div>
@@ -613,29 +613,29 @@ export default function WhyItMatters() {
                                                         {/* Header Row: Title & Price - Smaller Text */}
                                                         <div className="flex flex-col mb-1 sm:mb-1.5">
                                                             <div className="flex items-baseline justify-end gap-0.5 sm:gap-1 self-end mb-0.5">
-                                                                <p className="font-bold text-gray-900 text-[9px] sm:text-[10px] leading-tight">{asset.price.replace('$', '')}</p>
+                                                                <p className="font-bold text-gray-900 text-xs sm:text-[10px] leading-tight">{asset.price.replace('$', '')}</p>
                                                                 <div className="flex items-center gap-0.5">
-                                                                    <span className="text-[7px] sm:text-[9px] text-gray-400 font-medium tracking-wide">TVT</span>
-                                                                    <span className="inline-flex items-center justify-center w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border border-gray-300 text-[5px] sm:text-[7px] text-gray-400">i</span>
+                                                                    <span className="text-xs sm:text-[9px] text-gray-400 font-medium tracking-wide">TVT</span>
+                                                                    <span className="inline-flex items-center justify-center w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border border-gray-300 text-[8px] sm:text-[7px] text-gray-400">i</span>
                                                                 </div>
                                                             </div>
-                                                            <h5 className="font-bold text-[9px] sm:text-[10px] lg:text-sm text-gray-900 leading-tight whitespace-nowrap overflow-hidden text-ellipsis" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                                            <h5 className="font-bold text-xs sm:text-[10px] lg:text-sm text-gray-900 leading-tight whitespace-nowrap overflow-hidden text-ellipsis" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                                                 {asset.name}
                                                             </h5>
                                                         </div>
 
                                                         {/* Description - Reduced Margin & Size */}
-                                                        <p className="text-gray-500 text-[10px] sm:text-xs font-medium leading-relaxed mb-2 line-clamp-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                                        <p className="text-gray-500 text-xs sm:text-xs font-medium leading-relaxed mb-2 line-clamp-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                                             {asset.description || "Premium entitlementt opportunity with stable returns and high growth potential."}
                                                         </p>
 
                                                         {/* Footer Row: Tags */}
                                                         <div className="flex flex-wrap gap-1 sm:gap-1.5">
-                                                            <span className="inline-flex items-center gap-0.5 sm:gap-1 px-1 sm:px-2 py-0.5 sm:py-1 rounded-full bg-[#ecf6ff] text-[#2563eb] text-[6px] sm:text-[9px] font-bold transition-colors hover:bg-blue-100">
+                                                            <span className="inline-flex items-center gap-0.5 sm:gap-1 px-1 sm:px-2 py-0.5 sm:py-1 rounded-full bg-[#ecf6ff] text-[#2563eb] text-xs sm:text-[9px] font-bold transition-colors hover:bg-blue-100">
                                                                 {React.cloneElement(activeTab.icon, { className: "w-1.5 h-1.5 sm:w-2 sm:h-2" })}
                                                                 {activeTab.name}
                                                             </span>
-                                                            <span className="inline-flex items-center gap-0.5 sm:gap-1 px-1 sm:px-2 py-0.5 sm:py-1 rounded-full bg-gray-100 text-gray-700 text-[6px] sm:text-[9px] font-bold transition-colors hover:bg-gray-200">
+                                                            <span className="inline-flex items-center gap-0.5 sm:gap-1 px-1 sm:px-2 py-0.5 sm:py-1 rounded-full bg-gray-100 text-gray-700 text-xs sm:text-[9px] font-bold transition-colors hover:bg-gray-200">
                                                                 <MapPin className="w-1.5 h-1.5 sm:w-2 sm:h-2" />
                                                                 {asset.location.split(',').pop().trim()}
                                                             </span>
@@ -665,7 +665,7 @@ export default function WhyItMatters() {
 
                 {/* Terms & Conditions - Centered at Bottom */}
                 <div className="text-center mt-6 md:mt-8 mb-4 px-4">
-                    <div className="text-[#98a2b3] text-[9px] sm:text-[10px] leading-relaxed max-w-6xl mx-auto font-medium" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                    <div className="text-[#98a2b3] text-xs sm:text-xs leading-relaxed max-w-6xl mx-auto font-medium" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                         <p className="mb-0.5">
 
                             Copym does not provide brokerage services, entitlement banking services, underwriting services, entitlement recommendations, or entitlement advice to any person.

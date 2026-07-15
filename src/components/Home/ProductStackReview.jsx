@@ -33,7 +33,7 @@ const ProductStackReview = () => {
     if (lottieRef.current) {
       lottieRef.current.setSpeed(0.4);
     }
-  }, []);
+  });
 
   return (
     <section className="relative w-full bg-white pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-0 overflow-hidden ">

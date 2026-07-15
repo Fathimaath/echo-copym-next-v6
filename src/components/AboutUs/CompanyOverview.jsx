@@ -37,7 +37,7 @@ const CompanyOverview = () => {
             <div className="flex flex-col justify-start items-end w-full lg:w-[58%] lg:ml-[1px]">
 
               {/* Main Description */}
-              <p className="text-[10px] sm:text-[13px] md:text-[16px] lg:text-[20px] font-normal leading-[18px] sm:leading-[23px] md:leading-[29px] lg:leading-[36px] text-left capitalize text-text-white w-full lg:w-[86%]">
+              <p className="text-xs sm:text-[13px] md:text-[16px] lg:text-[20px] font-normal leading-[18px] sm:leading-[23px] md:leading-[29px] lg:leading-[36px] text-left capitalize text-text-white w-full lg:w-[86%]">
                 COPYm is a cutting-edge Real World Asset (RWA) tokenization platform designed to transform how the world perceives and manages entitlement.
                 <br /><br />
                 We bridge tangible value and digital innovation, enabling physical assets — from real estate and commodities to collectibles and intellectual property — to be securely digitized, fractionalized, and traded on a global scale.
@@ -48,7 +48,7 @@ const CompanyOverview = () => {
                 Why We Exist
               </h3>
 
-              <p className="text-[10px] sm:text-[13px] md:text-[16px] lg:text-[20px] font-normal leading-[18px] sm:leading-[23px] md:leading-[29px] lg:leading-[36px] text-left capitalize text-text-white w-full lg:w-[86%] mt-2 sm:mt-4 lg:mt-[10px]">
+              <p className="text-xs sm:text-[13px] md:text-[16px] lg:text-[20px] font-normal leading-[18px] sm:leading-[23px] md:leading-[29px] lg:leading-[36px] text-left capitalize text-text-white w-full lg:w-[86%] mt-2 sm:mt-4 lg:mt-[10px]">
                 The traditional asset market is fragmented, slow, and geographically restricted. COPYm is here to change that.
                 <br /><br />
                 By merging blockchain technology with real-world compliance, we create a unified marketplace where assets can be exchanged instantly, securely, and without borders.

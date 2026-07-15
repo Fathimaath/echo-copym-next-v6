@@ -287,9 +287,9 @@ export default function AboutUsClient() {
             </section>
 
             {/* Section 5: Company Timeline */}
-            <section className="relative bg-black pt-8 pb-32 lg:pt-12 lg:pb-40 overflow-hidden" >
+            <section className="relative bg-black pt-8 pb-16 sm:pb-32 lg:pt-12 lg:pb-40 overflow-hidden" >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="flex flex-col gap-8 lg:gap-10">
+                    <div className="flex flex-col gap-0 lg:gap-10">
                         {/* TOP: Heading & Description - Centered */}
                         <div className="w-full text-left sm:text-center">
                             <motion.div
@@ -311,7 +311,7 @@ export default function AboutUsClient() {
                         </div>
 
                         {/* BOTTOM: Timeline Image */}
-                        <div className="w-full relative mt-0 sm:-mt-36 h-[400px] sm:h-[600px] lg:h-[800px]">
+                        <div className="w-full relative -mt-16 sm:-mt-36 h-[400px] sm:h-[600px] lg:h-[800px]">
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -333,7 +333,7 @@ export default function AboutUsClient() {
             </section>
 
             {/* Section 9: Contact Form */}
-            <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+            <section id="contact" className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Section Header */}
                     <div className="text-center mb-8 sm:mb-10 lg:mb-12">
@@ -434,7 +434,7 @@ export default function AboutUsClient() {
                                             <h3 className="text-xs sm:text-sm font-bold text-black uppercase tracking-wide whitespace-nowrap" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                                 ADDRESS :
                                             </h3>
-                                            <p className="text-[10px] sm:text-base text-black font-medium text-left whitespace-normal sm:whitespace-nowrap" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                            <p className="text-xs sm:text-base text-black font-medium text-left whitespace-normal sm:whitespace-nowrap" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                                 Smart Station, First Floor, Incubator Building,<br className="hidden sm:block" /> Masdar City, Abu Dhabi, UAE.
                                             </p>
                                         </div>
@@ -472,10 +472,10 @@ export default function AboutUsClient() {
                                             />
                                         </div>
                                         <div className="min-w-0">
-                                            <h4 className="text-[10px] sm:text-xs md:text-sm font-bold text-gray-900 leading-tight truncate" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                            <h4 className="text-xs sm:text-xs md:text-sm font-bold text-gray-900 leading-tight truncate" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                                 Copym Global
                                             </h4>
-                                            <p className="text-[7px] sm:text-[9px] md:text-[11px] text-gray-500 mt-0 leading-relaxed line-clamp-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                            <p className="text-xs sm:text-[11px] md:text-[13px] text-gray-500 mt-0 leading-relaxed line-clamp-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                                 Masdar City, Abu Dhabi
                                             </p>
                                         </div>

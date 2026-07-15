@@ -126,7 +126,7 @@ export default function FAQSection() {
         </div>
         <div className="flex justify-center mt-8">
           <Link
-            href="/about"
+            href="/about#contact"
             className="inline-flex items-center justify-center px-[34px] py-[10px] font-bold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base border-2 border-emerald-500 bg-[#1ab87d] text-white rounded-full"
             style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
           >

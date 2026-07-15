@@ -96,7 +96,7 @@ export default function TokenManagement() {
                                 {/* Status Badge - Top Right */}
                                 <div className="absolute top-4 right-4 z-10 flex flex-col gap-2">
                                     <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-[#dcfce7] border border-[#bbf7d0]/50 shadow-sm">
-                                        <span className="text-[10px] sm:text-sm font-bold text-[#15a36e]" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>{feature.badge}</span>
+                                        <span className="text-xs sm:text-sm font-bold text-[#15a36e]" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>{feature.badge}</span>
                                     </div>
                                 </div>
 
@@ -119,7 +119,7 @@ export default function TokenManagement() {
                                     </h3>
 
                                     <p
-                                        className="text-[10px] sm:text-sm text-gray-600 leading-snug flex-grow min-h-[72px]"
+                                        className="text-xs sm:text-sm text-gray-600 leading-snug flex-grow min-h-[72px]"
                                         style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
                                     >
                                         {feature.description}

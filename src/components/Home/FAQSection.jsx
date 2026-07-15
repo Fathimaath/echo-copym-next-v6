@@ -99,6 +99,7 @@ export default function FAQSection() {
   const faqSchema = generateFAQSchema(faqs);
 
   return (
+    <>
     <section className="relative py-8 sm:py-10 md:py-14 lg:pt-6 pb-0 bg-white">
       <script
         type="application/ld+json"
@@ -143,8 +144,8 @@ export default function FAQSection() {
                 Still have questions about structuring, tokenization, or onboarding?
               </p>
             <Link
-              href="/about"
-              className="inline-flex items-center justify-center gap-2 px-5 py-2 sm:px-8 sm:py-3 font-bold bg-gradient-to-r from-[#23BD83] to-[#109261] text-white rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all max-w-[280px] sm:max-w-none mx-auto sm:mx-0"
+              href="/about#contact"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2 sm:px-8 sm:py-3 font-bold bg-gradient-to-r from-[#23BD83] to-[#109261] text-white rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all max-w-[280px] sm:max-w-none mx-auto sm:mx-0 cursor-pointer"
               style={{ fontFamily: 'Palanquin, sans-serif' }}
             >
               <span className="text-sm sm:text-base">Speak With Our Team</span>
@@ -169,5 +170,6 @@ export default function FAQSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }
