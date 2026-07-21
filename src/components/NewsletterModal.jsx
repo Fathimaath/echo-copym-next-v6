@@ -7,6 +7,7 @@ export default function NewsletterModal({ isOpen, onClose }) {
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState('idle');
+  const [successMsg, setSuccessMsg] = useState('');
 
   useEffect(() => {
     if (isOpen) {
@@ -17,6 +18,8 @@ export default function NewsletterModal({ isOpen, onClose }) {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
+  const API_URL = process.env.NEXT_PUBLIC_LEADS_API_URL || 'http://localhost/copym-blog-api/api';
+
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     if (!consent) {
@@ -25,14 +28,21 @@ export default function NewsletterModal({ isOpen, onClose }) {
     }
     setStatus('loading');
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const res = await fetch(`${API_URL}/newsletter-subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, consent: true, source: 'modal' }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to subscribe');
       setStatus('success');
+      setSuccessMsg(data.message || 'Subscribed successfully!');
       setEmail('');
       setConsent(false);
-    } catch {
+    } catch (err) {
       setStatus('error');
     }
-  }, [consent]);
+  }, [email, consent, API_URL]);
 
   const handleClose = () => {
     setStatus('idle');
@@ -95,7 +105,7 @@ export default function NewsletterModal({ isOpen, onClose }) {
                   <Check className="w-7 h-7 text-[#15a36e]" />
                 </div>
                 <p className="text-white font-semibold mb-1" style={{ fontFamily: 'Palanquin, sans-serif' }}>
-                  You&apos;re subscribed!
+                  {successMsg === 'Already subscribed' ? 'Already Subscribed!' : 'Subscribed Successfully!'}
                 </p>
                 <p className="text-sm text-gray-400" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                   Thank you for joining. We&apos;ll keep you updated.

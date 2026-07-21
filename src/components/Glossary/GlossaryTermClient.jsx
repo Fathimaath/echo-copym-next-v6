@@ -11,6 +11,31 @@ export default function GlossaryTermClient({ termData, slug }) {
   const [activeSection, setActiveSection] = useState('');
   const [leftSidebarFixed, setLeftSidebarFixed] = useState(true);
   const [rightSidebarFixed, setRightSidebarFixed] = useState(true);
+  const [nlEmail, setNlEmail] = useState('');
+  const [nlStatus, setNlStatus] = useState('idle');
+  const [nlSuccessMsg, setNlSuccessMsg] = useState('');
+
+  const API_URL = process.env.NEXT_PUBLIC_LEADS_API_URL || 'http://localhost/copym-blog-api/api';
+
+  const handleNlSubmit = async (e) => {
+    e.preventDefault();
+    if (!nlEmail) return;
+    setNlStatus('loading');
+    try {
+      const res = await fetch(`${API_URL}/newsletter-subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: nlEmail, consent: true, source: 'glossary' }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed');
+      setNlStatus('success');
+      setNlSuccessMsg(data.message || 'Subscribed!');
+      setNlEmail('');
+    } catch {
+      setNlStatus('error');
+    }
+  };
 
   const mainContentRef = useRef(null);
   const leftSidebarRef = useRef(null);
@@ -407,21 +432,29 @@ export default function GlossaryTermClient({ termData, slug }) {
                   <p className="text-xs text-gray-500 mb-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                     Get the latest glossary updates delivered to your inbox.
                   </p>
-                  <form onSubmit={(e) => { e.preventDefault(); }} className="space-y-2">
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      className="w-full px-3 py-2 text-xs border border-gray-200 rounded focus:outline-none focus:border-[#15a36e] focus:ring-1 focus:ring-[#15a36e]/20 transition-all"
-                      style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
-                    />
-                    <button
-                      type="submit"
-                      className="w-full bg-[#15a36e] hover:bg-[#128a5c] text-white py-2 rounded font-semibold text-xs transition-colors"
-                      style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
-                    >
-                      Subscribe
-                    </button>
-                  </form>
+                  {nlStatus === 'success' ? (
+                    <p className="text-xs text-[#15a36e] font-semibold" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>{nlSuccessMsg || 'Subscribed!'}</p>
+                  ) : (
+                    <form onSubmit={handleNlSubmit} className="space-y-2">
+                      <input
+                        type="email"
+                        value={nlEmail}
+                        onChange={(e) => setNlEmail(e.target.value)}
+                        placeholder="Enter your email"
+                        required
+                        className="w-full px-3 py-2 text-xs border border-gray-200 rounded focus:outline-none focus:border-[#15a36e] focus:ring-1 focus:ring-[#15a36e]/20 transition-all"
+                        style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
+                      />
+                      <button
+                        type="submit"
+                        disabled={nlStatus === 'loading'}
+                        className="w-full bg-[#15a36e] hover:bg-[#128a5c] text-white py-2 rounded font-semibold text-xs transition-colors disabled:opacity-50"
+                        style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
+                      >
+                        {nlStatus === 'loading' ? 'Subscribing...' : 'Subscribe'}
+                      </button>
+                    </form>
+                  )}
                 </div>
               </div>
             </div>
@@ -438,21 +471,29 @@ export default function GlossaryTermClient({ termData, slug }) {
           <p className="text-xs text-gray-500 mb-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
             Get the latest glossary updates delivered to your inbox.
           </p>
-          <form onSubmit={(e) => { e.preventDefault(); }} className="space-y-2">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full px-3 py-2 text-xs border border-gray-200 rounded focus:outline-none focus:border-[#15a36e] focus:ring-1 focus:ring-[#15a36e]/20 transition-all"
-              style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
-            />
-            <button
-              type="submit"
-              className="w-full bg-[#15a36e] hover:bg-[#128a5c] text-white py-2 rounded font-semibold text-xs transition-colors"
-              style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
-            >
-              Subscribe
-            </button>
-          </form>
+          {nlStatus === 'success' ? (
+            <p className="text-xs text-[#15a36e] font-semibold" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>Subscribed!</p>
+          ) : (
+            <form onSubmit={handleNlSubmit} className="space-y-2">
+              <input
+                type="email"
+                value={nlEmail}
+                onChange={(e) => setNlEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+                className="w-full px-3 py-2 text-xs border border-gray-200 rounded focus:outline-none focus:border-[#15a36e] focus:ring-1 focus:ring-[#15a36e]/20 transition-all"
+                style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
+              />
+              <button
+                type="submit"
+                disabled={nlStatus === 'loading'}
+                className="w-full bg-[#15a36e] hover:bg-[#128a5c] text-white py-2 rounded font-semibold text-xs transition-colors disabled:opacity-50"
+                style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
+              >
+                {nlStatus === 'loading' ? 'Subscribing...' : 'Subscribe'}
+              </button>
+            </form>
+          )}
         </div>
       </div>
 

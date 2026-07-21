@@ -13,17 +13,28 @@ export default function SignupForm() {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
+    const API_URL = process.env.NEXT_PUBLIC_LEADS_API_URL || 'http://localhost/copym-blog-api/api';
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('submitting');
         setError('');
 
-        // Simulate submission — backend integration pending
-        await new Promise(r => setTimeout(r, 800));
-
-        setStatus('success');
-        setFormData({ name: '', email: '', phone: '', company: '', interest: '' });
-        setAgreedToTerms(false);
+        try {
+            const res = await fetch(`${API_URL}/signup-submit`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...formData, agreedToTerms: agreedToTerms }),
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Failed to submit');
+            setStatus('success');
+            setFormData({ name: '', email: '', phone: '', company: '', interest: '' });
+            setAgreedToTerms(false);
+        } catch (err) {
+            setStatus('idle');
+            setError(err.message || 'Something went wrong. Please try again.');
+        }
     };
 
     if (status === 'success') {

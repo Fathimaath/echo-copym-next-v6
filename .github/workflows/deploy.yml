@@ -27,6 +27,7 @@ jobs:
         env:
           NEXT_EXPORT: 'true'
           NEXT_PUBLIC_API_URL: 'https://blog-api.copym.xyz'
+          NEXT_PUBLIC_LEADS_API_URL: 'https://blog-api.copym.xyz/api'
 
       - name: Setup SSH key
         env:

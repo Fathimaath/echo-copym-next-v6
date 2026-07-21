@@ -138,7 +138,10 @@ export default function Typeform() {
   const [stepIndex, setStepIndex] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
-  const [showForm, setShowForm] = useState(false); // Controls landing vs form
+  const [showForm, setShowForm] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const API_URL = process.env.NEXT_PUBLIC_LEADS_API_URL || 'http://localhost/copym-blog-api/api';
 
   const step = useMemo(() => steps[stepIndex], [stepIndex]);
 
@@ -187,10 +190,43 @@ export default function Typeform() {
     return true;
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (!validateCurrent()) return;
-    if (stepIndex < steps.length - 1) setStepIndex(i => i + 1);
-    else setSubmitted(true);
+    if (stepIndex < steps.length - 1) {
+      setStepIndex(i => i + 1);
+    } else {
+      setSubmitting(true);
+      try {
+        const payload = {
+          tokenGoal: form.tokenGoal,
+          firstName: form.contactInfo.firstName,
+          lastName: form.contactInfo.lastName,
+          email: form.contactInfo.email,
+          phone: form.contactInfo.phone,
+          companyName: form.companyInfo.companyName,
+          title: form.companyInfo.title,
+          website: form.companyInfo.website,
+          industry: form.industry,
+          companyDetails: form.companyDetails,
+          incUS: form.companyStatus.incUS,
+          productAvailable: form.companyStatus.productAvailable,
+          revenue: form.companyStatus.revenue,
+          raiseStructure: form.raiseStructure,
+        };
+        const res = await fetch(`${API_URL}/contact-submit`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Failed to submit');
+        setSubmitted(true);
+      } catch (err) {
+        setError(err.message || 'Something went wrong. Please try again.');
+      } finally {
+        setSubmitting(false);
+      }
+    }
   };
 
   const handleBack = () => {
@@ -357,12 +393,13 @@ export default function Typeform() {
                   {["text", "email", "url", "number", "textarea", "group"].includes(step.type) && (
                     <motion.button
                       onClick={handleNext}
-                      className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#15a36e] text-white font-bold text-lg shadow-xl hover:bg-[#12a062] transition-all duration-200"
+                      disabled={submitting}
+                      className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#15a36e] text-white font-bold text-lg shadow-xl hover:bg-[#12a062] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                       style={{ fontFamily: "var(--font-palanquin), Palanquin, sans-serif" }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={!submitting ? { scale: 1.05 } : {}}
+                      whileTap={!submitting ? { scale: 0.95 } : {}}
                     >
-                      {stepIndex === steps.length - 1 ? "Submit Application" : "Continue →"}
+                      {submitting ? 'Submitting...' : (stepIndex === steps.length - 1 ? "Submit Application" : "Continue →")}
                     </motion.button>
                   )}
                 </div>

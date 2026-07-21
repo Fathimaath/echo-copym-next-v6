@@ -55,6 +55,9 @@ export default function Footer() {
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
   const [errorMsg, setErrorMsg] = useState('');
+  const [successMsg, setSuccessMsg] = useState('');
+
+  const API_URL = process.env.NEXT_PUBLIC_LEADS_API_URL || 'http://localhost/copym-blog-api/api';
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
@@ -67,9 +70,15 @@ export default function Footer() {
     setErrorMsg('');
 
     try {
-      // Simulate API call — backend will be connected later
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const res = await fetch(`${API_URL}/newsletter-subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, consent: true, source: 'footer' }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to subscribe');
       setStatus('success');
+      setSuccessMsg(data.message || 'Subscribed successfully!');
       setEmail('');
       setConsent(false);
       if (typeof window !== 'undefined' && window.dataLayer) {
@@ -79,7 +88,7 @@ export default function Footer() {
       setStatus('error');
       setErrorMsg(err.message || 'Something went wrong. Please try again.');
     }
-  }, [email, consent]);
+  }, [email, consent, API_URL]);
 
   return (
     <footer className="relative bg-black text-white overflow-hidden">
@@ -212,7 +221,7 @@ export default function Footer() {
                 {status === 'success' && (
                   <div className="flex items-center gap-1.5 text-[#15a36e] text-xs">
                     <Check className="w-3.5 h-3.5" />
-                    <span>You're subscribed! Thank you.</span>
+                    <span>{successMsg}</span>
                   </div>
                 )}
                 {status === 'error' && (

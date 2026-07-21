@@ -1,15 +1,39 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { Twitter, Linkedin, Mail, Facebook, Link2 } from 'lucide-react';
+import { Twitter, Linkedin, Mail, Facebook, Link2, Check, Loader2, AlertCircle } from 'lucide-react';
 
 export default function BlogPostSidebars({ article, youMayAlsoLike }) {
   const [activeSection, setActiveSection] = useState('');
   const [sidebarFixed, setSidebarFixed] = useState(true);
   const [expandedHeadings, setExpandedHeadings] = useState([]);
+  const [nlEmail, setNlEmail] = useState('');
+  const [nlStatus, setNlStatus] = useState('idle');
+  const [nlSuccessMsg, setNlSuccessMsg] = useState('');
+  const API_URL = process.env.NEXT_PUBLIC_LEADS_API_URL || 'http://localhost/copym-blog-api/api';
 
   const leftSidebarRef = useRef(null);
   const rightSidebarRef = useRef(null);
+
+  const handleNlSubmit = useCallback(async (e) => {
+    e.preventDefault();
+    if (!nlEmail) return;
+    setNlStatus('loading');
+    try {
+      const res = await fetch(`${API_URL}/newsletter-subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: nlEmail, consent: true, source: 'blog-sidebar' }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed');
+      setNlStatus('success');
+      setNlSuccessMsg(data.message || 'Subscribed!');
+      setNlEmail('');
+    } catch {
+      setNlStatus('error');
+    }
+  }, [nlEmail, API_URL]);
 
   const handleShare = (platform) => {
     const shareUrl = window.location.href;
@@ -201,12 +225,45 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
                   <p className="text-xs text-gray-400 !mb-0">Get latest updates & insights</p>
                 </div>
               </div>
-              <button className="w-full bg-gradient-to-r from-[#15a36e] to-emerald-600 text-white py-3 rounded-xl text-sm font-bold hover:shadow-lg hover:shadow-[#15a36e]/40 transition-all duration-300 flex items-center justify-center gap-2 group">
-                Subscribe Now
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </button>
+              {nlStatus === 'success' ? (
+                <div className="flex items-center gap-2 text-[#15a36e] py-3">
+                  <Check className="w-5 h-5" />
+                  <span className="text-sm font-semibold">{nlSuccessMsg || 'Subscribed!'}</span>
+                </div>
+              ) : (
+                <form onSubmit={handleNlSubmit} className="space-y-2">
+                  <input
+                    type="email"
+                    value={nlEmail}
+                    onChange={(e) => setNlEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    required
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white text-sm placeholder:text-gray-500 focus:outline-none focus:border-[#15a36e] focus:ring-1 focus:ring-[#15a36e] transition-colors"
+                  />
+                  <button
+                    type="submit"
+                    disabled={nlStatus === 'loading'}
+                    className="w-full bg-gradient-to-r from-[#15a36e] to-emerald-600 text-white py-3 rounded-xl text-sm font-bold hover:shadow-lg hover:shadow-[#15a36e]/40 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-60"
+                  >
+                    {nlStatus === 'loading' ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <>
+                        Subscribe Now
+                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </>
+                    )}
+                  </button>
+                  {nlStatus === 'error' && (
+                    <div className="flex items-center gap-1.5 text-red-400 text-xs">
+                      <AlertCircle className="w-3.5 h-3.5" />
+                      <span>Something went wrong. Try again.</span>
+                    </div>
+                  )}
+                </form>
+              )}
             </div>
           </div>
         </div>
