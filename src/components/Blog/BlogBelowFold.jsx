@@ -2,8 +2,6 @@
 
 import React, { useState, useCallback } from 'react';
 import Link from 'next/link';
-import DisclaimerBlock from './DisclaimerBlock';
-import Image from '../Image';
 import { Check, Loader2, AlertCircle } from 'lucide-react';
 
 export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike }) {
@@ -33,68 +31,6 @@ export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike })
   }, [nlEmail, API_URL]);
   return (
     <>
-      {/* Author Section */}
-      <section className="my-8 sm:my-12">
-        <div className="grid md:grid-cols-1 gap-4 sm:gap-6">
-          <AuthorCard author={article.authorData} name={article.author} />
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      {article.faqs && article.faqs.length > 0 && (
-        <section className="my-8 sm:my-12">
-          <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 uppercase">
-            Frequently Asked Questions
-          </h3>
-          <div className="space-y-4 sm:space-y-6">
-            {article.faqs.map((faq, idx) => (
-              <div key={idx} className="border-b border-gray-100 pb-4 sm:pb-6 last:border-0 last:pb-0">
-                <h4 className="text-sm sm:text-base font-bold text-gray-900 mb-3">
-                  {faq.question}
-                </h4>
-                <p className="text-sm text-gray-600 leading-relaxed !mb-0">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* End-of-Article CTA */}
-      <section className="mt-12">
-        <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-5 sm:p-8 md:p-10 text-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#15a36e" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-4.9C93.5,9.4,82.2,23.1,70.6,34.3C59,45.5,47.1,54.2,35.1,61.8C23.1,69.4,11,75.9,-0.6,77.2C-12.2,78.5,-24.7,74.6,-36.4,68.5C-48.1,62.4,-59,54.1,-67.6,43.5C-76.2,32.9,-82.5,20,-83.1,6.8C-83.7,-6.4,-78.6,-19.9,-70.4,-31.4C-62.2,-42.9,-50.9,-52.4,-39.3,-59.3C-27.7,-66.2,-15.8,-70.5,-2.6,-69.5C10.6,-68.5,23.6,-62.2,30.5,-83.6L44.7,-76.4Z" transform="translate(100 100)" />
-            </svg>
-          </div>
-          <div className="relative z-10">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="text-left max-w-2xl">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3">
-                  Start Your Tokenization Journey
-                </h3>
-                <p className="text-gray-300 text-sm sm:text-base leading-relaxed !mb-0">
-                  Join leading institutions using our platform <br className="hidden sm:block" />
-                  for digital asset issuance.
-                </p>
-              </div>
-              <Link href="/tokenization" className="group inline-flex items-center justify-between min-w-[140px] sm:min-w-[160px] bg-[#15a36e] border border-[#15a36e] hover:bg-[#12a062] rounded-full p-1 transition-all duration-300">
-                <span className="pl-3 pr-2 text-white font-semibold text-xs sm:text-sm">
-                  Know More
-                </span>
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-1">
-                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#15a36e]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Mobile Only - You May Also Like & Newsletter */}
       <div className="lg:hidden mt-12 space-y-8">
         <div>
@@ -177,42 +113,7 @@ export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike })
           </div>
         </div>
       </div>
-
-      {/* Disclaimer */}
-      <DisclaimerBlock>
-        {article.disclaimer}
-      </DisclaimerBlock>
     </>
   );
 }
-
-function AuthorCard({ author, name }) {
-  const authorObj = author || { name: typeof name === 'string' ? name : 'CopyM Team', role: '' };
-  return (
-    <div className="bg-white rounded-lg border border-gray-100 overflow-hidden hover:border-[#15a36e]/30 transition-all duration-300 group flex flex-col" style={{ boxShadow: '0px 4px 48.9px 0px #BDE3D5' }}>
-      <div className="p-4 sm:p-6 flex-1">
-        <div className="flex items-start gap-3 sm:gap-4">
-          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-gradient-to-br from-[#15a36e]/20 to-[#15a36e]/5 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-            {authorObj?.avatar ? (
-              <Image src={authorObj.avatar} alt={authorObj.name} className="w-full h-full rounded-lg object-cover" />
-            ) : (
-              <span className="text-xl font-bold text-[#15a36e]">{authorObj?.name?.charAt(0) || 'C'}</span>
-            )}
-          </div>
-          <div className="flex-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#15a36e] block mb-1">Written By</span>
-            <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-1">
-              {authorObj?.name || 'CopyM Team'}
-            </h4>
-            <p className="text-xs text-gray-500 mb-3 !mb-3">{authorObj?.role || 'Research Team'}</p>
-            <p className="text-sm text-gray-600 leading-relaxed !mb-0">{authorObj?.bio || 'Our research team analyzes market trends and emerging technologies in blockchain and tokenization.'}</p>
-          </div>
-        </div>
-      </div>
-      <div className="h-1 bg-gradient-to-r from-[#15a36e] to-emerald-400"></div>
-    </div>
-  );
-}
-
-
 

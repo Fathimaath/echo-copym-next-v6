@@ -2,6 +2,7 @@ import React from 'react';
 import { Calendar, Clock } from 'lucide-react';
 import BlogContentRenderer from './BlogContentRenderer';
 import BlogBelowFold from './BlogBelowFold';
+import FaqEnhance from './FaqEnhance';
 import Image from '../Image';
 
 export default function BlogArticleBody({ article, relatedPosts, youMayAlsoLike }) {
@@ -10,6 +11,8 @@ export default function BlogArticleBody({ article, relatedPosts, youMayAlsoLike 
     role: '',
     bio: ''
   };
+
+  const reviewerObj = article.reviewerData || null;
 
   return (
     <article>
@@ -24,7 +27,7 @@ export default function BlogArticleBody({ article, relatedPosts, youMayAlsoLike 
           </p>
         )}
 
-        <div className="flex flex-wrap items-center gap-3 py-5 border-y border-gray-100 mb-7">
+        <div className="flex flex-wrap items-center gap-3 py-5 border-y border-gray-100 mb-4">
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 rounded-full bg-[#15a36e]/20 flex items-center justify-center flex-shrink-0">
               {authorObj?.avatar ? (
@@ -59,6 +62,12 @@ export default function BlogArticleBody({ article, relatedPosts, youMayAlsoLike 
           </div>
         </div>
 
+        {reviewerObj && reviewerObj.name && (
+          <p className="text-xs text-gray-400 mb-7">
+            Reviewed by {reviewerObj.name}{reviewerObj.role ? ` · ${reviewerObj.role}` : ''}
+          </p>
+        )}
+
         {article.image && (
           <div className="rounded-xl overflow-hidden mb-10">
             <Image src={article.image} alt={article.title} className="w-full h-40 sm:h-56 md:h-72 lg:h-96 object-cover" />
@@ -66,15 +75,17 @@ export default function BlogArticleBody({ article, relatedPosts, youMayAlsoLike 
         )}
       </header>
 
-      <div
-        className="prose prose-sm sm:prose-base lg:prose-lg max-w-none text-gray-800 leading-relaxed"
-      >
-        {article.contentBlocks && article.contentBlocks.length > 0 ? (
-          <BlogContentRenderer contentBlocks={article.contentBlocks} />
-        ) : (
-          <div dangerouslySetInnerHTML={{ __html: article.content }} />
-        )}
-      </div>
+      <FaqEnhance>
+        <div
+          className="prose prose-sm sm:prose-base lg:prose-lg max-w-none text-gray-800 leading-relaxed"
+        >
+          {article.contentBlocks && article.contentBlocks.length > 0 ? (
+            <BlogContentRenderer contentBlocks={article.contentBlocks} />
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: article.content }} />
+          )}
+        </div>
+      </FaqEnhance>
 
       <BlogBelowFold article={article} relatedPosts={relatedPosts} youMayAlsoLike={youMayAlsoLike} />
 

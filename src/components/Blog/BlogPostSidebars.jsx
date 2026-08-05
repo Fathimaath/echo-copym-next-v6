@@ -98,7 +98,7 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
     <>
       {/* Left Column: Table of Contents */}
       <aside ref={leftSidebarRef} className="hidden lg:block w-[200px] flex-shrink-0 lg:order-1">
-        <div className={sidebarFixed ? 'fixed left-[24px] sm:left-[48px] md:left-[64px] lg:left-[96px] xl:left-[128px] top-[220px] w-[200px] max-h-[calc(100vh-240px)] overflow-y-auto touch-auto' : 'max-h-[calc(100vh-240px)] overflow-y-auto touch-auto'} style={sidebarFixed ? { WebkitOverflowScrolling: 'touch' } : {}}>
+        <div className={sidebarFixed ? 'fixed left-[24px] sm:left-[48px] md:left-[64px] lg:left-[64px] xl:left-[80px] top-[220px] w-[200px] max-h-[calc(100vh-240px)] overflow-y-auto touch-auto' : 'max-h-[calc(100vh-240px)] overflow-y-auto touch-auto'} style={sidebarFixed ? { WebkitOverflowScrolling: 'touch' } : {}}>
           <div className="space-y-8 pb-8">
             <h3 className="text-sm font-bold mb-6 uppercase tracking-wide">Table of Contents</h3>
             <nav className="space-y-5">
@@ -118,6 +118,7 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
                 const isExpanded = expandedHeadings.includes(item.id);
 
                 const handleToCClick = (id, hasSubs) => (e) => {
+                  e.preventDefault();
                   scrollToHeading(id);
                   setActiveSection(id);
                   if (hasSubs) {
@@ -150,6 +151,7 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
                             <a
                               href={`#${sub.id}`}
                               onClick={(e) => {
+                                e.preventDefault();
                                 scrollToHeading(sub.id);
                                 setActiveSection(sub.id);
                                 history.replaceState(null, '', `#${sub.id}`);
@@ -186,7 +188,7 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
 
       {/* Right Column: Sidebar */}
       <aside ref={rightSidebarRef} className="hidden lg:block w-[280px] flex-shrink-0 lg:order-3">
-        <div className={sidebarFixed ? 'fixed right-[24px] sm:right-[48px] md:right-[64px] lg:right-[96px] xl:right-[128px] top-[220px] w-[280px]' : ''}>
+        <div className={sidebarFixed ? 'fixed right-[24px] sm:right-[32px] md:right-[40px] lg:right-[32px] xl:right-[40px] top-[220px] w-[280px]' : ''}>
           <div className="space-y-4 pb-8">
             <h4 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide">
               You May Also Like

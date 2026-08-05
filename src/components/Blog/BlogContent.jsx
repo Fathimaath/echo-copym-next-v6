@@ -53,7 +53,7 @@ export default function BlogContent({ initialApiPosts = [], initialCategory }) {
   // Derive category chips dynamically from actual posts so they always match real data
   const categories = useMemo(() => {
     const unique = [...new Set(allPosts.map(p => p.category?.trim()).filter(Boolean))];
-    return ["All", ...unique.sort(), CATEGORY_GLOSSARY];
+    return ["All", ...unique.filter(c => c !== CATEGORY_GLOSSARY).sort(), CATEGORY_GLOSSARY];
   }, [allPosts]);
 
   // Filter posts based on category and search

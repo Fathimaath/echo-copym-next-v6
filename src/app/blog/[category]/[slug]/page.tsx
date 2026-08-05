@@ -213,7 +213,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
       <div className="bg-white text-gray-900 min-h-screen">
         {/* Breadcrumbs - fixed on desktop, static on mobile */}
         <div className="pt-28 sm:pt-32 pb-4 lg:pb-8 lg:fixed lg:top-0 lg:left-0 lg:right-0 lg:bg-gray-50 lg:z-40">
-          <div className="px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32">
+          <div className="px-6 sm:px-12 md:px-16 lg:px-16 xl:px-20">
             <Breadcrumbs items={[
               { label: 'Home', path: '/' },
               { label: 'Blog', path: '/blog' },
@@ -227,8 +227,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
         <div className="hidden lg:block h-28"></div>
 
         {/* Main Content Layout */}
-        <div className="max-w-[1800px] mx-auto px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-8">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        <div className="max-w-[1800px] mx-auto px-6 sm:px-12 md:px-16 lg:px-16 xl:px-20 py-8">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-8">
 
             {/* Middle Column: Main Content (server-rendered) */}
             {article && (
@@ -247,7 +247,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ categ
 
         {/* Related Posts - Full Width Section */}
         <section className="bg-gray-50 py-6 sm:py-8">
-          <div className="max-w-[1800px] mx-auto px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32">
+          <div className="max-w-[1800px] mx-auto px-6 sm:px-12 md:px-16 lg:px-16 xl:px-20">
             <RelatedPosts posts={relatedPosts} title="Related Articles" />
           </div>
         </section>
