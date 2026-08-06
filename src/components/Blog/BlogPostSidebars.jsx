@@ -188,17 +188,17 @@ export default function BlogPostSidebars({ article, youMayAlsoLike }) {
 
       {/* Right Column: Sidebar */}
       <aside ref={rightSidebarRef} className="hidden lg:block w-[280px] flex-shrink-0 lg:order-3">
-        <div className={sidebarFixed ? 'fixed right-[24px] sm:right-[32px] md:right-[40px] lg:right-[32px] xl:right-[40px] top-[220px] w-[280px]' : ''}>
+        <div className={sidebarFixed ? 'fixed right-[24px] sm:right-[32px] md:right-[40px] lg:right-[32px] xl:right-[40px] top-[190px] w-[280px]' : ''}>
           <div className="space-y-4 pb-8">
             <h4 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide">
               You May Also Like
             </h4>
-            <div className="space-y-2">
+            <div className="space-y-1">
               {youMayAlsoLike?.map((post) => (
                 <Link
                   key={post.id || post.slug}
                   href={`/blog/${post.category?.toLowerCase().replace(/\s+/g, '-')}/${post.slug}`}
-                  className="group block py-2 border-b border-gray-100 hover:border-[#15a36e] transition-colors last:border-0"
+                  className="group block py-1.5 border-b border-gray-100 hover:border-[#15a36e] transition-colors last:border-0"
                 >
                   <span className="text-xs font-semibold text-[#15a36e]">
                     {post.category}
