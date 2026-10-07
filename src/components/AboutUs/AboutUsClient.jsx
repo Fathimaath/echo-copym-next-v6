@@ -13,6 +13,7 @@ const LeafletMap = dynamic(() => import('../LeafletMap'), {
     loading: () => <div className="w-full h-full min-h-[300px] sm:min-h-[600px] bg-gray-100 animate-pulse rounded-2xl flex items-center justify-center">Loading Map...</div>
 });
 
+
 // Animated Counter Component
 const CounterCard = ({ stat, index }) => {
     const [count, setCount] = useState(0);
@@ -453,10 +454,10 @@ export default function AboutUsClient() {
                                 className="relative w-full rounded-2xl overflow-hidden border border-gray-200 shadow-[0_20px_60px_rgba(15,23,42,0.1)] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]"
                             >
                                 <LeafletMap
-                                    center={[24.4326, 54.6152]}
-                                    zoom={14}
-                                    markerPosition={[24.4326, 54.6152]}
-                                    popupText="Copym Headquarters - Masdar City, Abu Dhabi"
+                                    center={[24.433332, 54.618496]}
+                                    zoom={16}
+                                    markerPosition={[24.433332, 54.618496]}
+                                    popupText="Copym Headquarters - Incubator Building, Masdar City, Abu Dhabi"
                                 />
 
                                 {/* Floating Info Card */}

@@ -208,7 +208,7 @@ export default function Typeform() {
           website: form.companyInfo.website,
           industry: form.industry,
           companyDetails: form.companyDetails,
-          incUS: form.companyStatus.incUS,
+          incUs: form.companyStatus.incUS,
           productAvailable: form.companyStatus.productAvailable,
           revenue: form.companyStatus.revenue,
           raiseStructure: form.raiseStructure,

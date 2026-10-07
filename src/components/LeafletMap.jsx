@@ -3,18 +3,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-// Fix default marker icon issue in React + Leaflet
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
-});
-
 const LeafletMap = ({ 
-  center = [24.4326, 54.6152], 
-  zoom = 13, 
-  markerPosition = [24.4326, 54.6152],
+  center = [24.433332, 54.618496], 
+  zoom = 16, 
+  markerPosition = [24.433332, 54.618496],
   popupText = "Copym Headquarters - Masdar City, Abu Dhabi",
   className = ""
 }) => {
@@ -28,11 +20,16 @@ const LeafletMap = ({
     // Initialize map
     const map = L.map(mapRef.current, {
       zoomControl: false,
-      scrollWheelZoom: true,
+      scrollWheelZoom: false,
       doubleClickZoom: true,
       touchZoom: true,
       attributionControl: false,
     }).setView(center, zoom);
+
+    // Enable scroll-zoom only after the user clicks/focuses the map
+    // (standard behavior — prevents the map from trapping page scroll)
+    map.on('click', () => map.scrollWheelZoom.enable());
+    map.on('mouseout', () => map.scrollWheelZoom.disable());
 
     mapInstanceRef.current = map;
 
@@ -41,17 +38,37 @@ const LeafletMap = ({
       position: 'bottomright'
     }).addTo(map);
 
-    // Add custom styled tile layer (muted, modern look)
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19,
-      subdomains: 'abcd'
-    }).addTo(map);
+    // Free map tiles - no API key required.
+    // OpenStreetMap primary, Esri World Street Map as fallback if OSM fails.
+    const primaryTiles = L.tileLayer(
+      'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      { maxZoom: 19, attribution: '© OpenStreetMap contributors' }
+    );
 
-    // Add attribution control separately
+    // Fallback if primary tiles fail to load
+    const fallbackTiles = L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+      { maxZoom: 19, attribution: '© Esri, HERE, Garmin, OpenStreetMap contributors' }
+    );
+
+    let usingFallback = false;
+    let failedCount = 0;
+    primaryTiles.on('tileerror', () => {
+      failedCount += 1;
+      if (usingFallback || failedCount < 3) return;
+      usingFallback = true;
+      map.removeLayer(primaryTiles);
+      fallbackTiles.addTo(map);
+      fallbackTiles.bringToBack();
+    });
+
+    primaryTiles.addTo(map);
+
+    // Attribution control (auto-collects credit from the active tile layer)
     L.control.attribution({
       position: 'bottomleft',
       prefix: false
-    }).addTo(map).addAttribution('© OpenStreetMap contributors');
+    }).addTo(map);
 
     // Custom simple marker
     const simpleIcon = L.divIcon({
@@ -102,13 +119,13 @@ const LeafletMap = ({
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
-            <span>Abu Dhabi, UAE</span>
+            <span>Masdar City, Abu Dhabi, UAE</span>
           </div>
 
           <!-- Action Buttons -->
           <div style="margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap;">
             <!-- Get Directions Button -->
-            <a href="https://www.google.com/maps/dir/?api=1&destination=24.4326,54.6152"
+            <a href="https://www.google.com/maps/dir/?api=1&destination=24.433332,54.618496"
                target="_blank"
                rel="noopener noreferrer"
                style="
@@ -138,7 +155,7 @@ const LeafletMap = ({
             </a>
 
             <!-- View on Maps Button -->
-            <a href="https://www.google.com/maps/place/Masdar+City+-+Abu+Dhabi+-+United+Arab+Emirates/@24.4326,54.6152,14z"
+            <a href="https://www.google.com/maps/search/?api=1&query=Incubator+Building,+Masdar+City,+Abu+Dhabi,+UAE"
                target="_blank"
                rel="noopener noreferrer"
                style="

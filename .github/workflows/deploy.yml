@@ -26,8 +26,8 @@ jobs:
         run: npm run build
         env:
           NEXT_EXPORT: 'true'
-          NEXT_PUBLIC_API_URL: 'https://blog-api.copym.xyz'
-          NEXT_PUBLIC_LEADS_API_URL: 'https://blog-api.copym.xyz/api'
+          NEXT_PUBLIC_API_URL: 'https://api.copym.xyz'
+          NEXT_PUBLIC_LEADS_API_URL: 'https://api.copym.xyz/api'
 
       - name: Setup SSH key
         env:
