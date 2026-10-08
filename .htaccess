@@ -51,6 +51,12 @@ RewriteRule ^(.+)/$ /$1/index.html [L]
 # Compression is handled by cPanel (Brotli/mod_deflate at server level)
 
 # ----- CACHING -----
+# HTML: always revalidate so a browser never keeps a page whose chunk files
+# were deleted by a deploy (causes ERR_CONTENT_DECODING_FAILED / chunk 404)
+<FilesMatch "\.html$">
+  Header set Cache-Control "no-cache"
+</FilesMatch>
+
 <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|avif|ico|css|js|woff2?|mp4|webm|json|xml)$">
   Header set Cache-Control "public, max-age=31536000, immutable"
 </FilesMatch>
