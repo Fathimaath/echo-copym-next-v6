@@ -15,13 +15,13 @@ export default function InvestorManagement() {
     },
     {
       title: "Portfolio Analytics",
-      description: "Advanced analytics and reporting tools for entitlement performance tracking.",
+      description: "Advanced analytics and reporting tools for ownership performance tracking.",
       stats: "Real Time"
     },
     {
       title: "Compliance Management",
       description: "Automated compliance monitoring and regulatory reporting for all investors.",
-      stats: "100% Compliant"
+      stats: "Compliance-aware"
     },
     {
       title: "Communication Hub",

@@ -74,7 +74,7 @@ export default function Header() {
         {
           icon: <StyledIcon icon={FaDollarSign} />,
           heading: "Marketplace",
-          description: "Discover entitlementt opportunities in a secure, compliant digital asset marketplace.",
+          description: "Discover ownership opportunities in a secure, compliant digital asset marketplace.",
           path: "/marketplace"
         }
       ]

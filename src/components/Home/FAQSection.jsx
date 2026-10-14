@@ -75,24 +75,24 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "What is Copym and how does it work?",
-      answer: "Copym is a compliance-first platform designed to structure, tokenize, and manage real-world assets through secure on-chain entitlement frameworks. The platform connects asset owners, investors, and infrastructure partners within a unified system that supports asset structuring, issuance, participation, and lifecycle management. Copym provides the underlying infrastructure and tools. All participation decisions remain with the user."
+      question: "What is CopyM and how does it work?",
+      answer: "CopyM is a compliance-first platform designed to structure, tokenize, and manage real-world assets through secure on-chain entitlement frameworks. The platform connects asset owners, investors, and infrastructure partners within a unified system that supports asset structuring, issuance, participation, and lifecycle management. CopyM provides the underlying infrastructure and tools. All participation decisions remain with the user."
     },
     {
-      question: "What asset classes are available on Copym?",
-      answer: "Copym supports structured participation across multiple real-world asset classes, including real estate, precious metals, fine art, carbon credits, and other alternative assets. Each asset listed on Copym follows defined structuring, disclosure, and entitlement frameworks. Availability may vary based on jurisdiction, eligibility, and regulatory requirements."
+      question: "What asset classes are available on CopyM?",
+      answer: "CopyM supports structured participation across multiple real-world asset classes, including real estate, precious metals, fine art, carbon credits, and other alternative assets. Each asset listed on CopyM follows defined structuring, disclosure, and ownership frameworks. Availability may vary based on jurisdiction, eligibility, and regulatory requirements."
     },
     {
-      question: "How does entitlement work on Copym?",
-      answer: "Entitlement on Copym represents a defined set of rights and conditions linked to a specific real-world asset structure. These entitlements are recorded and managed through on-chain smart contracts rather than direct legal ownership of the underlying asset. This approach provides transparency, traceability, and enforceable rules aligned with the asset's structure and documentation."
+      question: "How does entitlement work on CopyM?",
+      answer: "Entitlement on CopyM represents a defined set of rights and conditions linked to a specific real-world asset structure. These entitlements are recorded and managed through on-chain smart contracts rather than direct legal ownership of the underlying asset. This approach provides transparency, traceability, and enforceable rules aligned with the asset's structure and documentation."
     },
     {
-      question: "How secure is Copym's infrastructure?",
-      answer: "Copym operates on pre-audited smart contract infrastructure. All core contracts undergo independent security reviews prior to deployment and are implemented across established blockchain networks. On-chain records provide transparency, while governance controls and deployment standards are designed to prioritize integrity, verification, and controlled execution."
+      question: "How secure is CopyM's infrastructure?",
+      answer: "CopyM operates on pre-audited smart contract infrastructure. All core contracts undergo independent security reviews prior to deployment and are implemented across established blockchain networks. On-chain records provide transparency, while governance controls and deployment standards are designed to prioritize integrity, verification, and controlled execution."
     },
     {
-      question: "What are the benefits of using Copym?",
-      answer: "Copym provides a structured environment for real-world asset participation, offering: Compliance-first asset structuring and tokenization, Transparent on-chain entitlement and lifecycle visibility, Access to multiple asset classes through a single platform, Pre-audited smart contract infrastructure, Unified experience across web and mobile platforms. Copym focuses on infrastructure, transparency, and control."
+      question: "What are the benefits of using CopyM?",
+      answer: "CopyM provides a structured environment for real-world asset participation, offering: Compliance-first asset structuring and tokenization, Transparent on-chain entitlement and lifecycle visibility, Access to multiple asset classes through a single platform, Pre-audited smart contract infrastructure, Unified experience across web and mobile platforms. CopyM focuses on infrastructure, transparency, and control."
     }
   ];
 

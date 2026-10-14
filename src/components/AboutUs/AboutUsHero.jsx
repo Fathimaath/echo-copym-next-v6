@@ -39,7 +39,7 @@ export default function Hero() {
                         className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-light tracking-wide max-w-lg leading-snug !mt-0"
                         style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
                     >
-                        Copym is a leading Real-World Asset tokenization platform designed to transform how individuals invest and manage entitlement. The traditional asset market is fragmented, slow, and geographically restricted.
+                        CopyM is a Real-World Asset tokenization platform designed to transform how participants access and manage ownership. The traditional asset market is fragmented, slow, and geographically restricted.
                     </p>
                 </motion.div>
             </div>

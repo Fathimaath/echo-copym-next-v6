@@ -33,7 +33,7 @@ export default function TokenManagement() {
         },
         {
             title: 'Portfolio Analytics',
-            description: 'Advanced analytics and reporting tools for tracking your entitlement performance.',
+            description: 'Advanced analytics and reporting tools for tracking your ownership performance.',
             icon: tiicon2,
             badge: 'Real Time',
             number: '02.',
@@ -43,7 +43,7 @@ export default function TokenManagement() {
             title: 'Compliance Management',
             description: 'Automated compliance monitoring and regulatory reporting for all your investors.',
             icon: '/assets/Images/compliance.png',
-            badge: '100% Compliant',
+            badge: 'Compliance-aware',
             number: '03.',
             scale: 'scale-100'
         },

@@ -17,11 +17,11 @@ export default function TokenDistribution() {
     },
     {
       title: "Liquidity Management",
-      description: "Automated market making and liquidity provision for seamless trading experience."
+      description: "Designed to support secondary-market access and a smoother trading experience."
     },
     {
-      title: "Regulatory Compliance",
-      description: "Built-in compliance frameworks ensuring adherence to global securities regulations."
+      title: "Compliance-Aware",
+      description: "Frameworks designed to support compliance across jurisdictions."
     }
   ];
 

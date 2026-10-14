@@ -64,7 +64,7 @@ export default function TrackYourCrypto() {
               <span className="text-white">Get </span><span className="text-[#15a36e]">CopyM</span> <span className="text-white">on Your Preferred Platform </span>
             </h2>
             <p className="text-sm text-white font-normal leading-relaxed max-w-2xl" style={{ fontFamily: 'Palanquin, sans-serif' }}>
-              Access your Copym account across devices with a unified, secure experience. <br />
+              Access your CopyM account across devices with a unified, secure experience. <br />
               Stay connected to your real-world asset activity, insights, and portfolio context—anytime, anywhere. <br />
               <br />
               <span className="text-[#15a36e] font-semibold">Available on iOS, Android, Windows, and macOS</span>
@@ -83,7 +83,7 @@ export default function TrackYourCrypto() {
                 <span className="text-white">Get </span><span className="text-[#15a36e]">CopyM</span> <span className="text-white">on Your Preferred Platforms</span>
               </h2>
               <p className="text-sm lg:text-base text-white font-normal leading-snug" style={{ fontFamily: 'Palanquin, sans-serif' }}>
-                Access your Copym account across devices with a unified, secure experience. <br />
+                Access your CopyM account across devices with a unified, secure experience. <br />
                 Stay connected to your real-world asset activity, insights, and portfolio context—anytime, anywhere.<br />
                 <br />
                 <span className="text-[#15a36e] font-semibold">Available on iOS, Android, Windows, and macOS</span>

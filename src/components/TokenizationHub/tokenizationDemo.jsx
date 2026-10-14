@@ -193,7 +193,7 @@ const CreateAssetModal = ({ open, onClose }) => {
     },
     'erc20f-commodity': {
       description: 'A fungible token that can be used as a unit of account, for issuing stablecoins, or for fundraising.',
-      useCases: ['Commodity tokenization', 'Trading', 'Fractional entitlementententent'],
+      useCases: ['Commodity tokenization', 'Trading', 'Fractional ownership'],
       publisher: 'Fireblocks',
       auditBadge: true
     },
@@ -211,7 +211,7 @@ const CreateAssetModal = ({ open, onClose }) => {
     },
     'erc20f-realestate': {
       description: 'A fungible token that can be used as a unit of account, for issuing stablecoins, or for fundraising.',
-      useCases: ['Real estate fractions', 'Property entitlement', 'REIT tokens'],
+      useCases: ['Real estate fractions', 'Property ownership', 'REIT tokens'],
       publisher: 'Fireblocks',
       auditBadge: true
     },
@@ -229,7 +229,7 @@ const CreateAssetModal = ({ open, onClose }) => {
     },
     'erc20f-rwa': {
       description: 'A fungible token that can be used as a unit of account, for issuing stablecoins, or for fundraising.',
-      useCases: ['Asset tokenization', 'Fractional entitlementententent', 'Investment tokens'],
+      useCases: ['Asset tokenization', 'Fractional ownership', 'Investment tokens'],
       publisher: 'Fireblocks',
       auditBadge: true
     },

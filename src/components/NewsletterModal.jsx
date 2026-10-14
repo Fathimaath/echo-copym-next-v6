@@ -141,7 +141,7 @@ export default function NewsletterModal({ isOpen, onClose }) {
                   />
                   <span className="text-xs text-gray-400 leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     I agree to the{' '}
-                    <a href="/terms-of-services" className="text-[#15a36e] underline hover:no-underline">
+                    <a href="/privacy-policy" className="text-[#15a36e] underline hover:no-underline">
                       Privacy Policy
                     </a>
                     {' '}and consent to receive updates.

@@ -38,7 +38,7 @@ const CompanyOverview = () => {
 
               {/* Main Description */}
               <p className="text-xs sm:text-[13px] md:text-[16px] lg:text-[20px] font-normal leading-[18px] sm:leading-[23px] md:leading-[29px] lg:leading-[36px] text-left capitalize text-text-white w-full lg:w-[86%]">
-                COPYm is a cutting-edge Real World Asset (RWA) tokenization platform designed to transform how the world perceives and manages entitlement.
+                COPYm is a cutting-edge Real World Asset (RWA) tokenization platform designed to transform how the world perceives and manages ownership.
                 <br /><br />
                 We bridge tangible value and digital innovation, enabling physical assets — from real estate and commodities to collectibles and intellectual property — to be securely digitized, fractionalized, and traded on a global scale.
               </p>

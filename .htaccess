@@ -34,6 +34,9 @@ RewriteRule ^404\.html$ - [R=404,L]
 RewriteRule ^404 - [L]
 RewriteRule ^_not-found - [L]
 
+# 301 redirect: renamed blog post slug
+RewriteRule ^blog/education/carbon-credits-blockchain-guide/?$ /blog/education/cross-chain-liquidity-connecting-global-markets/ [R=301,L]
+
 # If the request maps to an existing file or directory, serve it immediately
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d

@@ -4,7 +4,7 @@ import { Twitter, Linkedin, Instagram, Github, Check, Loader2, AlertCircle } fro
 import Link from 'next/link';
 import Image from './Image';
 
-const productLinks = ['Carbon Credits', 'Real Estate', 'Commodities', 'Stocks & ETFs', 'Others'];
+const productLinks = ['Carbon Credits', 'Real Estate', 'Fine Art', 'Commodities', 'Others'];
 const companyLinks = [
   { label: 'About', href: '/about' },
   { label: 'Careers', href: '/' },
@@ -105,13 +105,13 @@ export default function Footer() {
               <Image
                 loading="lazy"
                 src="/assets/copym/png/Copym-01-1.png"
-                alt="COPYM"
+                alt="CopyM"
                 className="h-12 sm:h-20 w-auto object-contain"
               />
             </div>
             <p className="text-white text-sm sm:text-base lg:text-base leading-relaxed translate-x-1 -mt-2 mb-2.5" style={{ fontFamily: 'Palanquin, sans-serif' }}>
               Investing for outliers. Build wealth with
-              our modern entitlement platform designed
+              our modern ownership platform designed
               for the next generation.
             </p>
             <div className="flex gap-5 mt-2 ml-1 mb-6 lg:mb-0">
@@ -210,7 +210,7 @@ export default function Footer() {
                   />
                   <span className="text-xs sm:text-xs text-gray-400 leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     I agree to the{' '}
-                    <Link href="/terms-of-services" className="text-[#15a36e] underline hover:no-underline">
+                    <Link href="/privacy-policy" className="text-[#15a36e] underline hover:no-underline">
                       Privacy Policy
                     </Link>
                     {' '}and consent to receive updates.
@@ -238,10 +238,13 @@ export default function Footer() {
         {/* Copyright and Disclaimer Section */}
         <div className="mt-12 sm:mt-16 pt-8 border-t border-white/10 flex flex-col items-start justify-start space-y-6">
           <p className="text-gray-400 text-sm sm:text-base text-left" style={{ fontFamily: 'Palanquin, sans-serif' }}>
-            &copy; 2026 COPYM. All rights reserved.
+            &copy; 2026 CopyM Limited. All rights reserved.
+          </p>
+          <p className="text-gray-400 text-xs sm:text-sm text-left" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+            CopyM Limited &middot; Masdar City Free Zone Licence MC 14225 &middot; Masdar City, Abu Dhabi, UAE
           </p>
           <p className="text-gray-400 text-xs sm:text-xs text-left max-w-5xl leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
-            Copym is not a registered broker-dealer, funding portal, underwriter, entitlement bank, entitlement adviser, or entitlement manager. Copym does not provide brokerage services, entitlement banking services, underwriting services, entitlement recommendations, or entitlement advice to any person. Copym does not participate in the negotiation or execution of secondary market transactions for the purchase or sale of securities. Copym does not, at any time, have possession or control of investor funds or securities in connection with such transactions. Copym operates as a technology platform focused on distributed ledger technology to improve efficiency, accessibility, and transparency in financial technologies and T & C apply.
+            CopyM is not a registered broker-dealer, funding portal, underwriter, investment bank, investment adviser, or investment manager. CopyM does not provide brokerage services, investment banking services, underwriting services, investment recommendations, or investment advice to any person. CopyM does not participate in the negotiation or execution of secondary market transactions for the purchase or sale of securities. CopyM does not, at any time, have possession or control of investor funds or securities in connection with such transactions. CopyM operates as a technology platform focused on distributed ledger technology to improve efficiency, accessibility, and transparency in financial technologies and T & C apply.
           </p>
         </div>
 

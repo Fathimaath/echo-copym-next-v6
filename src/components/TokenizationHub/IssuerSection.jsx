@@ -20,7 +20,7 @@ export default function IssuerSection() {
             </h2>
           </div>
           <p className="text-sm sm:text-base md:text-lg lg:text-sm font-normal text-black leading-relaxed max-w-4xl mx-auto text-justify md:text-center tracking-tighter" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif', hyphens: 'auto' }}>
-            Digitizing real-world assets on the blockchain to unlock transparent entitlementent, automated settlement <br className="hidden md:block" /> and global access to institutional-grade asset opportunities.</p>
+            Digitizing real-world assets on the blockchain to unlock transparent ownership, automated settlement <br className="hidden md:block" /> and global access to institutional-grade asset opportunities.</p>
         </div>
 
         {/* Grid Layout - Same as WhoWeServe: lg:grid-cols-7 with 3 left, 4 right split */}
@@ -123,13 +123,13 @@ export default function IssuerSection() {
                 className="text-white font-bold text-lg sm:text-xl md:text-2xl mb-3"
                 style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
               >
-                We can Tokenize any assets
+                Reach investors worldwide
               </h3>
               <p
                 className="text-white/80 text-sm sm:text-base leading-relaxed mb-4"
                 style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
               >
-                Transform any real-world asset into digital tokens with our secure blockchain platform
+                Distribute tokenized assets to institutional, retail, and accredited investors across global markets
               </p>
 
               {/* Investor groups */}

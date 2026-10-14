@@ -76,7 +76,7 @@ export default function FAQsection() {
   const faqs = [
     {
       question: "How do I start investing on the marketplace?",
-      answer: "Create an account, complete KYC in minutes, connect a wallet (or use custodial onboarding), and browse assets. Each listing shows minimum entitlement, risk band, and expected ROI."
+      answer: "Create an account, complete KYC in minutes, connect a wallet (or use custodial onboarding), and browse assets. Each listing shows the minimum participation, risk information, and asset terms."
     },
     {
       question: "What currencies and wallets are supported?",
@@ -84,7 +84,7 @@ export default function FAQsection() {
     },
     {
       question: "Are these assets really backed by real-world value?",
-      answer: "Yes. All listings are legally structured and backed by off-chain asset documentation. Title, custody and cash flows are handled by regulated partners with on-chain proofs where available."
+      answer: "Yes. All listings are backed by off-chain asset documentation. Title, custody and cash flows are managed by our platform and its service providers, with on-chain proofs where available."
     },
     {
       question: "Can I sell my position later?",

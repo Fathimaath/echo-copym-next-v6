@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Check, User, Home, Shield } from "lucide-react";
 
 /**
- * Copym — RWA Tokenized Marketplace
+ * CopyM — RWA Tokenized Marketplace
  * Typeform-style form
  * - First screen: "Get Started" prompt
  * - Then form with Back button and OK
@@ -30,7 +30,7 @@ const steps = [
   {
     id: "tokenGoal",
     label: "What are your Tokenization goals?",
-    helper: "Choose the area you want to tokenize with Copym",
+    helper: "Choose the area you want to tokenize with CopyM",
     type: "segmented",
     icon: Home,
     required: true,
@@ -107,7 +107,7 @@ const steps = [
   },
   {
     id: "raiseStructure",
-    label: "How would you like to structure your raise on Copym?",
+    label: "How would you like to structure your raise on CopyM?",
     type: "segmented",
     icon: Check,
     required: true,
@@ -267,7 +267,7 @@ export default function Typeform() {
                   </p>
 
                   <p className="text-base sm:text-lg text-black leading-relaxed" style={{ fontFamily: "var(--font-palanquin), Palanquin, sans-serif" }}>
-                    Join the future of Real World Asset tokenization with Copym.
+                    Join the future of Real World Asset tokenization with CopyM.
                   </p>
                 </div>
 
@@ -605,7 +605,7 @@ function ThankYou() {
         </h2>
         <p className="text-lg sm:text-xl text-black/80 mb-6 leading-relaxed" style={{ fontFamily: "var(--font-palanquin), Palanquin, sans-serif" }}>
           Thank you for your interest in tokenizing with{" "}
-          <span className="text-[#15a36e] font-bold">Copym</span>
+          <span className="text-[#15a36e] font-bold">CopyM</span>
         </p>
 
         <div className="bg-white rounded-2xl p-6 border border-white/20">

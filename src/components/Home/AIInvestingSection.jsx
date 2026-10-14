@@ -184,7 +184,7 @@ export default function AIInvestingSection() {
               className="info-box info-box-left absolute left-0 sm:left-[2%] lg:left-[3%] xl:left-[8%] top-1/2 -translate-y-1/2 z-20 w-[110px] sm:w-[240px] lg:w-[320px] flex items-center justify-end translate-y-2 md:translate-y-4 lg:translate-y-6"
             >
               <p className="info-box-text text-xs sm:text-[11px] lg:text-[13px] text-white font-medium leading-relaxed text-right pr-1 sm:pr-4 translate-y-3 !mb-0" style={{ fontFamily: 'Palanquin, sans-serif' }}>
-                <span className="text-[#15a36e] font-bold">Cora AI</span> is Copym’s intelligence layer, designed to simplify real-world asset participation through data-driven insights.
+                <span className="text-[#15a36e] font-bold">Cora AI</span> is CopyM’s intelligence layer, designed to simplify real-world asset participation through data-driven insights.
               </p>
               {/* Left Connector Line */}
               <img

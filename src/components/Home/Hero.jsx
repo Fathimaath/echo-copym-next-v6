@@ -128,15 +128,13 @@ export default function Hero() {
               lineHeight: '1.5'
             }}
           >
-            <span className="font-bold border-b border-[#15a36e]">INVESTORS</span> – Own exclusive real-world assets with transparent entitlements, settlement, and Gas-free transactions.
+            <span className="font-bold border-b border-[#15a36e]">INVESTORS</span> – Own exclusive real-world assets with transparent ownership, settlement, and Gas-free transactions.
           </p>
 
           {/* ====== BUTTONS (SIDE BY SIDE) ====== */}
           <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 sm:gap-4">
             <a
-              href="https://copymlaunchpad.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/signup/"
               className="text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-md w-auto sm:min-w-[200px]"
               style={{
                 fontFamily: 'Palanquin, sans-serif',

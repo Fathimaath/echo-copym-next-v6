@@ -16,7 +16,7 @@ export default function HowToTokenize() {
     },
     {
       title: 'ADMINISTER',
-      description: 'Roles and permissions are set. Ensure KYC/AML checks, especially in India, and maintain audit trails. Users are provided with interfaces to view holdings, transaction history, and token status.'
+      description: 'Roles and permissions are set. Ensure KYC/AML checks and maintain audit trails. Users are provided with interfaces to view holdings, transaction history, and token status.'
     },
     {
       title: 'DISTRIBUTE',

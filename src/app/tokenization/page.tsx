@@ -5,13 +5,13 @@ import { generateWebPageSchema, generateBreadcrumbSchema } from '@/utils/seo';
 const TokenizationContent = dynamic(() => import('@/components/TokenizationHub/TokenizationContent'));
 
 export const metadata: Metadata = {
-  title: 'Asset Tokenization Platform | Copym',
+  title: 'Asset Tokenization Platform | CopyM',
   description: 'Issue and manage compliant tokens backed by real estate, commodities, and more.',
   alternates: {
     canonical: 'https://copym.xyz/tokenization/',
   },
   openGraph: {
-    title: 'Asset Tokenization Platform | Copym',
+    title: 'Asset Tokenization Platform | CopyM',
     description: 'Issue and manage compliant tokens backed by real estate, commodities, and more.',
     url: 'https://copym.xyz/tokenization/',
     type: 'website',
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
         url: 'https://copym.xyz/assets/copym/png/Copym-01-1.png',
         width: 1200,
         height: 630,
-        alt: 'Asset Tokenization Platform | Copym',
+        alt: 'Asset Tokenization Platform | CopyM',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Asset Tokenization Platform | Copym',
+    title: 'Asset Tokenization Platform | CopyM',
     description: 'Issue and manage compliant tokens backed by real estate, commodities, and more.',
     images: ['https://copym.xyz/assets/copym/png/Copym-01-1.png'],
   },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function TokenizationPage() {
   const schemaData = generateWebPageSchema({
-    name: 'Asset Tokenization Platform | Copym',
+    name: 'Asset Tokenization Platform | CopyM',
     description: 'Issue and manage compliant tokens backed by real estate, commodities, and more.',
     url: 'https://copym.xyz/tokenization/',
   });

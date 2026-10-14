@@ -8,7 +8,7 @@ export default function TradableAssets() {
         {
             image: "/assets/Images/icons/tradee1.png",
             title: "REAL-WORLD ASSETS",
-            description: "Tokenized entitlement to institutional real-world entitlement grade assets."
+            description: "Tokenized access to institutional-grade real-world assets."
         },
         {
             image: "/assets/Images/icons/tradee2.png",
@@ -18,7 +18,7 @@ export default function TradableAssets() {
         {
             image: "/assets/Images/icons/tradee3.png",
             title: "BRAND & IP ASSETS",
-            description: "Tokenized entitlement within institutional global brands and digital assets."
+            description: "Tokenized access to institutional global brands and digital assets."
         },
         {
             image: "/assets/Images/icons/tradee4.png",
@@ -38,8 +38,7 @@ export default function TradableAssets() {
                         </h2>
                     </div>
                     <p className="text-sm sm:text-base md:text-lg lg:text-sm font-normal text-black leading-relaxed max-w-4xl mx-auto !mb-0" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
-                        Master the markets with AI-driven insights, predictive alerts, and real-time intelligence <br className="hidden sm:block" />
-                        that give you the edge in crypto trading
+                        Institutional-grade real-world assets, tokenized on-chain for transparent and compliant access
                     </p>
                 </div>
 

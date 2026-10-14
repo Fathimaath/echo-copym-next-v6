@@ -32,7 +32,7 @@ const WhoWeServe = () => {
 
           </div>
           <p className="text-sm sm:text-base md:text-lg lg:text-sm text-black font-normal leading-relaxed tracking-wide mt-3 sm:mt-4 max-w-2xl mx-auto" style={{ fontFamily: 'Palanquin, sans-serif' }}>
-            Copym enables the real-world asset ecosystem by connecting issuers, investors, and infrastructure partners through a secure, compliance-first platform.
+            CopyM enables the real-world asset ecosystem by connecting issuers, investors, and infrastructure partners through a secure, compliance-first platform.
           </p>
         </motion.div>
 
@@ -172,7 +172,7 @@ const WhoWeServe = () => {
                 className="text-white/80 text-xs sm:text-sm md:text-sm lg:text-sm mb-2 lg:mb-2 whitespace-normal"
                 style={{ fontFamily: 'Palanquin, sans-serif' }}
               >
-                Access structured real-world asset exposure through a transparent, secure, and regulated environment.
+                Access structured real-world asset exposure through a transparent, secure, and compliance-aware environment.
               </motion.p>
 
               {/* Bullet Points */}

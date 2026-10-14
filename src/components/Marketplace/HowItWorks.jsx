@@ -24,15 +24,15 @@ export default function HowItWorks() {
         },
         {
             id: "secure",
-            title: "Regulated Custodial",
-            description: "Regulated custody delivers compliant asset protection via licensed institutions, rigorous audits, and jurisdictional regulatory oversight.",
+            title: "Institutional Custody",
+            description: "Institutional-grade custody delivers asset protection through licensed partners where legally permitted, with rigorous audits and oversight.",
             icon: smallp2,
             watermark: ""
         },
         {
             id: "trade-settle",
             title: "Buy, Trade & Settlement\u00A0",
-            description: "Participate in a transparent marketplace where entitlement and returns are automated through smart contracts.",
+            description: "Participate in a transparent marketplace where ownership and returns are automated through smart contracts.",
             icon: tiicon4,
             watermark: ""
         },
@@ -74,7 +74,7 @@ export default function HowItWorks() {
                         </span>
                     </div>
 
-                    {/* REGULATED Watermark */}
+                    {/* COMPLIANT Watermark */}
                     <div className="relative order-2 md:absolute md:top-0 md:translate-y-0 md:right-0 w-full flex justify-end md:block text-right pointer-events-none select-none z-0 overflow-visible opacity-50 md:pr-20">
                         <span
                             className="uppercase tracking-tighter whitespace-nowrap bg-clip-text text-transparent bg-center text-[40px] md:text-[90px] lg:text-[130px] leading-none"
@@ -84,7 +84,7 @@ export default function HowItWorks() {
                                 fontWeight: 800
                             }}
                         >
-                            REGULATED
+                            COMPLIANT
                         </span>
                     </div>
 
@@ -101,6 +101,7 @@ export default function HowItWorks() {
                             FRAMEWORK
                         </span>
                     </div>
+
                     <AnimatePresence mode="popLayout">
                         {visibleSteps.map((step, index) => (
                             <motion.div

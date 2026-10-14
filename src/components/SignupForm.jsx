@@ -159,7 +159,7 @@ export default function SignupForm() {
                     <span className="text-xs text-black/50" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                         I agree to the{' '}
                         <Link href="/terms-of-services" className="text-[#15a36e] underline hover:no-underline">Terms of Service</Link>
-                        {' '}and Privacy Policy
+                        {' '}and <Link href="/privacy-policy" className="text-[#15a36e] underline hover:no-underline">Privacy Policy</Link>
                     </span>
                 </label>
 

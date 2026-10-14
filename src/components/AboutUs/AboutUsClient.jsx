@@ -92,14 +92,14 @@ export default function AboutUsClient() {
                                     title: "Our Mission",
                                     icon: GiTargetArrows,
                                     heading: <>Democratizing <span className="text-[#15a36e]">Investment</span></>,
-                                    text: "To make asset entitlement borderless, transparent, and universally accessible through blockchain innovation. We democratize access to entitlement opportunities by enabling fractional entitlement of premium assets, making it possible for anyone to invest in real estate, commodities, and valuable assets with as little as $100."
+                                    text: "To make asset ownership borderless, transparent, and more accessible through blockchain innovation. We enable fractional ownership of premium assets, supporting structured access to real estate, commodities, and other valuable assets."
                                 },
                                 {
                                     id: 1,
                                     title: "Our Vision",
                                     icon: GiBinoculars,
                                     heading: <>Borderless <span className="text-[#15a36e]">Future</span></>,
-                                    text: "We see a future where any asset, anywhere, can be owned, traded, and verified instantly. Through our platform, we envision a future where everyone has access to premium entitlement opportunities, creating a more inclusive and prosperous global economy where wealth generation is not limited by geography or traditional barriers."
+                                    text: "We see a future where any asset, anywhere, can be owned, traded, and verified instantly. Through our platform, we envision a future where everyone has access to premium ownership opportunities, creating a more inclusive and prosperous global economy where wealth generation is not limited by geography or traditional barriers."
                                 }
                             ].map((item) => (
                                 <div
@@ -166,7 +166,7 @@ export default function AboutUsClient() {
                             <div className="-mb-10 sm:-mb-14 relative w-32 h-32 sm:w-60 sm:h-60">
                                 <Image
                                     src="/assets/copym/png/Copym-01-1.avif"
-                                    alt="Copym Logo"
+                                    alt="CopyM Logo"
                                     fill
                                     sizes="(max-width: 640px) 128px, 240px"
                                     className="object-contain"
@@ -179,7 +179,7 @@ export default function AboutUsClient() {
                                     “A seamless real-world asset ecosystem—transparent chains, responsible custody, sustainable markets.”
                                 </p>
                                 <p className="text-[#15a36e] font-bold text-lg" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
-                                    — Kuldeep Mahindrkar, <span className="text-black font-normal">CEO, Copym</span>
+                                    — Kuldeep Mahindrkar, <span className="text-black font-normal">CEO, CopyM</span>
                                 </p>
                             </div>
                         </div>
@@ -306,7 +306,7 @@ export default function AboutUsClient() {
                                     </h2>
                                 </div>
                                 <p className="text-base text-white leading-relaxed w-full mx-auto text-justify sm:text-center tracking-tighter hyphens-auto" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
-                                    Our journey reflects growth, innovation, and a commitment to delivering value at every stage. From humble beginnings to becoming a trusted name in our tokenization industry. <br className="hidden sm:block" />Each milestone is more than progress—it's a promise to stay ahead, listen to our community, and turn challenges into opportunities. <br className="hidden sm:block" />What began as a vision has grown into a movement built on entitlement and opportunity.
+                                    Our journey reflects growth, innovation, and a commitment to delivering value at every stage. From humble beginnings to becoming a trusted name in our tokenization industry. <br className="hidden sm:block" />Each milestone is more than progress—it's a promise to stay ahead, listen to our community, and turn challenges into opportunities. <br className="hidden sm:block" />What began as a vision has grown into a movement built on ownership and opportunity.
                                 </p>
                             </motion.div>
                         </div>
@@ -457,7 +457,7 @@ export default function AboutUsClient() {
                                     center={[24.433332, 54.618496]}
                                     zoom={16}
                                     markerPosition={[24.433332, 54.618496]}
-                                    popupText="Copym Headquarters - Incubator Building, Masdar City, Abu Dhabi"
+                                    popupText="CopyM Headquarters - Incubator Building, Masdar City, Abu Dhabi"
                                 />
 
                                 {/* Floating Info Card */}
@@ -466,7 +466,7 @@ export default function AboutUsClient() {
                                         <div className="relative w-6 h-6 sm:w-9 sm:h-9 md:w-12 md:h-12 flex-shrink-0">
                                             <Image
                                                 src="/assets/copym/png/Copym-01-1.avif"
-                                                alt="Copym"
+                                                alt="CopyM"
                                                 fill
                                                 sizes="(max-width: 640px) 36px, (max-width: 768px) 48px, 64px"
                                                 className="object-contain"
@@ -474,7 +474,7 @@ export default function AboutUsClient() {
                                         </div>
                                         <div className="min-w-0">
                                             <h4 className="text-xs sm:text-xs md:text-sm font-bold text-gray-900 leading-tight truncate" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
-                                                Copym Global
+                                                CopyM Limited
                                             </h4>
                                             <p className="text-xs sm:text-[11px] md:text-[13px] text-gray-500 mt-0 leading-relaxed line-clamp-2" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                                 Masdar City, Abu Dhabi

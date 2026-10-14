@@ -13,12 +13,12 @@ export default function TokenizationProcess() {
   const whyTokenizeFeatures = [
     {
       title: "Programmable terms",
-      description: "Program compliance rules and entitlement terms required for diverse asset and investor classifications via digital contracts.",
+      description: "Program compliance rules and ownership terms required for diverse asset and investor classifications via digital contracts.",
       icon: ticon1
     },
     {
       title: "Increased accessibility",
-      description: "Tokenization opens entitlement opportunities, allowing retail investors to access markets restricted to traditional financial structure models.",
+      description: "Tokenization opens ownership opportunities, allowing retail investors to access markets restricted to traditional financial structure models.",
       icon: ticon2
     },
     {
@@ -28,7 +28,7 @@ export default function TokenizationProcess() {
     },
     {
       title: "Fractional Ownership",
-      description: "Enable investors to own portions of high-value assets improving market liquidity and diversifying their entitlement portfolios.",
+      description: "Enable investors to own portions of high-value assets improving market liquidity and diversifying their asset portfolios.",
       icon: ticon6
     },
     {
@@ -38,7 +38,7 @@ export default function TokenizationProcess() {
     },
     {
       title: "Greater transparency",
-      description: "Investors can track token entitlementent and access real-time information regarding fund performance and asset holdings securely.",
+      description: "Investors can track token ownership and access real-time information regarding fund performance and asset holdings securely.",
       icon: ticon4
     }
   ];
@@ -63,7 +63,7 @@ export default function TokenizationProcess() {
             className="text-sm sm:text-base md:text-lg lg:text-sm text-black leading-relaxed mt-6 max-w-4xl mx-auto"
             style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
           >
-            Master the markets with AI-driven insights, predictive alerts, and real-time intelligence <br />that give you the edge in crypto trading
+            Tokenization unlocks liquidity, broadens investor access, and enables transparent, <br />programmable ownership of real-world assets
           </p>
         </div>
 

@@ -78,7 +78,7 @@ const FeatureSection = () => {
     },
     {
       animation: exploreAnimation,
-      heading: 'Invest with clarity, not complexity',
+      heading: 'Access with clarity, not complexity',
       text: 'CORA AI helps you discover opportunities, summarize risks, and monitor positions – while compliance and onboarding are built into the platform.',
       reverse: true,
       delay: 0.4,
@@ -88,8 +88,8 @@ const FeatureSection = () => {
     <SectionContainer padding="pt-12 pb-26 sm:py-20 md:py-24 lg:py-26 text-center" bgColor="bg-white" maxWidth="max-w-10xl">
       {/* Main Heading */}
       <SectionHeader
-        title="EXPLORE → OWN → TRADE → EARN"
-        highlightWords={['OWN', 'EARN']}
+        title="EXPLORE → OWN → TRADE → MANAGE"
+        highlightWords={['OWN', 'MANAGE']}
         alignment="center"
       />
 

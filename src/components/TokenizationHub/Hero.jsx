@@ -36,7 +36,7 @@ export default function Hero() {
             className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-light tracking-wide max-w-lg leading-snug"
             style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
           >
-            Learn how CopyM tokenizes real-world assets into digital securities, providing liquidity and global access to institutional-grade investments.
+            Learn how CopyM tokenizes real-world assets into digital tokens, providing liquidity and global access to institutional-grade investments.
           </p>
         </motion.div>
       </div>

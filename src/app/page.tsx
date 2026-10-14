@@ -14,13 +14,13 @@ const TestimonialsSection = dynamic(() => import('@/components/Home/Testimonials
 const CTASection = dynamic(() => import('@/components/Home/CTASection'));
 
 export const metadata = {
-  title: 'Copym – Complete Tokenization Platform for Real-World Assets',
+  title: 'CopyM – Complete Tokenization Platform for Real-World Assets',
   description: 'Full-stack platform for issuing, managing, and trading tokenized real-world assets.',
   alternates: {
     canonical: 'https://copym.xyz/',
   },
   openGraph: {
-    title: 'Copym – Complete Tokenization Platform for Real-World Assets',
+    title: 'CopyM – Complete Tokenization Platform for Real-World Assets',
     description: 'Full-stack platform for issuing, managing, and trading tokenized real-world assets.',
     url: 'https://copym.xyz/',
     type: 'website',

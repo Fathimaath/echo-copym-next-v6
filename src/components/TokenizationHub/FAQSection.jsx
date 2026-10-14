@@ -76,7 +76,7 @@ export default function FAQSection() {
   const faqs = [
     {
       question: "How does the tokenization process work on CopyM?",
-      answer: "CopyM's tokenization process involves four key steps: Asset Onboarding (legal structuring and documentation), Smart Contract Deployment (creating secure blockchain tokens), Compliance Verification (KYC/AML and regulatory checks), and Token Distribution (issuing fractional entitlemententent to investors). The entire process is streamlined and typically takes 2-4 weeks."
+      answer: "CopyM's tokenization process involves four key steps: Asset Onboarding (legal structuring and documentation), Smart Contract Deployment (creating secure blockchain tokens), Compliance Verification (KYC/AML and regulatory checks), and Token Distribution (issuing fractional ownership to investors). The entire process is streamlined and typically takes 2-4 weeks."
     },
     {
       question: "What types of assets can be tokenized on the platform?",
@@ -88,7 +88,7 @@ export default function FAQSection() {
     },
     {
       question: "What token management features does CopyM provide?",
-      answer: "CopyM offers comprehensive token management including real-time portfolio tracking, automated dividend and yield distribution, secondary market trading capabilities, transparent entitlemententent records on blockchain, and detailed reporting for tax and compliance purposes. Asset owners can monitor and manage their tokenized assets through an intuitive dashboard."
+      answer: "CopyM offers comprehensive token management including real-time portfolio tracking, automated dividend and yield distribution, secondary market trading capabilities, transparent ownership records on blockchain, and detailed reporting for tax and compliance purposes. Asset owners can monitor and manage their tokenized assets through an intuitive dashboard."
     }
   ];
   const faqSchema = generateFAQSchema(faqs);

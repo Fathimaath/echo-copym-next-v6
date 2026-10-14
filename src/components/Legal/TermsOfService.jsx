@@ -38,9 +38,9 @@ const TermsOfServiceClient = () => {
                     <section>
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Introduction</h2>
                         <p className="text-base leading-relaxed mb-4">
-                            Welcome to Copym. These Terms of Service ("Terms") govern your use of the Copym platform,
-                            including Copym Access and Copym Settlement services (collectively, the "Services"), operated
-                            by copym limited LLC  ("we," "us," or "our").
+                            Welcome to CopyM. These Terms of Service ("Terms") govern your use of the CopyM platform,
+                            including CopyM Access and CopyM Settlement services (collectively, the "Services"), operated
+                            by CopyM Limited ("we," "us," or "our").
                         </p>
                         <p className="text-base leading-relaxed">
                             By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to
@@ -52,7 +52,7 @@ const TermsOfServiceClient = () => {
                     <section>
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Nature of Services</h2>
                         <p className="text-base leading-relaxed mb-4">
-                            Copym operates as a <strong>technology service provider</strong>. We provide non-custodial infrastructure for
+                            CopyM operates as a <strong>technology service provider</strong>. We provide non-custodial infrastructure for
                             virtual asset transactions. Important clarifications:
                         </p>
                         <ul className="list-disc pl-6 space-y-2 text-base">
@@ -113,7 +113,7 @@ const TermsOfServiceClient = () => {
                     <section>
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Limitation of Liability</h2>
                         <p className="text-base leading-relaxed">
-                            To the maximum extent permitted by law, Copym and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Services.
+                            To the maximum extent permitted by law, CopyM and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Services.
                         </p>
                     </section>
 
@@ -121,7 +121,7 @@ const TermsOfServiceClient = () => {
                     <section>
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Intellectual Property</h2>
                         <p className="text-base leading-relaxed">
-                            All content, trademarks, and intellectual property associated with Copym are owned by copym limited LLC . You may not use our branding without prior written consent.
+                            All content, trademarks, and intellectual property associated with CopyM are owned by CopyM Limited. You may not use our branding without prior written consent.
                         </p>
                     </section>
 
@@ -137,7 +137,7 @@ const TermsOfServiceClient = () => {
                     <section>
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Governing Law</h2>
                         <p className="text-base leading-relaxed">
-                            These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which copym limited LLC  is incorporated, without regard to conflict of law principles.
+                            These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which CopyM Limited is incorporated, without regard to conflict of law principles.
                         </p>
                     </section>
 
