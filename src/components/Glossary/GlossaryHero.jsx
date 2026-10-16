@@ -29,9 +29,9 @@ export default function GlossaryHero() {
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.1] uppercase tracking-tight mb-4 !mb-2"
             style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
           >
-            <span className="text-white block">KNOWLEDGE </span>
-            <span className="text-[#10b981] block">BASE </span>
-            <span className="text-white block">TERMS & DEFINITIONS</span>
+            <span className="text-white">RWA & </span>
+            <span className="text-[#10b981]">TOKENIZATION </span>
+            <span className="text-white block sm:inline">GLOSSARY</span>
           </h1>
           <p
             className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-light tracking-wide max-w-lg leading-snug !mt-0"

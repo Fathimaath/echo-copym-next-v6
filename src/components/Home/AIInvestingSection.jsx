@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
+import Link from 'next/link';
 import Image from '../Image'; // Import our AVIF-compatible Image component
 const ellipse = '/SVG/mixedellipse.svg';
 
@@ -245,7 +246,7 @@ export default function AIInvestingSection() {
             </h2>
 
             {/* Item 3: Cora AI Assistant Badge */}
-            <div className="cora-ai-badge rounded-[2rem] bg-gradient-to-r from-[#179572] via-[#2A867F] to-[#236594] bg-clip-padding p-[1px] cursor-pointer hover:scale-105 transition-transform">
+            <Link href="/marketplace/" className="cora-ai-badge rounded-[2rem] bg-gradient-to-r from-[#179572] via-[#2A867F] to-[#236594] bg-clip-padding p-[1px] cursor-pointer hover:scale-105 transition-transform inline-block">
               <div className="flex items-center gap-2 sm:gap-2.5 px-5 py-2 sm:px-8 sm:py-3 min-w-fit rounded-[2rem] bg-black/40 backdrop-blur-xl shadow-sm">
                 <div className="relative">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white w-4 h-4 sm:w-5 sm:h-5">
@@ -256,7 +257,7 @@ export default function AIInvestingSection() {
                   Try CORA AI
                 </span>
               </div>
-            </div>
+            </Link>
           </motion.div>
 
         </div>

@@ -44,6 +44,14 @@ const LogoCarousel = () => {
         }
       `}</style>
       <div className="w-full">
+        <div className="pt-5 pb-2 text-center">
+          <p
+            className="text-xs sm:text-sm font-semibold tracking-wider text-gray-500 uppercase"
+            style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
+          >
+            Supported networks and integrations
+          </p>
+        </div>
         <div className="bg-white shadow-sm overflow-hidden">
           <div className="relative w-full overflow-hidden">
             <div

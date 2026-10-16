@@ -1,23 +1,19 @@
 "use client";
 import React, { useState, useCallback } from 'react';
-import { Twitter, Linkedin, Instagram, Github, Check, Loader2, AlertCircle } from 'lucide-react';
+import { Twitter, Linkedin, Instagram, Check, Loader2, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import Image from './Image';
 
 const productLinks = ['Carbon Credits', 'Real Estate', 'Fine Art', 'Commodities', 'Others'];
 const companyLinks = [
   { label: 'About', href: '/about' },
-  { label: 'Careers', href: '/' },
-  { label: 'Press', href: '/' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ];
 const supportLinks = [
   { label: 'Terms of Services', href: '/terms-of-services' },
-  { label: 'Help Centre', href: '/' },
-  { label: 'Security', href: '/' },
-  { label: 'Press', href: '/' },
-  { label: 'API', href: '/' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Glossary', href: '/glossary' },
 ];
 
 function NavColumn({ title, links, isExternal }) {
@@ -118,7 +114,6 @@ export default function Footer() {
               <a href="https://twitter.com/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><Twitter size={20} /></a>
               <a href="https://linkedin.com/company/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><Linkedin size={20} /></a>
               <a href="https://instagram.com/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><Instagram size={20} /></a>
-              <a href="https://github.com/copym" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#15a36e] transition-colors"><Github size={20} /></a>
             </div>
           </div>
 

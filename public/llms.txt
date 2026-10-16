@@ -51,8 +51,8 @@ CopyM is building a technology layer for real-world asset tokenization. The plat
 
 The CopyM website may link to a platform or launchpad interface. If the app is hosted on a temporary or preview domain, treat it as a product interface or demo environment unless CopyM confirms that it is the final production application.
 
-Current known platform link:
-- Platform app / launchpad: https://copymlaunchpad.vercel.app/
+Current platform access:
+- Early access / platform signup: https://copym.xyz/signup/
 
 Preferred future production app domain:
 - https://app.copym.xyz/

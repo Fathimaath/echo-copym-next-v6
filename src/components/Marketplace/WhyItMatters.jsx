@@ -17,6 +17,7 @@ import {
     TrendingUp,
     ChevronDown
 } from 'lucide-react';
+import Link from 'next/link';
 import Image from '@/components/Image'; // Import our AVIF-compatible Image component
 
 // Import images
@@ -277,11 +278,9 @@ export default function WhyItMatters() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="flex justify-center mt-6"
                     >
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => window.open('https://copymlaunchpad.vercel.app/', '_blank')}
-                            className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 min-w-[180px] sm:min-w-[200px] justify-center"
+                        <Link
+                            href="#featured-assets"
+                            className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 min-w-[180px] sm:min-w-[200px] justify-center"
                             style={{
                                 fontFamily: 'Palanquin, sans-serif',
                                 background: 'linear-gradient(to right, #23BD83, #109261)'
@@ -303,12 +302,12 @@ export default function WhyItMatters() {
                                     />
                                 </svg>
                             </div>
-                        </motion.button>
+                        </Link>
                     </motion.div>
                 </div>
 
                 {/* Category Tags Bar */}
-                <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-5 px-2 overflow-x-auto pb-2 hide-scrollbar">
+                <div id="featured-assets" className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-5 px-2 overflow-x-auto pb-2 hide-scrollbar">
                     {categories.map((cat) => (
                         <button
                             key={cat.id}

@@ -26,7 +26,7 @@ export default function DownloadCTA() {
                         </div>
                         <button
                             type="button"
-                            onClick={() => router.push('/about#contact-info')}
+                            onClick={() => router.push('/contact/')}
                             className="group inline-flex items-center justify-center gap-2 px-6 py-3 font-bold bg-gradient-to-r from-[#23BD83] to-[#109261] text-white rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all flex-shrink-0 cursor-pointer"
                             style={{ fontFamily: 'Palanquin, sans-serif' }}
                         >

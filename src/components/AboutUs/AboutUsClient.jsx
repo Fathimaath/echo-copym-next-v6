@@ -4,7 +4,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import Typeform from "../Contact/Typeform";
+import Link from 'next/link';
+import ContactForm from "../Contact/ContactForm";
 import { GiTargetArrows, GiBinoculars } from "react-icons/gi";
 
 // Dynamically import LeafletMap to prevent SSR window is not defined errors
@@ -149,6 +150,18 @@ export default function AboutUsClient() {
                                                         <p className="text-base text-gray-600 leading-relaxed text-left md:text-center" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                                             {item.text}
                                                         </p>
+                                                        <div className="pt-2">
+                                                            <Link
+                                                                href="/signup/"
+                                                                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-white font-bold text-xs sm:text-sm bg-[#15a36e] hover:bg-[#128a5c] transition-all duration-300 shadow-md"
+                                                                style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
+                                                            >
+                                                                GET STARTED
+                                                                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                                                </svg>
+                                                            </Link>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </motion.div>
@@ -357,7 +370,7 @@ export default function AboutUsClient() {
                         className="relative w-full overflow-hidden rounded-lg border border-gray-200 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.1)]"
                     >
                         <div className="relative bg-white px-4 py-6 sm:px-6 sm:py-8 lg:px-10 lg:py-10">
-                            <Typeform />
+                            <ContactForm />
                         </div>
                     </motion.div>
                 </div>

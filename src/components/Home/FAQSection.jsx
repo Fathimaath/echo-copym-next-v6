@@ -144,7 +144,7 @@ export default function FAQSection() {
                 Still have questions about structuring, tokenization, or onboarding?
               </p>
             <Link
-              href="/about#contact"
+              href="/contact/"
               className="inline-flex items-center justify-center gap-2 px-5 py-2 sm:px-8 sm:py-3 font-bold bg-gradient-to-r from-[#23BD83] to-[#109261] text-white rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all max-w-[280px] sm:max-w-none mx-auto sm:mx-0 cursor-pointer"
               style={{ fontFamily: 'Palanquin, sans-serif' }}
             >

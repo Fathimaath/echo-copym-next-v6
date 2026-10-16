@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Image from '@/components/Image';
-import NewsletterModal from '@/components/NewsletterModal';
 const assetsImage = '/images/assets.avif';
 const investorsImage = '/images/investors.avif';
 const partnersImage = '/images/partners.avif';
@@ -10,10 +10,7 @@ const investorsMobileImage = '/images/investersmobile.avif';
 const partnersMobileImage = '/images/partnersmobile.avif';
 
 const WhoWeServe = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
-    <>
     <section className="relative w-full bg-white pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-6 sm:pb-8 md:pb-10 lg:pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16">
         {/* Header Section */}
@@ -62,7 +59,9 @@ const WhoWeServe = () => {
                 className="text-base sm:text-xl md:text-2xl lg:text-[28px] font-bold text-white mb-2 lg:mb-2.5"
                 style={{ fontFamily: 'Palanquin, sans-serif' }}
               >
-                Asset Owners & Institutions
+                <Link href="/tokenization/" className="hover:text-[#15a36e] transition-colors">
+                  Asset Owners & Institutions
+                </Link>
               </motion.h3>
 
               {/* Description */}
@@ -112,7 +111,7 @@ const WhoWeServe = () => {
               </motion.ul>
 
               {/* Learn More Button */}
-              <button onClick={() => setModalOpen(true)} className="group inline-flex items-center justify-between min-w-[120px] sm:min-w-[150px] bg-black border border-white/40 rounded-full p-1 hover:bg-white/10 transition-all duration-300 w-fit self-center lg:self-start" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+              <Link href="/tokenization/" className="group inline-flex items-center justify-between min-w-[120px] sm:min-w-[150px] bg-black border border-white/40 rounded-full p-1 hover:bg-white/10 transition-all duration-300 w-fit self-center lg:self-start" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                 <span className="pl-3 sm:pl-4 pr-2 text-white font-semibold text-xs sm:text-base">
                   Learn More
                 </span>
@@ -127,7 +126,7 @@ const WhoWeServe = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </div>
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -160,7 +159,9 @@ const WhoWeServe = () => {
                 className="text-base sm:text-xl md:text-2xl lg:text-[28px] font-bold text-white mb-1.5 lg:mb-1.5"
                 style={{ fontFamily: 'Palanquin, sans-serif' }}
               >
-                Investors
+                <Link href="/marketplace/" className="hover:text-[#15a36e] transition-colors">
+                  Investors
+                </Link>
               </motion.h3>
 
               {/* Description */}
@@ -204,7 +205,7 @@ const WhoWeServe = () => {
               </motion.ul>
 
               {/* Learn More Button */}
-              <button onClick={() => setModalOpen(true)} className="group inline-flex items-center justify-between min-w-[120px] sm:min-w-[150px] bg-black border border-white/40 rounded-full p-1 hover:bg-white/10 transition-all duration-300 w-fit self-center lg:self-start" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+              <Link href="/marketplace/" className="group inline-flex items-center justify-between min-w-[120px] sm:min-w-[150px] bg-black border border-white/40 rounded-full p-1 hover:bg-white/10 transition-all duration-300 w-fit self-center lg:self-start" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                 <span className="pl-3 sm:pl-4 pr-2 text-white font-semibold text-xs sm:text-base">
                   Learn More
                 </span>
@@ -219,7 +220,7 @@ const WhoWeServe = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </div>
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -252,7 +253,9 @@ const WhoWeServe = () => {
                 className="text-base sm:text-xl md:text-2xl lg:text-[28px] font-bold text-white mb-2 lg:mb-2.5"
                 style={{ fontFamily: 'Palanquin, sans-serif' }}
               >
-                Partners
+                <Link href="/contact/" className="hover:text-[#15a36e] transition-colors">
+                  Partners
+                </Link>
               </motion.h3>
 
               {/* Description */}
@@ -296,7 +299,7 @@ const WhoWeServe = () => {
               </motion.ul>
 
               {/* Learn More Button */}
-              <button onClick={() => setModalOpen(true)} className="group inline-flex items-center justify-between min-w-[120px] sm:min-w-[150px] bg-black border border-white/40 rounded-full p-1 hover:bg-white/10 transition-all duration-300 w-fit self-center lg:self-start" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+              <Link href="/contact/" className="group inline-flex items-center justify-between min-w-[120px] sm:min-w-[150px] bg-black border border-white/40 rounded-full p-1 hover:bg-white/10 transition-all duration-300 w-fit self-center lg:self-start" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                 <span className="pl-3 sm:pl-4 pr-2 text-white font-semibold text-xs sm:text-base">
                   Learn More
                 </span>
@@ -311,14 +314,12 @@ const WhoWeServe = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </div>
-              </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <NewsletterModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
-    </>
   );
 };
 
