@@ -80,11 +80,11 @@ export default function FAQSection() {
     },
     {
       question: "What types of assets can be tokenized on the platform?",
-      answer: "CopyM supports tokenization of diverse real-world assets including real estate properties, debt instruments, commodities (gold, silver, oil), art and collectibles, infrastructure projects, and carbon credits. Each asset class is legally structured and compliant with relevant regulations."
+      answer: "CopyM supports tokenization of diverse real-world assets including real estate properties, debt instruments, commodities (gold, silver, oil), art and collectibles, infrastructure projects, and carbon credits. Legal structuring is done by the issuer and its advisers; the platform enforces the resulting rules."
     },
     {
-      question: "How does CopyM ensure regulatory compliance for tokenized assets?",
-      answer: "We work with legal partners to ensure all tokenized assets comply with securities regulations, implement robust KYC/AML procedures for all participants, maintain proper custody arrangements through regulated partners, and provide transparent on-chain documentation. All offerings are structured to meet local and international compliance requirements."
+      question: "How does the platform support compliance?",
+      answer: "Through KYC/AML and eligibility workflows, on-chain transfer restrictions and a full audit trail. Regulated activities are carried out by licensed partners."
     },
     {
       question: "What token management features does CopyM provide?",

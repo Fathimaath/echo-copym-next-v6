@@ -21,12 +21,17 @@ export default function SearchBar({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="relative w-full max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="relative w-full max-w-md mx-auto" role="search">
+      <label htmlFor="blog-search-input" className="sr-only">
+        Search articles and guides
+      </label>
       <input
-        type="text"
+        id="blog-search-input"
+        type="search"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder={placeholder}
+        aria-label="Search articles and guides"
         className="w-full px-5 py-3 pl-12 rounded-full bg-white border border-gray-200 text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#15a36e] focus:ring-2 focus:ring-[#15a36e]/20 transition-all"
         style={{ fontFamily: 'Palanquin, sans-serif' }}
       />

@@ -11,20 +11,24 @@ export default function HowToTokenize() {
 
   const steps = [
     {
-      title: 'CREATE',
-      description: "Create your account with CopyM with your verified proof ID's and Sign up to register your identity and proof of your assets"
+      step: '1',
+      title: 'ONBOARD THE ASSET',
+      description: 'The issuer provides documents and the legal structure, prepared with its advisers. CopyM records and verifies them in the platform.'
     },
     {
-      title: 'ADMINISTER',
-      description: 'Roles and permissions are set. Ensure KYC/AML checks and maintain audit trails. Users are provided with interfaces to view holdings, transaction history, and token status.'
+      step: '2',
+      title: 'ISSUE TOKENS',
+      description: 'CopyM deploys permissioned tokens with transfer rules; the issuer approves the terms.'
     },
     {
-      title: 'DISTRIBUTE',
-      description: 'Users receive tokens in wallets like MetaMask, Trust Wallet, or platform-native wallets. For large-scale distribution, use smart contract functions to send tokens to multiple addresses.'
+      step: '3',
+      title: 'ONBOARD INVESTORS',
+      description: 'KYC/AML and eligibility checks run through the platform. Only verified wallets can hold the tokens.'
     },
     {
-      title: 'TRADE',
-      description: 'Users can buy and sell asset-backed tokens on compliant marketplaces, with transparent pricing, real-time settlement, enforced KYC/AML, and complete audit trails. Smart contracts execute trades, providing users clear visibility into balances, transactions, status.'
+      step: '4',
+      title: 'MANAGE AND TRANSFER',
+      description: 'Permissioned transfers, distributions and reporting. Secondary transfers run only through licensed venues where legally permitted.'
     }
   ];
 
@@ -92,12 +96,16 @@ export default function HowToTokenize() {
                     ${index !== steps.length - 1 ? 'border-b border-gray-100' : ''}
                     ${activeStep === index ? 'bg-emerald-50/30' : 'hover:bg-gray-50/50'}`}
                 >
-                  <h3 className={`text-lg sm:text-xl font-bold mb-2 tracking-wider transition-colors duration-300
+                  <h3 className={`text-lg sm:text-xl font-bold mb-2 tracking-wider flex items-center gap-3 transition-colors duration-300
                     ${activeStep === index ? 'text-[#10b981]' : 'text-gray-400 group-hover:text-gray-600'}`}
                     style={{ fontFamily: 'Palanquin, sans-serif' }}>
-                    {step.title}
+                    <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold border transition-colors duration-300 shrink-0
+                      ${activeStep === index ? 'bg-[#10b981] text-white border-[#10b981]' : 'bg-transparent text-gray-400 border-gray-300 group-hover:border-gray-400'}`}>
+                      {step.step}
+                    </span>
+                    <span>{step.title}</span>
                   </h3>
-                  <p className={`text-sm sm:text-base leading-relaxed font-medium transition-colors duration-300
+                  <p className={`text-sm sm:text-base leading-relaxed font-medium transition-colors duration-300 pl-0 sm:pl-9
                     ${activeStep === index ? 'text-gray-900' : 'text-gray-400 group-hover:text-gray-500'}`}
                     style={{ fontFamily: 'Palanquin, sans-serif' }}>
                     {step.description}

@@ -36,15 +36,15 @@ export default function SignupFAQ() {
   const faqs = [
     {
       question: "What is CopyM and how does it work?",
-      answer: "CopyM is a compliance-first platform designed to structure, tokenize, and manage real-world assets through secure on-chain entitlement frameworks. The platform connects asset owners, investors, and infrastructure partners within a unified system that supports asset structuring, issuance, participation, and lifecycle management."
+      answer: "CopyM provides technology infrastructure for tokenizing real-world assets: issuance, investor onboarding and eligibility workflows, custody integration, lifecycle management and reporting — including under a client’s own brand. Regulated activities are carried out by licensed partners where legally permitted."
     },
     {
       question: "When will the CopyM platform launch?",
-      answer: "CopyM is currently under development. By joining the early access waitlist, you'll receive exclusive updates and be notified as soon as the platform goes live. Early adopters will get priority access."
+      answer: "The CopyM platform infrastructure is currently live for pilot issuance, partner integrations and live walkthroughs. We are actively onboarding asset issuers, institutional platforms, and infrastructure partners. Book a demo to see the platform in action and discuss your project timeline."
     },
     {
-      question: "What asset classes will be supported?",
-      answer: "CopyM will support structured participation across multiple real-world asset classes, including real estate, precious metals, fine art, carbon credits, and other alternative assets. Availability may vary based on jurisdiction and regulatory requirements."
+      question: "Which assets can be tokenized on the platform?",
+      answer: "Real estate, commodities such as gold, carbon credits, fine art and collectibles, and private credit structures. What can be offered, and to whom, depends on the jurisdiction and the licences held by the issuer and its partners."
     }
   ];
 

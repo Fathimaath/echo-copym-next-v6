@@ -301,46 +301,151 @@ export default function AboutUsClient() {
             </section>
 
             {/* Section 5: Company Timeline */}
-            <section className="relative bg-black pt-8 pb-16 sm:pb-32 lg:pt-12 lg:pb-40 overflow-hidden" >
+            <section className="relative bg-black pt-12 sm:pt-16 md:pt-20 pb-16 sm:pb-24 lg:pb-32 overflow-hidden" id="timeline">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="flex flex-col gap-0 lg:gap-10">
+                    <div className="flex flex-col gap-10 lg:gap-14">
                         {/* TOP: Heading & Description - Centered */}
-                        <div className="w-full text-left sm:text-center">
+                        <div className="w-full text-center">
                             <motion.div
-                                initial={{ opacity: 0, y: -30 }}
+                                initial={{ opacity: 0, y: -20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8 }}
                                 viewport={{ once: true }}
                                 className="flex flex-col items-center"
                             >
-                                <div className="relative w-fit mb-4 sm:mb-6 lg:mb-8">
-                                    <h2 className="text-base sm:text-lg md:text-xl lg:text-4xl font-bold leading-tight text-white pb-4 uppercase" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                <div className="relative w-fit mb-3 sm:mb-4">
+                                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-white uppercase" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
                                         Company <span className="text-[#15a36e]">Timeline</span>
                                     </h2>
                                 </div>
-                                <p className="text-base text-white leading-relaxed w-full mx-auto text-justify sm:text-center tracking-tighter hyphens-auto" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
-                                    Our journey reflects growth, innovation, and a commitment to delivering value at every stage. From humble beginnings to becoming a trusted name in our tokenization industry. <br className="hidden sm:block" />Each milestone is more than progress—it's a promise to stay ahead, listen to our community, and turn challenges into opportunities. <br className="hidden sm:block" />What began as a vision has grown into a movement built on ownership and opportunity.
+                                <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-3xl mx-auto text-center" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                    Key milestones in building institutional-grade real-world asset infrastructure.
                                 </p>
                             </motion.div>
                         </div>
 
-                        {/* BOTTOM: Timeline Image */}
-                        <div className="w-full relative -mt-16 sm:-mt-36 h-[400px] sm:h-[600px] lg:h-[800px]">
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
-                                viewport={{ once: true }}
-                                className="relative w-full h-full"
+                        {/* Milestones Grid */}
+                        <div className="max-w-4xl mx-auto w-full relative">
+                            {/* Vertical Line */}
+                            <div className="hidden sm:block absolute left-1/2 top-4 bottom-4 w-0.5 -translate-x-1/2 bg-gradient-to-b from-[#15a36e] via-[#15a36e]/50 to-transparent" />
+
+                            <div className="space-y-8 sm:space-y-12">
+                                {[
+                                    {
+                                        date: "2023",
+                                        title: "Company Incorporation",
+                                        desc: "CopyM was founded with a mission to develop institutional technology infrastructure for tokenizing real-world assets."
+                                    },
+                                    {
+                                        date: "Q2 2024",
+                                        title: "Platform Architecture & Core Engine",
+                                        desc: "Architected permissioned token issuance protocols, investor onboarding workflows, and transfer-restriction rules."
+                                    },
+                                    {
+                                        date: "Q4 2024",
+                                        title: "Masdar City Free Zone Licence",
+                                        desc: "CopyM Limited was officially granted its technology licence (Licence No. MC 14225) in Masdar City Free Zone, Abu Dhabi."
+                                    },
+                                    {
+                                        date: "Q1 2025",
+                                        title: "White-Label Console Launch",
+                                        desc: "Deployed the full-suite branded admin console for token issuance, compliance monitoring, and investor portfolio tracking."
+                                    },
+                                    {
+                                        date: "2025",
+                                        title: "First Pilot Asset Issuances",
+                                        desc: "Deployed initial pilot tokenization structures with regulated custody partners, verifying end-to-end on-chain eligibility."
+                                    }
+                                ].map((milestone, idx) => {
+                                    const isEven = idx % 2 === 0;
+                                    return (
+                                        <motion.div
+                                            key={idx}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                            viewport={{ once: true }}
+                                            className={`relative flex flex-col sm:flex-row items-center ${isEven ? 'sm:flex-row-reverse' : ''} gap-4 sm:gap-8`}
+                                        >
+                                            {/* Content side */}
+                                            <div className={`w-full sm:w-1/2 ${isEven ? 'sm:text-left sm:pl-8' : 'sm:text-right sm:pr-8'}`}>
+                                                <div className="bg-[#111827] border border-neutral-800 rounded-xl p-5 sm:p-6 hover:border-[#15a36e]/50 transition-all duration-300">
+                                                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#15a36e]/20 text-[#15a36e] font-mono text-xs font-bold mb-2">
+                                                        {milestone.date}
+                                                    </span>
+                                                    <h3 className="text-lg font-bold text-white mb-1.5" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                                        {milestone.title}
+                                                    </h3>
+                                                    <p className="text-xs sm:text-sm text-gray-400 leading-relaxed" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                                        {milestone.desc}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            {/* Center indicator dot */}
+                                            <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#15a36e] border-4 border-black hidden sm:block z-10 shadow-[0_0_12px_rgba(21,163,110,0.8)]" />
+
+                                            {/* Empty half for spacing */}
+                                            <div className="hidden sm:block w-1/2" />
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 6: Leadership */}
+            <section className="py-16 sm:py-20 lg:py-24 bg-white overflow-hidden" id="leadership">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12 sm:mb-16">
+                        <div className="relative w-fit mx-auto mb-3">
+                            <h2
+                                className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase text-black"
+                                style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
                             >
+                                Our <span className="text-[#15a36e]">Leadership</span>
+                            </h2>
+                        </div>
+                        <p
+                            className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto"
+                            style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
+                        >
+                            Guided by experienced innovators building institutional-grade real-world asset infrastructure.
+                        </p>
+                    </div>
+
+                    {/* Leadership Profile Card */}
+                    <div className="max-w-4xl mx-auto bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 p-6 sm:p-10 shadow-sm">
+                        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                            <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 border-2 border-[#15a36e]/30 shadow-md">
                                 <Image
-                                    src="/images/timeline.avif"
-                                    alt="Company Timeline"
+                                    src="/assets/Images/team/Kuldeep.avif"
+                                    alt="Kuldeep Mahindrkar"
                                     fill
-                                    sizes="100vw"
-                                    className="object-contain scale-[1.8] sm:scale-125"
+                                    className="object-cover object-top"
                                 />
-                            </motion.div>
+                            </div>
+                            <div className="text-center md:text-left flex-1">
+                                <span className="inline-block px-3 py-1 rounded-full bg-[#15a36e]/10 text-[#15a36e] text-xs font-bold uppercase tracking-wider mb-2">
+                                    Founder & CEO
+                                </span>
+                                <h3 className="text-2xl sm:text-3xl font-bold text-black mb-1" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                    Kuldeep Mahindrkar
+                                </h3>
+                                <p className="text-sm font-semibold text-[#15a36e] mb-4" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                    Chief Executive Officer, CopyM Limited
+                                </p>
+                                <p className="text-sm text-gray-600 leading-relaxed mb-4" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
+                                    Kuldeep leads CopyM&apos;s product vision and global ecosystem strategy, bringing together deep expertise in financial technology, distributed ledger systems, and digital asset structuring to unlock transparent, institutional-grade real-world asset solutions.
+                                </p>
+                                <div className="flex items-center justify-center md:justify-start gap-4">
+                                    <span className="text-xs text-gray-500 font-medium">
+                                        Masdar City, Abu Dhabi &middot; CopyM Limited
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

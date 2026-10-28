@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useRef } from 'react';
-import Link from "next/link";
 import { motion } from 'framer-motion';
 const tiicon1 = '/icons/Tokenization/tiicon1.png';
 const tiicon2 = '/icons/Tokenization/tiicon2.png';
@@ -88,7 +87,7 @@ export default function TokenManagement() {
                             className="relative w-full h-full min-w-[50vw] sm:min-w-[45vw] lg:min-w-0 snap-center"
                         >
                             <div
-                                className="rounded-lg p-3 sm:p-4 lg:p-5 flex flex-col h-full min-h-[350px] sm:min-h-[420px] lg:min-h-[480px] relative transition-transform duration-300 hover:scale-[1.02]"
+                                className="rounded-lg p-3 sm:p-4 lg:p-5 flex flex-col h-full min-h-[300px] sm:min-h-[350px] lg:min-h-[390px] relative transition-transform duration-300 hover:scale-[1.02]"
                                 style={{
                                     background: 'linear-gradient(to bottom, rgba(251, 251, 251, 1), rgba(240, 240, 240, 1))'
                                 }}
@@ -110,7 +109,7 @@ export default function TokenManagement() {
                                 </div>
 
                                 {/* Info Section */}
-                                <div className="flex flex-col flex-grow text-left space-y-1.5">
+                                <div className="flex flex-col flex-grow text-left space-y-1.5 pb-2">
                                     <h3
                                         className="text-sm sm:text-xl lg:text-[19px] font-bold text-black min-h-[48px] sm:min-h-[56px] lg:min-h-[64px] flex items-center whitespace-nowrap"
                                         style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
@@ -119,31 +118,11 @@ export default function TokenManagement() {
                                     </h3>
 
                                     <p
-                                        className="text-xs sm:text-sm text-gray-600 leading-snug flex-grow min-h-[72px]"
+                                        className="text-xs sm:text-sm text-gray-600 leading-snug flex-grow"
                                         style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
                                     >
                                         {feature.description}
                                     </p>
-
-                                    {/* Know More Button - Filled Design */}
-                                    <div className="mt-1 sm:mt-2 flex justify-center">
-                                        <Link href="/marketplace" className="group inline-flex items-center justify-between min-w-[120px] sm:min-w-[150px] bg-[#15a36e] border border-[#15a36e] hover:bg-[#15a36e] rounded-full p-1 transition-all duration-300 w-fit cursor-pointer">
-                                            <span className="pl-4 pr-2 text-white font-semibold text-xs sm:text-sm" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
-                                                Know more
-                                            </span>
-                                            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white flex items-center justify-center transition-all duration-300">
-                                                <svg
-                                                    className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#15a36e]"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    viewBox="0 0 24 24"
-                                                    strokeWidth="3"
-                                                >
-                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                                                </svg>
-                                            </div>
-                                        </Link>
-                                    </div>
                                 </div>
                             </div>
                         </motion.div>

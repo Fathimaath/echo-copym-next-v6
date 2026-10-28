@@ -535,20 +535,7 @@ export default function WhyItMatters() {
                     </div>
 
                 </div>
-
-                {/* Terms & Conditions - Centered at Bottom */}
-                <div className="text-center mt-6 md:mt-8 mb-4 px-4">
-                    <div className="text-[#98a2b3] text-xs sm:text-xs leading-relaxed max-w-6xl mx-auto font-medium" style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}>
-                        <p className="mb-0.5">
-
-                            CopyM does not provide brokerage services, investment banking services, underwriting services, investment recommendations, or investment advice to any person.
-                        </p>
-                        <p>
-                            CopyM operates as a technology platform focused on distributed ledger technology to improve efficiency, accessibility, and transparency in financial technologies T & C apply.
-                        </p>
-                    </div>
-                </div>
             </div>
-        </section >
+        </section>
     );
 }

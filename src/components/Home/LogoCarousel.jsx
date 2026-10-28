@@ -21,7 +21,6 @@ const LogoCarousel = () => {
     { src: "/assets/svg/Sumsub_idtw6qkLj7_1.svg", alt: "Sumsub" },
     { src: "/assets/blockchains/solana.png", alt: "Solana" },
     { src: "/assets/blockchains/ethereum-eth-logo.svg", alt: "Ethereum" },
-    { src: "/assets/svg/masdarr.svg", alt: "Masdar" },
     { src: "/assets/blockchains/arbitrum-arb-logo-full.svg", alt: "Arbitrum" },
     { src: "/assets/blockchains/aws-svgrepo-com.svg", alt: "AWS" },
     { src: "/assets/blockchains/Base_Logo_0.svg", alt: "Base" },
@@ -80,11 +79,12 @@ const LogoCarousel = () => {
             </div>
             <button
               type="button"
-              className="absolute bottom-2 right-2 z-10 bg-white/80 hover:bg-white text-gray-700 rounded-full w-7 h-7 flex items-center justify-center text-xs shadow transition-opacity opacity-30 hover:opacity-100 focus-visible:opacity-100"
+              className="absolute bottom-2 right-2 z-10 inline-flex items-center gap-1.5 px-3 py-1 bg-white/95 hover:bg-white text-gray-700 border border-gray-200 rounded-full text-xs font-semibold shadow-sm transition-all opacity-80 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#15a36e]"
               onClick={togglePause}
-              aria-label={isPaused ? 'Play marquee animation' : 'Pause marquee animation'}
+              aria-label={(isPaused || prefersReducedMotion) ? 'Play logo marquee animation' : 'Pause logo marquee animation'}
             >
-              {isPaused ? '▶' : '⏸'}
+              <span aria-hidden="true" className="text-[10px]">{(isPaused || prefersReducedMotion) ? '▶' : '⏸'}</span>
+              <span>{(isPaused || prefersReducedMotion) ? 'Play' : 'Pause'}</span>
             </button>
           </div>
         </div>

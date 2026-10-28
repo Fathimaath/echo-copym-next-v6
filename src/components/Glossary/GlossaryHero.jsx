@@ -30,7 +30,7 @@ export default function GlossaryHero() {
             style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
           >
             <span className="text-white">RWA & </span>
-            <span className="text-[#10b981]">TOKENIZATION </span>
+            <span className="text-[#10b981]">TOKENIZATION</span>
             <span className="text-white block sm:inline">GLOSSARY</span>
           </h1>
           <p

@@ -104,15 +104,18 @@ export default function AIInvestingSection() {
           }
 
           .info-box-text {
-            font-size: clamp(7px, 2.2vw, 10px) !important;
-            line-height: 1.2;
-            font-weight: 500 !important;
+            font-size: clamp(10px, 2.8vw, 12px) !important;
+            line-height: 1.35;
+            font-weight: 600 !important;
+            color: #ffffff !important;
             min-width: 0; /* Allow shrinking */
-            padding-top: clamp(20px, 5vw, 24px) !important; /* Move text further down to align first line with vector */
+            padding-top: clamp(14px, 4vw, 20px) !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
           }
 
           .info-box-text span {
             font-weight: 800 !important;
+            color: #15a36e !important;
           }
 
           .connector-line {
@@ -184,8 +187,8 @@ export default function AIInvestingSection() {
               viewport={{ once: true }}
               className="info-box info-box-left absolute left-0 sm:left-[2%] lg:left-[3%] xl:left-[8%] top-1/2 -translate-y-1/2 z-20 w-[110px] sm:w-[240px] lg:w-[320px] flex items-center justify-end translate-y-2 md:translate-y-4 lg:translate-y-6"
             >
-              <p className="info-box-text text-xs sm:text-[11px] lg:text-[13px] text-white font-medium leading-relaxed text-right pr-1 sm:pr-4 translate-y-3 !mb-0" style={{ fontFamily: 'Palanquin, sans-serif' }}>
-                <span className="text-[#15a36e] font-bold">Cora AI</span> is CopyM’s intelligence layer, designed to simplify real-world asset participation through data-driven insights.
+              <p className="info-box-text text-xs sm:text-xs md:text-sm lg:text-[14px] text-white font-semibold leading-relaxed text-right pr-1 sm:pr-4 translate-y-3 !mb-0 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                <span className="text-[#15a36e] font-extrabold">Cora AI</span> is CopyM’s intelligence layer, designed to simplify real-world asset participation through data-driven insights.
               </p>
               {/* Left Connector Line */}
               <img
@@ -226,8 +229,8 @@ export default function AIInvestingSection() {
                 loading="lazy"
                 className="connector-line w-[40px] sm:w-[80px] lg:w-[100px] h-auto flex-shrink-0 translate-y-1.5"
               />
-              <p className="info-box-text text-xs sm:text-[11px] lg:text-[13px] text-white font-medium leading-relaxed text-left pl-1 sm:pl-4 translate-y-3 !mb-0" style={{ fontFamily: 'Palanquin, sans-serif' }}>
-                Advanced analytics transforming market signals, asset data, and portfolio context into <span className="text-[#15a36e] font-bold">actionable intelligence.</span>
+              <p className="info-box-text text-xs sm:text-xs md:text-sm lg:text-[14px] text-white font-semibold leading-relaxed text-left pl-1 sm:pl-4 translate-y-3 !mb-0 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                Advanced analytics transforming market signals, asset data, and portfolio context into <span className="text-[#15a36e] font-extrabold">actionable intelligence.</span>
               </p>
             </motion.div>
           </div>
@@ -245,8 +248,8 @@ export default function AIInvestingSection() {
               Think Smarter. Decide Better.
             </h2>
 
-            {/* Item 3: Cora AI Assistant Badge */}
-            <Link href="/marketplace/" className="cora-ai-badge rounded-[2rem] bg-gradient-to-r from-[#179572] via-[#2A867F] to-[#236594] bg-clip-padding p-[1px] cursor-pointer hover:scale-105 transition-transform inline-block">
+            {/* Item 3: Cora AI Assistant Badge (Item 27: Try CORA AI -> /tokenization/) */}
+            <Link href="/tokenization/" className="cora-ai-badge rounded-[2rem] bg-gradient-to-r from-[#179572] via-[#2A867F] to-[#236594] bg-clip-padding p-[1px] cursor-pointer hover:scale-105 transition-transform inline-block">
               <div className="flex items-center gap-2 sm:gap-2.5 px-5 py-2 sm:px-8 sm:py-3 min-w-fit rounded-[2rem] bg-black/40 backdrop-blur-xl shadow-sm">
                 <div className="relative">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white w-4 h-4 sm:w-5 sm:h-5">

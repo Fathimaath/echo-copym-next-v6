@@ -62,13 +62,13 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
         description: `Read about ${title.toLowerCase()} on CopyM's blog.`,
         url: `${baseFallback}/blog/${category}/${slug}/`,
         type: 'article',
-        images: [{ url: `${baseFallback}/assets/copym/png/Copym-01-1.png`, width: 1200, height: 630, alt: title }],
+        images: [{ url: `${baseFallback}/assets/og/og-blog.png`, width: 1200, height: 630, alt: title }],
       },
       twitter: {
         card: 'summary_large_image',
         title: `${title} | CopyM`,
         description: `Read about ${title.toLowerCase()} on CopyM's blog.`,
-        images: [`${baseFallback}/assets/copym/png/Copym-01-1.png`],
+        images: [`${baseFallback}/assets/og/og-blog.png`],
       },
     };
   }
@@ -78,16 +78,17 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   const postUrl = `${baseUrl}/blog/${cat}/${article.slug}/`;
 
   // Use the legacy SEO generator logic combined with Next.js format
+  const postDisplayTitle = article.seoTitle || article.title;
   return {
-    title: `${article.title} | CopyM`,
-    description: article.excerpt,
+    title: `${postDisplayTitle} | CopyM`,
+    description: article.seoDescription || article.excerpt,
     alternates: {
       canonical: postUrl,
     },
     robots: "index, follow",
     openGraph: {
-      title: article.title,
-      description: article.excerpt,
+      title: postDisplayTitle,
+      description: article.seoDescription || article.excerpt,
       url: postUrl,
       type: 'article',
       publishedTime: article.dateISO || article.date,
@@ -96,18 +97,18 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
       section: article.category,
       images: [
         {
-          url: getSocialImageUrl(article.image),
+          url: `${baseUrl}/assets/og/og-blog-${article.slug}.png`,
           width: 1200,
           height: 630,
-          alt: article.title,
+          alt: postDisplayTitle,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: article.title,
-      description: article.excerpt,
-      images: [getSocialImageUrl(article.image)],
+      title: postDisplayTitle,
+      description: article.seoDescription || article.excerpt,
+      images: [`${baseUrl}/assets/og/og-blog-${article.slug}.png`],
     }
   };
 }

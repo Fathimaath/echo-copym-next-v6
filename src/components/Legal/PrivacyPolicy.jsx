@@ -90,7 +90,7 @@ const PrivacyPolicyClient = () => {
                     </section>
 
                     {/* Section 8 */}
-                    <section>
+                    <section id="cookies" className="scroll-mt-24">
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Cookies</h2>
                         <p className="text-base leading-relaxed">
                             We use cookies and similar technologies to keep you signed in, remember preferences, and understand how the Platform is used. You can control cookies through your browser settings.

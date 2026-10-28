@@ -11,6 +11,7 @@ import IssuerSection from "./IssuerSection";
 import HowToTokenize from "./HowToTokenize";
 import TokenDistribution from "./TokenDistribution";
 import TokenManagement from "./TokenManagement";
+import AssetSolutionsStrip from "./AssetSolutionsStrip";
 import FAQSection from "./FAQSection";
 import FinalCTA from "./FinalCTA";
 
@@ -39,6 +40,7 @@ export default function TokenizationContent() {
       <HowToTokenize />
       <TokenDistribution />
       <TokenManagement />
+      <AssetSolutionsStrip />
       <FAQSection />
       <FinalCTA />
 

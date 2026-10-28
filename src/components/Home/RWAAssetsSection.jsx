@@ -30,28 +30,28 @@ const TokenizeAssetsSection = () => {
       title: "Gold & Metals",
       description: "Tokenized exposure to gold and precious metals, with transparent pricing and secure custody.",
       image: maskcard1,
-      roi: "82%"
+      href: "/marketplace/"
     },
     {
       id: 2,
       title: "Fine Art",
       description: "Fractional access to curated fine art, structured for long-term value and verified provenance.",
       image: maskcard2,
-      roi: "68%"
+      href: "/marketplace/"
     },
     {
       id: 3,
       title: "Carbon Credits",
-      description: "Digitized carbon instruments backed by verified registries—built for traceability and impact reporting.",
+      description: "Digitized carbon instruments backed by verified standards—built for traceability and impact reporting.",
       image: maskcard3,
-      roi: "91%"
+      href: "/tokenization/"
     },
     {
       id: 4,
       title: "Real Estate",
       description: "Digitized real estate offerings with fractional ownership, governance, and distribution readiness.",
       image: maskcard4,
-      roi: "76%"
+      href: "/solutions/real-estate/"
     }
   ];
 
@@ -86,19 +86,6 @@ const TokenizeAssetsSection = () => {
                   background: 'linear-gradient(to bottom, rgba(251, 251, 251, 1), rgba(240, 240, 240, 1))'
                 }}
               >
-                {/* Floating ROI/APR Badge - Top Right */}
-                <div className="absolute top-4 right-4 z-10 flex flex-col gap-2">
-                  {/* ROI Badge */}
-                  <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-[#dcfce7] border border-[#bbf7d0]/50 shadow-sm">
-                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M6 2L10.5 9.5H1.5L6 2Z" fill="#15a36e" />
-                    </svg>
-                    <span className="text-xs sm:text-sm font-bold text-[#15a36e]" style={{ fontFamily: 'Palanquin, sans-serif' }}>{asset?.roi}</span>
-
-                  </div>
-
-
-                </div>
 
                 {/* Asset Image - Top, Centered - Fixed Height */}
                 <div className="flex items-center justify-center mt-4 sm:mt-10 lg:mt-12 mb-6 sm:mb-4 lg:mb-5 h-[100px] sm:h-[140px] md:h-[160px] lg:h-[180px]">
@@ -129,7 +116,7 @@ const TokenizeAssetsSection = () => {
 
                   {/* Know More Button - Filled Design */}
                   <div className="mt-6 sm:mt-8 flex justify-center">
-                    <Link href="/marketplace" className="group inline-flex items-center justify-between min-w-[90px] sm:min-w-[130px] bg-[#15a36e] border border-[#15a36e] hover:bg-[#15a36e] rounded-full p-1 transition-all duration-300 w-fit cursor-pointer">
+                    <Link href={asset?.href || "/marketplace/"} className="group inline-flex items-center justify-between min-w-[90px] sm:min-w-[130px] bg-[#15a36e] border border-[#15a36e] hover:bg-[#15a36e] rounded-full p-1 transition-all duration-300 w-fit cursor-pointer">
                        <span className="pl-2.5 pr-1 text-white font-semibold text-xs sm:text-xs" style={{ fontFamily: 'Palanquin, sans-serif' }}>
                          Learn More
                        </span>

@@ -78,14 +78,23 @@ export default function BlogBelowFold({ article, relatedPosts, youMayAlsoLike })
               </div>
             ) : (
               <form onSubmit={handleNlSubmit} className="space-y-2">
-                <input
-                  type="email"
-                  value={nlEmail}
-                  onChange={(e) => setNlEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white text-sm placeholder:text-gray-500 focus:outline-none focus:border-[#15a36e] focus:ring-1 focus:ring-[#15a36e] transition-colors"
-                />
+                <div className="text-left">
+                  <label
+                    htmlFor="belowfold-newsletter-email"
+                    className="block text-xs font-semibold text-gray-300 mb-1"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    id="belowfold-newsletter-email"
+                    type="email"
+                    value={nlEmail}
+                    onChange={(e) => setNlEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    required
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white text-sm placeholder:text-gray-500 focus:outline-none focus:border-[#15a36e] focus:ring-1 focus:ring-[#15a36e] transition-colors"
+                  />
+                </div>
                 <button
                   type="submit"
                   disabled={nlStatus === 'loading'}

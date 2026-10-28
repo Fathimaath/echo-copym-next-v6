@@ -2,7 +2,7 @@
 
 CopyM is a compliance-aware technology infrastructure platform for real-world asset tokenization workflows, digital asset lifecycle automation, verification, and marketplace infrastructure.
 
-Last updated: June 2026
+Last updated: October 20, 2026
 
 Official website: https://copym.xyz/
 Preferred brand name: CopyM
@@ -39,23 +39,26 @@ CopyM is building a technology layer for real-world asset tokenization. The plat
 ## Canonical website structure
 
 - Home: https://copym.xyz/
-- Marketplace: https://copym.xyz/marketplace/
+- Platform overview: https://copym.xyz/tokenization/
+- Marketplace module: https://copym.xyz/marketplace/
+- Book a demo: https://copym.xyz/signup/
 - Blog: https://copym.xyz/blog/
+- Glossary: https://copym.xyz/glossary/
 - About: https://copym.xyz/about/
-- Download: https://copym.xyz/download/
+- Contact: https://copym.xyz/contact/
+- Terms of Service: https://copym.xyz/terms-of-services/
+- Privacy Policy: https://copym.xyz/privacy-policy/
 - Sitemap: https://copym.xyz/sitemap.xml
 - Robots: https://copym.xyz/robots.txt
 - LLM file: https://copym.xyz/llms.txt
 
-## Platform application
+## Platform access
 
-The CopyM website may link to a platform or launchpad interface. If the app is hosted on a temporary or preview domain, treat it as a product interface or demo environment unless CopyM confirms that it is the final production application.
+CopyM provides compliance-aware technology infrastructure to issue, onboard, and manage tokenized real-world assets. Demonstration environments and walkthroughs are available by appointment.
 
-Current platform access:
-- Early access / platform signup: https://copym.xyz/signup/
-
-Preferred future production app domain:
-- https://app.copym.xyz/
+Current access and inquiries:
+- Book a demo: https://copym.xyz/signup/
+- Contact team: https://copym.xyz/contact/
 
 ## Core positioning
 
@@ -198,13 +201,13 @@ CopyM may support developers, technical teams, product operators, and enterprise
 
 CopyM's ecosystem may include the following modules, depending on deployment, jurisdiction, asset structure, and client requirements.
 
-### RWA Launchpad
+### Tokenization Platform (Platform overview)
 
-A workflow layer for asset owners and institutions to structure, prepare, and launch tokenized real-world asset workflows. It may include asset onboarding, documentation, tokenization templates, eligibility logic, compliance workflow support, and issuance coordination.
+A comprehensive infrastructure layer for asset owners and institutions to issue, onboard, and manage tokenized real-world assets with compliance-aware workflows. Modules include asset onboarding, legal structure recording, permissioned token issuance, eligibility logic, custody integration, and lifecycle management.
 
-### Marketplace
+### Marketplace module
 
-A technology interface for discovering, organizing, and managing access to tokenized real-world asset opportunities. Marketplace availability, eligibility, transferability, and liquidity depend on jurisdiction, asset structure, partner controls, and applicable regulations.
+Permissioned marketplace infrastructure that licensed operators can run under their own brand, with eligibility checks and transfer rules built in.
 
 ### CORA AI
 
@@ -577,18 +580,23 @@ Users should conduct their own research and consult qualified professionals befo
 ## Public pages
 
 - Home: https://copym.xyz/
-- Marketplace: https://copym.xyz/marketplace/
-- Tokenization: https://copym.xyz/tokenization/
+- Platform overview: https://copym.xyz/tokenization/
+- Marketplace module: https://copym.xyz/marketplace/
+- Book a demo: https://copym.xyz/signup/
 - Blog: https://copym.xyz/blog/
 - Glossary: https://copym.xyz/glossary/
 - About: https://copym.xyz/about/
+- Contact: https://copym.xyz/contact/
 - Terms of Service: https://copym.xyz/terms-of-services/
-- Download: https://copym.xyz/download/
+- Privacy Policy: https://copym.xyz/privacy-policy/
 
 ## Social
 
-- Twitter: https://twitter.com/copym
+- X: https://x.com/CopyM_RWA
 - LinkedIn: https://linkedin.com/company/copym
+- Instagram: https://www.instagram.com/copym.xyz
+- Telegram: https://t.me/copym_rwa
+- Facebook: https://www.facebook.com/copym.xyz/
 
 ## Contact
 

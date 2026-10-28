@@ -98,9 +98,9 @@ const WhoWeServe = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>
-                  <span className="text-xs sm:text-sm text-white leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
-                    White-label investor access and distribution
-                  </span>
+                  <Link href="/white-label/" className="text-xs sm:text-sm text-white hover:text-[#15a36e] underline decoration-white/30 hover:decoration-[#15a36e] underline-offset-2 leading-relaxed transition-colors" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                    White-label investor access and distribution →
+                  </Link>
                 </li>
                 <li className="flex items-start">
                   <span className="text-white mr-3 mt-1 text-xs font-normal">•</span>

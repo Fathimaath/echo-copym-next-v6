@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -133,16 +134,17 @@ export default function Hero() {
 
           {/* ====== BUTTONS (SIDE BY SIDE) ====== */}
           <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 sm:gap-4">
-            <a
+            {/* Primary CTA: Book a demo */}
+            <Link
               href="/signup/"
-              className="text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-md w-auto sm:min-w-[200px]"
+              className="text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-emerald-500/25 active:scale-95 w-full sm:w-auto sm:min-w-[200px]"
               style={{
                 fontFamily: 'Palanquin, sans-serif',
                 background: 'linear-gradient(to right, #23BD83, #109261)'
               }}
             >
-              Explore the Platform
-              <div className="w-6 h-6 sm:w-7 sm:h-7 bg-white rounded-full flex items-center justify-center ml-1">
+              <span>Book a demo</span>
+              <div className="w-6 h-6 sm:w-7 sm:h-7 bg-white rounded-full flex items-center justify-center ml-1 flex-shrink-0">
                 <svg
                   className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#109261]"
                   fill="none"
@@ -157,12 +159,21 @@ export default function Hero() {
                   />
                 </svg>
               </div>
-            </a>
+            </Link>
 
+            {/* Secondary CTA: Explore the platform */}
+            <Link
+              href="/tokenization/"
+              className="text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25 backdrop-blur-md active:scale-95 w-full sm:w-auto sm:min-w-[200px]"
+              style={{
+                fontFamily: 'Palanquin, sans-serif',
+              }}
+            >
+              <span>Explore the platform</span>
+            </Link>
           </div>
         </div>
       </div>
-
 
       {/* ====== VIDEO MODAL ====== */}
       <AnimatePresence>

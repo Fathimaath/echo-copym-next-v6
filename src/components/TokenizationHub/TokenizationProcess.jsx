@@ -10,6 +10,8 @@ const ticon5 = '/icons/Tokenization/ticon5.avif';
 const ticon6 = '/icons/Tokenization/ticon6.avif';
 
 export default function TokenizationProcess() {
+  // Checklist Item 32: “Why tokenize?” cards
+  // Keep all six cards and rewrite these four. “Increased accessibility” becomes “Broader distribution”.
   const whyTokenizeFeatures = [
     {
       title: "Programmable terms",
@@ -17,13 +19,13 @@ export default function TokenizationProcess() {
       icon: ticon1
     },
     {
-      title: "Increased accessibility",
-      description: "Tokenization opens ownership opportunities, allowing retail investors to access markets restricted to traditional financial structure models.",
+      title: "Broader distribution",
+      description: "Reach eligible investors across jurisdictions through compliant onboarding.",
       icon: ticon2
     },
     {
       title: "Global reach",
-      description: "Tokenization enables global investors to fund projects providing significantly greater access to international capital markets globally.",
+      description: "Connect assets with eligible investors in several jurisdictions, subject to local rules.",
       icon: ticon3
     },
     {
@@ -32,13 +34,13 @@ export default function TokenizationProcess() {
       icon: ticon6
     },
     {
-      title: "Faster settlement times",
-      description: "Tokenization accelerates trade settlements allowing investors to receive funds immediately upon selling their fund share holdings.",
+      title: "Faster settlement",
+      description: "Token transfers settle on-chain, reducing reconciliation between parties.",
       icon: ticon5
     },
     {
       title: "Greater transparency",
-      description: "Investors can track token ownership and access real-time information regarding fund performance and asset holdings securely.",
+      description: "Investors and administrators see holdings, transfers and asset documents in real time.",
       icon: ticon4
     }
   ];

@@ -14,14 +14,14 @@ const TestimonialsSection = dynamic(() => import('@/components/Home/Testimonials
 const CTASection = dynamic(() => import('@/components/Home/CTASection'));
 
 export const metadata = {
-  title: 'CopyM – Complete Tokenization Platform for Real-World Assets',
-  description: 'Full-stack platform for issuing, managing, and trading tokenized real-world assets.',
+  title: 'CopyM — Compliance-Aware Tokenization Infrastructure',
+  description: 'CopyM provides compliance-aware infrastructure to issue, onboard and manage tokenized real-world assets — white-label and chain-agnostic.',
   alternates: {
     canonical: 'https://copym.xyz/',
   },
   openGraph: {
-    title: 'CopyM – Complete Tokenization Platform for Real-World Assets',
-    description: 'Full-stack platform for issuing, managing, and trading tokenized real-world assets.',
+    title: 'CopyM — Compliance-Aware Tokenization Infrastructure',
+    description: 'CopyM provides compliance-aware infrastructure to issue, onboard and manage tokenized real-world assets — white-label and chain-agnostic.',
     url: 'https://copym.xyz/',
     type: 'website',
     images: [
@@ -29,22 +29,22 @@ export const metadata = {
         url: 'https://copym.xyz/assets/copym/png/Copym-01-1.png',
         width: 1200,
         height: 630,
-        alt: 'CopyM - Complete Tokenization Platform',
+        alt: 'CopyM - Compliance-Aware Tokenization Infrastructure',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Complete Tokenization Platform for Real-World Assets',
-    description: 'CopyM is the complete tokenization platform for real-world assets. Secure, compliant, and accessible digital asset marketplace for RWA tokenization.',
+    title: 'CopyM — Compliance-Aware Tokenization Infrastructure',
+    description: 'CopyM provides compliance-aware infrastructure to issue, onboard and manage tokenized real-world assets — white-label and chain-agnostic.',
     images: ['https://copym.xyz/assets/copym/png/Copym-01-1.png'],
   }
 };
 
 export default function HomePage() {
   const schemaData = generateWebPageSchema({
-    name: 'CopyM - Complete Tokenization Platform',
-    description: 'CopyM is the complete tokenization platform for real-world assets.',
+    name: 'CopyM — Compliance-Aware Tokenization Infrastructure',
+    description: 'CopyM provides compliance-aware infrastructure to issue, onboard and manage tokenized real-world assets — white-label and chain-agnostic.',
     url: 'https://copym.xyz/',
   });
 

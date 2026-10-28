@@ -12,9 +12,16 @@ const Image = ({
   style,
   onLoad,
   onError,
-  loading = 'lazy',
+  loading: explicitLoading,
+  priority = false,
+  fetchPriority: explicitFetchPriority,
+  srcSet,
+  sizes,
   ...props
 }) => {
+  const loading = priority ? 'eager' : (explicitLoading || 'lazy');
+  const fetchPriority = priority ? 'high' : (explicitFetchPriority || (loading === 'eager' ? 'high' : undefined));
+
   // Handle Next.js StaticImageData object (from 'import' statements)
   const normalizedSrc = typeof src === 'object' && src !== null ? src.src : src;
 
@@ -27,6 +34,7 @@ const Image = ({
         className={className}
         style={style}
         loading={loading}
+        fetchPriority={fetchPriority}
         {...props}
       />
     );
@@ -89,10 +97,13 @@ const Image = ({
         {/* Original format - final fallback */}
         <img
           src={normalizedSrc}
+          srcSet={srcSet}
+          sizes={sizes}
           alt={alt}
           className={className}
           style={style}
           loading={loading}
+          fetchPriority={fetchPriority}
           onLoad={onLoad}
           onError={onError}
           {...props}
@@ -104,10 +115,13 @@ const Image = ({
     return (
       <img
         src={normalizedSrc}
+        srcSet={srcSet}
+        sizes={sizes}
         alt={alt}
         className={className}
         style={style}
         loading={loading}
+        fetchPriority={fetchPriority}
         onLoad={onLoad}
         onError={onError}
         {...props}

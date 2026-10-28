@@ -27,18 +27,18 @@ export default function DownloadHero() {
           className="w-full max-w-xl text-left"
         >
           <h1
-            className="text-sm sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-3 sm:mb-4 uppercase tracking-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-3 sm:mb-4 uppercase tracking-tight"
             style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
           >
-            <span className="text-white block">Experience the </span>
-            <span className="text-[#10b981] block">Future </span>
-            <span className="text-white block">of RWA Investment</span>
+            <span className="text-white block">Book a </span>
+            <span className="text-[#10b981] block">Platform </span>
+            <span className="text-white block">Demo</span>
           </h1>
           <p
-            className="text-xs leading-relaxed sm:text-base md:text-lg lg:text-xl text-gray-300 font-light tracking-wide max-w-lg"
+            className="text-sm leading-relaxed sm:text-base md:text-lg lg:text-xl text-gray-300 font-light tracking-wide max-w-lg"
             style={{ fontFamily: 'var(--font-palanquin), Palanquin, sans-serif' }}
           >
-            Join our early access program to receive exclusive updates, product announcements, and priority access to the CopyM platform when it officially launches.
+            Talk to our team about your asset, your investors and your timeline. See CopyM&apos;s tokenization infrastructure and white-label console in action.
           </p>
         </motion.div>
       </div>

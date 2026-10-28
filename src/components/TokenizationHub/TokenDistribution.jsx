@@ -16,8 +16,8 @@ export default function TokenDistribution() {
       description: "Streamlined KYC/AML verification with instant investor qualification and onboarding."
     },
     {
-      title: "Liquidity Management",
-      description: "Designed to support secondary-market access and a smoother trading experience."
+      title: "Transfer Controls",
+      description: "Whitelisting, lock-ups and transfer restrictions enforced by the token."
     },
     {
       title: "Compliance-Aware",
@@ -46,7 +46,7 @@ export default function TokenDistribution() {
             className="text-sm sm:text-base md:text-lg text-white font-normal leading-relaxed mt-6 max-w-4xl mx-auto"
             style={{ fontFamily: 'Palanquin, sans-serif' }}
           >
-            Reach global investors with automated compliance, seamless onboarding, <br className="hidden sm:block" /> and intelligent liquidity management.
+            Reach global investors with automated compliance, seamless onboarding, <br className="hidden sm:block" /> and robust transfer controls.
           </p>
         </div>
 

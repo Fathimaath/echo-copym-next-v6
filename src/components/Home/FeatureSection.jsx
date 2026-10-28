@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import SectionContainer from '@/components/Layout/SectionContainer';
@@ -11,48 +11,15 @@ import earnWithoutHassleAnimation from '@/../public/lotties/earnwithoutahassle.j
 
 const FeatureSection = () => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const lottieRefs = useRef([]);
-  const cardRefs = useRef([]);
-
-  const setLottieRef = useCallback((index) => (el) => {
-    lottieRefs.current[index] = el;
-  }, []);
-
-  const setCardRef = useCallback((index) => (el) => {
-    cardRefs.current[index] = el;
-  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const listener = (event) => setPrefersReducedMotion(event.matches);
+    const updateMotion = (event) => setPrefersReducedMotion(event.matches);
+
     setPrefersReducedMotion(mediaQuery.matches);
-    mediaQuery.addEventListener('change', listener);
-    return () => mediaQuery.removeEventListener('change', listener);
+    mediaQuery.addEventListener('change', updateMotion);
+    return () => mediaQuery.removeEventListener('change', updateMotion);
   }, []);
-
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    const observers = cardRefs.current.map((card, i) => {
-      if (!card) return null;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          const lottie = lottieRefs.current[i];
-          if (!lottie) return;
-          if (entry.isIntersecting) {
-            lottie.play();
-          } else {
-            lottie.pause();
-          }
-        },
-        { threshold: 0.3 }
-      );
-      observer.observe(card);
-      return observer;
-    });
-
-    return () => observers.forEach((o) => o?.disconnect());
-  }, [prefersReducedMotion]);
 
   const cards = [
     {
@@ -84,6 +51,7 @@ const FeatureSection = () => {
       delay: 0.4,
     },
   ];
+
   return (
     <SectionContainer padding="pt-12 pb-26 sm:py-20 md:py-24 lg:py-26 text-center" bgColor="bg-white" maxWidth="max-w-10xl">
       {/* Main Heading */}
@@ -94,10 +62,9 @@ const FeatureSection = () => {
       />
 
       <div className="space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12">
-        {cards.map((card, i) => (
+        {cards.map((card) => (
           <motion.div
             key={card.heading}
-            ref={setCardRef(i)}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: card.delay }}
@@ -114,7 +81,6 @@ const FeatureSection = () => {
                 }}
               >
                 <Lottie
-                  lottieRef={setLottieRef(i)}
                   animationData={card.animation}
                   loop={!prefersReducedMotion}
                   autoplay={!prefersReducedMotion}

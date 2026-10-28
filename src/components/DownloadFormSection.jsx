@@ -5,11 +5,11 @@ import { motion } from 'framer-motion';
 import { Rocket, Bell, Gem, MessageSquareText, Sparkles } from 'lucide-react';
 
 const reasons = [
-    { icon: Rocket, title: 'Priority Access', desc: 'Be among the first when the platform launches. Get early entry and start exploring CopyM before the general public.' },
-    { icon: Bell, title: 'Exclusive Updates', desc: 'Receive product announcements before anyone else. Stay informed with insider news and feature previews.' },
-    { icon: Gem, title: 'Early Adopter Benefits', desc: 'Get access to special pricing and perks. Enjoy incentives reserved exclusively for our earliest supporters.' },
-    { icon: MessageSquareText, title: 'Shape the Roadmap', desc: 'Your feedback helps us build what matters. Influence the features and direction of the platform.' },
-    { icon: Sparkles, title: 'First to Tokenize', desc: 'Be the earliest to launch real-world assets on CopyM. Get ahead of the market and establish your presence first.' },
+    { icon: Rocket, title: 'Tailored Walkthrough', desc: 'Tour the admin console, asset issuance workflows, and investor eligibility configuration.' },
+    { icon: Sparkles, title: 'Asset Structuring', desc: 'Discuss your specific asset class, token economics, and jurisdictional requirements with our team.' },
+    { icon: Gem, title: 'White-Label Solutions', desc: 'Explore how you can run the issuance and management platform fully under your own brand.' },
+    { icon: Bell, title: 'Custody & Compliance', desc: 'Review integration with regulated custodians, KYC/AML partners, and transfer rules.' },
+    { icon: MessageSquareText, title: 'Direct Expert Q&A', desc: 'Get clear answers to technical, commercial, and operational questions from platform specialists.' },
 ];
 
 export default function DownloadFormSection() {
@@ -28,14 +28,14 @@ export default function DownloadFormSection() {
                             className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black uppercase mb-2"
                             style={{ fontFamily: 'Palanquin, sans-serif' }}
                         >
-                            Get Early{' '}
-                            <span className="text-[#15a36e]">Access</span>
+                            Book a{' '}
+                            <span className="text-[#15a36e]">Demo</span>
                         </h2>
                         <p
                             className="text-sm text-black/60 mb-8"
                             style={{ fontFamily: 'Palanquin, sans-serif' }}
                         >
-                            Fill in your details to join the waitlist
+                            Fill in your details to schedule a platform walkthrough with our team
                         </p>
                         <SignupForm />
                     </motion.div>
@@ -51,13 +51,13 @@ export default function DownloadFormSection() {
                             className="text-sm font-bold text-black uppercase mb-2"
                             style={{ fontFamily: 'Palanquin, sans-serif' }}
                         >
-                            Why Join <span className="text-[#15a36e]">Early?</span>
+                            What to <span className="text-[#15a36e]">Expect</span>
                         </h3>
                         <p
                             className="text-xs text-black/60 mb-6"
                             style={{ fontFamily: 'Palanquin, sans-serif' }}
                         >
-                            What you&apos;ll get as an early adopter
+                            In your personalized 30-minute walkthrough
                         </p>
                         <div className="relative flex-1 pb-4">
                             <div className="absolute left-[13px] top-3 bottom-3 w-0.5 bg-gradient-to-b from-[#15a36e] to-[#15a36e]/20" />
@@ -80,6 +80,74 @@ export default function DownloadFormSection() {
                             </ul>
                         </div>
                     </motion.div>
+                </div>
+
+                {/* What Happens Next Section */}
+                <div className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-gray-100">
+                    <div className="text-center mb-10 sm:mb-12">
+                        <h3
+                            className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-black"
+                            style={{ fontFamily: 'Palanquin, sans-serif' }}
+                        >
+                            What happens <span className="text-[#15a36e]">next</span>
+                        </h3>
+                        <p
+                            className="text-xs sm:text-sm text-gray-500 mt-2 max-w-xl mx-auto"
+                            style={{ fontFamily: 'Palanquin, sans-serif' }}
+                        >
+                            Three clear steps from your initial request to deployment scoping
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                        {/* Step 1 */}
+                        <div className="bg-gray-50/80 rounded-2xl p-6 sm:p-7 border border-gray-100 relative transition-transform duration-300 hover:scale-[1.02]">
+                            <div className="flex items-center gap-3 mb-4">
+                                <span className="w-8 h-8 rounded-full bg-[#15a36e] text-white font-bold flex items-center justify-center text-sm shadow-sm">
+                                    1
+                                </span>
+                                <span className="text-xs font-semibold text-[#15a36e] uppercase tracking-wider">Step 01</span>
+                            </div>
+                            <h4 className="text-base sm:text-lg font-bold text-black mb-2" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                                1. We review your project
+                            </h4>
+                            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                                Our team analyzes your asset type, target investor profile, and jurisdiction to tailor the discussion.
+                            </p>
+                        </div>
+
+                        {/* Step 2 */}
+                        <div className="bg-gray-50/80 rounded-2xl p-6 sm:p-7 border border-gray-100 relative transition-transform duration-300 hover:scale-[1.02]">
+                            <div className="flex items-center gap-3 mb-4">
+                                <span className="w-8 h-8 rounded-full bg-[#15a36e] text-white font-bold flex items-center justify-center text-sm shadow-sm">
+                                    2
+                                </span>
+                                <span className="text-xs font-semibold text-[#15a36e] uppercase tracking-wider">Step 02</span>
+                            </div>
+                            <h4 className="text-base sm:text-lg font-bold text-black mb-2" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                                2. A 30-minute platform walkthrough
+                            </h4>
+                            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                                Live guided tour through the admin console, asset issuance workflows, investor eligibility, and transfer controls.
+                            </p>
+                        </div>
+
+                        {/* Step 3 */}
+                        <div className="bg-gray-50/80 rounded-2xl p-6 sm:p-7 border border-gray-100 relative transition-transform duration-300 hover:scale-[1.02]">
+                            <div className="flex items-center gap-3 mb-4">
+                                <span className="w-8 h-8 rounded-full bg-[#15a36e] text-white font-bold flex items-center justify-center text-sm shadow-sm">
+                                    3
+                                </span>
+                                <span className="text-xs font-semibold text-[#15a36e] uppercase tracking-wider">Step 03</span>
+                            </div>
+                            <h4 className="text-base sm:text-lg font-bold text-black mb-2" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                                3. Scoping for your use case
+                            </h4>
+                            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed" style={{ fontFamily: 'Palanquin, sans-serif' }}>
+                                We align on white-label branding, custody integration, smart contract parameters, and project timelines.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

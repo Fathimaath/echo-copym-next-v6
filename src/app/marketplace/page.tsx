@@ -5,14 +5,14 @@ import { generateWebPageSchema, generateBreadcrumbSchema } from '@/utils/seo';
 const MarketplaceContent = dynamic(() => import('@/components/Marketplace/MarketplaceContent'));
 
 export const metadata: Metadata = {
-  title: 'Tokenized Asset Marketplace | CopyM',
-  description: 'Browse and invest in tokenized real-world assets on CopyM\'s compliance-aware marketplace.',
+  title: 'Marketplace Module | CopyM',
+  description: 'Permissioned marketplace infrastructure that licensed operators can run under their own brand, with eligibility checks and transfer rules built in.',
   alternates: {
     canonical: 'https://copym.xyz/marketplace/',
   },
   openGraph: {
-    title: 'Tokenized Asset Marketplace | CopyM',
-    description: 'Browse and invest in tokenized real-world assets on CopyM\'s compliance-aware marketplace.',
+    title: 'Marketplace Module | CopyM',
+    description: 'Permissioned marketplace infrastructure that licensed operators can run under their own brand, with eligibility checks and transfer rules built in.',
     url: 'https://copym.xyz/marketplace/',
     type: 'website',
     images: [
@@ -20,22 +20,22 @@ export const metadata: Metadata = {
         url: 'https://copym.xyz/assets/copym/png/Copym-01-1.png',
         width: 1200,
         height: 630,
-        alt: 'Tokenized Asset Marketplace | CopyM',
+        alt: 'Marketplace Module | CopyM',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tokenized Asset Marketplace | CopyM',
-    description: 'Browse and invest in tokenized real-world assets on CopyM\'s compliance-aware marketplace.',
+    title: 'Marketplace Module | CopyM',
+    description: 'Permissioned marketplace infrastructure that licensed operators can run under their own brand, with eligibility checks and transfer rules built in.',
     images: ['https://copym.xyz/assets/copym/png/Copym-01-1.png'],
   },
 };
 
 export default function MarketplacePage() {
   const schemaData = generateWebPageSchema({
-    name: 'Tokenized Asset Marketplace | CopyM',
-    description: "Browse and invest in tokenized real-world assets on CopyM's compliance-aware marketplace.",
+    name: 'Marketplace Module | CopyM',
+    description: 'Permissioned marketplace infrastructure that licensed operators can run under their own brand, with eligibility checks and transfer rules built in.',
     url: 'https://copym.xyz/marketplace/',
   });
 

@@ -120,16 +120,26 @@ export default function NewsletterModal({ isOpen, onClose }) {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-3" noValidate>
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
-                  disabled={status === 'loading'}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#15a36e] focus:ring-1 focus:ring-[#15a36e] transition-colors disabled:opacity-50"
-                  style={{ fontFamily: 'Palanquin, sans-serif' }}
-                />
+                <div className="text-left">
+                  <label
+                    htmlFor="newsletter-modal-email"
+                    className="block text-xs font-semibold text-gray-300 mb-1.5"
+                    style={{ fontFamily: 'Palanquin, sans-serif' }}
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    id="newsletter-modal-email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                    disabled={status === 'loading'}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#15a36e] focus:ring-1 focus:ring-[#15a36e] transition-colors disabled:opacity-50"
+                    style={{ fontFamily: 'Palanquin, sans-serif' }}
+                  />
+                </div>
 
                 <label className="flex items-start gap-2 cursor-pointer">
                   <input

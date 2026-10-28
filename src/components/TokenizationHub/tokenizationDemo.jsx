@@ -69,8 +69,8 @@ const CreateAssetModal = ({ open, onClose }) => {
     pauserAddress: ''
   });
 
-  // Force re-render key
-  const componentKey = `create-asset-modal-v3-${Date.now()}`;
+  // Modal key
+  const componentKey = "create-asset-modal-v3";
 
   // Reset state when modal opens/closes
   useEffect(() => {

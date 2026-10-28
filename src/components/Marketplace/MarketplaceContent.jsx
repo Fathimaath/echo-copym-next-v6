@@ -4,6 +4,7 @@ import TradableAssets from './TradableAssets';
 import WhyItMatters from './WhyItMatters';
 import HowItWorks from './HowItWorks';
 import FAQsection from './FAQsection';
+import MarketplaceDisclaimer from './MarketplaceDisclaimer';
 
 export default function MarketplaceContent() {
   return (
@@ -13,6 +14,7 @@ export default function MarketplaceContent() {
       <WhyItMatters />
       <HowItWorks />
       <FAQsection />
+      <MarketplaceDisclaimer />
     </>
   );
 }
